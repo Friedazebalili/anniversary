@@ -165,12 +165,10 @@
         0 0 10px #ff4b2b;
       animation: spin 5s linear infinite;
       pointer-events: none;
+      animation-play-state: paused;
     }
     .record-player.playing .disc {
       animation-play-state: running;
-    }
-    .record-player.paused .disc {
-      animation-play-state: paused;
     }
     .record-player .center-hole {
       position: absolute;
@@ -202,6 +200,10 @@
     .record-player .play-button:hover {
       background: linear-gradient(90deg, #ff6f61, #ff4b2b);
     }
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
   </style>
 </head>
 <body>
@@ -217,10 +219,11 @@
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
     </div>
 
-    <div class="record-player paused" id="recordPlayer">
+    <!-- Record Player Audio below letter -->
+    <div class="record-player paused" id="recordPlayer" role="region" aria-label="Audio player">
       <div class="disc"></div>
       <div class="center-hole"></div>
-      <button class="play-button" id="playPauseBtn" aria-label="Play/Pause music">▶️</button>
+      <button class="play-button" id="playPauseBtn" aria-label="Play or pause audio">▶️</button>
       <audio id="audioPlayer" preload="auto" src="https://dl.sndup.net/gdyqg/Araw%20Araw%20by%20Your%20Sexy%20Husband.m4a"></audio>
     </div>
 
