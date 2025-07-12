@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,17 +13,16 @@
       color: #eee;
       overflow-x: hidden;
       text-align: center;
-      height: 100vh;
-      perspective: 1000px;
+      min-height: 100vh;
       overflow-y: scroll;
       position: relative;
     }
+
     .stars {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none;
       z-index: 0;
-      background: transparent;
     }
     .star {
       position: absolute;
@@ -38,6 +37,7 @@
       50% { opacity: 1; transform: scale(1.3); }
       100% { opacity: 0.2; transform: scale(1); }
     }
+
     header {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
       padding: 2rem;
@@ -48,6 +48,7 @@
       z-index: 2;
       box-shadow: 0 0 15px #ff4b2b;
     }
+
     .container {
       max-width: 900px;
       margin: 0 auto;
@@ -56,6 +57,7 @@
       z-index: 2;
       color: #eee;
     }
+
     .letter {
       background: rgba(255, 75, 43, 0.85);
       padding: 1.8rem 2rem;
@@ -69,136 +71,83 @@
       letter-spacing: 0.04em;
       user-select: none;
     }
-    .record-player-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 2rem 0;
-      user-select: none;
-    }
+
     .record-player {
+      margin: 2rem auto;
       width: 180px;
       height: 180px;
       border-radius: 50%;
-      background: radial-gradient(#222 20%, #555 70%, #222 100%);
-      box-shadow: inset 0 0 5px #000, 0 0 10px rgba(255, 75, 43, 0.6);
+      background: radial-gradient(circle, #333 30%, #111 70%);
       position: relative;
-      margin-bottom: 1rem;
-      animation: spin 4s linear infinite;
-      animation-play-state: paused;
+      animation: none;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
     }
     .record-player::before {
       content: '';
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 20px;
-      height: 20px;
-      background: #ff4b2b;
+      width: 30px; height: 30px;
+      background: #fff;
       border-radius: 50%;
-      box-shadow: 0 0 5px #ff4b2b;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    footer {
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
-      color: white;
-      padding: 1rem;
-      margin-top: 2rem;
       z-index: 2;
-      position: relative;
-      box-shadow: 0 0 15px #ff416c;
-      font-weight: 700;
-      user-select: none;
     }
-    .heart {
-      position: fixed;
-      width: 24px;
-      height: 24px;
-      background: red;
-      clip-path: polygon(
-        50% 15%, 61% 10%, 70% 15%, 75% 25%, 75% 40%, 50% 70%, 25% 40%, 25% 25%, 30% 15%, 39% 10%
-      );
-      opacity: 0.8;
-      animation-name: floatHeart;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      z-index: 1;
-      filter: drop-shadow(0 0 4px #ff416c);
+
+    .spin {
+      animation: spin 3s linear infinite;
     }
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0.8;
-      }
-      50% {
-        transform: translateY(-30px) translateX(10px) rotate(20deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-60px) translateX(0) rotate(0deg);
-        opacity: 0;
-      }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
+
+    .record-label {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #ffb6b9;
+    }
+
+    audio {
+      display: none;
+    }
+
     .collage {
       column-count: 3;
       column-gap: 15px;
       margin-bottom: 2rem;
       user-select: none;
     }
+
     .collage img {
       width: 100%;
       margin-bottom: 15px;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
-      filter: drop-shadow(0 0 4px #ff416c);
-      break-inside: avoid;
+      transition: transform 0.4s ease;
       object-fit: cover;
-      height: auto;
-      max-width: 100%;
-      display: block;
+      break-inside: avoid;
     }
-    .collage img:hover {
-      transform: scale(1.08) rotate(3deg);
-      box-shadow: 0 0 30px #ff6f61;
-      z-index: 10;
-      position: relative;
-      filter: drop-shadow(0 0 12px #ffb6b9);
-    }
+
     .bottom-section {
       display: flex;
       justify-content: center;
       align-items: flex-start;
       gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto 3rem;
       flex-wrap: wrap;
-      user-select: none;
     }
+
     .secret-message {
-      flex: 1 1 350px;
+      flex: 1 1 300px;
       background: rgba(255, 75, 43, 0.85);
-      border: 2px dashed #ff4b2b;
       padding: 1.5rem;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255, 75, 43, 0.7);
       font-size: 1.2rem;
       color: #fff;
-      font-family: 'Open Sans', sans-serif;
-      text-align: left;
-      min-width: 300px;
     }
-    .secret-message h2 {
-      font-family: 'Great Vibes', cursive;
-      color: #ffb6b9;
-      font-size: 2.4rem;
-      margin-bottom: 0.6rem;
-      user-select: none;
-    }
+
     .video {
       flex: 1 1 320px;
       max-width: 320px;
@@ -206,62 +155,62 @@
       overflow: hidden;
       box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
     }
-    audio {
-      width: 280px;
-      max-width: 90%;
-      outline: none;
-      border-radius: 10px;
-      background-color: #fff0f0;
+
+    footer {
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+      box-shadow: 0 0 15px #ff416c;
+      font-weight: 700;
+      user-select: none;
     }
   </style>
 </head>
 <body>
   <div class="stars" aria-hidden="true"></div>
+
   <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
+
   <div class="container">
     <div class="letter">
       <p>My dearest Bunny 🐇💞,</p>
-      <p>Happy Anniversary! 🎊🎉 Though miles may keep us apart 🌏💔, my heart is always with you ❤️💖...</p>
+      <p>Happy Anniversary! 🎊🎉 Though miles may keep us apart 🌏💔, my heart is always with you ❤️💖. Every day I wake up thankful 🙏😊 that someone as sweet 🍬, kind 🤗, and wonderful 🌟 as you chose to love me 💘.</p>
+      <p>Long distance has never been easy 😢📱, but every video call 📹💬, every message 📩❤️, and every shared memory 📸💑 makes it all worth it 🌈✨. Soon, the distance will be just a memory 🕰️💭. One day, we'll build our own little family 👶🐣, share a home 🏡💞, hold hands every morning 🤝🌅, and fall asleep beside each other every night 🌙💤.</p>
+      <p>Until then, hold on to this love 💓👐, because I'm holding onto you tightly 🤗🐰.</p>
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
     </div>
 
-    <div class="record-player-container">
-      <div class="record-player" id="record"></div>
-      <audio id="bunnyAudio" controls>
-        <source src="http://sndup.net/gdyqg" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
+    <!-- 🎵 Record Player -->
+    <div class="record-player" id="record" onclick="toggleMusic()"></div>
+    <div class="record-label">Play our song 🎶</div>
+    <audio id="myAudio" src="https://sndup.net/gdyqg/d"></audio>
 
-    <div class="collage" aria-label="Photo collage">
-      <!-- photos -->
+    <div class="collage">
+      <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" />
+      <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" />
+      <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" />
+      <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" />
+      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" />
+      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" />
     </div>
 
     <div class="bottom-section">
-      <div class="secret-message" tabindex="0">
-        <h2>💌 Secret Message Just for my Bunny 🐇</h2>
-        <p>You are my sunshine ☀️...</p>
+      <div class="secret-message">
+        <h2>💌 Secret Message for My Bunny 🐇</h2>
+        <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
       </div>
+
       <div class="video">
-        <iframe width="320" height="480" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
+
+    <footer>With all my love, always 💌🐾</footer>
   </div>
-  <footer>With all my love, always 💌🐾</footer>
 
   <script>
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.top = (window.innerHeight + 20) + 'px';
-      heart.style.width = heart.style.height = (12 + Math.random() * 20) + 'px';
-      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }
-    setInterval(createHeart, 400);
-
+    // Stars
     const starsContainer = document.querySelector('.stars');
     for (let i = 0; i < 100; i++) {
       const star = document.createElement('div');
@@ -275,14 +224,19 @@
       starsContainer.appendChild(star);
     }
 
-    const audio = document.getElementById('bunnyAudio');
-    const record = document.getElementById('record');
-    audio.addEventListener('play', () => {
-      record.style.animationPlayState = 'running';
-    });
-    audio.addEventListener('pause', () => {
-      record.style.animationPlayState = 'paused';
-    });
+    // Music Toggle
+    const audio = document.getElementById("myAudio");
+    const record = document.getElementById("record");
+
+    function toggleMusic() {
+      if (audio.paused) {
+        audio.play();
+        record.classList.add("spin");
+      } else {
+        audio.pause();
+        record.classList.remove("spin");
+      }
+    }
   </script>
 </body>
 </html>
