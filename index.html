@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Happy Anniversary Blue & Kika</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
     body {
-      margin: 0;
+      margin: 0; padding: 0;
       font-family: 'Open Sans', sans-serif;
       background: linear-gradient(#fff0f5, #ffe4e1);
       color: #333;
-      text-align: center;
       overflow-x: hidden;
+      text-align: center;
     }
     header {
       background: #ffb6c1;
@@ -24,34 +24,21 @@
       z-index: 2;
     }
     .container {
-      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
       position: relative;
       z-index: 2;
     }
     .letter {
       background: white;
-      padding: 2rem;
+      padding: 1.8rem 2rem;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      max-width: 700px;
-      margin: 2rem auto;
       font-size: 1.2rem;
       line-height: 1.6;
-    }
-    .gallery img {
-      width: 200px;
-      height: auto;
-      margin: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(255,192,203,0.6);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(255,182,193,0.8);
-    }
-    .video {
-      margin: 2rem 0;
+      margin-bottom: 2rem;
+      text-align: left;
     }
     footer {
       background: #ffb6c1;
@@ -61,11 +48,11 @@
       z-index: 2;
       position: relative;
     }
-    /* Floating flower animation */
+    /* Sakura petals */
     .petal {
       position: fixed;
       top: -50px;
-      background-image: url("https://i.postimg.cc/59cRj1J1/petal.png");
+      background-image: url("https://i.ibb.co/ZJbc4qX/sakura-petal.png");
       background-size: contain;
       width: 40px;
       height: 40px;
@@ -79,11 +66,75 @@
         opacity: 0;
       }
     }
+
+    /* Secret message */
+    .secret-message {
+      background: #fff;
+      border: 2px dashed #ffc0cb;
+      padding: 1.5rem;
+      margin: 2rem auto;
+      max-width: 700px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,192,203,0.3);
+      font-size: 1.1rem;
+      color: #444;
+      font-family: 'Open Sans', sans-serif;
+      text-align: center;
+    }
+    .secret-message h2 {
+      font-family: 'Great Vibes', cursive;
+      color: #ff69b4;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Carousel styles */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255,192,203,0.6);
+      background: white;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      user-select: none;
+    }
+    .carousel-slide img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* Video */
+    .video {
+      margin: 2rem auto;
+      max-width: 320px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(255,182,193,0.6);
+    }
+
+    /* Audio */
+    audio {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <header>Happy 3rd Anniversary, Blue & Kika! 💖</header>
   <div class="container">
+
     <div class="letter">
       <p>My dearest Kika,</p>
       <p>Happy 3rd Anniversary! Though miles may keep us apart, my heart is always with you. Every day I wake up thankful that someone as beautiful, kind, and strong as you chose to love me.</p>
@@ -92,27 +143,40 @@
       <p>Forever yours,<br><strong>Blue 💙</strong></p>
     </div>
 
-    <div class="gallery">
-  <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" alt="Photo 1">
-  <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2">
-  <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3">
-  <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4">
-  <img src="https://i.postimg.cc/jwX20PNT/c46d807e-0309-48ac-8428-6a493ba95e8e.jpg" alt="Photo 5">
-  <img src="https://i.postimg.cc/bD8rB3ZL/d80966f2-b9c5-4dff-bb80-f9fd96cc1f61.jpg" alt="Photo 6">
-  <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7">
-  <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8">
-  <img src="https://i.postimg.cc/YjrjNDKC/f3d9e37b-6f38-42d3-84f5-e53bb0cb6ffd.jpg" alt="Photo 9">
-</div>
+    <div class="carousel" aria-label="Photo carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" alt="Photo 1"></div>
+        <div class="carousel-slide"><img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2"></div>
+        <div class="carousel-slide"><img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3"></div>
+        <div class="carousel-slide"><img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4"></div>
+        <div class="carousel-slide"><img src="https://i.postimg.cc/jwX20PNT/c46d807e-0309-48ac-8428-6a493ba95e8e.jpg" alt="Photo 5"></div>
+        <div class="carousel-slide"><img src="https://i.postimg.cc/bD8rB3ZL/d80966f2-b9c5-4dff-bb80-f9fd96cc1f61.jpg" alt="Photo 6"></div>
+        <div class="carousel-slide"><img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7"></div>
+        <div class="carousel-slide"><img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8"></div>
+        <div class="carousel-slide"><img src="https://i.postimg.cc/YjrjNDKC/f3d9e37b-6f38-42d3-84f5-e53bb0cb6ffd.jpg" alt="Photo 9"></div>
+      </div>
+    </div>
 
     <div class="video">
-      <iframe width="300" height="500" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
+      <iframe width="320" height="480" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
     </div>
+
+    <div class="secret-message" tabindex="0">
+      <h2>💌 Secret Message Just for Kika</h2>
+      <p>You are my sunshine on cloudy days, my warmth across the distance, and my forever. One day, this distance will be just a memory—and you'll be in my arms where you belong. I love you endlessly.</p>
+    </div>
+
+    <audio autoplay loop>
+      <source src="https://dl.sndup.net/7d75/softpiano.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
   </div>
 
   <footer>With all my love, always 💌</footer>
 
   <script>
-    // Generate floating petals
+    // Sakura petals animation
     for (let i = 0; i < 20; i++) {
       const petal = document.createElement('div');
       petal.classList.add('petal');
@@ -121,6 +185,26 @@
       petal.style.opacity = Math.random();
       document.body.appendChild(petal);
     }
+
+    // Carousel autoplay
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    let currentIndex = 0;
+    const slideWidth = slides[0].getBoundingClientRect().width;
+
+    function moveToSlide(index) {
+      track.style.transform = 'translateX(' + (-slideWidth * index) + 'px)';
+    }
+
+    function autoPlay() {
+      currentIndex++;
+      if (currentIndex >= slides.length) {
+        currentIndex = 0;
+      }
+      moveToSlide(currentIndex);
+    }
+
+    setInterval(autoPlay, 3000); // change slide every 3 seconds
   </script>
 </body>
 </html>
