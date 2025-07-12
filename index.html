@@ -48,23 +48,34 @@
       z-index: 2;
       position: relative;
     }
-    /* Sakura petals */
+
+    /* Fixed Sakura petals */
     .petal {
+      pointer-events: none;
       position: fixed;
       top: -50px;
-      background-image: url("https://i.ibb.co/ZJbc4qX/sakura-petal.png");
-      background-size: contain;
       width: 40px;
       height: 40px;
-      pointer-events: none;
+      background-image: url("https://i.ibb.co/k87y6HC/sakura-petal.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      animation-name: fall, sway;
+      animation-timing-function: linear, ease-in-out;
+      animation-iteration-count: infinite, infinite;
+      animation-duration: var(--fall-duration), var(--sway-duration);
+      animation-delay: var(--fall-delay), var(--sway-delay);
       z-index: 1;
-      animation: fall linear infinite;
     }
     @keyframes fall {
       to {
-        transform: translateY(120vh) rotate(360deg);
+        transform: translateY(110vh) rotate(360deg);
         opacity: 0;
       }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(20px); }
     }
 
     /* Secret message */
@@ -111,7 +122,8 @@
     .carousel-slide img {
       width: 100%;
       height: 400px;
-      object-fit: cover;
+      object-fit: contain; /* Show whole image */
+      background: #ffe4e1; /* soft pink background */
       display: block;
       border-radius: 12px;
     }
@@ -176,13 +188,16 @@
   <footer>With all my love, always 💌</footer>
 
   <script>
-    // Sakura petals animation
+    // Create petals with random animation durations/delays
     for (let i = 0; i < 20; i++) {
       const petal = document.createElement('div');
       petal.classList.add('petal');
       petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = 5 + Math.random() * 5 + 's';
-      petal.style.opacity = Math.random();
+      petal.style.setProperty('--fall-duration', (5 + Math.random() * 5) + 's');
+      petal.style.setProperty('--fall-delay', (Math.random() * -20) + 's');
+      petal.style.setProperty('--sway-duration', (3 + Math.random() * 3) + 's');
+      petal.style.setProperty('--sway-delay', (Math.random() * -5) + 's');
+      petal.style.opacity = (0.5 + Math.random() * 0.5);
       document.body.appendChild(petal);
     }
 
