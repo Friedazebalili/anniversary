@@ -69,6 +69,39 @@
       letter-spacing: 0.04em;
       user-select: none;
     }
+    .record-player-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+      user-select: none;
+    }
+    .record-player {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(#222 20%, #555 70%, #222 100%);
+      box-shadow: inset 0 0 5px #000, 0 0 10px rgba(255, 75, 43, 0.6);
+      position: relative;
+      margin-bottom: 1rem;
+      animation: spin 4s linear infinite;
+      animation-play-state: paused;
+    }
+    .record-player::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      background: #ff4b2b;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #ff4b2b;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     footer {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
       color: white;
@@ -96,26 +129,38 @@
       filter: drop-shadow(0 0 4px #ff416c);
     }
     @keyframes floatHeart {
-      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.8; }
-      50% { transform: translateY(-30px) translateX(10px) rotate(20deg); opacity: 1; }
-      100% { transform: translateY(-60px) translateX(0) rotate(0deg); opacity: 0; }
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-30px) translateX(10px) rotate(20deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-60px) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
     }
     .collage {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      column-count: 3;
+      column-gap: 15px;
       margin-bottom: 2rem;
       user-select: none;
     }
     .collage img {
       width: 100%;
-      height: 220px;
-      object-fit: cover;
+      margin-bottom: 15px;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       cursor: pointer;
       filter: drop-shadow(0 0 4px #ff416c);
+      break-inside: avoid;
+      object-fit: cover;
+      height: auto;
+      max-width: 100%;
+      display: block;
     }
     .collage img:hover {
       transform: scale(1.08) rotate(3deg);
@@ -162,47 +207,45 @@
       box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
     }
     audio {
-      display: none;
+      width: 280px;
+      max-width: 90%;
+      outline: none;
+      border-radius: 10px;
+      background-color: #fff0f0;
     }
   </style>
 </head>
 <body>
   <div class="stars" aria-hidden="true"></div>
-
   <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
   <div class="container">
     <div class="letter">
       <p>My dearest Bunny 🐇💞,</p>
-      <p>Happy Anniversary! 🎊🎉 Though miles may keep us apart 🌏💔, my heart is always with you ❤️💖. Every day I wake up thankful 🙏😊 that someone as sweet 🍬, kind 🤗, and wonderful 🌟 as you chose to love me 💘.</p>
-      <p>Long distance has never been easy 😢📱, but every video call 📹💬, every message 📩❤️, and every shared memory 📸💑 makes it all worth it 🌈✨. Soon, the distance will be just a memory 🕰️💭. One day, we'll build our own little family 👶🐣, share a home 🏡💞, hold hands every morning 🤝🌅, and fall asleep beside each other every night 🌙💤.</p>
-      <p>Until then, hold on to this love 💓👐, because I'm holding onto you tightly 🤗🐰.</p>
+      <p>Happy Anniversary! 🎊🎉 Though miles may keep us apart 🌏💔, my heart is always with you ❤️💖...</p>
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
     </div>
 
+    <div class="record-player-container">
+      <div class="record-player" id="record"></div>
+      <audio id="bunnyAudio" controls>
+        <source src="http://sndup.net/gdyqg" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
     <div class="collage" aria-label="Photo collage">
-      <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" alt="Photo 1" />
-      <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
-      <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3" />
-      <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4" />
-      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
-      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
+      <!-- photos -->
     </div>
 
     <div class="bottom-section">
       <div class="secret-message" tabindex="0">
         <h2>💌 Secret Message Just for my Bunny 🐇</h2>
-        <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
+        <p>You are my sunshine ☀️...</p>
       </div>
-
       <div class="video">
         <iframe width="320" height="480" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
-
-    <audio autoplay loop>
-      <source src="https://dl.sndup.net/7d75/softpiano.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
   </div>
   <footer>With all my love, always 💌🐾</footer>
 
@@ -220,8 +263,7 @@
     setInterval(createHeart, 400);
 
     const starsContainer = document.querySelector('.stars');
-    const starCount = 100;
-    for (let i = 0; i < starCount; i++) {
+    for (let i = 0; i < 100; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
       const size = Math.random() * 2 + 1;
@@ -232,6 +274,15 @@
       star.style.animationDelay = (Math.random() * 3) + 's';
       starsContainer.appendChild(star);
     }
+
+    const audio = document.getElementById('bunnyAudio');
+    const record = document.getElementById('record');
+    audio.addEventListener('play', () => {
+      record.style.animationPlayState = 'running';
+    });
+    audio.addEventListener('pause', () => {
+      record.style.animationPlayState = 'paused';
+    });
   </script>
 </body>
 </html>
