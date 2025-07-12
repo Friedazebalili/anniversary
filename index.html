@@ -115,14 +115,14 @@
     /* Collage grid container */
     .collage {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr); /* fixed 3 columns */
+      gap: 15px;
       margin-bottom: 2rem;
       user-select: none;
     }
     .collage img {
       width: 100%;
-      height: 220px;
+      height: 180px; /* fixed height for uniformity */
       object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
@@ -131,38 +131,35 @@
       filter: drop-shadow(0 0 4px #ff416c);
     }
     .collage img:hover {
-      transform: scale(1.1) rotate(3deg);
-      box-shadow: 0 0 30px #ff6f61;
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 0 25px #ff6f61;
       z-index: 10;
       position: relative;
-      filter: drop-shadow(0 0 12px #ffb6b9);
+      filter: drop-shadow(0 0 10px #ffb6b9);
     }
-    /* Video */
-    .video {
-      margin: 2rem auto;
-      max-width: 320px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
+    /* Secret message and video container */
+    .bottom-section {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      flex-wrap: wrap;
       user-select: none;
     }
-    audio {
-      display: none;
-    }
-    /* Secret message */
     .secret-message {
+      flex: 1 1 350px;
       background: rgba(255, 75, 43, 0.85);
       border: 2px dashed #ff4b2b;
       padding: 1.5rem;
-      margin: 2rem auto;
-      max-width: 700px;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255, 75, 43, 0.7);
       font-size: 1.2rem;
       color: #fff;
       font-family: 'Open Sans', sans-serif;
-      text-align: center;
-      user-select: none;
+      text-align: left;
+      min-width: 300px;
     }
     .secret-message h2 {
       font-family: 'Great Vibes', cursive;
@@ -170,6 +167,16 @@
       font-size: 2.4rem;
       margin-bottom: 0.6rem;
       user-select: none;
+    }
+    .video {
+      flex: 1 1 320px;
+      max-width: 320px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
+    }
+    audio {
+      display: none;
     }
   </style>
 </head>
@@ -196,13 +203,15 @@
       <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
     </div>
 
-    <div class="video">
-      <iframe width="320" height="480" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
-    </div>
+    <div class="bottom-section">
+      <div class="secret-message" tabindex="0">
+        <h2>💌 Just for my Bunny 🐇</h2>
+        <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
+      </div>
 
-    <div class="secret-message" tabindex="0">
-      <h2>💌 Secret Message Just for my Bunny 🐇</h2>
-      <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
+      <div class="video">
+        <iframe width="320" height="480" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
 
     <audio autoplay loop>
@@ -210,7 +219,7 @@
       Your browser does not support the audio element.
     </audio>
   </div>
-  <footer>With all my love, always 💌🐾</footer>
+  <footer>Sayo lng ang Puso ko💌🐾</footer>
 
   <script>
     // Create floating hearts
@@ -240,15 +249,6 @@
       star.style.animationDelay = (Math.random() * 3) + 's';
       starsContainer.appendChild(star);
     }
-
-    // Create meteors
-    setInterval(() => {
-      const meteor = document.createElement('div');
-      meteor.classList.add('meteor');
-      meteor.style.left = Math.random() * window.innerWidth + 'px';
-      document.body.appendChild(meteor);
-      setTimeout(() => meteor.remove(), 5000);
-    }, 3000);
   </script>
 </body>
 </html>
