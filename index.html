@@ -55,14 +55,13 @@
       position: relative;
       z-index: 5;
       color: #eee;
-      background: transparent; /* transparent to show bg */
+      background: transparent;
     }
     .letter {
-      /* removed background so stars show through */
-      background: rgba(255, 75, 43, 0.85);
+      background: rgba(255, 182, 193, 0.85); /* light girly pink */
       padding: 1.8rem 2rem;
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
       font-size: 1.3rem;
       line-height: 1.6;
       margin-bottom: 2rem;
@@ -71,6 +70,7 @@
       letter-spacing: 0.04em;
       user-select: none;
       position: relative;
+      color: #4b1e2f; /* a dark rosy color for text */
     }
     footer {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
@@ -83,7 +83,6 @@
       font-weight: 700;
       user-select: none;
     }
-    /* Masonry style collage with fixed row height */
     .collage {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -119,31 +118,32 @@
       flex-wrap: wrap;
       user-select: none;
       position: relative;
-      background: rgba(27, 39, 53, 0.7); /* semi-transparent dark so text readable but bg shows */
+      background: rgba(255, 182, 193, 0.6); /* lighter girly pink */
       border-radius: 15px;
       padding: 2rem 1rem;
-      box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
       overflow: hidden;
       z-index: 2;
+      color: #4b1e2f;
     }
     .secret-message {
       flex: 1 1 350px;
-      background: rgba(255, 75, 43, 0.85);
-      border: 2px dashed #ff4b2b;
+      background: rgba(255, 182, 193, 0.85);
+      border: 2px dashed #e75480;
       padding: 1.5rem;
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 75, 43, 0.7);
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.7);
       font-size: 1.2rem;
-      color: #fff;
       font-family: 'Open Sans', sans-serif;
       text-align: left;
       min-width: 300px;
       position: relative;
       z-index: 2;
+      color: #4b1e2f;
     }
     .secret-message h2 {
       font-family: 'Great Vibes', cursive;
-      color: #ffb6b9;
+      color: #a83253;
       font-size: 2.4rem;
       margin-bottom: 0.6rem;
       user-select: none;
@@ -154,14 +154,14 @@
       max-width: 100%;
       display: block;
       outline: none;
-      box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
     }
     .video {
       flex: 1 1 320px;
       max-width: 320px;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
+      box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
       position: relative;
       z-index: 2;
     }
