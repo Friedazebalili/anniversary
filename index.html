@@ -72,8 +72,14 @@
       user-select: none;
     }
 
+    .record-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 2rem 0;
+    }
+
     .record-player {
-      margin: 2rem auto;
       width: 180px;
       height: 180px;
       border-radius: 50%;
@@ -97,7 +103,6 @@
     .spin {
       animation: spin 3s linear infinite;
     }
-
     @keyframes spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
@@ -109,25 +114,18 @@
       color: #ffb6b9;
     }
 
-    audio {
-      display: none;
-    }
-
     .collage {
-      column-count: 3;
-      column-gap: 15px;
-      margin-bottom: 2rem;
-      user-select: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2rem 0;
     }
-
     .collage img {
       width: 100%;
-      margin-bottom: 15px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
-      transition: transform 0.4s ease;
+      height: 240px;
       object-fit: cover;
-      break-inside: avoid;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
     }
 
     .bottom-section {
@@ -169,9 +167,7 @@
 </head>
 <body>
   <div class="stars" aria-hidden="true"></div>
-
   <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
-
   <div class="container">
     <div class="letter">
       <p>My dearest Bunny 🐇💞,</p>
@@ -181,10 +177,11 @@
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
     </div>
 
-    <!-- 🎵 Record Player -->
-    <div class="record-player" id="record" onclick="toggleMusic()"></div>
-    <div class="record-label">Play our song 🎶</div>
-    <audio id="myAudio" src="https://sndup.net/gdyqg/d"></audio>
+    <div class="record-section">
+      <div class="record-player" id="record" onclick="toggleMusic()"></div>
+      <div class="record-label">Play our song 🎶</div>
+      <audio id="myAudio" src="https://sndup.net/gdyqg/d"></audio>
+    </div>
 
     <div class="collage">
       <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" />
@@ -200,17 +197,14 @@
         <h2>💌 Secret Message for My Bunny 🐇</h2>
         <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
       </div>
-
       <div class="video">
         <iframe src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
-
     <footer>With all my love, always 💌🐾</footer>
   </div>
 
   <script>
-    // Stars
     const starsContainer = document.querySelector('.stars');
     for (let i = 0; i < 100; i++) {
       const star = document.createElement('div');
@@ -224,7 +218,6 @@
       starsContainer.appendChild(star);
     }
 
-    // Music Toggle
     const audio = document.getElementById("myAudio");
     const record = document.getElementById("record");
 
