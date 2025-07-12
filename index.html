@@ -18,7 +18,6 @@
       overflow-y: scroll;
       position: relative;
     }
-    /* Starry background container */
     .stars {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -26,7 +25,6 @@
       z-index: 0;
       background: transparent;
     }
-    /* Small stars */
     .star {
       position: absolute;
       background: white;
@@ -112,30 +110,33 @@
         opacity: 0;
       }
     }
-    /* Collage grid container */
+    /* Masonry style collage */
     .collage {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr); /* fixed 3 columns */
-      gap: 15px;
+      column-count: 3;
+      column-gap: 15px;
       margin-bottom: 2rem;
       user-select: none;
     }
     .collage img {
       width: 100%;
-      height: 180px; /* fixed height for uniformity */
-      object-fit: cover;
+      margin-bottom: 15px;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       cursor: pointer;
       filter: drop-shadow(0 0 4px #ff416c);
+      break-inside: avoid;
+      object-fit: cover;
+      height: auto;
+      max-width: 100%;
+      display: block;
     }
     .collage img:hover {
-      transform: scale(1.05) rotate(2deg);
-      box-shadow: 0 0 25px #ff6f61;
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: 0 0 30px #ff6f61;
       z-index: 10;
       position: relative;
-      filter: drop-shadow(0 0 10px #ffb6b9);
+      filter: drop-shadow(0 0 12px #ffb6b9);
     }
     /* Secret message and video container */
     .bottom-section {
@@ -198,7 +199,7 @@
       <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
       <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3" />
       <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4" />
-      <img src="https://i.postimg.cc/bD8rB3ZL/d80966f2-b9c5-4dff-bb80-f9fd96cc1f61.jpg" alt="Photo 6" />
+      <!-- 5th photo removed -->
       <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
       <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
     </div>
