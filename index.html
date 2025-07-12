@@ -69,22 +69,93 @@
       letter-spacing: 0.04em;
       user-select: none;
     }
-    .audio-player {
-      margin-bottom: 2rem;
+    /* Record Player container */
+    .record-player {
+      margin: 0 auto 2rem;
+      max-width: 300px;
       background: rgba(255, 75, 43, 0.85);
-      padding: 1rem 2rem;
+      padding: 1.5rem;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      user-select: none;
     }
-    audio {
-      width: 100%;
-      outline: none;
-      border-radius: 8px;
+    .record {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, #222 0%, #000 80%);
+      box-shadow:
+        inset 0 0 30px #111,
+        0 0 15px #ff4b2b;
+      position: relative;
+      animation-play-state: paused;
+      animation-name: spin;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      cursor: pointer;
+    }
+    .record::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 40px; height: 40px;
+      background: radial-gradient(circle, #ff4b2b 0%, #770000 80%);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
       box-shadow: 0 0 8px #ff4b2b;
-      background: #1b2735;
+      z-index: 10;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .play-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      background: #ff4b2b;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ff4b2b;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .play-button:hover {
+      background: #ff6f61;
+      box-shadow: 0 0 15px #ff6f61;
+    }
+    .play-icon {
+      width: 0;
+      height: 0;
+      border-left: 20px solid white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 6px;
+    }
+    .pause-icon {
+      width: 20px;
+      height: 24px;
+      position: relative;
+    }
+    .pause-icon::before, .pause-icon::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 6px;
+      height: 24px;
+      background: white;
+      border-radius: 2px;
+    }
+    .pause-icon::before {
+      left: 0;
+    }
+    .pause-icon::after {
+      right: 0;
     }
     footer {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
@@ -208,12 +279,13 @@
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
     </div>
 
-    <!-- Audio Player Added -->
-    <div class="audio-player">
-      <audio controls>
-        <source src="https://archive.org/download/recording_20250712/Araw%20Araw%20by%20Your%20Sexy%20Husband.m4a" type="audio/m4a" />
-        Your browser does not support the audio element.
-      </audio>
+    <!-- Record Player Audio -->
+    <div class="record-player" aria-label="Audio player">
+      <div class="record" id="record"></div>
+      <div class="play-button" id="playPauseBtn" aria-label="Play audio">
+        <div class="play-icon" id="playIcon"></div>
+      </div>
+      <audio id="audio" src="https://archive.org/download/recording_20250712/Araw%20Araw%20by%20Your%20Sexy%20Husband.m4a"></audio>
     </div>
 
     <div class="collage" aria-label="Photo collage">
@@ -264,9 +336,4 @@
       star.style.height = size + 'px';
       star.style.top = Math.random() * 100 + 'vh';
       star.style.left = Math.random() * 100 + 'vw';
-      star.style.animationDelay = (Math.random() * 3) + 's';
-      starsContainer.appendChild(star);
-    }
-  </script>
-</body>
-</html>
+      star.style.animationDelay = (Math.r
