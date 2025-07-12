@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,11 +9,11 @@
     body {
       margin: 0; padding: 0;
       font-family: 'Open Sans', sans-serif;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      background: radial-gradient(ellipse at bottom, #0a0f2c 0%, #000000 100%);
       color: #eee;
       overflow-x: hidden;
       text-align: center;
-      height: 100vh;
+      min-height: 100vh;
       perspective: 1000px;
       overflow-y: scroll;
       position: relative;
@@ -23,11 +23,10 @@
       top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none;
       z-index: 0;
-      background: transparent;
     }
     .star {
       position: absolute;
-      background: white;
+      background: radial-gradient(circle, #fff, #ffccff);
       border-radius: 50%;
       opacity: 0.8;
       animation: twinkle 3s infinite ease-in-out alternate;
@@ -38,154 +37,125 @@
       50% { opacity: 1; transform: scale(1.3); }
       100% { opacity: 0.2; transform: scale(1); }
     }
-    header {
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
-      padding: 2rem;
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: white;
-      position: relative;
-      z-index: 2;
-      box-shadow: 0 0 15px #ff4b2b;
+    .meteor {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(to bottom, white, rgba(255,255,255,0));
+      top: -80px;
+      animation: meteor-fall 5s linear infinite;
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      position: relative;
-      z-index: 2;
-      color: #eee;
-    }
-    .letter {
-      background: rgba(255, 75, 43, 0.85);
-      padding: 1.8rem 2rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
-      font-size: 1.3rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-      text-align: left;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      user-select: none;
-    }
-    footer {
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
-      color: white;
-      padding: 1rem;
-      margin-top: 2rem;
-      z-index: 2;
-      position: relative;
-      box-shadow: 0 0 15px #ff416c;
-      font-weight: 700;
-      user-select: none;
-    }
-    /* Floating hearts effect */
-    .heart {
-      position: fixed;
-      width: 24px;
-      height: 24px;
-      background: red;
-      clip-path: polygon(
-        50% 15%, 61% 10%, 70% 15%, 75% 25%, 75% 40%, 50% 70%, 25% 40%, 25% 25%, 30% 15%, 39% 10%
-      );
-      opacity: 0.8;
-      animation-name: floatHeart;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      z-index: 1;
-      filter: drop-shadow(0 0 4px #ff416c);
-    }
-    @keyframes floatHeart {
+    @keyframes meteor-fall {
       0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0.8;
-      }
-      50% {
-        transform: translateY(-30px) translateX(10px) rotate(20deg);
+        transform: translateY(0) translateX(0) rotate(45deg);
         opacity: 1;
       }
       100% {
-        transform: translateY(-60px) translateX(0) rotate(0deg);
+        transform: translateY(100vh) translateX(200px) rotate(45deg);
         opacity: 0;
       }
     }
-    /* Masonry style collage */
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #ffb6c1;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px #ff69b4;
+    }
+    .envelope {
+      width: 260px;
+      height: 200px;
+      background-image: url('https://i.imgur.com/eGMRZIG.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 2rem auto;
+      cursor: pointer;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+    .envelope::after {
+      content: 'Click to open my heart 💖';
+      position: absolute;
+      bottom: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ffccee;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-shadow: 0 0 5px #ff66b2;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .letter {
+      display: none;
+      background: rgba(255, 105, 180, 0.9);
+      padding: 2rem;
+      margin: 2rem auto;
+      border-radius: 15px;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(255,105,180,0.7);
+      font-size: 1.2rem;
+      text-align: left;
+    }
+    .letter.show {
+      display: block;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .collage {
-      column-count: 3;
-      column-gap: 15px;
-      margin-bottom: 2rem;
-      user-select: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2rem 0;
     }
     .collage img {
       width: 100%;
-      margin-bottom: 15px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
-      filter: drop-shadow(0 0 4px #ff416c);
-      break-inside: avoid;
+      height: 240px;
       object-fit: cover;
-      height: auto;
-      max-width: 100%;
-      display: block;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
     }
-    .collage img:hover {
-      transform: scale(1.08) rotate(3deg);
-      box-shadow: 0 0 30px #ff6f61;
-      z-index: 10;
-      position: relative;
-      filter: drop-shadow(0 0 12px #ffb6b9);
-    }
-    /* Secret message and video container */
-    .bottom-section {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      flex-wrap: wrap;
-      user-select: none;
+    .video iframe {
+      width: 320px;
+      height: 480px;
+      border-radius: 15px;
+      margin-top: 2rem;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
     }
     .secret-message {
-      flex: 1 1 350px;
-      background: rgba(255, 75, 43, 0.85);
-      border: 2px dashed #ff4b2b;
-      padding: 1.5rem;
+      margin: 3rem auto;
+      max-width: 700px;
+      padding: 2rem;
+      border: 2px dashed #ff66b2;
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 75, 43, 0.7);
+      background: rgba(255, 182, 193, 0.1);
+      color: #ffe6f0;
       font-size: 1.2rem;
-      color: #fff;
-      font-family: 'Open Sans', sans-serif;
-      text-align: left;
-      min-width: 300px;
     }
-    .secret-message h2 {
-      font-family: 'Great Vibes', cursive;
-      color: #ffb6b9;
-      font-size: 2.4rem;
-      margin-bottom: 0.6rem;
-      user-select: none;
-    }
-    .video {
-      flex: 1 1 320px;
-      max-width: 320px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
-    }
-    audio {
-      display: none;
+    .audio-bar {
+      margin-top: 1.5rem;
     }
   </style>
 </head>
 <body>
-  <div class="stars" aria-hidden="true"></div>
-
-  <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
+  <div class="stars"></div>
+  <header>Happy Anniversary, My Bunny 🐰💖</header>
   <div class="container">
+    <div class="envelope" onclick="document.querySelector('.letter').classList.add('show')"></div>
+
     <div class="letter">
       <p>My dearest Bunny 🐇💞,</p>
       <p>Happy Anniversary! 🎊🎉 Though miles may keep us apart 🌏💔, my heart is always with you ❤️💖. Every day I wake up thankful 🙏😊 that someone as sweet 🍬, kind 🤗, and wonderful 🌟 as you chose to love me 💘.</p>
@@ -194,52 +164,35 @@
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
     </div>
 
-    <div class="collage" aria-label="Photo collage">
-      <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" alt="Photo 1" />
-      <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
-      <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3" />
-      <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4" />
-      <!-- 5th photo removed -->
-      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
-      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
+    <div class="audio-bar">
+      <audio controls>
+        <source src="https://dl.sndup.net/7d75/softpiano.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
     </div>
 
-    <div class="bottom-section">
-      <div class="secret-message" tabindex="0">
-        <h2>💌 Secret Message Just for my Bunny 🐇</h2>
-        <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
-      </div>
-
-      <div class="video">
-        <iframe width="320" height="480" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
-      </div>
+    <div class="collage">
+      <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" />
+      <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" />
+      <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" />
+      <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" />
+      <img src="https://i.postimg.cc/bD8rB3ZL/d80966f2-b9c5-4dff-bb80-f9fd96cc1f61.jpg" />
+      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" />
+      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" />
     </div>
 
-    <audio autoplay loop>
-      <source src="https://dl.sndup.net/7d75/softpiano.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/Syy8k9VuvfI" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="secret-message">
+      <h2>💌 Secret Message for My Bunny 🐇</h2>
+      <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
+    </div>
   </div>
-  <footer>With all my love, always 💌🐾</footer>
-
   <script>
-    // Create floating hearts
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.top = (window.innerHeight + 20) + 'px';
-      heart.style.width = heart.style.height = (12 + Math.random() * 20) + 'px';
-      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }
-    setInterval(createHeart, 400);
-
-    // Create stars randomly on page load
     const starsContainer = document.querySelector('.stars');
-    const starCount = 100;
-    for (let i = 0; i < starCount; i++) {
+    for (let i = 0; i < 100; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
       const size = Math.random() * 2 + 1;
@@ -250,6 +203,14 @@
       star.style.animationDelay = (Math.random() * 3) + 's';
       starsContainer.appendChild(star);
     }
+
+    setInterval(() => {
+      const meteor = document.createElement('div');
+      meteor.classList.add('meteor');
+      meteor.style.left = Math.random() * window.innerWidth + 'px';
+      document.body.appendChild(meteor);
+      setTimeout(() => meteor.remove(), 5000);
+    }, 3000);
   </script>
 </body>
 </html>
