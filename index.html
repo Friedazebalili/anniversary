@@ -12,16 +12,21 @@
       background: linear-gradient(#fff0f5, #ffe4e1);
       color: #333;
       text-align: center;
+      overflow-x: hidden;
     }
     header {
       background: #ffb6c1;
       padding: 2rem;
       font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: white;
+      position: relative;
+      z-index: 2;
     }
     .container {
       padding: 2rem;
+      position: relative;
+      z-index: 2;
     }
     .letter {
       background: white;
@@ -38,7 +43,12 @@
       height: auto;
       margin: 10px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(255,192,203,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(255,182,193,0.8);
     }
     .video {
       margin: 2rem 0;
@@ -48,6 +58,26 @@
       color: white;
       padding: 1rem;
       margin-top: 2rem;
+      z-index: 2;
+      position: relative;
+    }
+    /* Floating flower animation */
+    .petal {
+      position: fixed;
+      top: -50px;
+      background-image: url('https://i.imgur.com/o7QGz9h.png');
+      background-size: contain;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+      z-index: 1;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -74,5 +104,17 @@
   </div>
 
   <footer>With all my love, always 💌</footer>
+
+  <script>
+    // Generate floating petals
+    for (let i = 0; i < 20; i++) {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = 5 + Math.random() * 5 + 's';
+      petal.style.opacity = Math.random();
+      document.body.appendChild(petal);
+    }
+  </script>
 </body>
 </html>
