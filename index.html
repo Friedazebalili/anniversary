@@ -16,22 +16,29 @@
       height: 100vh;
       perspective: 1000px;
       overflow-y: scroll;
+      position: relative;
     }
-    body::before {
-      content: "";
+    /* Starry background container */
+    .stars {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background:
-        radial-gradient(2px 2px at 10% 20%, #fff, transparent),
-        radial-gradient(1.5px 1.5px at 30% 40%, #fff, transparent),
-        radial-gradient(1.8px 1.8px at 50% 80%, #fff, transparent),
-        radial-gradient(2px 2px at 70% 30%, #fff, transparent),
-        radial-gradient(1.2px 1.2px at 80% 60%, #fff, transparent);
-      background-repeat: repeat;
-      background-size: 100% 100%;
-      opacity: 0.2;
+      top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none;
       z-index: 0;
+      background: transparent;
+    }
+    /* Small stars */
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 3s infinite ease-in-out alternate;
+      filter: drop-shadow(0 0 3px #fff);
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+      100% { opacity: 0.2; transform: scale(1); }
     }
     header {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
@@ -169,6 +176,8 @@
   </style>
 </head>
 <body>
+  <div class="stars" aria-hidden="true"></div>
+
   <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
   <div class="container">
     <div class="letter">
@@ -184,11 +193,11 @@
       <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
       <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3" />
       <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4" />
-      <img src="https://i.postimg.cc/jwX20PNT/c46d807e-0309-48ac-8428-6a493ba95e8e.jpg" alt="Photo 5" />
+      <!-- 5th photo removed -->
       <img src="https://i.postimg.cc/bD8rB3ZL/d80966f2-b9c5-4dff-bb80-f9fd96cc1f61.jpg" alt="Photo 6" />
       <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
       <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
-      <img src="https://i.postimg.cc/YjrjNDKC/f3d9e37b-6f38-42d3-84f5-e53bb0cb6ffd.jpg" alt="Photo 9" />
+      <!-- 9th photo removed -->
     </div>
 
     <div class="video">
@@ -208,7 +217,7 @@
   <footer>With all my love, always 💌🐾</footer>
 
   <script>
-    // Floating hearts
+    // Create floating hearts
     function createHeart() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
@@ -217,12 +226,24 @@
       heart.style.width = heart.style.height = (12 + Math.random() * 20) + 'px';
       heart.style.animationDuration = (3 + Math.random() * 3) + 's';
       document.body.appendChild(heart);
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
+      setTimeout(() => heart.remove(), 6000);
     }
     setInterval(createHeart, 400);
+
+    // Create stars randomly on page load
+    const starsContainer = document.querySelector('.stars');
+    const starCount = 100;
+    for (let i = 0; i < starCount; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 2 + 1;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.animationDelay = (Math.random() * 3) + 's';
+      starsContainer.appendChild(star);
+    }
   </script>
 </body>
 </html>
-
