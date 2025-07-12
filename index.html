@@ -129,6 +129,7 @@
       font-family: 'Open Sans', sans-serif;
       text-align: left;
       min-width: 300px;
+      position: relative;
     }
     .secret-message h2 {
       font-family: 'Great Vibes', cursive;
@@ -136,6 +137,14 @@
       font-size: 2.4rem;
       margin-bottom: 0.6rem;
       user-select: none;
+    }
+    .secret-message iframe {
+      margin-top: 15px;
+      border-radius: 10px;
+      max-width: 100%;
+      display: block;
+      outline: none;
+      box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
     }
     .video {
       flex: 1 1 320px;
@@ -265,6 +274,9 @@
       <div class="secret-message" tabindex="0">
         <h2>💌 Secret Message Just for my Bunny 🐇</h2>
         <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
+
+        <!-- Embedded audio below the message -->
+        <iframe src="https://archive.org/embed/recording_20250712" width="100%" height="40" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
       </div>
 
       <div class="video">
