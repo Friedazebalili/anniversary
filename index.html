@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -14,15 +14,16 @@
       overflow-x: hidden;
       text-align: center;
       min-height: 100vh;
+      perspective: 1000px;
       overflow-y: scroll;
       position: relative;
     }
-
     .stars {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       pointer-events: none;
       z-index: 0;
+      background: transparent;
     }
     .star {
       position: absolute;
@@ -37,7 +38,6 @@
       50% { opacity: 1; transform: scale(1.3); }
       100% { opacity: 0.2; transform: scale(1); }
     }
-
     header {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
       padding: 2rem;
@@ -47,17 +47,16 @@
       position: relative;
       z-index: 2;
       box-shadow: 0 0 15px #ff4b2b;
+      user-select: none;
     }
-
     .container {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 2rem 1rem;
       position: relative;
       z-index: 2;
       color: #eee;
     }
-
     .letter {
       background: rgba(255, 75, 43, 0.85);
       padding: 1.8rem 2rem;
@@ -71,102 +70,143 @@
       letter-spacing: 0.04em;
       user-select: none;
     }
-
-    .record-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 2rem 0;
-    }
-
-    .record-player {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #333 30%, #111 70%);
-      position: relative;
-      animation: none;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
-    }
-    .record-player::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 30px; height: 30px;
-      background: #fff;
-      border-radius: 50%;
-      z-index: 2;
-    }
-
-    .spin {
-      animation: spin 3s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .record-label {
-      margin-top: 1rem;
-      font-weight: bold;
-      color: #ffb6b9;
-    }
-
+    /* Masonry style collage */
     .collage {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin: 2rem 0;
+      column-count: 3;
+      column-gap: 15px;
+      margin-bottom: 2rem;
+      user-select: none;
     }
     .collage img {
       width: 100%;
-      height: 240px;
+      margin-bottom: 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      filter: drop-shadow(0 0 4px #ff416c);
+      break-inside: avoid;
       object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+      height: auto;
+      max-width: 100%;
+      display: block;
     }
-
+    .collage img:hover {
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: 0 0 30px #ff6f61;
+      z-index: 10;
+      position: relative;
+      filter: drop-shadow(0 0 12px #ffb6b9);
+    }
+    /* Secret message and video container */
     .bottom-section {
       display: flex;
       justify-content: center;
       align-items: flex-start;
       gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto 3rem;
       flex-wrap: wrap;
+      user-select: none;
     }
-
     .secret-message {
-      flex: 1 1 300px;
+      flex: 1 1 400px;
       background: rgba(255, 75, 43, 0.85);
+      border: 2px dashed #ff4b2b;
       padding: 1.5rem;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255, 75, 43, 0.7);
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      text-align: left;
+      min-width: 320px;
     }
-
+    .secret-message h2 {
+      font-family: 'Great Vibes', cursive;
+      color: #ffb6b9;
+      font-size: 2.6rem;
+      margin-bottom: 0.6rem;
+      user-select: none;
+    }
     .video {
-      flex: 1 1 320px;
-      max-width: 320px;
+      flex: 1 1 340px;
+      max-width: 340px;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
     }
-
-    footer {
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
-      color: white;
-      padding: 1rem;
-      margin-top: 2rem;
-      box-shadow: 0 0 15px #ff416c;
-      font-weight: 700;
+    /* Record Player Audio */
+    .record-player {
+      margin: 2rem auto 3rem;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle at center, #222 0%, #000 70%);
+      border-radius: 50%;
+      box-shadow:
+        inset 0 0 15px #ff416c,
+        0 0 30px #ff4b2b;
+      position: relative;
+      cursor: pointer;
       user-select: none;
+    }
+    .record-player:hover {
+      box-shadow:
+        inset 0 0 20px #ff6f61,
+        0 0 50px #ff6f61;
+    }
+    .record-player .disc {
+      position: absolute;
+      top: 20px; left: 20px; right: 20px; bottom: 20px;
+      background: radial-gradient(circle at center, #ff416c, #ff4b2b);
+      border-radius: 50%;
+      box-shadow:
+        inset 0 0 20px #ffb6b9,
+        0 0 10px #ff4b2b;
+      animation: spin 5s linear infinite;
+      pointer-events: none;
+    }
+    .record-player.playing .disc {
+      animation-play-state: running;
+    }
+    .record-player.paused .disc {
+      animation-play-state: paused;
+    }
+    .record-player .center-hole {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px; height: 40px;
+      background: #111;
+      border-radius: 50%;
+      box-shadow: inset 0 0 8px #ff416c;
+      pointer-events: none;
+    }
+    .record-player .play-button {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #ff4b2b;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .record-player .play-button:hover {
+      background: linear-gradient(90deg, #ff6f61, #ff4b2b);
     }
   </style>
 </head>
 <body>
   <div class="stars" aria-hidden="true"></div>
+
   <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
   <div class="container">
     <div class="letter">
@@ -177,36 +217,42 @@
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
     </div>
 
-    <div class="record-section">
-      <div class="record-player" id="record" onclick="toggleMusic()"></div>
-      <div class="record-label">Play our song 🎶</div>
-      <audio id="myAudio" src="https://sndup.net/gdyqg/d"></audio>
+    <div class="record-player paused" id="recordPlayer">
+      <div class="disc"></div>
+      <div class="center-hole"></div>
+      <button class="play-button" id="playPauseBtn" aria-label="Play/Pause music">▶️</button>
+      <audio id="audioPlayer" preload="auto" src="https://dl.sndup.net/gdyqg/Araw%20Araw%20by%20Your%20Sexy%20Husband.m4a"></audio>
     </div>
 
-    <div class="collage">
-      <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" />
-      <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" />
-      <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" />
-      <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" />
-      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" />
-      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" />
+    <div class="collage" aria-label="Photo collage">
+      <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" alt="Photo 1" />
+      <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
+      <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3" />
+      <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4" />
+      <!-- 5th photo removed -->
+      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
+      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
     </div>
 
     <div class="bottom-section">
-      <div class="secret-message">
-        <h2>💌 Secret Message for My Bunny 🐇</h2>
+      <div class="secret-message" tabindex="0">
+        <h2>💌 Secret Message Just for my Bunny 🐇</h2>
         <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
       </div>
+
       <div class="video">
-        <iframe src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
+        <iframe width="320" height="480" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
-    <footer>With all my love, always 💌🐾</footer>
   </div>
 
+  <footer>With all my love, always 💌🐾</footer>
+
   <script>
+    // Floating stars
     const starsContainer = document.querySelector('.stars');
-    for (let i = 0; i < 100; i++) {
+    const starCount = 100;
+    for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
       const size = Math.random() * 2 + 1;
@@ -218,18 +264,44 @@
       starsContainer.appendChild(star);
     }
 
-    const audio = document.getElementById("myAudio");
-    const record = document.getElementById("record");
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.top = (window.innerHeight + 20) + 'px';
+      heart.style.width = heart.style.height = (12 + Math.random() * 20) + 'px';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 400);
 
-    function toggleMusic() {
-      if (audio.paused) {
+    // Record player controls
+    const recordPlayer = document.getElementById('recordPlayer');
+    const audio = document.getElementById('audioPlayer');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
+    playPauseBtn.addEventListener('click', () => {
+      if(audio.paused) {
         audio.play();
-        record.classList.add("spin");
+        recordPlayer.classList.remove('paused');
+        recordPlayer.classList.add('playing');
+        playPauseBtn.textContent = '⏸️';
       } else {
         audio.pause();
-        record.classList.remove("spin");
+        recordPlayer.classList.remove('playing');
+        recordPlayer.classList.add('paused');
+        playPauseBtn.textContent = '▶️';
       }
-    }
+    });
+
+    // Pause record when audio ends
+    audio.addEventListener('ended', () => {
+      recordPlayer.classList.remove('playing');
+      recordPlayer.classList.add('paused');
+      playPauseBtn.textContent = '▶️';
+    });
   </script>
 </body>
 </html>
