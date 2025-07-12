@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,7 +9,7 @@
     body {
       margin: 0; padding: 0;
       font-family: 'Open Sans', sans-serif;
-      background: radial-gradient(ellipse at bottom, #fce4ec 0%, #f8bbd0 100%);
+      background: radial-gradient(ellipse at bottom, #0a0f2c 0%, #000000 100%);
       color: #eee;
       overflow-x: hidden;
       text-align: center;
@@ -27,7 +27,7 @@
     }
     .star {
       position: absolute;
-      background: radial-gradient(circle, #fff, #f8bbd0);
+      background: radial-gradient(circle, #fff, #ffccff);
       border-radius: 50%;
       opacity: 0.8;
       animation: twinkle 3s infinite ease-in-out alternate;
@@ -48,6 +48,20 @@
       border-radius: 50%;
       box-shadow: 0 0 30px #fff;
       z-index: 1;
+    }
+    .butterfly {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: flutter 8s infinite linear;
+    }
+    @keyframes flutter {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-100px) rotate(15deg); }
+      100% { transform: translateY(0) rotate(-15deg); }
     }
     header {
       background: linear-gradient(90deg, #ff99cc, #ff66b2);
@@ -75,22 +89,29 @@
       margin-bottom: 2rem;
     }
     .envelope {
-      width: 100px;
-      height: 80px;
+      width: 140px;
+      height: 100px;
       background: pink;
       border: 2px solid #ff66b2;
-      border-radius: 8px;
+      border-radius: 12px;
       position: relative;
       cursor: pointer;
       box-shadow: 0 0 15px #ff99cc;
+      animation: heartbeat 2s infinite;
     }
     .envelope::before {
-      content: "❤️";
-      font-size: 2rem;
+      content: "💌 Open Me!";
+      font-size: 1.2rem;
       position: absolute;
-      top: 20px;
+      top: 35px;
       left: 50%;
       transform: translateX(-50%);
+      color: #fff;
+      font-weight: bold;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
     .letter {
       display: none;
@@ -116,14 +137,13 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .collage {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 15px;
       margin-bottom: 2rem;
     }
     .collage img {
-      width: 300px;
+      width: 100%;
       height: 220px;
       object-fit: cover;
       border-radius: 15px;
@@ -133,7 +153,7 @@
       filter: drop-shadow(0 0 4px #ff416c);
     }
     .collage img:hover {
-      transform: scale(1.1) rotate(3deg);
+      transform: scale(1.05) rotate(2deg);
       box-shadow: 0 0 30px #ff6f61;
       z-index: 10;
       position: relative;
@@ -165,6 +185,8 @@
 <body>
   <div class="stars" aria-hidden="true"></div>
   <div class="moon"></div>
+  <div class="butterfly" style="top:60px; left:10%; animation-delay:0s"></div>
+  <div class="butterfly" style="top:150px; left:80%; animation-delay:2s"></div>
   <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
   <div class="container">
     <div class="letter-container">
@@ -177,7 +199,6 @@
         <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
       </div>
     </div>
-
     <div class="collage">
       <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" alt="Photo 1" />
       <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
@@ -187,7 +208,6 @@
       <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
       <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
     </div>
-
     <div class="secret-message" tabindex="0">
       <h2>💌 Secret Message Just for my Bunny 🐇</h2>
       <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
@@ -196,7 +216,7 @@
   <footer>With all my love, always 💌🐾</footer>
   <script>
     const starsContainer = document.querySelector('.stars');
-    const starCount = 100;
+    const starCount = 120;
     for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
