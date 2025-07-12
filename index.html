@@ -179,11 +179,6 @@
     audio {
       display: none;
     }
-    /* Record player styles */
-    @keyframes spin {
-      from { transform: rotate(0deg);}
-      to { transform: rotate(360deg);}
-    }
   </style>
 </head>
 <body>
@@ -198,37 +193,6 @@
       <p>Until then, hold on to this love 💓👐, because I'm holding onto you tightly 🤗🐰.</p>
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
     </div>
-
-    <!-- RECORD PLAYER AUDIO SECTION -->
-    <div class="record-player" aria-label="Audio player" style="margin: 1.5rem auto 2rem; max-width: 250px;">
-      <div class="record" id="record" style="
-        width: 180px; height: 180px; margin: 0 auto 1rem;
-        border-radius: 50%;
-        background: radial-gradient(circle at center, #222 0%, #000 80%);
-        box-shadow: inset 0 0 30px #111, 0 0 15px #ff4b2b;
-        position: relative;
-        animation-play-state: paused;
-        animation-name: spin;
-        animation-duration: 6s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        cursor: pointer;
-      "></div>
-      <button id="playPauseBtn" aria-label="Play audio" style="
-        display: block;
-        margin: 0 auto;
-        padding: 0.6rem 1.2rem;
-        font-size: 1.2rem;
-        background: #ff4b2b;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        user-select: none;
-      ">▶️ Play</button>
-      <audio id="audio" src="https://archive.org/download/recording_20250712/Araw%20Araw%20by%20Your%20Sexy%20Husband.m4a"></audio>
-    </div>
-    <!-- END RECORD PLAYER -->
 
     <div class="collage" aria-label="Photo collage">
       <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" alt="Photo 1" />
@@ -281,41 +245,6 @@
       star.style.animationDelay = (Math.random() * 3) + 's';
       starsContainer.appendChild(star);
     }
-
-    // Audio record player logic
-    const audio = document.getElementById('audio');
-    const record = document.getElementById('record');
-    const btn = document.getElementById('playPauseBtn');
-    let playing = false;
-
-    btn.addEventListener('click', () => {
-      if (playing) {
-        audio.pause();
-      } else {
-        audio.play();
-      }
-    });
-
-    audio.addEventListener('play', () => {
-      playing = true;
-      record.style.animationPlayState = 'running';
-      btn.textContent = '⏸️ Pause';
-      btn.setAttribute('aria-label', 'Pause audio');
-    });
-
-    audio.addEventListener('pause', () => {
-      playing = false;
-      record.style.animationPlayState = 'paused';
-      btn.textContent = '▶️ Play';
-      btn.setAttribute('aria-label', 'Play audio');
-    });
-
-    audio.addEventListener('ended', () => {
-      playing = false;
-      record.style.animationPlayState = 'paused';
-      btn.textContent = '▶️ Play';
-      btn.setAttribute('aria-label', 'Play audio');
-    });
   </script>
 </body>
 </html>
