@@ -55,12 +55,137 @@
         opacity: 0;
       }
     }
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    header {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #ffb6c1;
+      margin-top: 2rem;
+      text-shadow: 0 0 10px #ff69b4;
+    }
+    .envelope {
+      width: 260px;
+      height: 200px;
+      background-image: url('https://i.imgur.com/eGMRZIG.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 2rem auto;
+      cursor: pointer;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+    .envelope::after {
+      content: 'Click to open my heart 💖';
+      position: absolute;
+      bottom: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ffccee;
+      font-weight: bold;
+      font-size: 1.2rem;
+      text-shadow: 0 0 5px #ff66b2;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    .letter {
+      display: none;
+      background: rgba(255, 105, 180, 0.9);
+      padding: 2rem;
+      margin: 2rem auto;
+      border-radius: 15px;
+      max-width: 700px;
+      box-shadow: 0 0 20px rgba(255,105,180,0.7);
+      font-size: 1.2rem;
+      text-align: left;
+    }
+    .letter.show {
+      display: block;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .collage {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2rem 0;
+    }
+    .collage img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    }
+    .video iframe {
+      width: 320px;
+      height: 480px;
+      border-radius: 15px;
+      margin-top: 2rem;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.8);
+    }
+    .secret-message {
+      margin: 3rem auto;
+      max-width: 700px;
+      padding: 2rem;
+      border: 2px dashed #ff66b2;
+      border-radius: 15px;
+      background: rgba(255, 182, 193, 0.1);
+      color: #ffe6f0;
+      font-size: 1.2rem;
+    }
+    audio { display: none; }
   </style>
 </head>
 <body>
   <div class="stars"></div>
+  <header>Happy Anniversary, My Bunny 🐰💖</header>
+  <div class="container">
+    <div class="envelope" onclick="document.querySelector('.letter').classList.add('show')"></div>
+
+    <div class="letter">
+      <p>My dearest Bunny 🐇💞,</p>
+      <p>Happy Anniversary! 🎊🎉 Though miles may keep us apart 🌏💔, my heart is always with you ❤️💖. Every day I wake up thankful 🙏😊 that someone as sweet 🍬, kind 🤗, and wonderful 🌟 as you chose to love me 💘.</p>
+      <p>Long distance has never been easy 😢📱, but every video call 📹💬, every message 📩❤️, and every shared memory 📸💑 makes it all worth it 🌈✨. Soon, the distance will be just a memory 🕰️💭. One day, we'll build our own little family 👶🐣, share a home 🏡💞, hold hands every morning 🤝🌅, and fall asleep beside each other every night 🌙💤.</p>
+      <p>Until then, hold on to this love 💓👐, because I'm holding onto you tightly 🤗🐰.</p>
+      <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
+    </div>
+
+    <div class="collage">
+      <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" />
+      <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" />
+      <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" />
+      <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" />
+      <img src="https://i.postimg.cc/bD8rB3ZL/d80966f2-b9c5-4dff-bb80-f9fd96cc1f61.jpg" />
+      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" />
+      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" />
+    </div>
+
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/Syy8k9VuvfI" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="secret-message">
+      <h2>💌 Secret Message for My Bunny 🐇</h2>
+      <p>You are my sunshine ☀️ on cloudy days ☁️, my warmth 🔥 across the distance 🌍, and my forever ♾️. One day, this distance will be just a memory 🕰️—and you'll be in my arms 🤗 where you belong 💖. I love you endlessly 💕🐰.</p>
+    </div>
+
+    <audio autoplay loop>
+      <source src="https://dl.sndup.net/7d75/softpiano.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
   <script>
-    // Stars
     const starsContainer = document.querySelector('.stars');
     for (let i = 0; i < 100; i++) {
       const star = document.createElement('div');
@@ -74,7 +199,6 @@
       starsContainer.appendChild(star);
     }
 
-    // Meteors
     setInterval(() => {
       const meteor = document.createElement('div');
       meteor.classList.add('meteor');
