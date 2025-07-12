@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,7 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
     body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       font-family: 'Open Sans', sans-serif;
       background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
       color: #eee;
@@ -69,13 +70,25 @@
       letter-spacing: 0.04em;
       user-select: none;
     }
-    /* Ensure iframe fits nicely inside letter */
-    .letter iframe {
-      display: block;
-      margin: 1.5rem auto 0;
-      max-width: 100%;
+    .audio-player {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .audio-player button {
+      margin: 0 8px;
+      padding: 8px 16px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #ff4b2b;
       border: none;
       border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255, 75, 43, 0.6);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .audio-player button:hover {
+      background-color: #ff6f61;
     }
     footer {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
@@ -88,7 +101,6 @@
       font-weight: 700;
       user-select: none;
     }
-    /* Floating hearts effect */
     .heart {
       position: fixed;
       width: 24px;
@@ -105,20 +117,10 @@
       filter: drop-shadow(0 0 4px #ff416c);
     }
     @keyframes floatHeart {
-      0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0.8;
-      }
-      50% {
-        transform: translateY(-30px) translateX(10px) rotate(20deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-60px) translateX(0) rotate(0deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateY(-30px) translateX(10px) rotate(20deg); opacity: 1; }
+      100% { transform: translateY(-60px) translateX(0) rotate(0deg); opacity: 0; }
     }
-    /* Masonry style collage */
     .collage {
       column-count: 3;
       column-gap: 15px;
@@ -135,8 +137,6 @@
       filter: drop-shadow(0 0 4px #ff416c);
       break-inside: avoid;
       object-fit: cover;
-      height: auto;
-      max-width: 100%;
       display: block;
     }
     .collage img:hover {
@@ -146,7 +146,6 @@
       position: relative;
       filter: drop-shadow(0 0 12px #ffb6b9);
     }
-    /* Secret message and video container */
     .bottom-section {
       display: flex;
       justify-content: center;
@@ -184,9 +183,6 @@
       overflow: hidden;
       box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
     }
-    audio {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -201,8 +197,18 @@
       <p>Until then, hold on to this love 💓👐, because I'm holding onto you tightly 🤗🐰.</p>
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
 
-      <!-- Embedded audio iframe -->
-      <iframe src="https://archive.org/embed/recording_20250712" width="500" height="30" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
+      <!-- 💖 Custom Audio Player -->
+      <div class="audio-player">
+        <audio id="myAudio" preload="auto">
+          <source src="https://archive.org/download/recording_20250712/recording_20250712.m4a" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <div>
+          <button onclick="document.getElementById('myAudio').play()">▶ Play</button>
+          <button onclick="document.getElementById('myAudio').pause()">⏸ Pause</button>
+          <button onclick="document.getElementById('myAudio').currentTime=0; document.getElementById('myAudio').pause()">⏹ Stop</button>
+        </div>
+      </div>
     </div>
 
     <div class="collage" aria-label="Photo collage">
@@ -210,9 +216,8 @@
       <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
       <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3" />
       <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4" />
-      <!-- 5th photo removed -->
-      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
-      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
+      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 5" />
+      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 6" />
     </div>
 
     <div class="bottom-section">
@@ -226,10 +231,11 @@
       </div>
     </div>
   </div>
+
   <footer>With all my love, always 💌🐾</footer>
 
   <script>
-    // Create floating hearts
+    // Floating hearts
     function createHeart() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
@@ -242,7 +248,7 @@
     }
     setInterval(createHeart, 400);
 
-    // Create stars randomly on page load
+    // Stars on load
     const starsContainer = document.querySelector('.stars');
     const starCount = 100;
     for (let i = 0; i < starCount; i++) {
