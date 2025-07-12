@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,8 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'Open Sans', sans-serif;
       background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
       color: #eee;
@@ -19,7 +18,6 @@
       overflow-y: scroll;
       position: relative;
     }
-
     .stars {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -27,7 +25,6 @@
       z-index: 0;
       background: transparent;
     }
-
     .star {
       position: absolute;
       background: white;
@@ -36,13 +33,11 @@
       animation: twinkle 3s infinite ease-in-out alternate;
       filter: drop-shadow(0 0 3px #fff);
     }
-
     @keyframes twinkle {
       0% { opacity: 0.2; transform: scale(1); }
       50% { opacity: 1; transform: scale(1.3); }
       100% { opacity: 0.2; transform: scale(1); }
     }
-
     header {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
       padding: 2rem;
@@ -50,19 +45,17 @@
       font-size: 3rem;
       color: white;
       position: relative;
-      z-index: 2;
+      z-index: 5;
       box-shadow: 0 0 15px #ff4b2b;
     }
-
     .container {
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem 1rem;
       position: relative;
-      z-index: 2;
+      z-index: 5;
       color: #eee;
     }
-
     .letter {
       background: rgba(255, 75, 43, 0.85);
       padding: 1.8rem 2rem;
@@ -75,61 +68,38 @@
       font-weight: 600;
       letter-spacing: 0.04em;
       user-select: none;
+      position: relative;
     }
-
     footer {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
       color: white;
       padding: 1rem;
       margin-top: 2rem;
-      z-index: 2;
+      z-index: 5;
       position: relative;
       box-shadow: 0 0 15px #ff416c;
       font-weight: 700;
       user-select: none;
     }
-
-    /* Floating hearts */
-    .heart {
-      position: fixed;
-      width: 24px;
-      height: 24px;
-      background: red;
-      clip-path: polygon(
-        50% 15%, 61% 10%, 70% 15%, 75% 25%, 75% 40%, 50% 70%, 25% 40%, 25% 25%, 30% 15%, 39% 10%
-      );
-      opacity: 0.8;
-      animation: floatHeart 6s ease-in-out infinite;
-      z-index: 1;
-      filter: drop-shadow(0 0 4px #ff416c);
-    }
-
-    @keyframes floatHeart {
-      0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.8; }
-      50%  { transform: translateY(-30px) translateX(10px) rotate(20deg); opacity: 1; }
-      100% { transform: translateY(-60px) translateX(0) rotate(0deg); opacity: 0; }
-    }
-
-    /* Photo Collage using Grid */
+    /* Masonry style collage with fixed row height */
     .collage {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 15px;
       margin-bottom: 2rem;
       user-select: none;
     }
-
     .collage img {
       width: 100%;
-      height: 250px;
+      height: 200px;
       object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(255, 75, 43, 0.8);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       cursor: pointer;
       filter: drop-shadow(0 0 4px #ff416c);
+      display: block;
     }
-
     .collage img:hover {
       transform: scale(1.08) rotate(3deg);
       box-shadow: 0 0 30px #ff6f61;
@@ -137,7 +107,6 @@
       position: relative;
       filter: drop-shadow(0 0 12px #ffb6b9);
     }
-
     .bottom-section {
       display: flex;
       justify-content: center;
@@ -148,7 +117,6 @@
       flex-wrap: wrap;
       user-select: none;
     }
-
     .secret-message {
       flex: 1 1 350px;
       background: rgba(255, 75, 43, 0.85);
@@ -158,10 +126,10 @@
       box-shadow: 0 0 20px rgba(255, 75, 43, 0.7);
       font-size: 1.2rem;
       color: #fff;
+      font-family: 'Open Sans', sans-serif;
       text-align: left;
       min-width: 300px;
     }
-
     .secret-message h2 {
       font-family: 'Great Vibes', cursive;
       color: #ffb6b9;
@@ -169,7 +137,6 @@
       margin-bottom: 0.6rem;
       user-select: none;
     }
-
     .video {
       flex: 1 1 320px;
       max-width: 320px;
@@ -177,13 +144,104 @@
       overflow: hidden;
       box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
     }
+
+    /* Floating hearts effect */
+    .heart {
+      position: fixed;
+      width: 24px;
+      height: 24px;
+      background: red;
+      clip-path: polygon(
+        50% 15%, 61% 10%, 70% 15%, 75% 25%, 75% 40%, 50% 70%, 25% 40%, 25% 25%, 30% 15%, 39% 10%
+      );
+      opacity: 0.8;
+      animation-name: floatHeart;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      z-index: 4;
+      filter: drop-shadow(0 0 4px #ff416c);
+    }
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-30px) translateX(10px) rotate(20deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-60px) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+    }
+
+    /* Floating flower petals effect */
+    .flower {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle at center, #ffc0cb 70%, #fff0f5 100%);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 4px #ffb6c1);
+      animation-name: floatFlower;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      z-index: 3;
+    }
+    @keyframes floatFlower {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.85;
+      }
+      50% {
+        transform: translateY(-40px) translateX(15px) rotate(15deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-80px) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+    }
+
+    /* Corner flower decorations */
+    .corner-flower {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle at center, #ffb6c1 60%, #fff0f5 100%);
+      border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+      filter: drop-shadow(0 0 8px #ff8da6);
+      z-index: 6;
+      opacity: 0.85;
+    }
+    .corner-flower.top-left {
+      top: 10px;
+      left: 10px;
+      transform: rotate(-15deg);
+    }
+    .corner-flower.top-right {
+      top: 10px;
+      right: 10px;
+      transform: rotate(15deg);
+    }
+    .corner-flower.bottom-left {
+      bottom: 10px;
+      left: 10px;
+      transform: rotate(20deg);
+    }
+    .corner-flower.bottom-right {
+      bottom: 10px;
+      right: 10px;
+      transform: rotate(-20deg);
+    }
   </style>
 </head>
 <body>
   <div class="stars" aria-hidden="true"></div>
 
   <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
-
   <div class="container">
     <div class="letter">
       <p>My dearest Bunny 🐇💞,</p>
@@ -198,6 +256,7 @@
       <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
       <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3" />
       <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4" />
+      <!-- 5th photo removed -->
       <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
       <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
     </div>
@@ -213,11 +272,11 @@
       </div>
     </div>
   </div>
-
   <footer>With all my love, always 💌🐾</footer>
 
+  <!-- Flower petals floating creation -->
   <script>
-    // Floating hearts
+    // Create floating hearts
     function createHeart() {
       const heart = document.createElement('div');
       heart.classList.add('heart');
@@ -230,9 +289,10 @@
     }
     setInterval(createHeart, 400);
 
-    // Stars
+    // Create stars randomly on page load
     const starsContainer = document.querySelector('.stars');
-    for (let i = 0; i < 100; i++) {
+    const starCount = 100;
+    for (let i = 0; i < starCount; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
       const size = Math.random() * 2 + 1;
@@ -243,6 +303,25 @@
       star.style.animationDelay = (Math.random() * 3) + 's';
       starsContainer.appendChild(star);
     }
+
+    // Create floating flower petals
+    function createFlower() {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.top = (window.innerHeight + 20) + 'px';
+      flower.style.width = flower.style.height = (12 + Math.random() * 15) + 'px';
+      flower.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 10000);
+    }
+    setInterval(createFlower, 600);
   </script>
+
+  <!-- Elegant corner flower decorations -->
+  <div class="corner-flower top-left"></div>
+  <div class="corner-flower top-right"></div>
+  <div class="corner-flower bottom-left"></div>
+  <div class="corner-flower bottom-right"></div>
 </body>
 </html>
