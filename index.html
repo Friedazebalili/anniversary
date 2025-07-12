@@ -63,11 +63,28 @@
       box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
       font-size: 1.3rem;
       line-height: 1.6;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       text-align: left;
       font-weight: 600;
       letter-spacing: 0.04em;
       user-select: none;
+    }
+    .audio-player {
+      margin-bottom: 2rem;
+      background: rgba(255, 75, 43, 0.85);
+      padding: 1rem 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 75, 43, 0.6);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    audio {
+      width: 100%;
+      outline: none;
+      border-radius: 8px;
+      box-shadow: 0 0 8px #ff4b2b;
+      background: #1b2735;
     }
     footer {
       background: linear-gradient(90deg, #ff416c, #ff4b2b);
@@ -176,9 +193,6 @@
       overflow: hidden;
       box-shadow: 0 0 25px rgba(255, 75, 43, 0.8);
     }
-    audio {
-      display: none;
-    }
   </style>
 </head>
 <body>
@@ -192,6 +206,14 @@
       <p>Long distance has never been easy 😢📱, but every video call 📹💬, every message 📩❤️, and every shared memory 📸💑 makes it all worth it 🌈✨. Soon, the distance will be just a memory 🕰️💭. One day, we'll build our own little family 👶🐣, share a home 🏡💞, hold hands every morning 🤝🌅, and fall asleep beside each other every night 🌙💤.</p>
       <p>Until then, hold on to this love 💓👐, because I'm holding onto you tightly 🤗🐰.</p>
       <p>Forever yours, 💌<br><strong>Blue 💙🐾</strong></p>
+    </div>
+
+    <!-- Audio Player Added -->
+    <div class="audio-player">
+      <audio controls>
+        <source src="https://archive.org/download/recording_20250712/Araw%20Araw%20by%20Your%20Sexy%20Husband.m4a" type="audio/m4a" />
+        Your browser does not support the audio element.
+      </audio>
     </div>
 
     <div class="collage" aria-label="Photo collage">
