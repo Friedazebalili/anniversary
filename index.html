@@ -3,136 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Quest for My Bunny 🐰💖</title>
+    <title>A Valentine's Adventure 🐰💖</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Varela+Round&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --pink: #ff4757;
+            --soft-pink: #ffdde1;
+            --dark-pink: #d63384;
+        }
+
         body {
             margin: 0; padding: 0;
             font-family: 'Varela Round', sans-serif;
-            background: radial-gradient(circle at center, #ffdde1 0%, #ee9ca7 100%);
+            background: radial-gradient(circle at center, var(--soft-pink) 0%, #ee9ca7 100%);
             height: 100vh; overflow: hidden;
             display: flex; justify-content: center; align-items: center; text-align: center;
         }
 
         .container {
             background: rgba(255, 255, 255, 0.95);
-            padding: 2rem; border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.3);
+            padding: 2.5rem; border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(214, 51, 132, 0.3);
             max-width: 90%; width: 450px;
-            position: relative; z-index: 10; border: 4px solid #fff;
+            position: relative; z-index: 10; border: 5px solid #fff;
         }
 
-        h1 { font-family: 'Pacifico', cursive; color: #d63384; font-size: 1.8rem; margin: 10px 0; }
-        p { color: #4b1e2f; font-size: 1rem; font-weight: bold; margin-bottom: 20px; }
+        h1 { font-family: 'Pacifico', cursive; color: var(--dark-pink); font-size: 2.2rem; margin: 10px 0; }
+        p { color: #4b1e2f; font-size: 1.1rem; line-height: 1.4; }
 
-        .stage { display: none; }
-        #stage1 { display: block; }
+        /* Stages */
+        .stage { display: none; animation: fadeIn 0.5s ease-in; }
+        #stage0 { display: block; }
 
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+        /* Game Elements */
         .btn-main {
-            background: #ff4757; color: white; border: none;
-            padding: 12px 25px; border-radius: 50px; cursor: pointer;
-            font-weight: bold; transition: 0.2s;
+            background: var(--pink); color: white; border: none;
+            padding: 15px 40px; border-radius: 50px; cursor: pointer;
+            font-size: 1.2rem; font-weight: bold; transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
         }
+        .btn-main:hover { transform: translateY(-3px) scale(1.05); background: #ff6b81; }
 
-        /* Task Elements */
-        .moving-item { position: fixed; cursor: pointer; z-index: 100; transition: transform 0.2s; font-size: 2.5rem; }
-        .bunny-box { font-size: 4rem; cursor: pointer; display: inline-block; transition: 0.1s; }
+        .interactive-obj { position: fixed; cursor: pointer; z-index: 100; font-size: 3rem; transition: 0.2s; }
+        .bunny-avatar { font-size: 5rem; cursor: pointer; display: inline-block; transition: 0.2s; }
         
-        /* Level 2 Progress Bar */
-        #bar-container { width: 100%; background: #eee; border-radius: 10px; height: 20px; margin-top: 10px; }
-        #bar-fill { width: 0%; background: #ff4757; height: 100%; border-radius: 10px; transition: 0.1s; }
+        @keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-100px); } }
+        .jump-anim { animation: jump 0.6s ease-out; }
 
+        /* Final Stage Buttons */
         .btn-group { margin-top: 2rem; position: relative; height: 100px; }
-        .btn-no { background: #ced4da; color: #6c757d; position: absolute; left: 50%; transform: translateX(-50%); z-index: 50; }
+        .btn-no { background: #ced4da; color: #6c757d; position: absolute; left: 50%; transform: translateX(-50%); border: none; padding: 12px 30px; border-radius: 50px; cursor: pointer; }
 
-        /* THE DANCING BUNNY AT THE END */
-        .celebration-gif {
-            width: 250px; 
-            height: auto;
-            border-radius: 15px; 
-            margin: 15px 0; 
-            border: 5px solid #fff;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .dancing-bunny { width: 240px; border-radius: 20px; margin: 15px 0; border: 4px solid #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
-        @keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-70px); } }
-        .jump-anim { animation: jump 0.5s ease-in-out; }
-
-        .floating { position: fixed; opacity: 0.3; pointer-events: none; animation: floatMove 6s infinite ease-in-out; }
-        @keyframes floatMove { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+        /* Floating Decorations */
+        .floating { position: fixed; opacity: 0.4; pointer-events: none; animation: floatAnim 6s infinite ease-in-out; }
+        @keyframes floatAnim { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-30px) rotate(10deg); } }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <div id="stage0" class="stage">
+            <div style="font-size: 4rem;">👋🐰</div>
+            <h1>Hi, My Sweet Bunny!</h1>
+            <p>I have a special surprise for you, but first... let's play a little game!</p>
+            <button class="btn-main" onclick="nextStage(1)">Let's Play! ✨</button>
+        </div>
+
         <div id="stage1" class="stage">
-            <h1>Level 1: Carrot Hunt 🥕</h1>
-            <p>Find 3 carrots hidden on the screen!</p>
-            <div id="count1">Found: 0/3</div>
+            <h1>Level 1: Hungry Bunny 🥕</h1>
+            <p>I'm so hungry! Can you find <b>3 carrots</b> hidden on the screen?</p>
+            <p id="count1" style="color: var(--pink); font-weight: bold;">Found: 0/3</p>
         </div>
 
         <div id="stage2" class="stage">
-            <h1>Level 2: Bunny Massage 💆‍♀️</h1>
-            <p>Click the bunny fast to fill the bar!</p>
-            <div class="bunny-box" onclick="massageTask()">🐰</div>
-            <div id="bar-container"><div id="bar-fill"></div></div>
+            <h1>Level 2: Bunny Love ✨</h1>
+            <p>I love head scratches! <b>Pet the bunny 5 times</b> to make her heart melt.</p>
+            <div class="bunny-avatar" id="petBunny" onclick="petTask()">🐰</div>
+            <p id="count2" style="color: var(--pink); font-weight: bold;">Pets: 0/5</p>
         </div>
 
         <div id="stage3" class="stage">
-            <h1>Level 3: Heart Catcher ❤️</h1>
-            <p>Catch 5 moving hearts!</p>
-            <div id="count3">Caught: 0/5</div>
+            <h1>Level 3: Bunny Jump! 🚀</h1>
+            <p>Click the bunny to make her <b>jump to the moon!</b> (5 Jumps)</p>
+            <div class="bunny-box bunny-avatar" id="jumpBunny" onclick="jumpTask()">🐰</div>
+            <p id="count3" style="color: var(--pink); font-weight: bold;">Jumps: 0/5</p>
         </div>
 
         <div id="stage4" class="stage">
             <h1>Level 4: Mirror Mirror 👑</h1>
-            <p>Who is my beautiful Valentine?</p>
-            <button class="btn-main" onclick="nextStage(5)">Me (Your Bunny) 🐰💖</button>
+            <p>Quick! Who is the most beautiful and amazing girl in the whole universe?</p>
+            <button class="btn-main" onclick="nextStage(5)">It's Me! (Your Bunny) 🐰💖</button>
         </div>
 
         <div id="stage5" class="stage">
-            <h1>Level 5: Bunny Jump 🚀</h1>
-            <p>Make the bunny jump 5 times!</p>
-            <div id="jumpBunny" class="bunny-box" onclick="jumpTask()">🐰</div>
-            <div id="count5">Jumps: 0/5</div>
+            <h1>Level 5: Catch a Kiss 💋</h1>
+            <p>Catch <b>3 flying kisses</b> to unlock the final surprise!</p>
+            <p id="count5" style="color: var(--pink); font-weight: bold;">Kisses: 0/3</p>
         </div>
 
         <div id="stage6" class="stage">
-            <h1>Level 6: Kiss Hunt 💋</h1>
-            <p>Catch 3 moving kisses!</p>
-            <div id="count6">Kisses caught: 0/3</div>
-        </div>
-
-        <div id="stage7" class="stage">
-            <div style="font-size: 3rem;">🐰💘</div>
+            <div style="font-size: 3rem;">🐰💝</div>
             <h1>The Final Level...</h1>
-            <h2 style="color: #d63384; font-family: 'Pacifico';">Will you be my Valentine?</h2>
+            <h2 style="font-family: 'Pacifico'; color: var(--dark-pink);">Will you be my Valentine?</h2>
             <div class="btn-group">
                 <button class="btn-main" onclick="showSuccess()">YES! 😍</button>
-                <button class="btn-no" id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()">NO 😢</button>
+                <button class="btn-no" id="noBtn" onmouseover="moveNo()">NO 😢</button>
             </div>
         </div>
 
-        <div id="stage8" class="stage">
-            <h1>MISSION COMPLETE! 💖🎉</h1>
-            <p>You're officially my Valentine!</p>
-            
-            <img src="https://media.tenor.com/8vW9Rk6P_q0AAAAi/bunny-flag.gif" alt="Dancing Bunny with Flag" class="celebration-gif">
-            
-            <p>I love you endlessly, my Bunny! 💋💐</p>
+        <div id="stage7" class="stage">
+            <h1>YAY! MISSION COMPLETE! 💖</h1>
+            <p>You're my one and only Valentine!</p>
+            <img src="https://media.tenor.com/8vW9Rk6P_q0AAAAi/bunny-flag.gif" alt="Dancing Bunny with Flag" class="dancing-bunny">
+            <p>I love you so much! 💋💐🐰</p>
         </div>
     </div>
 
     <script>
-        // BACKGROUND DECOR
-        const icons = ['💖', '🐰', '✨', '🌸'];
+        // Background Decor
+        const deco = ['💖', '✨', '🌸', '🐰'];
         for(let i=0; i<20; i++) {
             let d = document.createElement('div');
-            d.className = 'floating'; d.innerHTML = icons[Math.floor(Math.random()*icons.length)];
-            d.style.left = Math.random()*100+'vw'; d.style.top = Math.random()*100+'vh';
-            d.style.fontSize = '25px'; d.style.animationDelay = Math.random()*5+'s';
+            d.className = 'floating';
+            d.innerHTML = deco[Math.floor(Math.random()*deco.length)];
+            d.style.left = Math.random()*100+'vw';
+            d.style.top = Math.random()*100+'vh';
+            d.style.fontSize = (Math.random()*20+20)+'px';
+            d.style.animationDelay = (Math.random()*5)+'s';
             document.body.appendChild(d);
         }
 
@@ -140,83 +141,87 @@
             document.querySelectorAll('.stage').forEach(s => s.style.display = 'none');
             document.getElementById('stage'+n).style.display = 'block';
             if(n===1) spawnItems('carrot', 3, 1);
-            if(n===3) spawnItems('moving-heart', 5, 3);
-            if(n===6) spawnItems('moving-kiss', 3, 6);
+            if(n===5) spawnItems('kiss', 3, 5);
         }
 
-        // TASK LOGIC
-        function spawnItems(cls, total, stageNum) {
+        // Level 1 & 5: Spawning Items
+        function spawnItems(type, total, stageNum) {
             let found = 0;
-            const emojiMap = { 'carrot': '🥕', 'moving-heart': '❤️', 'moving-kiss': '💋' };
+            const icon = type === 'carrot' ? '🥕' : '💋';
             for(let i=0; i<total; i++) {
                 let item = document.createElement('div');
-                item.className = 'moving-item';
-                item.innerHTML = emojiMap[cls];
+                item.className = 'interactive-obj';
+                item.innerHTML = icon;
                 item.style.left = (10+Math.random()*80)+'vw';
                 item.style.top = (10+Math.random()*80)+'vh';
                 
-                if(cls.includes('moving')) {
-                    item.style.transition = "all 0.6s ease";
+                if(type === 'kiss') {
+                    item.style.transition = "all 0.8s ease";
                     setInterval(() => {
-                        item.style.left = (10+Math.random()*80)+'vw';
-                        item.style.top = (10+Math.random()*80)+'vh';
-                    }, 800);
+                        item.style.left = (Math.random()*90)+'vw';
+                        item.style.top = (Math.random()*90)+'vh';
+                    }, 1000);
                 }
 
                 item.onclick = function() {
                     this.remove(); found++;
-                    let label = cls === 'carrot' ? 'Found: ' : (cls === 'moving-heart' ? 'Caught: ' : 'Kisses: ');
-                    document.getElementById('count'+stageNum).innerHTML = label + found + '/' + total;
+                    document.getElementById('count'+stageNum).innerHTML = (type==='carrot'?'Found: ':'Kisses: ') + found + '/' + total;
                     if(found === total) nextStage(stageNum + 1);
                 };
                 document.body.appendChild(item);
             }
         }
 
-        let progress=0; 
-        function massageTask(){ 
-            progress += 10;
-            document.getElementById('bar-fill').style.width = progress + '%';
-            if(progress >= 100) nextStage(3);
+        // Level 2: Petting
+        let pets = 0;
+        function petTask() {
+            pets++;
+            const b = document.getElementById('petBunny');
+            b.style.transform = 'scale(1.3)';
+            setTimeout(() => b.style.transform = 'scale(1)', 150);
+            document.getElementById('count2').innerHTML = "Pets: " + pets + "/5";
+            if(pets === 5) {
+                b.innerHTML = '🥰';
+                setTimeout(() => nextStage(3), 800);
+            }
         }
 
-        let jumps=0; 
-        function jumpTask(){
-            jumps++; document.getElementById('count5').innerHTML = "Jumps: "+jumps+"/5";
-            let b = document.getElementById('jumpBunny');
+        // Level 3: Jumping
+        let jumps = 0;
+        function jumpTask() {
+            jumps++;
+            const b = document.getElementById('jumpBunny');
             b.classList.add('jump-anim');
-            setTimeout(()=>b.classList.remove('jump-anim'), 500);
-            if(jumps===5) nextStage(6);
+            setTimeout(() => b.classList.remove('jump-anim'), 600);
+            document.getElementById('count3').innerHTML = "Jumps: " + jumps + "/5";
+            if(jumps === 5) nextStage(4);
         }
 
-        // NO BUTTON CHASE
-        let nScale = 1;
+        // Level 6: Move No Button
+        let noScale = 1;
         function moveNo() {
-            let b = document.getElementById('noBtn');
+            const b = document.getElementById('noBtn');
             b.style.position = 'fixed';
-            b.style.left = Math.random()*70+'vw'; b.style.top = Math.random()*70+'vh';
-            nScale -= 0.1; if(nScale<0.3) nScale=0.3;
-            b.style.transform = `scale(${nScale})`;
+            b.style.left = Math.random()*70+'vw';
+            b.style.top = Math.random()*80+'vh';
+            noScale -= 0.1;
+            if(noScale < 0.4) noScale = 0.4;
+            b.style.transform = `scale(${noScale})`;
         }
 
+        // Final Celebration
         function showSuccess() {
-            nextStage(8);
-            startRain();
-        }
-
-        function startRain() {
+            nextStage(7);
             setInterval(() => {
                 let p = document.createElement('div');
                 p.innerHTML = '🌸'; p.style.position = 'fixed';
                 p.style.left = Math.random()*100+'vw'; p.style.top = '-20px';
-                p.style.transition = '4s linear';
+                p.style.transition = '4s linear'; p.style.zIndex = '1';
                 document.body.appendChild(p);
                 setTimeout(() => { p.style.top = '110vh'; p.style.transform = 'rotate(360deg)'; }, 100);
                 setTimeout(() => p.remove(), 4000);
             }, 150);
         }
-
-        nextStage(1);
     </script>
 </body>
 </html>
