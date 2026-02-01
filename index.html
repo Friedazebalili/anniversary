@@ -23,14 +23,13 @@ body {
 }
 
 .container {
-    background: rgba(255,255,255,0.9);
-    padding: 2rem;
+    background: rgba(255,255,255,0.92);
+    padding: 1.5rem;
     border-radius: 25px;
-    width: 90%;
-    max-width: 420px;
+    width: 95%;
+    max-width: 520px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(255,105,180,.35);
-    position: relative;
 }
 
 h1 {
@@ -45,25 +44,28 @@ p { color: #721c24; }
 
 .memory-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-top: 20px;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    margin-top: 15px;
 }
 
 .card {
     background: #ffd6e0;
-    border-radius: 15px;
-    height: 80px;
-    font-size: 2rem;
+    border-radius: 12px;
+    height: 55px;
+    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform .2s;
+    transition: transform .15s, background .2s;
 }
 
 .card:hover { transform: scale(1.05); }
-.card.done { background: #ff9aa2; }
+.card.done {
+    background: #ff9aa2;
+    cursor: default;
+}
 
 /* ===== HEART GAME ===== */
 #heart-stage { display: none; }
@@ -135,7 +137,7 @@ button {
 <!-- MEMORY GAME -->
 <div id="memory-stage">
     <h1>Bunny Memory 🐰</h1>
-    <p>Match all the pairs 💖</p>
+    <p>Match all 20 pairs 💖</p>
     <div class="memory-grid" id="memoryGrid"></div>
 </div>
 
@@ -176,9 +178,14 @@ button {
 
 <script>
 /* ===== MEMORY GAME ===== */
-const icons = ['🐰','🐰','💖','💖','🥕','🥕''🐰','🐰','💖','💖','🥕','🥕''🐰','🐰','💖','💖','🥕','🥕''🐰','🐰','💖','💖','🥕','🥕''🐰','🐰','💖','💖','🥕','🥕''🐰','🐰','💖','💖','🥕','🥕''🐰','🐰','💖','💖','🥕','🥕''🐰','🐰','💖','💖','🥕','🥕'];
-icons.sort(() => Math.random() - .5);
+const baseIcons = [
+  '🐰','💖','🥕','🌸','🍓','🧸','🎀','✨','💕','🌷',
+  '🐇','💐','🍪','🍫','🌈','⭐','💘','🐝','🍯','🎈'
+];
+
+const icons = [...baseIcons, ...baseIcons].sort(() => Math.random() - 0.5);
 const grid = document.getElementById('memoryGrid');
+
 let opened = [];
 let matches = 0;
 
@@ -186,21 +193,24 @@ icons.forEach(icon => {
     const card = document.createElement('div');
     card.className = 'card';
     card.textContent = '❔';
-    card.onclick = () => flip(card, icon);
+    card.addEventListener('click', () => flip(card, icon));
     grid.appendChild(card);
 });
 
 function flip(card, icon) {
     if (opened.length < 2 && !card.classList.contains('done')) {
         card.textContent = icon;
-        opened.push({card, icon});
+        opened.push({ card, icon });
 
         if (opened.length === 2) {
             if (opened[0].icon === opened[1].icon) {
                 opened.forEach(o => o.card.classList.add('done'));
                 matches++;
                 opened = [];
-                if (matches === 3) startHeartGame();
+
+                if (matches === 20) {
+                    setTimeout(startHeartGame, 600);
+                }
             } else {
                 setTimeout(() => {
                     opened.forEach(o => o.card.textContent = '❔');
@@ -263,5 +273,3 @@ function sayYes() {
 
 </body>
 </html>
-
-
