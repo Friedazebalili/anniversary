@@ -17,284 +17,193 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            user-select: none;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);
             max-width: 90%;
-            width: 500px;
+            width: 450px;
             position: relative;
             z-index: 10;
-            backdrop-filter: blur(5px);
-            border: 2px solid #fff;
-            transition: transform 0.3s;
+            border: 4px solid #fff;
         }
 
-        h1 {
-            font-family: 'Pacifico', cursive;
-            color: #d63384;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
-        }
+        h1 { font-family: 'Pacifico', cursive; color: #d63384; font-size: 2.2rem; }
+        p { color: #4b1e2f; font-size: 1.1rem; }
 
-        p {
-            color: #721c24;
-            font-size: 1.2rem;
-            line-height: 1.5;
-        }
+        /* Stages */
+        .stage { display: none; }
+        #stage1 { display: block; }
 
-        /* --- STAGE 1: THE GAME --- */
-        #game-stage {
-            display: block;
-        }
+        /* Interactive Elements */
+        .carrot { position: fixed; font-size: 2.5rem; cursor: pointer; z-index: 100; transition: 0.3s; }
         
-        .carrot {
-            position: absolute;
-            font-size: 2rem;
+        .bunny-avatar {
+            font-size: 5rem;
             cursor: pointer;
+            display: inline-block;
             transition: transform 0.2s;
-            animation: bounce 2s infinite;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
         }
-        .carrot:active {
-            transform: scale(0.8);
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+        .bunny-avatar:active { transform: scale(1.3); }
 
-        /* --- STAGE 2: THE QUESTION --- */
-        #proposal-stage {
-            display: none;
-        }
-
-        .bunny-img {
-            width: 180px;
-            height: auto;
-            border-radius: 15px;
-            margin: 10px 0;
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
-        }
-
-        .btn-group {
-            margin-top: 2rem;
-            position: relative;
-            height: 60px; /* Space for buttons */
-        }
-
+        .btn-group { margin-top: 2rem; position: relative; height: 100px; }
+        
         button {
-            padding: 12px 30px;
+            padding: 15px 35px;
             font-size: 1.2rem;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-family: 'Varela Round', sans-serif;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+            transition: 0.2s;
         }
 
-        .btn-yes {
-            background: #ff4757;
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
-        }
-        .btn-yes:hover {
-            transform: scale(1.1);
-            background: #ff6b81;
-        }
+        .btn-yes { background: #ff4757; color: white; box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4); }
+        .btn-no { background: #ced4da; color: #6c757d; position: absolute; left: 50%; transform: translateX(-50%); }
 
-        .btn-no {
-            background: #eccc68;
-            color: #555;
-            position: absolute;
-            /* Start position next to Yes */
-            left: 60%; 
-            transform: translateX(-50%);
-            transition: all 0.1s ease; /* Fast movement */
-        }
-
-        /* --- STAGE 3: CELEBRATION --- */
-        #success-stage {
-            display: none;
-        }
-        .big-kiss {
-            font-size: 5rem;
-            animation: kissPop 1s ease-out infinite alternate;
-        }
-        @keyframes kissPop {
-            0% { transform: scale(1) rotate(-10deg); }
-            100% { transform: scale(1.2) rotate(10deg); }
-        }
-
-        /* --- FLOATING BACKGROUND ELEMENTS --- */
-        .bg-icon {
-            position: absolute;
-            z-index: 0;
-            opacity: 0.6;
-            animation: float 6s ease-in-out infinite;
-        }
+        /* Animations */
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
-
+        .floating { position: fixed; opacity: 0.5; animation: float 5s infinite ease-in-out; pointer-events: none; }
     </style>
 </head>
 <body>
 
-    <div class="bg-icon" style="top: 10%; left: 10%; font-size: 3rem;">🐰</div>
-    <div class="bg-icon" style="bottom: 15%; right: 10%; font-size: 2.5rem; animation-delay: 1s;">🥕</div>
-    <div class="bg-icon" style="top: 20%; right: 20%; font-size: 3rem; animation-delay: 2s;">💖</div>
-    <div class="bg-icon" style="bottom: 10%; left: 15%; font-size: 2rem; animation-delay: 3s;">🌸</div>
-
     <div class="container">
-        
-        <div id="game-stage">
-            <h1>Wait! A Mission... 🕵️‍♀️</h1>
-            <p>To unlock my heart, you must feed the bunny!</p>
-            <p><strong>Find and click the 3 hidden carrots 🥕</strong></p>
-            <div id="carrot-container">
-                </div>
-            <p style="font-size: 0.9rem; margin-top: 20px; color: #888;">(Hint: They are hiding on the screen!)</p>
+        <div id="stage1" class="stage">
+            <h1>Level 1: Hungry Bunny! 🥕</h1>
+            <p>My bunny is hungry! Find <b>3 carrots</b> hidden around the screen to feed her.</p>
+            <p id="count">Carrots Found: 0/3</p>
         </div>
 
-        <div id="proposal-stage">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzJrdnZ6bHlpMG13Z2x4ZnJ6eG54bnA4M3A0bWF4bDVjMzF5bHdrciZlcD12MV9zdGlja2VyX3NlYXJjaCZjdD1z/kZqbBT64XCxoc/giphy.gif" alt="Cute Bunny" class="bunny-img">
-            <h1>My Dearest Bunny...</h1>
-            <p>You make my heart hop! 🐇💓<br>I have a very important question...</p>
-            <h2 style="color: #d63384; font-family:'Pacifico';">Will you be my Valentine?</h2>
+        <div id="stage2" class="stage">
+            <h1>Level 2: Happy Bunny! ✨</h1>
+            <p>Great job! Now, <b>pet the bunny 5 times</b> to make her heart melt.</p>
+            <div class="bunny-avatar" id="petBunny" onclick="petBunny()">🐰</div>
+            <p id="petCount">Pets given: 0/5</p>
+        </div>
+
+        <div id="stage3" class="stage">
+            <div style="font-size: 4rem;">🐰❤️</div>
+            <h1>The Final Question...</h1>
+            <p>You've completed the tasks, my Sweet Bunny. Now there is only one thing left to ask...</p>
+            <h2 style="color: #ff4757; font-family: 'Pacifico';">Will you be my Valentine?</h2>
             
             <div class="btn-group">
-                <button class="btn-yes" onclick="sayYes()">YES! 😍</button>
-                <button class="btn-no" id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">NO 😢</button>
+                <button class="btn-yes" onclick="showSuccess()">YES! 😍</button>
+                <button class="btn-no" id="noBtn" onmouseover="moveNo()">NO 😢</button>
             </div>
         </div>
 
-        <div id="success-stage">
-            <h1>YAY!!! 🎉💃🏻</h1>
-            <div class="big-kiss">💋💐</div>
-            <p>You are officially my Valentine!</p>
-            <p>I love you so much! 💖🐇</p>
-            <img src="https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Hug" style="width: 200px; border-radius: 10px;">
+        <div id="stage4" class="stage">
+            <h1 style="font-size: 3rem;">YAY! 💖🎉</h1>
+            <div style="font-size: 5rem;">💋💐🐰</div>
+            <p>You made me the luckiest person alive!</p>
+            <p><b>I love you endlessly!</b></p>
+            <p>See you soon, my Valentine! ✨🐾</p>
         </div>
-
     </div>
 
     <script>
-        // --- GAME LOGIC ---
-        let carrotsFound = 0;
-        const totalCarrots = 3;
-        
-        // Function to create carrots at random positions outside the main box
+        // --- DECORATIONS ---
+        const icons = ['💖', '🐰', '🌸', '✨', '💕'];
+        for (let i = 0; i < 15; i++) {
+            let div = document.createElement('div');
+            div.className = 'floating';
+            div.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+            div.style.left = Math.random() * 100 + 'vw';
+            div.style.top = Math.random() * 100 + 'vh';
+            div.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            div.style.animationDelay = (Math.random() * 5) + 's';
+            document.body.appendChild(div);
+        }
+
+        // --- LEVEL 1: CARROTS ---
+        let carrots = 0;
         function spawnCarrots() {
-            for(let i=0; i<totalCarrots; i++) {
+            for (let i = 0; i < 3; i++) {
                 let c = document.createElement('div');
-                c.innerHTML = '🥕';
                 c.className = 'carrot';
-                // Random position logic (keeping them visible)
-                c.style.left = Math.random() * (window.innerWidth - 50) + 'px';
-                c.style.top = Math.random() * (window.innerHeight - 50) + 'px';
-                c.style.zIndex = 100; // Above everything
-                
+                c.innerHTML = '🥕';
+                c.style.left = (10 + Math.random() * 80) + 'vw';
+                c.style.top = (10 + Math.random() * 80) + 'vh';
                 c.onclick = function() {
-                    this.style.transition = "transform 0.5s, opacity 0.5s";
-                    this.style.transform = "scale(2) rotate(360deg)";
-                    this.style.opacity = "0";
-                    setTimeout(() => this.remove(), 500);
-                    carrotsFound++;
-                    if(carrotsFound === totalCarrots) {
-                        setTimeout(showProposal, 800);
-                    }
+                    this.remove();
+                    carrots++;
+                    document.getElementById('count').innerHTML = `Carrots Found: ${carrots}/3`;
+                    if (carrots === 3) nextStage(2);
                 };
                 document.body.appendChild(c);
             }
         }
-        
         spawnCarrots();
 
-        function showProposal() {
-            document.getElementById('game-stage').style.display = 'none';
-            document.getElementById('proposal-stage').style.display = 'block';
-            createPetals(); // Start falling petals
+        // --- LEVEL 2: PETTING ---
+        let pets = 0;
+        function petBunny() {
+            pets++;
+            const bunny = document.getElementById('petBunny');
+            bunny.style.transform = 'scale(1.3)';
+            setTimeout(() => { bunny.style.transform = 'scale(1)'; }, 200);
+            
+            document.getElementById('petCount').innerHTML = `Pets given: ${pets}/5`;
+            if (pets === 5) {
+                bunny.innerHTML = '🥰';
+                setTimeout(() => nextStage(3), 1000);
+            }
         }
 
-        // --- NO BUTTON LOGIC (THE CHASE) ---
-        function moveButton() {
+        // --- UTILS ---
+        function nextStage(num) {
+            document.querySelectorAll('.stage').forEach(s => s.style.display = 'none');
+            document.getElementById('stage' + num).style.display = 'block';
+        }
+
+        let noScale = 1;
+        function moveNo() {
             const btn = document.getElementById('noBtn');
-            const container = document.querySelector('.container');
-            
-            // Get container dimensions to keep button inside or near
-            const rect = container.getBoundingClientRect();
-            
-            // Calculate new random position relative to the viewport
-            // We make it jump quite far
             const x = Math.random() * (window.innerWidth - 100);
             const y = Math.random() * (window.innerHeight - 50);
-
-            btn.style.position = 'fixed'; // Break it out of the flow
+            
+            btn.style.position = 'fixed';
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
             
-            // Change text randomly for humor
-            const texts = ["Are you sure?", "You can't catch me!", "Try again!", "Nope!", "Wrong button!"];
-            btn.innerText = texts[Math.floor(Math.random() * texts.length)];
+            // Make the button smaller every time she tries to click it
+            noScale -= 0.1;
+            if (noScale < 0.3) noScale = 0.3;
+            btn.style.transform = `scale(${noScale})`;
         }
 
-        // --- YES BUTTON LOGIC ---
-        function sayYes() {
-            document.getElementById('proposal-stage').style.display = 'none';
-            document.getElementById('success-stage').style.display = 'block';
-            
-            // Launch confetti/flowers
-            setInterval(createFlower, 200);
-            setInterval(createHeart, 300);
+        function showSuccess() {
+            nextStage(4);
+            confettiEffect();
         }
 
-        // --- DECORATION LOGIC ---
-        function createFlower() {
-            const flower = document.createElement('div');
-            flower.innerText = '🌸';
-            flower.style.position = 'fixed';
-            flower.style.left = Math.random() * 100 + 'vw';
-            flower.style.top = '-50px';
-            flower.style.fontSize = Math.random() * 20 + 20 + 'px';
-            flower.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
-            flower.style.zIndex = '5';
-            document.body.appendChild(flower);
-            
-            setTimeout(() => { flower.remove() }, 5000);
+        function confettiEffect() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.innerHTML = '🌸';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '-20px';
+                heart.style.fontSize = '20px';
+                heart.style.transition = '5s linear';
+                document.body.appendChild(heart);
+                setTimeout(() => {
+                    heart.style.top = '100vh';
+                    heart.style.transform = `rotate(${Math.random() * 360}deg)`;
+                }, 100);
+                setTimeout(() => heart.remove(), 5000);
+            }, 100);
         }
-
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.innerText = '💖';
-            heart.style.position = 'fixed';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.top = '-50px';
-            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
-            heart.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
-            heart.style.zIndex = '5';
-            document.body.appendChild(heart);
-            
-            setTimeout(() => { heart.remove() }, 5000);
-        }
-
-        // Add the fall animation style dynamically
-        const styleSheet = document.createElement("style");
-        styleSheet.innerText = `
-            @keyframes fall {
-                to {
-                    transform: translateY(100vh) rotate(360deg);
-                }
-            }
-        `;
-        document.head.appendChild(styleSheet);
-
     </script>
 </body>
 </html>
