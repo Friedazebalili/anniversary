@@ -1,300 +1,154 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Bunny 🐰💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Varela+Round&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Varela Round', sans-serif;
-            background: radial-gradient(circle at center, #ffdde1 0%, #ee9ca7 100%);
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            user-select: none;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
-            max-width: 90%;
-            width: 500px;
-            position: relative;
-            z-index: 10;
-            backdrop-filter: blur(5px);
-            border: 2px solid #fff;
-            transition: transform 0.3s;
-        }
-
-        h1 {
-            font-family: 'Pacifico', cursive;
-            color: #d63384;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
-        }
-
-        p {
-            color: #721c24;
-            font-size: 1.2rem;
-            line-height: 1.5;
-        }
-
-        /* --- STAGE 1: THE GAME --- */
-        #game-stage {
-            display: block;
-        }
-        
-        .carrot {
-            position: absolute;
-            font-size: 2rem;
-            cursor: pointer;
-            transition: transform 0.2s;
-            animation: bounce 2s infinite;
-        }
-        .carrot:active {
-            transform: scale(0.8);
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* --- STAGE 2: THE QUESTION --- */
-        #proposal-stage {
-            display: none;
-        }
-
-        .bunny-img {
-            width: 180px;
-            height: auto;
-            border-radius: 15px;
-            margin: 10px 0;
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
-        }
-
-        .btn-group {
-            margin-top: 2rem;
-            position: relative;
-            height: 60px; /* Space for buttons */
-        }
-
-        button {
-            padding: 12px 30px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: 'Varela Round', sans-serif;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-yes {
-            background: #ff4757;
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
-        }
-        .btn-yes:hover {
-            transform: scale(1.1);
-            background: #ff6b81;
-        }
-
-        .btn-no {
-            background: #eccc68;
-            color: #555;
-            position: absolute;
-            /* Start position next to Yes */
-            left: 60%; 
-            transform: translateX(-50%);
-            transition: all 0.1s ease; /* Fast movement */
-        }
-
-        /* --- STAGE 3: CELEBRATION --- */
-        #success-stage {
-            display: none;
-        }
-        .big-kiss {
-            font-size: 5rem;
-            animation: kissPop 1s ease-out infinite alternate;
-        }
-        @keyframes kissPop {
-            0% { transform: scale(1) rotate(-10deg); }
-            100% { transform: scale(1.2) rotate(10deg); }
-        }
-
-        /* --- FLOATING BACKGROUND ELEMENTS --- */
-        .bg-icon {
-            position: absolute;
-            z-index: 0;
-            opacity: 0.6;
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-    </style>
-</head>
 <body>
 
-    <div class="bg-icon" style="top: 10%; left: 10%; font-size: 3rem;">🐰</div>
-    <div class="bg-icon" style="bottom: 15%; right: 10%; font-size: 2.5rem; animation-delay: 1s;">🥕</div>
-    <div class="bg-icon" style="top: 20%; right: 20%; font-size: 3rem; animation-delay: 2s;">💖</div>
-    <div class="bg-icon" style="bottom: 10%; left: 15%; font-size: 2rem; animation-delay: 3s;">🌸</div>
+<div class="bg-icon" style="top: 8%; left: 8%; font-size: 3rem;">🐰</div>
+<div class="bg-icon" style="bottom: 12%; right: 8%; font-size: 2.5rem;">💖</div>
+<div class="bg-icon" style="top: 20%; right: 18%; font-size: 3rem;">✨</div>
+<div class="bg-icon" style="bottom: 15%; left: 15%; font-size: 2rem;">🌸</div>
 
-    <div class="container">
-        
-        <div id="game-stage">
-            <h1>Wait! A Mission... 🕵️‍♀️</h1>
-            <p>To unlock my heart, you must feed the bunny!</p>
-            <p><strong>Find and click the 3 hidden carrots 🥕</strong></p>
-            <div id="carrot-container">
-                </div>
-            <p style="font-size: 0.9rem; margin-top: 20px; color: #888;">(Hint: They are hiding on the screen!)</p>
-        </div>
+<div class="container">
 
-        <div id="proposal-stage">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzJrdnZ6bHlpMG13Z2x4ZnJ6eG54bnA4M3A0bWF4bDVjMzF5bHdrciZlcD12MV9zdGlja2VyX3NlYXJjaCZjdD1z/kZqbBT64XCxoc/giphy.gif" alt="Cute Bunny" class="bunny-img">
-            <h1>My Dearest Bunny...</h1>
-            <p>You make my heart hop! 🐇💓<br>I have a very important question...</p>
-            <h2 style="color: #d63384; font-family:'Pacifico';">Will you be my Valentine?</h2>
-            
-            <div class="btn-group">
-                <button class="btn-yes" onclick="sayYes()">YES! 😍</button>
-                <button class="btn-no" id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">NO 😢</button>
-            </div>
-        </div>
+    <!-- STAGE 1: MEMORY GAME -->
+    <div id="memory-stage">
+        <h1>Bunny Memory Test 🧠🐰</h1>
+        <p>Match all the bunny pairs to continue 💕</p>
 
-        <div id="success-stage">
-            <h1>YAY!!! 🎉💃🏻</h1>
-            <div class="big-kiss">💋💐</div>
-            <p>You are officially my Valentine!</p>
-            <p>I love you so much! 💖🐇</p>
-            <img src="https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Hug" style="width: 200px; border-radius: 10px;">
-        </div>
-
+        <div id="memory-grid"></div>
     </div>
 
-    <script>
-        // --- GAME LOGIC ---
-        let carrotsFound = 0;
-        const totalCarrots = 3;
-        
-        // Function to create carrots at random positions outside the main box
-        function spawnCarrots() {
-            for(let i=0; i<totalCarrots; i++) {
-                let c = document.createElement('div');
-                c.innerHTML = '🥕';
-                c.className = 'carrot';
-                // Random position logic (keeping them visible)
-                c.style.left = Math.random() * (window.innerWidth - 50) + 'px';
-                c.style.top = Math.random() * (window.innerHeight - 50) + 'px';
-                c.style.zIndex = 100; // Above everything
-                
-                c.onclick = function() {
-                    this.style.transition = "transform 0.5s, opacity 0.5s";
-                    this.style.transform = "scale(2) rotate(360deg)";
-                    this.style.opacity = "0";
-                    setTimeout(() => this.remove(), 500);
-                    carrotsFound++;
-                    if(carrotsFound === totalCarrots) {
-                        setTimeout(showProposal, 800);
-                    }
-                };
-                document.body.appendChild(c);
-            }
-        }
-        
-        spawnCarrots();
+    <!-- STAGE 2: MAZE -->
+    <div id="maze-stage" style="display:none;">
+        <h1>Help Bunny Get the Carrot 🥕🐇</h1>
+        <p>Use arrow keys or buttons!</p>
 
-        function showProposal() {
-            document.getElementById('game-stage').style.display = 'none';
-            document.getElementById('proposal-stage').style.display = 'block';
-            createPetals(); // Start falling petals
-        }
+        <div id="maze">
+            <div id="bunny">🐰</div>
+            <div id="goal">🥕</div>
+        </div>
 
-        // --- NO BUTTON LOGIC (THE CHASE) ---
-        function moveButton() {
-            const btn = document.getElementById('noBtn');
-            const container = document.querySelector('.container');
-            
-            // Get container dimensions to keep button inside or near
-            const rect = container.getBoundingClientRect();
-            
-            // Calculate new random position relative to the viewport
-            // We make it jump quite far
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
+        <div class="controls">
+            <button onclick="move('up')">⬆️</button><br>
+            <button onclick="move('left')">⬅️</button>
+            <button onclick="move('down')">⬇️</button>
+            <button onclick="move('right')">➡️</button>
+        </div>
+    </div>
 
-            btn.style.position = 'fixed'; // Break it out of the flow
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-            
-            // Change text randomly for humor
-            const texts = ["Are you sure?", "You can't catch me!", "Try again!", "Nope!", "Wrong button!"];
-            btn.innerText = texts[Math.floor(Math.random() * texts.length)];
-        }
+    <!-- STAGE 3: PROPOSAL (UNCHANGED) -->
+    <div id="proposal-stage" style="display:none;">
+        <img src="https://media.giphy.com/media/kZqbBT64XCxoc/giphy.gif" class="bunny-img">
+        <h1>My Dearest Bunny...</h1>
+        <p>You make my heart hop! 🐇💓</p>
+        <h2 style="color:#d63384;font-family:'Pacifico';">
+            Will you be my Valentine?
+        </h2>
 
-        // --- YES BUTTON LOGIC ---
-        function sayYes() {
-            document.getElementById('proposal-stage').style.display = 'none';
-            document.getElementById('success-stage').style.display = 'block';
-            
-            // Launch confetti/flowers
-            setInterval(createFlower, 200);
-            setInterval(createHeart, 300);
-        }
+        <div class="btn-group">
+            <button class="btn-yes" onclick="sayYes()">YES! 😍</button>
+            <button class="btn-no" id="noBtn"
+                onmouseover="moveButton()"
+                ontouchstart="moveButton()">NO 😢</button>
+        </div>
+    </div>
 
-        // --- DECORATION LOGIC ---
-        function createFlower() {
-            const flower = document.createElement('div');
-            flower.innerText = '🌸';
-            flower.style.position = 'fixed';
-            flower.style.left = Math.random() * 100 + 'vw';
-            flower.style.top = '-50px';
-            flower.style.fontSize = Math.random() * 20 + 20 + 'px';
-            flower.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
-            flower.style.zIndex = '5';
-            document.body.appendChild(flower);
-            
-            setTimeout(() => { flower.remove() }, 5000);
-        }
+    <!-- SUCCESS STAGE (UNCHANGED) -->
+    <div id="success-stage" style="display:none;">
+        <h1>YAY!!! 🎉💃🏻</h1>
+        <div class="big-kiss">💋💐</div>
+        <p>You are officially my Valentine!</p>
+        <p>I love you so much! 💖🐇</p>
+        <img src="https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif"
+             style="width:200px;border-radius:10px;">
+    </div>
 
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.innerText = '💖';
-            heart.style.position = 'fixed';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.top = '-50px';
-            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
-            heart.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
-            heart.style.zIndex = '5';
-            document.body.appendChild(heart);
-            
-            setTimeout(() => { heart.remove() }, 5000);
-        }
+</div>
 
-        // Add the fall animation style dynamically
-        const styleSheet = document.createElement("style");
-        styleSheet.innerText = `
-            @keyframes fall {
-                to {
-                    transform: translateY(100vh) rotate(360deg);
+<script>
+/* ================= MEMORY GAME ================= */
+const symbols = ['🐰','🐰','💖','💖','🥕','🥕'];
+let flipped = [];
+let matched = 0;
+
+const grid = document.getElementById('memory-grid');
+symbols.sort(() => 0.5 - Math.random());
+
+symbols.forEach(sym => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerText = '❔';
+    card.onclick = () => flip(card, sym);
+    grid.appendChild(card);
+});
+
+function flip(card, sym) {
+    if (flipped.length < 2 && !card.classList.contains('done')) {
+        card.innerText = sym;
+        flipped.push({card, sym});
+
+        if (flipped.length === 2) {
+            if (flipped[0].sym === flipped[1].sym) {
+                flipped.forEach(f => f.card.classList.add('done'));
+                matched++;
+                flipped = [];
+                if (matched === 3) {
+                    setTimeout(() => {
+                        document.getElementById('memory-stage').style.display = 'none';
+                        document.getElementById('maze-stage').style.display = 'block';
+                    }, 600);
                 }
+            } else {
+                setTimeout(() => {
+                    flipped.forEach(f => f.card.innerText = '❔');
+                    flipped = [];
+                }, 700);
             }
-        `;
-        document.head.appendChild(styleSheet);
+        }
+    }
+}
 
-    </script>
+/* ================= MAZE GAME ================= */
+let bunny = document.getElementById('bunny');
+let pos = {x: 10, y: 10};
+
+function move(dir) {
+    const step = 20;
+    if (dir === 'up') pos.y -= step;
+    if (dir === 'down') pos.y += step;
+    if (dir === 'left') pos.x -= step;
+    if (dir === 'right') pos.x += step;
+
+    bunny.style.left = pos.x + 'px';
+    bunny.style.top = pos.y + 'px';
+
+    checkWin();
+}
+
+function checkWin() {
+    const goal = document.getElementById('goal').getBoundingClientRect();
+    const bunnyBox = bunny.getBoundingClientRect();
+    if (
+        Math.abs(goal.left - bunnyBox.left) < 30 &&
+        Math.abs(goal.top - bunnyBox.top) < 30
+    ) {
+        document.getElementById('maze-stage').style.display = 'none';
+        document.getElementById('proposal-stage').style.display = 'block';
+    }
+}
+
+/* ================= NO BUTTON ================= */
+function moveButton() {
+    const btn = document.getElementById('noBtn');
+    btn.style.position = 'fixed';
+    btn.style.left = Math.random() * 80 + 'vw';
+    btn.style.top = Math.random() * 80 + 'vh';
+}
+
+/* ================= YES BUTTON (UNCHANGED) ================= */
+function sayYes() {
+    document.getElementById('proposal-stage').style.display = 'none';
+    document.getElementById('success-stage').style.display = 'block';
+    setInterval(createFlower, 200);
+    setInterval(createHeart, 300);
+}
+</script>
 </body>
-</html>
+
