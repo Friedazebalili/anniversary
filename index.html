@@ -15,7 +15,7 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 2rem; border-radius: 30px;
             box-shadow: 0 15px 35px rgba(214, 51, 132, 0.3);
             max-width: 90%; width: 450px;
@@ -28,29 +28,29 @@
         .stage { display: none; }
         #stage1 { display: block; }
 
-        /* Shared Elements */
         .btn-main {
             background: #ff4757; color: white; border: none;
             padding: 12px 25px; border-radius: 50px; cursor: pointer;
             font-weight: bold; transition: 0.2s;
         }
-        .btn-main:hover { transform: scale(1.1); }
 
-        /* Game Specifics */
-        .carrot, .moving-heart { position: fixed; cursor: pointer; z-index: 100; transition: transform 0.2s; font-size: 2.5rem; }
+        /* Task Elements */
+        .carrot, .moving-item { position: fixed; cursor: pointer; z-index: 100; transition: transform 0.2s; font-size: 2.5rem; }
         
         .bunny-box { font-size: 4rem; cursor: pointer; display: inline-block; transition: 0.1s; }
-        .bunny-box:active { transform: translateY(-20px); }
+        
+        /* Level 2 Progress Bar */
+        #bar-container { width: 100%; background: #eee; border-radius: 10px; height: 20px; margin-top: 10px; }
+        #bar-fill { width: 0%; background: #ff4757; height: 100%; border-radius: 10px; transition: 0.1s; }
 
         .btn-group { margin-top: 2rem; position: relative; height: 100px; }
         .btn-no { background: #ced4da; color: #6c757d; position: absolute; left: 50%; transform: translateX(-50%); }
 
-        .celebration-gif { width: 220px; border-radius: 15px; margin: 15px 0; }
+        .celebration-gif { width: 250px; border-radius: 15px; margin: 15px 0; border: 5px solid #fff; }
 
-        @keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-50px); } }
+        @keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-70px); } }
         .jump-anim { animation: jump 0.5s ease-in-out; }
 
-        /* Floating backgrounds */
         .floating { position: fixed; opacity: 0.3; pointer-events: none; animation: floatMove 6s infinite ease-in-out; }
         @keyframes floatMove { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
     </style>
@@ -59,66 +59,65 @@
 
     <div class="container">
         <div id="stage1" class="stage">
-            <h1>Level 1: Hungry Bunny 🥕</h1>
-            <p>Find 3 carrots hidden on the screen!</p>
+            <h1>Level 1: Carrot Hunt 🥕</h1>
+            <p>I'm hungry! Find 3 carrots hidden around!</p>
             <div id="count1">Found: 0/3</div>
         </div>
 
         <div id="stage2" class="stage">
-            <h1>Level 2: Pet Time ✨</h1>
-            <p>Tap the bunny 5 times to make it happy!</p>
-            <div class="bunny-box" onclick="petTask()">🐰</div>
-            <div id="count2">Pets: 0/5</div>
+            <h1>Level 2: Bunny Massage 💆‍♀️</h1>
+            <p>Click me fast to make me relax!</p>
+            <div class="bunny-box" onclick="massageTask()">🐰</div>
+            <div id="bar-container"><div id="bar-fill"></div></div>
         </div>
 
         <div id="stage3" class="stage">
             <h1>Level 3: Heart Catcher ❤️</h1>
-            <p>The bunny needs love! Catch 5 moving hearts!</p>
+            <p>Catch 5 moving hearts!</p>
             <div id="count3">Caught: 0/5</div>
         </div>
 
         <div id="stage4" class="stage">
-            <h1>Level 4: Compliment Mirror 👑</h1>
-            <p>Who is the prettiest bunny in the world?</p>
-            <button class="btn-main" onclick="nextStage(5)">Me (Your Bunny) 🐰</button>
+            <h1>Level 4: Mirror Mirror 👑</h1>
+            <p>Who is my one and only favorite girl?</p>
+            <button class="btn-main" onclick="nextStage(5)">Me (Your Bunny) 🐰💖</button>
         </div>
 
         <div id="stage5" class="stage">
-            <h1>Level 5: Bunny Fitness 🏃‍♀️</h1>
+            <h1>Level 5: Bunny High-Jump 🚀</h1>
             <p>Make the bunny jump 5 times!</p>
             <div id="jumpBunny" class="bunny-box" onclick="jumpTask()">🐰</div>
             <div id="count5">Jumps: 0/5</div>
         </div>
 
         <div id="stage6" class="stage">
-            <h1>Level 6: Sugar Rush 🍭</h1>
-            <p>Give the bunny 3 candies!</p>
-            <div style="font-size: 3rem; cursor: pointer;" onclick="candyTask()">🍬 🍭 🧁</div>
-            <div id="count6">Candies given: 0/3</div>
+            <h1>Level 6: Catch a Kiss 💋</h1>
+            <p>Catch 3 moving kisses!</p>
+            <div id="count6">Kisses caught: 0/3</div>
         </div>
 
         <div id="stage7" class="stage">
             <div style="font-size: 3rem;">🐰💘</div>
-            <h1>The Final Level</h1>
+            <h1>The Final Mission...</h1>
             <h2 style="color: #d63384; font-family: 'Pacifico';">Will you be my Valentine?</h2>
             <div class="btn-group">
                 <button class="btn-main" onclick="showSuccess()">YES! 😍</button>
-                <button class="btn-no" id="noBtn" onmouseover="moveNo()">NO 😢</button>
+                <button class="btn-no" id="noBtn" onmouseover="moveNo()" ontouchstart="moveNo()">NO 😢</button>
             </div>
         </div>
 
         <div id="stage8" class="stage">
-            <h1>MISSION COMPLETE! 💖</h1>
+            <h1>YAY! MISSION COMPLETE! 💖</h1>
             <p>You're my forever Valentine!</p>
-            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1bWJrbmwwcjM1djB2ZDB6N3V1ZWR6MThpZnB0Ym82ZDh0bXF4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vdf8Xsh1U9r1vBq6S9/giphy.gif" alt="Dancing Bunny" class="celebration-gif">
-            <p>I love you so much! 💋💐</p>
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1bWJrbmwwcjM1djB2ZDB6N3V1ZWR6MThpZnB0Ym82ZDh0bXF4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vdf8Xsh1U9r1vBq6S9/giphy.gif" alt="Dancing Bunny with Flag" class="celebration-gif">
+            <p>I love you endlessly, my Bunny! 💋💐</p>
         </div>
     </div>
 
     <script>
         // BACKGROUND DECOR
         const icons = ['💖', '🐰', '✨', '🌸'];
-        for(let i=0; i<15; i++) {
+        for(let i=0; i<20; i++) {
             let d = document.createElement('div');
             d.className = 'floating'; d.innerHTML = icons[Math.floor(Math.random()*icons.length)];
             d.style.left = Math.random()*100+'vw'; d.style.top = Math.random()*100+'vh';
@@ -131,51 +130,52 @@
             document.getElementById('stage'+n).style.display = 'block';
             if(n===1) spawnItems('carrot', 3, 1);
             if(n===3) spawnItems('moving-heart', 5, 3);
+            if(n===6) spawnItems('moving-kiss', 3, 6);
         }
 
         // TASK LOGIC
         function spawnItems(cls, total, stageNum) {
             let found = 0;
+            const emojiMap = { 'carrot': '🥕', 'moving-heart': '❤️', 'moving-kiss': '💋' };
             for(let i=0; i<total; i++) {
                 let item = document.createElement('div');
-                item.className = cls;
-                item.innerHTML = (cls==='carrot') ? '🥕' : '❤️';
+                item.className = 'moving-item';
+                item.innerHTML = emojiMap[cls];
                 item.style.left = (10+Math.random()*80)+'vw';
                 item.style.top = (10+Math.random()*80)+'vh';
                 
-                if(cls==='moving-heart') {
-                    item.style.transition = "all 0.8s ease";
+                if(cls.includes('moving')) {
+                    item.style.transition = "all 0.6s ease";
                     setInterval(() => {
                         item.style.left = (10+Math.random()*80)+'vw';
                         item.style.top = (10+Math.random()*80)+'vh';
-                    }, 1000);
+                    }, 800);
                 }
 
                 item.onclick = function() {
                     this.remove(); found++;
-                    document.getElementById('count'+stageNum).innerHTML = (cls==='carrot'?'Found: ':'Caught: ') + found + '/' + total;
+                    let label = cls === 'carrot' ? 'Found: ' : (cls === 'moving-heart' ? 'Caught: ' : 'Kisses: ');
+                    document.getElementById('count'+stageNum).innerHTML = label + found + '/' + total;
                     if(found === total) nextStage(stageNum + 1);
                 };
                 document.body.appendChild(item);
             }
         }
 
-        let pets=0; function petTask(){ 
-            pets++; document.getElementById('count2').innerHTML = "Pets: "+pets+"/5";
-            if(pets===5) nextStage(3);
+        let progress=0; 
+        function massageTask(){ 
+            progress += 10;
+            document.getElementById('bar-fill').style.width = progress + '%';
+            if(progress >= 100) nextStage(3);
         }
 
-        let jumps=0; function jumpTask(){
+        let jumps=0; 
+        function jumpTask(){
             jumps++; document.getElementById('count5').innerHTML = "Jumps: "+jumps+"/5";
             let b = document.getElementById('jumpBunny');
             b.classList.add('jump-anim');
             setTimeout(()=>b.classList.remove('jump-anim'), 500);
             if(jumps===5) nextStage(6);
-        }
-
-        let candy=0; function candyTask(){
-            candy++; document.getElementById('count6').innerHTML = "Candies given: "+candy+"/3";
-            if(candy===3) nextStage(7);
         }
 
         // FINAL ACTIONS
@@ -184,12 +184,16 @@
             let b = document.getElementById('noBtn');
             b.style.position = 'fixed';
             b.style.left = Math.random()*80+'vw'; b.style.top = Math.random()*80+'vh';
-            nScale -= 0.1; if(nScale<0.4) nScale=0.4;
+            nScale -= 0.1; if(nScale<0.3) nScale=0.3;
             b.style.transform = `scale(${nScale})`;
         }
 
         function showSuccess() {
             nextStage(8);
+            startRain();
+        }
+
+        function startRain() {
             setInterval(() => {
                 let p = document.createElement('div');
                 p.innerHTML = '🌸'; p.style.position = 'fixed';
@@ -198,10 +202,10 @@
                 document.body.appendChild(p);
                 setTimeout(() => { p.style.top = '110vh'; p.style.transform = 'rotate(360deg)'; }, 100);
                 setTimeout(() => p.remove(), 4000);
-            }, 200);
+            }, 150);
         }
 
-        nextStage(1); // Start Game
+        nextStage(1);
     </script>
 </body>
 </html>
