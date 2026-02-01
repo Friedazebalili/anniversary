@@ -1,154 +1,267 @@
-<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Bunny 🐰💖</title>
 
-<div class="bg-icon" style="top: 8%; left: 8%; font-size: 3rem;">🐰</div>
-<div class="bg-icon" style="bottom: 12%; right: 8%; font-size: 2.5rem;">💖</div>
-<div class="bg-icon" style="top: 20%; right: 18%; font-size: 3rem;">✨</div>
-<div class="bg-icon" style="bottom: 15%; left: 15%; font-size: 2rem;">🌸</div>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Varela+Round&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+    background: radial-gradient(circle, #ffdde1, #ee9ca7);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    user-select: none;
+}
+
+.container {
+    background: rgba(255,255,255,0.9);
+    padding: 2rem;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255,105,180,.35);
+    position: relative;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #d63384;
+}
+
+p { color: #721c24; }
+
+/* ===== MEMORY GAME ===== */
+#memory-stage { display: block; }
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #ffd6e0;
+    border-radius: 15px;
+    height: 80px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.card:hover { transform: scale(1.05); }
+.card.done { background: #ff9aa2; }
+
+/* ===== HEART GAME ===== */
+#heart-stage { display: none; }
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    animation: float 3s linear;
+}
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-120vh); }
+}
+
+/* ===== PROPOSAL ===== */
+#proposal-stage { display: none; }
+
+.bunny-img {
+    width: 180px;
+    border-radius: 15px;
+}
+
+.btn-group {
+    margin-top: 20px;
+    position: relative;
+    height: 60px;
+}
+
+button {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.btn-yes {
+    background: #ff4757;
+    color: white;
+}
+
+.btn-no {
+    background: #feca57;
+    position: absolute;
+    left: 55%;
+}
+
+/* ===== SUCCESS ===== */
+#success-stage { display: none; }
+
+.big-kiss {
+    font-size: 5rem;
+    animation: pop 1s infinite alternate;
+}
+
+@keyframes pop {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+}
+</style>
+</head>
+
+<body>
 
 <div class="container">
 
-    <!-- STAGE 1: MEMORY GAME -->
-    <div id="memory-stage">
-        <h1>Bunny Memory Test 🧠🐰</h1>
-        <p>Match all the bunny pairs to continue 💕</p>
+<!-- MEMORY GAME -->
+<div id="memory-stage">
+    <h1>Bunny Memory 🐰</h1>
+    <p>Match all the pairs 💖</p>
+    <div class="memory-grid" id="memoryGrid"></div>
+</div>
 
-        <div id="memory-grid"></div>
+<!-- HEART GAME -->
+<div id="heart-stage">
+    <h1>Catch the Hearts 💕</h1>
+    <p>Catch 5 hearts!</p>
+    <p id="heartCount">0 / 5</p>
+</div>
+
+<!-- PROPOSAL -->
+<div id="proposal-stage">
+    <img src="https://media.giphy.com/media/kZqbBT64XCxoc/giphy.gif" class="bunny-img">
+    <h1>My Dearest Bunny...</h1>
+    <p>You make my heart hop 🐇💓</p>
+    <h2 style="font-family:Pacifico;color:#d63384;">
+        Will you be my Valentine?
+    </h2>
+
+    <div class="btn-group">
+        <button class="btn-yes" onclick="sayYes()">YES! 😍</button>
+        <button class="btn-no" id="noBtn"
+            onmouseover="moveButton()"
+            ontouchstart="moveButton()">NO 😢</button>
     </div>
+</div>
 
-    <!-- STAGE 2: MAZE -->
-    <div id="maze-stage" style="display:none;">
-        <h1>Help Bunny Get the Carrot 🥕🐇</h1>
-        <p>Use arrow keys or buttons!</p>
-
-        <div id="maze">
-            <div id="bunny">🐰</div>
-            <div id="goal">🥕</div>
-        </div>
-
-        <div class="controls">
-            <button onclick="move('up')">⬆️</button><br>
-            <button onclick="move('left')">⬅️</button>
-            <button onclick="move('down')">⬇️</button>
-            <button onclick="move('right')">➡️</button>
-        </div>
-    </div>
-
-    <!-- STAGE 3: PROPOSAL (UNCHANGED) -->
-    <div id="proposal-stage" style="display:none;">
-        <img src="https://media.giphy.com/media/kZqbBT64XCxoc/giphy.gif" class="bunny-img">
-        <h1>My Dearest Bunny...</h1>
-        <p>You make my heart hop! 🐇💓</p>
-        <h2 style="color:#d63384;font-family:'Pacifico';">
-            Will you be my Valentine?
-        </h2>
-
-        <div class="btn-group">
-            <button class="btn-yes" onclick="sayYes()">YES! 😍</button>
-            <button class="btn-no" id="noBtn"
-                onmouseover="moveButton()"
-                ontouchstart="moveButton()">NO 😢</button>
-        </div>
-    </div>
-
-    <!-- SUCCESS STAGE (UNCHANGED) -->
-    <div id="success-stage" style="display:none;">
-        <h1>YAY!!! 🎉💃🏻</h1>
-        <div class="big-kiss">💋💐</div>
-        <p>You are officially my Valentine!</p>
-        <p>I love you so much! 💖🐇</p>
-        <img src="https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif"
-             style="width:200px;border-radius:10px;">
-    </div>
+<!-- SUCCESS -->
+<div id="success-stage">
+    <h1>YAY!!! 🎉</h1>
+    <div class="big-kiss">💋💐</div>
+    <p>You are officially my Valentine!</p>
+    <p>I love you so much 💖🐇</p>
+    <img src="https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" width="200">
+</div>
 
 </div>
 
 <script>
-/* ================= MEMORY GAME ================= */
-const symbols = ['🐰','🐰','💖','💖','🥕','🥕'];
-let flipped = [];
-let matched = 0;
+/* ===== MEMORY GAME ===== */
+const icons = ['🐰','🐰','💖','💖','🥕','🥕'];
+icons.sort(() => Math.random() - .5);
+const grid = document.getElementById('memoryGrid');
+let opened = [];
+let matches = 0;
 
-const grid = document.getElementById('memory-grid');
-symbols.sort(() => 0.5 - Math.random());
-
-symbols.forEach(sym => {
+icons.forEach(icon => {
     const card = document.createElement('div');
     card.className = 'card';
-    card.innerText = '❔';
-    card.onclick = () => flip(card, sym);
+    card.textContent = '❔';
+    card.onclick = () => flip(card, icon);
     grid.appendChild(card);
 });
 
-function flip(card, sym) {
-    if (flipped.length < 2 && !card.classList.contains('done')) {
-        card.innerText = sym;
-        flipped.push({card, sym});
+function flip(card, icon) {
+    if (opened.length < 2 && !card.classList.contains('done')) {
+        card.textContent = icon;
+        opened.push({card, icon});
 
-        if (flipped.length === 2) {
-            if (flipped[0].sym === flipped[1].sym) {
-                flipped.forEach(f => f.card.classList.add('done'));
-                matched++;
-                flipped = [];
-                if (matched === 3) {
-                    setTimeout(() => {
-                        document.getElementById('memory-stage').style.display = 'none';
-                        document.getElementById('maze-stage').style.display = 'block';
-                    }, 600);
-                }
+        if (opened.length === 2) {
+            if (opened[0].icon === opened[1].icon) {
+                opened.forEach(o => o.card.classList.add('done'));
+                matches++;
+                opened = [];
+                if (matches === 3) startHeartGame();
             } else {
                 setTimeout(() => {
-                    flipped.forEach(f => f.card.innerText = '❔');
-                    flipped = [];
+                    opened.forEach(o => o.card.textContent = '❔');
+                    opened = [];
                 }, 700);
             }
         }
     }
 }
 
-/* ================= MAZE GAME ================= */
-let bunny = document.getElementById('bunny');
-let pos = {x: 10, y: 10};
+/* ===== HEART GAME ===== */
+let heartsCaught = 0;
 
-function move(dir) {
-    const step = 20;
-    if (dir === 'up') pos.y -= step;
-    if (dir === 'down') pos.y += step;
-    if (dir === 'left') pos.x -= step;
-    if (dir === 'right') pos.x += step;
+function startHeartGame() {
+    document.getElementById('memory-stage').style.display = 'none';
+    document.getElementById('heart-stage').style.display = 'block';
 
-    bunny.style.left = pos.x + 'px';
-    bunny.style.top = pos.y + 'px';
-
-    checkWin();
+    const interval = setInterval(() => {
+        if (heartsCaught >= 5) {
+            clearInterval(interval);
+            document.getElementById('heart-stage').style.display = 'none';
+            document.getElementById('proposal-stage').style.display = 'block';
+            return;
+        }
+        spawnHeart();
+    }, 700);
 }
 
-function checkWin() {
-    const goal = document.getElementById('goal').getBoundingClientRect();
-    const bunnyBox = bunny.getBoundingClientRect();
-    if (
-        Math.abs(goal.left - bunnyBox.left) < 30 &&
-        Math.abs(goal.top - bunnyBox.top) < 30
-    ) {
-        document.getElementById('maze-stage').style.display = 'none';
-        document.getElementById('proposal-stage').style.display = 'block';
-    }
+function spawnHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '💖';
+    heart.style.left = Math.random() * 90 + 'vw';
+    heart.style.bottom = '-50px';
+
+    heart.onclick = () => {
+        heartsCaught++;
+        document.getElementById('heartCount').textContent =
+            heartsCaught + ' / 5';
+        heart.remove();
+    };
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 3000);
 }
 
-/* ================= NO BUTTON ================= */
+/* ===== NO BUTTON ===== */
 function moveButton() {
     const btn = document.getElementById('noBtn');
-    btn.style.position = 'fixed';
-    btn.style.left = Math.random() * 80 + 'vw';
-    btn.style.top = Math.random() * 80 + 'vh';
+    btn.style.left = Math.random() * 70 + '%';
+    btn.style.top = Math.random() * 40 + 'px';
 }
 
-/* ================= YES BUTTON (UNCHANGED) ================= */
+/* ===== YES (UNCHANGED ENDING) ===== */
 function sayYes() {
     document.getElementById('proposal-stage').style.display = 'none';
     document.getElementById('success-stage').style.display = 'block';
-    setInterval(createFlower, 200);
-    setInterval(createHeart, 300);
 }
 </script>
+
 </body>
+</html>
+
 
