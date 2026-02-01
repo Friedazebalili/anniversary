@@ -3,207 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Bunny 🐰💖</title>
+    <title>The Valentine's Quest 🐰💖</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Varela+Round&display=swap" rel="stylesheet">
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             font-family: 'Varela Round', sans-serif;
             background: radial-gradient(circle at center, #ffdde1 0%, #ee9ca7 100%);
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            height: 100vh; overflow: hidden;
+            display: flex; justify-content: center; align-items: center; text-align: center;
         }
 
         .container {
             background: rgba(255, 255, 255, 0.9);
-            padding: 2.5rem;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.2);
-            max-width: 90%;
-            width: 450px;
-            position: relative;
-            z-index: 10;
-            border: 4px solid #fff;
+            padding: 2rem; border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.3);
+            max-width: 90%; width: 450px;
+            position: relative; z-index: 10; border: 4px solid #fff;
         }
 
-        h1 { font-family: 'Pacifico', cursive; color: #d63384; font-size: 2.2rem; }
-        p { color: #4b1e2f; font-size: 1.1rem; }
+        h1 { font-family: 'Pacifico', cursive; color: #d63384; font-size: 1.8rem; margin: 10px 0; }
+        p { color: #4b1e2f; font-size: 1rem; font-weight: bold; margin-bottom: 20px; }
 
-        /* Stages */
         .stage { display: none; }
         #stage1 { display: block; }
 
-        /* Interactive Elements */
-        .carrot { position: fixed; font-size: 2.5rem; cursor: pointer; z-index: 100; transition: 0.3s; }
-        
-        .bunny-avatar {
-            font-size: 5rem;
-            cursor: pointer;
-            display: inline-block;
-            transition: transform 0.2s;
-            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        /* Shared Elements */
+        .btn-main {
+            background: #ff4757; color: white; border: none;
+            padding: 12px 25px; border-radius: 50px; cursor: pointer;
+            font-weight: bold; transition: 0.2s;
         }
-        .bunny-avatar:active { transform: scale(1.3); }
+        .btn-main:hover { transform: scale(1.1); }
+
+        /* Game Specifics */
+        .carrot, .moving-heart { position: fixed; cursor: pointer; z-index: 100; transition: transform 0.2s; font-size: 2.5rem; }
+        
+        .bunny-box { font-size: 4rem; cursor: pointer; display: inline-block; transition: 0.1s; }
+        .bunny-box:active { transform: translateY(-20px); }
 
         .btn-group { margin-top: 2rem; position: relative; height: 100px; }
-        
-        button {
-            padding: 15px 35px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .btn-yes { background: #ff4757; color: white; box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4); }
         .btn-no { background: #ced4da; color: #6c757d; position: absolute; left: 50%; transform: translateX(-50%); }
 
-        /* Animations */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
-        }
-        .floating { position: fixed; opacity: 0.5; animation: float 5s infinite ease-in-out; pointer-events: none; }
+        .celebration-gif { width: 220px; border-radius: 15px; margin: 15px 0; }
+
+        @keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-50px); } }
+        .jump-anim { animation: jump 0.5s ease-in-out; }
+
+        /* Floating backgrounds */
+        .floating { position: fixed; opacity: 0.3; pointer-events: none; animation: floatMove 6s infinite ease-in-out; }
+        @keyframes floatMove { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div id="stage1" class="stage">
-            <h1>Level 1: Hungry Bunny! 🥕</h1>
-            <p>My bunny is hungry! Find <b>3 carrots</b> hidden around the screen to feed her.</p>
-            <p id="count">Carrots Found: 0/3</p>
+            <h1>Level 1: Hungry Bunny 🥕</h1>
+            <p>Find 3 carrots hidden on the screen!</p>
+            <div id="count1">Found: 0/3</div>
         </div>
 
         <div id="stage2" class="stage">
-            <h1>Level 2: Happy Bunny! ✨</h1>
-            <p>Great job! Now, <b>pet the bunny 5 times</b> to make her heart melt.</p>
-            <div class="bunny-avatar" id="petBunny" onclick="petBunny()">🐰</div>
-            <p id="petCount">Pets given: 0/5</p>
+            <h1>Level 2: Pet Time ✨</h1>
+            <p>Tap the bunny 5 times to make it happy!</p>
+            <div class="bunny-box" onclick="petTask()">🐰</div>
+            <div id="count2">Pets: 0/5</div>
         </div>
 
         <div id="stage3" class="stage">
-            <div style="font-size: 4rem;">🐰❤️</div>
-            <h1>The Final Question...</h1>
-            <p>You've completed the tasks, my Sweet Bunny. Now there is only one thing left to ask...</p>
-            <h2 style="color: #ff4757; font-family: 'Pacifico';">Will you be my Valentine?</h2>
-            
+            <h1>Level 3: Heart Catcher ❤️</h1>
+            <p>The bunny needs love! Catch 5 moving hearts!</p>
+            <div id="count3">Caught: 0/5</div>
+        </div>
+
+        <div id="stage4" class="stage">
+            <h1>Level 4: Compliment Mirror 👑</h1>
+            <p>Who is the prettiest bunny in the world?</p>
+            <button class="btn-main" onclick="nextStage(5)">Me (Your Bunny) 🐰</button>
+        </div>
+
+        <div id="stage5" class="stage">
+            <h1>Level 5: Bunny Fitness 🏃‍♀️</h1>
+            <p>Make the bunny jump 5 times!</p>
+            <div id="jumpBunny" class="bunny-box" onclick="jumpTask()">🐰</div>
+            <div id="count5">Jumps: 0/5</div>
+        </div>
+
+        <div id="stage6" class="stage">
+            <h1>Level 6: Sugar Rush 🍭</h1>
+            <p>Give the bunny 3 candies!</p>
+            <div style="font-size: 3rem; cursor: pointer;" onclick="candyTask()">🍬 🍭 🧁</div>
+            <div id="count6">Candies given: 0/3</div>
+        </div>
+
+        <div id="stage7" class="stage">
+            <div style="font-size: 3rem;">🐰💘</div>
+            <h1>The Final Level</h1>
+            <h2 style="color: #d63384; font-family: 'Pacifico';">Will you be my Valentine?</h2>
             <div class="btn-group">
-                <button class="btn-yes" onclick="showSuccess()">YES! 😍</button>
+                <button class="btn-main" onclick="showSuccess()">YES! 😍</button>
                 <button class="btn-no" id="noBtn" onmouseover="moveNo()">NO 😢</button>
             </div>
         </div>
 
-        <div id="stage4" class="stage">
-            <h1 style="font-size: 3rem;">YAY! 💖🎉</h1>
-            <div style="font-size: 5rem;">💋💐🐰</div>
-            <p>You made me the luckiest person alive!</p>
-            <p><b>I love you endlessly!</b></p>
-            <p>See you soon, my Valentine! ✨🐾</p>
+        <div id="stage8" class="stage">
+            <h1>MISSION COMPLETE! 💖</h1>
+            <p>You're my forever Valentine!</p>
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1bWJrbmwwcjM1djB2ZDB6N3V1ZWR6MThpZnB0Ym82ZDh0bXF4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vdf8Xsh1U9r1vBq6S9/giphy.gif" alt="Dancing Bunny" class="celebration-gif">
+            <p>I love you so much! 💋💐</p>
         </div>
     </div>
 
     <script>
-        // --- DECORATIONS ---
-        const icons = ['💖', '🐰', '🌸', '✨', '💕'];
-        for (let i = 0; i < 15; i++) {
-            let div = document.createElement('div');
-            div.className = 'floating';
-            div.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-            div.style.left = Math.random() * 100 + 'vw';
-            div.style.top = Math.random() * 100 + 'vh';
-            div.style.fontSize = (Math.random() * 20 + 20) + 'px';
-            div.style.animationDelay = (Math.random() * 5) + 's';
-            document.body.appendChild(div);
+        // BACKGROUND DECOR
+        const icons = ['💖', '🐰', '✨', '🌸'];
+        for(let i=0; i<15; i++) {
+            let d = document.createElement('div');
+            d.className = 'floating'; d.innerHTML = icons[Math.floor(Math.random()*icons.length)];
+            d.style.left = Math.random()*100+'vw'; d.style.top = Math.random()*100+'vh';
+            d.style.fontSize = '25px'; d.style.animationDelay = Math.random()*5+'s';
+            document.body.appendChild(d);
         }
 
-        // --- LEVEL 1: CARROTS ---
-        let carrots = 0;
-        function spawnCarrots() {
-            for (let i = 0; i < 3; i++) {
-                let c = document.createElement('div');
-                c.className = 'carrot';
-                c.innerHTML = '🥕';
-                c.style.left = (10 + Math.random() * 80) + 'vw';
-                c.style.top = (10 + Math.random() * 80) + 'vh';
-                c.onclick = function() {
-                    this.remove();
-                    carrots++;
-                    document.getElementById('count').innerHTML = `Carrots Found: ${carrots}/3`;
-                    if (carrots === 3) nextStage(2);
-                };
-                document.body.appendChild(c);
-            }
-        }
-        spawnCarrots();
-
-        // --- LEVEL 2: PETTING ---
-        let pets = 0;
-        function petBunny() {
-            pets++;
-            const bunny = document.getElementById('petBunny');
-            bunny.style.transform = 'scale(1.3)';
-            setTimeout(() => { bunny.style.transform = 'scale(1)'; }, 200);
-            
-            document.getElementById('petCount').innerHTML = `Pets given: ${pets}/5`;
-            if (pets === 5) {
-                bunny.innerHTML = '🥰';
-                setTimeout(() => nextStage(3), 1000);
-            }
-        }
-
-        // --- UTILS ---
-        function nextStage(num) {
+        function nextStage(n) {
             document.querySelectorAll('.stage').forEach(s => s.style.display = 'none');
-            document.getElementById('stage' + num).style.display = 'block';
+            document.getElementById('stage'+n).style.display = 'block';
+            if(n===1) spawnItems('carrot', 3, 1);
+            if(n===3) spawnItems('moving-heart', 5, 3);
         }
 
-        let noScale = 1;
+        // TASK LOGIC
+        function spawnItems(cls, total, stageNum) {
+            let found = 0;
+            for(let i=0; i<total; i++) {
+                let item = document.createElement('div');
+                item.className = cls;
+                item.innerHTML = (cls==='carrot') ? '🥕' : '❤️';
+                item.style.left = (10+Math.random()*80)+'vw';
+                item.style.top = (10+Math.random()*80)+'vh';
+                
+                if(cls==='moving-heart') {
+                    item.style.transition = "all 0.8s ease";
+                    setInterval(() => {
+                        item.style.left = (10+Math.random()*80)+'vw';
+                        item.style.top = (10+Math.random()*80)+'vh';
+                    }, 1000);
+                }
+
+                item.onclick = function() {
+                    this.remove(); found++;
+                    document.getElementById('count'+stageNum).innerHTML = (cls==='carrot'?'Found: ':'Caught: ') + found + '/' + total;
+                    if(found === total) nextStage(stageNum + 1);
+                };
+                document.body.appendChild(item);
+            }
+        }
+
+        let pets=0; function petTask(){ 
+            pets++; document.getElementById('count2').innerHTML = "Pets: "+pets+"/5";
+            if(pets===5) nextStage(3);
+        }
+
+        let jumps=0; function jumpTask(){
+            jumps++; document.getElementById('count5').innerHTML = "Jumps: "+jumps+"/5";
+            let b = document.getElementById('jumpBunny');
+            b.classList.add('jump-anim');
+            setTimeout(()=>b.classList.remove('jump-anim'), 500);
+            if(jumps===5) nextStage(6);
+        }
+
+        let candy=0; function candyTask(){
+            candy++; document.getElementById('count6').innerHTML = "Candies given: "+candy+"/3";
+            if(candy===3) nextStage(7);
+        }
+
+        // FINAL ACTIONS
+        let nScale = 1;
         function moveNo() {
-            const btn = document.getElementById('noBtn');
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            
-            btn.style.position = 'fixed';
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-            
-            // Make the button smaller every time she tries to click it
-            noScale -= 0.1;
-            if (noScale < 0.3) noScale = 0.3;
-            btn.style.transform = `scale(${noScale})`;
+            let b = document.getElementById('noBtn');
+            b.style.position = 'fixed';
+            b.style.left = Math.random()*80+'vw'; b.style.top = Math.random()*80+'vh';
+            nScale -= 0.1; if(nScale<0.4) nScale=0.4;
+            b.style.transform = `scale(${nScale})`;
         }
 
         function showSuccess() {
-            nextStage(4);
-            confettiEffect();
+            nextStage(8);
+            setInterval(() => {
+                let p = document.createElement('div');
+                p.innerHTML = '🌸'; p.style.position = 'fixed';
+                p.style.left = Math.random()*100+'vw'; p.style.top = '-20px';
+                p.style.transition = '4s linear';
+                document.body.appendChild(p);
+                setTimeout(() => { p.style.top = '110vh'; p.style.transform = 'rotate(360deg)'; }, 100);
+                setTimeout(() => p.remove(), 4000);
+            }, 200);
         }
 
-        function confettiEffect() {
-            setInterval(() => {
-                const heart = document.createElement('div');
-                heart.innerHTML = '🌸';
-                heart.style.position = 'fixed';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = '-20px';
-                heart.style.fontSize = '20px';
-                heart.style.transition = '5s linear';
-                document.body.appendChild(heart);
-                setTimeout(() => {
-                    heart.style.top = '100vh';
-                    heart.style.transform = `rotate(${Math.random() * 360}deg)`;
-                }, 100);
-                setTimeout(() => heart.remove(), 5000);
-            }, 100);
-        }
+        nextStage(1); // Start Game
     </script>
 </body>
 </html>
