@@ -1,350 +1,300 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Happy Anniversary My Bunny 🐰💖</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0; padding: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      color: #eee;
-      overflow-x: hidden;
-      text-align: center;
-      height: 100vh;
-      perspective: 1000px;
-      overflow-y: scroll;
-      position: relative;
-    }
-    .stars {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      background: transparent;
-    }
-    .star {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: twinkle 3s infinite ease-in-out alternate;
-      filter: drop-shadow(0 0 3px #fff);
-    }
-    @keyframes twinkle {
-      0% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.3); }
-      100% { opacity: 0.2; transform: scale(1); }
-    }
-    header {
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
-      padding: 2rem;
-      font-family: 'Great Vibes', cursive;
-      font-size: 3rem;
-      color: white;
-      position: relative;
-      z-index: 5;
-      box-shadow: 0 0 15px #ff4b2b;
-    }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-      position: relative;
-      z-index: 5;
-      color: #eee;
-      background: transparent;
-    }
-    .letter {
-      background: rgba(255, 182, 193, 0.85); /* light girly pink */
-      padding: 1.8rem 2rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
-      font-size: 1.3rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-      text-align: left;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      user-select: none;
-      position: relative;
-      color: #4b1e2f; /* a dark rosy color for text */
-    }
-    footer {
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
-      color: white;
-      padding: 1rem;
-      margin-top: 2rem;
-      z-index: 5;
-      position: relative;
-      box-shadow: 0 0 15px #ff416c;
-      font-weight: 700;
-      user-select: none;
-    }
-    .collage {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-bottom: 2rem;
-      user-select: none;
-    }
-    .collage img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(255, 182, 193, 0.8); /* soft pink glow */
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
-      filter: drop-shadow(0 0 6px #ffb6c1);
-      display: block;
-    }
-    .collage img:hover {
-      transform: scale(1.08) rotate(3deg);
-      box-shadow: 0 0 40px #ff69b4, 0 0 20px #ff1493; /* bright pink glow on hover */
-      z-index: 10;
-      position: relative;
-      filter: drop-shadow(0 0 18px #ff69b4);
-    }
-    .bottom-section {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 2rem;
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      flex-wrap: wrap;
-      user-select: none;
-      position: relative;
-      background: rgba(255, 182, 193, 0.6); /* lighter girly pink */
-      border-radius: 15px;
-      padding: 2rem 1rem;
-      box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
-      overflow: hidden;
-      z-index: 2;
-      color: #4b1e2f;
-    }
-    .secret-message {
-      flex: 1 1 350px;
-      background: rgba(255, 182, 193, 0.85);
-      border: 2px dashed #e75480;
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 182, 193, 0.7);
-      font-size: 1.2rem;
-      font-family: 'Open Sans', sans-serif;
-      text-align: left;
-      min-width: 300px;
-      position: relative;
-      z-index: 2;
-      color: #4b1e2f;
-    }
-    .secret-message h2 {
-      font-family: 'Great Vibes', cursive;
-      color: #a83253;
-      font-size: 2.4rem;
-      margin-bottom: 0.6rem;
-      user-select: none;
-    }
-    .secret-message iframe {
-      margin-top: 15px;
-      border-radius: 10px;
-      max-width: 100%;
-      display: block;
-      outline: none;
-      box-shadow: 0 0 15px rgba(255, 182, 193, 0.8);
-    }
-    .video {
-      flex: 1 1 320px;
-      max-width: 320px;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 25px rgba(255, 182, 193, 0.8);
-      position: relative;
-      z-index: 2;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Bunny 🐰💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Varela+Round&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Varela Round', sans-serif;
+            background: radial-gradient(circle at center, #ffdde1 0%, #ee9ca7 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            user-select: none;
+        }
 
-    /* Floating hearts effect */
-    .heart {
-      position: fixed;
-      width: 24px;
-      height: 24px;
-      background: red;
-      clip-path: polygon(
-        50% 15%, 61% 10%, 70% 15%, 75% 25%, 75% 40%, 50% 70%, 25% 40%, 25% 25%, 30% 15%, 39% 10%
-      );
-      opacity: 0.8;
-      animation-name: floatHeart;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      z-index: 4;
-      filter: drop-shadow(0 0 4px #ff416c);
-    }
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0.8;
-      }
-      50% {
-        transform: translateY(-30px) translateX(10px) rotate(20deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-60px) translateX(0) rotate(0deg);
-        opacity: 0;
-      }
-    }
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            max-width: 90%;
+            width: 500px;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+            border: 2px solid #fff;
+            transition: transform 0.3s;
+        }
 
-    /* Floating flower petals effect */
-    .flower {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background: radial-gradient(circle at center, #ffc0cb 70%, #fff0f5 100%);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      opacity: 0.85;
-      filter: drop-shadow(0 0 4px #ffb6c1);
-      animation-name: floatFlower;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      z-index: 3;
-    }
-    @keyframes floatFlower {
-      0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0.85;
-      }
-      50% {
-        transform: translateY(-40px) translateX(15px) rotate(15deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-80px) translateX(0) rotate(0deg);
-        opacity: 0;
-      }
-    }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #d63384;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
+        }
 
-    /* Corner flower decorations */
-    .corner-flower {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle at center, #ffb6c1 60%, #fff0f5 100%);
-      border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
-      filter: drop-shadow(0 0 8px #ff8da6);
-      z-index: 6;
-      opacity: 0.85;
-    }
-    .corner-flower.top-left {
-      top: 10px;
-      left: 10px;
-      transform: rotate(-15deg);
-    }
-    .corner-flower.top-right {
-      top: 10px;
-      right: 10px;
-      transform: rotate(15deg);
-    }
-    .corner-flower.bottom-left {
-      bottom: 10px;
-      left: 10px;
-      transform: rotate(20deg);
-    }
-    .corner-flower.bottom-right {
-      bottom: 10px;
-      right: 10px;
-      transform: rotate(-20deg);
-    }
-  </style>
+        p {
+            color: #721c24;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        /* --- STAGE 1: THE GAME --- */
+        #game-stage {
+            display: block;
+        }
+        
+        .carrot {
+            position: absolute;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            animation: bounce 2s infinite;
+        }
+        .carrot:active {
+            transform: scale(0.8);
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- STAGE 2: THE QUESTION --- */
+        #proposal-stage {
+            display: none;
+        }
+
+        .bunny-img {
+            width: 180px;
+            height: auto;
+            border-radius: 15px;
+            margin: 10px 0;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+        }
+
+        .btn-group {
+            margin-top: 2rem;
+            position: relative;
+            height: 60px; /* Space for buttons */
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Varela Round', sans-serif;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-yes {
+            background: #ff4757;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+        }
+        .btn-yes:hover {
+            transform: scale(1.1);
+            background: #ff6b81;
+        }
+
+        .btn-no {
+            background: #eccc68;
+            color: #555;
+            position: absolute;
+            /* Start position next to Yes */
+            left: 60%; 
+            transform: translateX(-50%);
+            transition: all 0.1s ease; /* Fast movement */
+        }
+
+        /* --- STAGE 3: CELEBRATION --- */
+        #success-stage {
+            display: none;
+        }
+        .big-kiss {
+            font-size: 5rem;
+            animation: kissPop 1s ease-out infinite alternate;
+        }
+        @keyframes kissPop {
+            0% { transform: scale(1) rotate(-10deg); }
+            100% { transform: scale(1.2) rotate(10deg); }
+        }
+
+        /* --- FLOATING BACKGROUND ELEMENTS --- */
+        .bg-icon {
+            position: absolute;
+            z-index: 0;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+    </style>
 </head>
 <body>
-  <div class="stars" aria-hidden="true"></div>
 
-  <header>Happy Anniversary, my Bunny! 🐰💖🎉</header>
-  <div class="container">
-    <div class="letter">
-      <p>My dearest Bunny 🐇💞,</p>
-      <p>Happy Anniversary! 🎊🎉 Though miles may keep us apart 🌏💔 my heart only longs for you ❤️💖. Every day I wake up thankful 🙏😊 that someone as sweet 🍬, kind 🤗, and wonderful 🌟 as you chose to love me 💘.</p>
-      <p>Long distance has never been easy 😢📱 but every video call 📹💬, every message 📩❤️, and every shared memory 📸💑 makes it all worth it 🌈✨. Soon we will cut this distance and will be just cute memory 🕰️💭and  One day, we'll build our own little family 👶🐣 share a home 🏡💞 hold hands every morning 🤝🌅 and fall asleep beside each other every night 🌙💤.</p>
-      <p>Until then, hold on to this love 💓👐 because I'm holding onto you tightly 🤗🐰. I can't wait to marry you and spend the rest of my life with you.</p>
-      <p>Forever yours 💌<br><strong>Blue 💙🐾</strong></p>
+    <div class="bg-icon" style="top: 10%; left: 10%; font-size: 3rem;">🐰</div>
+    <div class="bg-icon" style="bottom: 15%; right: 10%; font-size: 2.5rem; animation-delay: 1s;">🥕</div>
+    <div class="bg-icon" style="top: 20%; right: 20%; font-size: 3rem; animation-delay: 2s;">💖</div>
+    <div class="bg-icon" style="bottom: 10%; left: 15%; font-size: 2rem; animation-delay: 3s;">🌸</div>
+
+    <div class="container">
+        
+        <div id="game-stage">
+            <h1>Wait! A Mission... 🕵️‍♀️</h1>
+            <p>To unlock my heart, you must feed the bunny!</p>
+            <p><strong>Find and click the 3 hidden carrots 🥕</strong></p>
+            <div id="carrot-container">
+                </div>
+            <p style="font-size: 0.9rem; margin-top: 20px; color: #888;">(Hint: They are hiding on the screen!)</p>
+        </div>
+
+        <div id="proposal-stage">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzJrdnZ6bHlpMG13Z2x4ZnJ6eG54bnA4M3A0bWF4bDVjMzF5bHdrciZlcD12MV9zdGlja2VyX3NlYXJjaCZjdD1z/kZqbBT64XCxoc/giphy.gif" alt="Cute Bunny" class="bunny-img">
+            <h1>My Dearest Bunny...</h1>
+            <p>You make my heart hop! 🐇💓<br>I have a very important question...</p>
+            <h2 style="color: #d63384; font-family:'Pacifico';">Will you be my Valentine?</h2>
+            
+            <div class="btn-group">
+                <button class="btn-yes" onclick="sayYes()">YES! 😍</button>
+                <button class="btn-no" id="noBtn" onmouseover="moveButton()" ontouchstart="moveButton()">NO 😢</button>
+            </div>
+        </div>
+
+        <div id="success-stage">
+            <h1>YAY!!! 🎉💃🏻</h1>
+            <div class="big-kiss">💋💐</div>
+            <p>You are officially my Valentine!</p>
+            <p>I love you so much! 💖🐇</p>
+            <img src="https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Hug" style="width: 200px; border-radius: 10px;">
+        </div>
+
     </div>
 
-    <div class="collage" aria-label="Photo collage">
-      <img src="https://i.postimg.cc/ZWGCrTZG/273c014a-b472-47c8-867c-ac4615b7e997.jpg" alt="Photo 1" />
-      <img src="https://i.postimg.cc/zLT379GV/2fdaca82-f4c9-4645-b849-75da53734a73.jpg" alt="Photo 2" />
-      <img src="https://i.postimg.cc/v4g4g1R7/73b9a7b1-e1d7-4c45-8f65-c4a046d8f517.jpg" alt="Photo 3" />
-      <img src="https://i.postimg.cc/SYxsyR7M/7893c7d6-0bd2-4a02-993d-e385b99a3996.jpg" alt="Photo 4" />
-      <!-- 5th photo removed -->
-      <img src="https://i.postimg.cc/PPNx9LqG/ddeec225-81f2-434c-b83a-82ca6715fc7d.jpg" alt="Photo 7" />
-      <img src="https://i.postimg.cc/230y0drF/e94fcbb1-8dc2-452d-8d06-40bb79660554.jpg" alt="Photo 8" />
-    </div>
+    <script>
+        // --- GAME LOGIC ---
+        let carrotsFound = 0;
+        const totalCarrots = 3;
+        
+        // Function to create carrots at random positions outside the main box
+        function spawnCarrots() {
+            for(let i=0; i<totalCarrots; i++) {
+                let c = document.createElement('div');
+                c.innerHTML = '🥕';
+                c.className = 'carrot';
+                // Random position logic (keeping them visible)
+                c.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+                c.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+                c.style.zIndex = 100; // Above everything
+                
+                c.onclick = function() {
+                    this.style.transition = "transform 0.5s, opacity 0.5s";
+                    this.style.transform = "scale(2) rotate(360deg)";
+                    this.style.opacity = "0";
+                    setTimeout(() => this.remove(), 500);
+                    carrotsFound++;
+                    if(carrotsFound === totalCarrots) {
+                        setTimeout(showProposal, 800);
+                    }
+                };
+                document.body.appendChild(c);
+            }
+        }
+        
+        spawnCarrots();
 
-    <div class="bottom-section">
-      <div class="secret-message" tabindex="0">
-        <h2>💌Just for my Bunny 🐇</h2>
-        <p>You are my sunshine ☀️ on cloudy days ☁️ my warmth 🔥 that fills my heart 🌟 and my forever ♾️. I can't wait to hold you close 🤗 and build our beautiful life together 💍💖. I love you endlessly 💕🐰 Please enjoy this song only for you.💖</p>
+        function showProposal() {
+            document.getElementById('game-stage').style.display = 'none';
+            document.getElementById('proposal-stage').style.display = 'block';
+            createPetals(); // Start falling petals
+        }
 
-        <iframe src="https://archive.org/embed/recording_20250712" width="100%" height="40" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>
-      </div>
+        // --- NO BUTTON LOGIC (THE CHASE) ---
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const container = document.querySelector('.container');
+            
+            // Get container dimensions to keep button inside or near
+            const rect = container.getBoundingClientRect();
+            
+            // Calculate new random position relative to the viewport
+            // We make it jump quite far
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
 
-      <div class="video">
-        <iframe width="320" height="480" src="https://www.youtube.com/embed/Syy8k9VuvfI" title="Anniversary Video" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  <footer>© Created by me, your hottie boyfriend 💌🐾</footer>
+            btn.style.position = 'fixed'; // Break it out of the flow
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+            
+            // Change text randomly for humor
+            const texts = ["Are you sure?", "You can't catch me!", "Try again!", "Nope!", "Wrong button!"];
+            btn.innerText = texts[Math.floor(Math.random() * texts.length)];
+        }
 
-  <script>
-    // Create floating hearts
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.top = (window.innerHeight + 20) + 'px';
-      heart.style.width = heart.style.height = (12 + Math.random() * 20) + 'px';
-      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }
-    setInterval(createHeart, 400);
+        // --- YES BUTTON LOGIC ---
+        function sayYes() {
+            document.getElementById('proposal-stage').style.display = 'none';
+            document.getElementById('success-stage').style.display = 'block';
+            
+            // Launch confetti/flowers
+            setInterval(createFlower, 200);
+            setInterval(createHeart, 300);
+        }
 
-    // Create stars randomly on page load
-    const starsContainer = document.querySelector('.stars');
-    const starCount = 100;
-    for (let i = 0; i < starCount; i++) {
-      const star = document.createElement('div');
-      star.classList.add('star');
-      const size = Math.random() * 2 + 1;
-      star.style.width = size + 'px';
-      star.style.height = size + 'px';
-      star.style.top = Math.random() * 100 + 'vh';
-      star.style.left = Math.random() * 100 + 'vw';
-      star.style.animationDelay = (Math.random() * 3) + 's';
-      starsContainer.appendChild(star);
-    }
+        // --- DECORATION LOGIC ---
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.innerText = '🌸';
+            flower.style.position = 'fixed';
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.top = '-50px';
+            flower.style.fontSize = Math.random() * 20 + 20 + 'px';
+            flower.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+            flower.style.zIndex = '5';
+            document.body.appendChild(flower);
+            
+            setTimeout(() => { flower.remove() }, 5000);
+        }
 
-    // Create floating flower petals
-    function createFlower() {
-      const flower = document.createElement('div');
-      flower.classList.add('flower');
-      flower.style.left = Math.random() * 100 + 'vw';
-      flower.style.top = (window.innerHeight + 20) + 'px';
-      flower.style.width = flower.style.height = (12 + Math.random() * 15) + 'px';
-      flower.style.animationDuration = (5 + Math.random() * 5) + 's';
-      document.body.appendChild(flower);
-      setTimeout(() => flower.remove(), 10000);
-    }
-    setInterval(createFlower, 600);
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerText = '💖';
+            heart.style.position = 'fixed';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-50px';
+            heart.style.fontSize = Math.random() * 20 + 20 + 'px';
+            heart.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+            heart.style.zIndex = '5';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => { heart.remove() }, 5000);
+        }
 
-  </script>
+        // Add the fall animation style dynamically
+        const styleSheet = document.createElement("style");
+        styleSheet.innerText = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(styleSheet);
 
-  <!-- Elegant corner flower decorations -->
-  <div class="corner-flower top-left"></div>
-  <div class="corner-flower top-right"></div>
-  <div class="corner-flower bottom-left"></div>
-  <div class="corner-flower bottom-right"></div>
+    </script>
 </body>
 </html>
