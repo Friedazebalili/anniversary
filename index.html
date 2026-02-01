@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Valentine's Quest 🐰💖</title>
+    <title>Valentine's Quest for My Bunny 🐰💖</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Varela+Round&display=swap" rel="stylesheet">
     <style>
         body {
@@ -35,8 +35,7 @@
         }
 
         /* Task Elements */
-        .carrot, .moving-item { position: fixed; cursor: pointer; z-index: 100; transition: transform 0.2s; font-size: 2.5rem; }
-        
+        .moving-item { position: fixed; cursor: pointer; z-index: 100; transition: transform 0.2s; font-size: 2.5rem; }
         .bunny-box { font-size: 4rem; cursor: pointer; display: inline-block; transition: 0.1s; }
         
         /* Level 2 Progress Bar */
@@ -44,9 +43,19 @@
         #bar-fill { width: 0%; background: #ff4757; height: 100%; border-radius: 10px; transition: 0.1s; }
 
         .btn-group { margin-top: 2rem; position: relative; height: 100px; }
-        .btn-no { background: #ced4da; color: #6c757d; position: absolute; left: 50%; transform: translateX(-50%); }
+        .btn-no { background: #ced4da; color: #6c757d; position: absolute; left: 50%; transform: translateX(-50%); z-index: 50; }
 
-        .celebration-gif { width: 250px; border-radius: 15px; margin: 15px 0; border: 5px solid #fff; }
+        /* THE DANCING BUNNY AT THE END */
+        .celebration-gif {
+            width: 250px; 
+            height: auto;
+            border-radius: 15px; 
+            margin: 15px 0; 
+            border: 5px solid #fff;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
         @keyframes jump { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-70px); } }
         .jump-anim { animation: jump 0.5s ease-in-out; }
@@ -60,13 +69,13 @@
     <div class="container">
         <div id="stage1" class="stage">
             <h1>Level 1: Carrot Hunt 🥕</h1>
-            <p>I'm hungry! Find 3 carrots hidden around!</p>
+            <p>Find 3 carrots hidden on the screen!</p>
             <div id="count1">Found: 0/3</div>
         </div>
 
         <div id="stage2" class="stage">
             <h1>Level 2: Bunny Massage 💆‍♀️</h1>
-            <p>Click me fast to make me relax!</p>
+            <p>Click the bunny fast to fill the bar!</p>
             <div class="bunny-box" onclick="massageTask()">🐰</div>
             <div id="bar-container"><div id="bar-fill"></div></div>
         </div>
@@ -79,26 +88,26 @@
 
         <div id="stage4" class="stage">
             <h1>Level 4: Mirror Mirror 👑</h1>
-            <p>Who is my one and only favorite girl?</p>
+            <p>Who is my beautiful Valentine?</p>
             <button class="btn-main" onclick="nextStage(5)">Me (Your Bunny) 🐰💖</button>
         </div>
 
         <div id="stage5" class="stage">
-            <h1>Level 5: Bunny High-Jump 🚀</h1>
+            <h1>Level 5: Bunny Jump 🚀</h1>
             <p>Make the bunny jump 5 times!</p>
             <div id="jumpBunny" class="bunny-box" onclick="jumpTask()">🐰</div>
             <div id="count5">Jumps: 0/5</div>
         </div>
 
         <div id="stage6" class="stage">
-            <h1>Level 6: Catch a Kiss 💋</h1>
+            <h1>Level 6: Kiss Hunt 💋</h1>
             <p>Catch 3 moving kisses!</p>
             <div id="count6">Kisses caught: 0/3</div>
         </div>
 
         <div id="stage7" class="stage">
             <div style="font-size: 3rem;">🐰💘</div>
-            <h1>The Final Mission...</h1>
+            <h1>The Final Level...</h1>
             <h2 style="color: #d63384; font-family: 'Pacifico';">Will you be my Valentine?</h2>
             <div class="btn-group">
                 <button class="btn-main" onclick="showSuccess()">YES! 😍</button>
@@ -107,9 +116,11 @@
         </div>
 
         <div id="stage8" class="stage">
-            <h1>YAY! MISSION COMPLETE! 💖</h1>
-            <p>You're my forever Valentine!</p>
-            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1bWJrbmwwcjM1djB2ZDB6N3V1ZWR6MThpZnB0Ym82ZDh0bXF4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/vdf8Xsh1U9r1vBq6S9/giphy.gif" alt="Dancing Bunny with Flag" class="celebration-gif">
+            <h1>MISSION COMPLETE! 💖🎉</h1>
+            <p>You're officially my Valentine!</p>
+            
+            <img src="https://media.tenor.com/8vW9Rk6P_q0AAAAi/bunny-flag.gif" alt="Dancing Bunny with Flag" class="celebration-gif">
+            
             <p>I love you endlessly, my Bunny! 💋💐</p>
         </div>
     </div>
@@ -178,12 +189,12 @@
             if(jumps===5) nextStage(6);
         }
 
-        // FINAL ACTIONS
+        // NO BUTTON CHASE
         let nScale = 1;
         function moveNo() {
             let b = document.getElementById('noBtn');
             b.style.position = 'fixed';
-            b.style.left = Math.random()*80+'vw'; b.style.top = Math.random()*80+'vh';
+            b.style.left = Math.random()*70+'vw'; b.style.top = Math.random()*70+'vh';
             nScale -= 0.1; if(nScale<0.3) nScale=0.3;
             b.style.transform = `scale(${nScale})`;
         }
