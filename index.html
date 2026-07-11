@@ -3,26 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#120810">
+  <meta name="theme-color" content="#160b13">
   <meta name="description" content="A romantic anniversary experience made with love.">
   <title>Happy Anniversary</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #090407;
+      --background: #090407;
+      --background-soft: #1d0d19;
       --white: #fff9fc;
-      --muted: rgba(255, 241, 247, 0.78);
+      --muted: rgba(255, 241, 247, 0.76);
       --pink: #ffb7d1;
-      --pink-soft: #ffd8e6;
-      --pink-strong: #ff5fa2;
+      --pink-soft: #ffe0eb;
+      --pink-bright: #ff66a7;
+      --rose: #d95c91;
       --border: rgba(255, 235, 243, 0.18);
       --shadow: rgba(0, 0, 0, 0.58);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -36,7 +34,7 @@
     html {
       min-width: 320px;
       height: 100%;
-      background: var(--bg);
+      background: var(--background);
     }
 
     body {
@@ -58,6 +56,7 @@
     body.intro-active .page {
       opacity: 0;
       visibility: hidden;
+      pointer-events: none;
     }
 
     img {
@@ -78,13 +77,13 @@
       overflow: hidden;
       isolation: isolate;
       background:
-        radial-gradient(circle at 50% 40%, rgba(255, 154, 199, 0.2), transparent 34%),
-        radial-gradient(circle at 12% 82%, rgba(151, 56, 105, 0.18), transparent 30%),
-        radial-gradient(circle at 88% 18%, rgba(255, 199, 222, 0.12), transparent 27%),
-        linear-gradient(145deg, #220f1d, #0d060b 70%);
+        radial-gradient(circle at 50% 43%, rgba(255, 157, 199, 0.2), transparent 32%),
+        radial-gradient(circle at 10% 82%, rgba(158, 56, 108, 0.16), transparent 31%),
+        radial-gradient(circle at 90% 18%, rgba(255, 202, 224, 0.12), transparent 27%),
+        linear-gradient(145deg, #241020, #0e070c 70%);
       transition:
-        opacity 0.9s var(--ease),
-        visibility 0.9s var(--ease);
+        opacity 0.95s var(--ease),
+        visibility 0.95s var(--ease);
     }
 
     .intro.is-leaving {
@@ -98,8 +97,45 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
+
+    .intro::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, transparent 15%, rgba(255, 255, 255, 0.025) 47%, transparent 70%);
+      transform: translateX(-100%);
+      animation: introLightSweep 8s ease-in-out infinite;
+    }
+
+    .intro-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      opacity: 0.28;
+    }
+
+    .intro-orb--one {
+      width: 330px;
+      height: 330px;
+      left: -140px;
+      top: 16%;
+      background: #ff6fac;
+      animation: orbOne 13s ease-in-out infinite;
+    }
+
+    .intro-orb--two {
+      width: 290px;
+      height: 290px;
+      right: -120px;
+      bottom: 8%;
+      background: #ffc1da;
+      animation: orbTwo 16s ease-in-out infinite;
     }
 
     .loading-screen {
@@ -108,9 +144,9 @@
       width: min(420px, calc(100% - 40px));
       text-align: center;
       transition:
-        opacity 0.5s var(--ease),
-        transform 0.5s var(--ease),
-        visibility 0.5s var(--ease);
+        opacity 0.55s var(--ease),
+        visibility 0.55s var(--ease),
+        transform 0.55s var(--ease);
     }
 
     .loading-screen.is-hidden {
@@ -125,7 +161,7 @@
       width: 76px;
       height: 68px;
       margin: 0 auto 24px;
-      filter: drop-shadow(0 0 22px rgba(255, 119, 178, 0.65));
+      filter: drop-shadow(0 0 22px rgba(255, 119, 178, 0.66));
       animation: loadingHeartPulse 1.8s ease-in-out infinite;
     }
 
@@ -137,7 +173,7 @@
       width: 42px;
       height: 64px;
       border-radius: 42px 42px 0 0;
-      background: linear-gradient(145deg, #ffe4ee, #ff8cbc 48%, #e74991);
+      background: linear-gradient(145deg, #ffe5ef, #ff8fbe 48%, #e74991);
     }
 
     .loading-heart::before {
@@ -160,7 +196,7 @@
       font-weight: 400;
       line-height: 1;
       text-shadow:
-        0 0 24px rgba(255, 148, 195, 0.28),
+        0 0 24px rgba(255, 148, 195, 0.3),
         0 8px 28px rgba(0, 0, 0, 0.38);
     }
 
@@ -188,14 +224,15 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        #ffb5d1,
-        #fff4f8,
-        #ff76ad,
-        transparent
-      );
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #ffb5d1,
+          #fff4f8,
+          #ff76ad,
+          transparent
+        );
       animation: loadingSweep 1.45s ease-in-out infinite;
     }
 
@@ -210,9 +247,9 @@
       visibility: hidden;
       transform: translateY(24px) scale(0.96);
       transition:
-        opacity 0.7s var(--ease),
-        visibility 0.7s var(--ease),
-        transform 0.7s var(--ease);
+        opacity 0.75s var(--ease),
+        visibility 0.75s var(--ease),
+        transform 0.75s var(--ease);
     }
 
     .envelope-screen.is-visible {
@@ -222,15 +259,16 @@
     }
 
     .envelope-scene {
-      width: min(520px, 94vw);
+      position: relative;
+      width: min(560px, 95vw);
       text-align: center;
     }
 
     .envelope-heading {
-      margin-bottom: 34px;
+      margin-bottom: 24px;
       transition:
-        opacity 0.45s ease,
-        transform 0.45s ease;
+        opacity 0.5s ease,
+        transform 0.5s ease;
     }
 
     .envelope-heading p {
@@ -254,270 +292,381 @@
         0 10px 30px rgba(0, 0, 0, 0.35);
     }
 
+    .envelope-scene.is-open .envelope-heading {
+      opacity: 0;
+      transform: translateY(-16px);
+    }
+
     .envelope-button {
       position: relative;
-      width: min(430px, 88vw);
-      aspect-ratio: 430 / 290;
+      width: min(460px, 90vw);
+      aspect-ratio: 460 / 330;
       margin: 0 auto;
       padding: 0;
       border: 0;
       color: inherit;
       background: transparent;
       cursor: pointer;
-      perspective: 1400px;
+      perspective: 1500px;
       -webkit-tap-highlight-color: transparent;
     }
 
     .envelope-button:focus-visible {
       outline: 2px solid #ffc1d8;
-      outline-offset: 12px;
-      border-radius: 24px;
+      outline-offset: 10px;
+      border-radius: 28px;
     }
 
     .envelope {
       position: absolute;
       inset: 0;
       transform-style: preserve-3d;
+      animation: envelopeFloat 4.8s ease-in-out infinite;
       filter:
-        drop-shadow(0 34px 48px rgba(0, 0, 0, 0.42))
-        drop-shadow(0 0 32px rgba(255, 104, 170, 0.2));
-      animation: envelopeFloat 4.6s ease-in-out infinite;
+        drop-shadow(0 36px 48px rgba(0, 0, 0, 0.42))
+        drop-shadow(0 0 34px rgba(255, 104, 170, 0.2));
     }
 
-    .envelope__back {
+    .envelope__shadow {
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 72%;
-      overflow: hidden;
-      border: 1px solid rgba(255, 244, 248, 0.32);
-      border-radius: 22px;
-      background:
-        linear-gradient(
-          145deg,
-          #ffe5ee 0%,
-          #f3b1ca 48%,
-          #df749f 100%
-        );
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.65),
-        inset 0 -20px 34px rgba(143, 40, 87, 0.1);
+      z-index: 0;
+      left: 11%;
+      right: 11%;
+      bottom: 1%;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.35);
+      filter: blur(16px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
     }
 
-    .envelope__back::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.17;
-      background:
-        radial-gradient(circle at 20% 22%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 77% 61%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 58% 18%, white 0 1px, transparent 2px);
-      background-size: 70px 70px;
+    .envelope-scene.is-open .envelope__shadow {
+      opacity: 0.5;
+      transform: scaleX(0.9);
     }
 
-    .envelope__letter {
+    .envelope__paper {
       position: absolute;
       z-index: 2;
-      left: 8%;
-      right: 8%;
-      bottom: 8%;
-      height: 72%;
+      left: 7%;
+      right: 7%;
+      top: 21%;
+      height: 66%;
+      overflow: hidden;
+      border: 1px solid rgba(117, 48, 80, 0.11);
+      border-radius: 18px 18px 12px 12px;
+      color: #54253b;
+      background:
+        radial-gradient(circle at 50% 8%, rgba(255, 170, 207, 0.2), transparent 30%),
+        linear-gradient(180deg, #fffafd, #ffeaf1 72%, #ffe0eb);
+      box-shadow:
+        0 18px 32px rgba(75, 20, 46, 0.2),
+        inset 0 0 34px rgba(255, 173, 206, 0.14);
+      transform: translateY(27%);
+      transition:
+        transform 1.15s var(--ease),
+        box-shadow 1.15s var(--ease);
+    }
+
+    .envelope__paper::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border: 1px solid rgba(175, 75, 121, 0.12);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .envelope__paper::after {
+      content: "✦";
+      position: absolute;
+      right: 20px;
+      bottom: 16px;
+      color: rgba(195, 75, 130, 0.28);
+      font-size: 18px;
+    }
+
+    .envelope__paper-content {
+      position: absolute;
+      inset: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      border: 1px solid rgba(134, 63, 94, 0.12);
-      border-radius: 17px 17px 11px 11px;
-      color: #532238;
-      background:
-        radial-gradient(circle at 50% 8%, rgba(255, 177, 208, 0.22), transparent 30%),
-        linear-gradient(180deg, #fffafd, #ffeaf1);
-      box-shadow:
-        0 18px 30px rgba(86, 24, 54, 0.18),
-        inset 0 0 30px rgba(255, 179, 209, 0.14);
-      transform: translateY(28%);
-      transition:
-        transform 1s var(--ease),
-        box-shadow 1s var(--ease);
+      padding: 30px;
     }
 
-    .envelope__letter-small {
-      margin-bottom: 7px;
+    .envelope__paper-small {
+      margin-bottom: 8px;
       font-size: 8px;
       font-weight: 600;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.23em;
       text-transform: uppercase;
     }
 
-    .envelope__letter-title {
-      color: #a83d6e;
+    .envelope__paper-title {
+      color: #a33b6b;
       font-family: "Great Vibes", cursive;
-      font-size: clamp(31px, 7vw, 47px);
+      font-size: clamp(32px, 7vw, 48px);
       font-weight: 400;
       line-height: 1;
     }
 
-    .envelope__letter-copy {
-      max-width: 260px;
-      margin-top: 10px;
-      color: rgba(83, 34, 56, 0.72);
+    .envelope__paper-copy {
+      max-width: 270px;
+      margin-top: 11px;
+      color: rgba(84, 37, 59, 0.72);
       font-size: 11px;
-      line-height: 1.5;
+      line-height: 1.55;
+    }
+
+    .envelope-scene.is-open .envelope__paper {
+      z-index: 9;
+      transform: translateY(-47%);
+      box-shadow:
+        0 40px 70px rgba(59, 15, 36, 0.32),
+        0 0 44px rgba(255, 145, 191, 0.24);
+    }
+
+    .envelope__back {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 66%;
+      overflow: hidden;
+      border: 1px solid rgba(255, 247, 250, 0.32);
+      border-radius: 24px;
+      background:
+        linear-gradient(145deg, #ffe6ef 0%, #f3b2ca 47%, #df729e 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.62),
+        inset 0 -22px 36px rgba(143, 40, 87, 0.11);
+    }
+
+    .envelope__back::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background:
+        radial-gradient(circle at 18% 28%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 79% 62%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 62% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 32% 78%, white 0 1px, transparent 2px);
+      background-size: 72px 72px;
+    }
+
+    .envelope__inside {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 66%;
+      overflow: hidden;
+      border-radius: 24px;
+    }
+
+    .envelope__inside::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(0 0, 50% 58%, 100% 0);
+      background:
+        linear-gradient(180deg, #d95f91, #ef9fbd);
+      opacity: 0.66;
     }
 
     .envelope__flap {
       position: absolute;
-      z-index: 6;
+      z-index: 8;
       left: 0;
       right: 0;
-      bottom: 28%;
-      height: 45%;
-      transform-origin: top center;
+      bottom: 34%;
+      height: 38%;
+      transform-origin: 50% 0;
       transform-style: preserve-3d;
-      transition: transform 0.95s var(--ease);
+      transition:
+        transform 0.95s var(--ease),
+        z-index 0s 0.48s;
     }
 
-    .envelope__flap-face {
-      position: absolute;
-      inset: 0;
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-      background:
-        linear-gradient(
-          180deg,
-          #ffe6ef 0%,
-          #f2abc5 56%,
-          #de719e 100%
-        );
-      border-top: 1px solid rgba(255, 255, 255, 0.45);
-      filter: drop-shadow(0 5px 4px rgba(117, 33, 72, 0.08));
-      backface-visibility: hidden;
-    }
-
+    .envelope__flap-front,
     .envelope__flap-back {
       position: absolute;
       inset: 0;
       clip-path: polygon(0 0, 100% 0, 50% 100%);
+      backface-visibility: hidden;
+    }
+
+    .envelope__flap-front {
       background:
         linear-gradient(
           180deg,
-          #d95f91,
-          #f3a9c4
+          #ffe7f0 0%,
+          #f1adc5 58%,
+          #dc6a98 100%
+        );
+      filter: drop-shadow(0 5px 5px rgba(110, 29, 67, 0.08));
+    }
+
+    .envelope__flap-front::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.48);
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.18), transparent 42%);
+    }
+
+    .envelope__flap-back {
+      background:
+        linear-gradient(
+          180deg,
+          #d65b8e,
+          #ee9fbd
         );
       transform: rotateX(180deg);
-      backface-visibility: hidden;
+    }
+
+    .envelope-scene.is-open .envelope__flap {
+      z-index: 0;
+      transform: rotateX(180deg);
     }
 
     .envelope__front {
       position: absolute;
-      z-index: 5;
+      z-index: 6;
       left: 0;
       right: 0;
       bottom: 0;
-      height: 72%;
+      height: 66%;
       overflow: hidden;
-      border-radius: 22px;
+      border-radius: 24px;
       pointer-events: none;
     }
 
-    .envelope__front-left {
+    .envelope__front-left,
+    .envelope__front-right,
+    .envelope__front-bottom {
       position: absolute;
       inset: 0;
-      clip-path: polygon(0 0, 52% 55%, 0 100%);
+    }
+
+    .envelope__front-left {
+      clip-path: polygon(0 0, 52% 56%, 0 100%);
       background:
         linear-gradient(
           145deg,
-          #f9c9da,
-          #e47da7
+          #fad0df,
+          #e57da7
         );
     }
 
     .envelope__front-right {
-      position: absolute;
-      inset: 0;
-      clip-path: polygon(100% 0, 48% 55%, 100% 100%);
+      clip-path: polygon(100% 0, 48% 56%, 100% 100%);
       background:
         linear-gradient(
           215deg,
-          #f8c5d8,
+          #f9ccdc,
           #df719f
         );
     }
 
     .envelope__front-bottom {
-      position: absolute;
-      inset: 0;
-      clip-path: polygon(0 100%, 50% 44%, 100% 100%);
+      clip-path: polygon(0 100%, 50% 43%, 100% 100%);
       background:
         linear-gradient(
           180deg,
-          #ee9cbb,
-          #dc6797
+          #efa0bf,
+          #d95e91
         );
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .envelope__front-highlight {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border-radius: 24px;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 -22px 30px rgba(123, 29, 70, 0.08);
     }
 
     .envelope__seal {
       position: absolute;
-      z-index: 10;
+      z-index: 12;
       left: 50%;
-      bottom: 25%;
-      width: 56px;
-      height: 56px;
+      bottom: 24%;
+      width: 58px;
+      height: 58px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(255, 237, 244, 0.42);
+      border: 1px solid rgba(255, 238, 245, 0.42);
       border-radius: 50%;
-      color: #fff1f6;
+      color: #fff3f7;
       background:
-        radial-gradient(
-          circle at 36% 28%,
-          #ffbed7,
-          #db4f8d 62%,
-          #a93268
-        );
+        radial-gradient(circle at 34% 27%, #ffc1d9, #dc4e8d 61%, #a32e64);
       box-shadow:
-        0 8px 16px rgba(86, 16, 48, 0.28),
-        0 0 24px rgba(255, 102, 169, 0.45),
-        inset 0 1px 1px rgba(255, 255, 255, 0.55);
+        0 9px 18px rgba(83, 14, 47, 0.32),
+        0 0 28px rgba(255, 99, 168, 0.52),
+        inset 0 1px 2px rgba(255, 255, 255, 0.62);
       transform: translateX(-50%);
       transition:
-        opacity 0.35s ease,
-        transform 0.6s var(--ease);
+        opacity 0.38s ease,
+        transform 0.65s var(--ease);
     }
 
     .envelope__seal::before {
       content: "♥";
       font-size: 23px;
+      text-shadow: 0 2px 4px rgba(100, 14, 52, 0.18);
     }
 
-    .envelope-scene.is-open .envelope {
-      animation-play-state: paused;
-    }
-
-    .envelope-scene.is-open .envelope-heading {
-      opacity: 0;
-      transform: translateY(-14px);
-    }
-
-    .envelope-scene.is-open .envelope__flap {
-      z-index: 1;
-      transform: rotateX(180deg);
+    .envelope__seal::after {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
     }
 
     .envelope-scene.is-open .envelope__seal {
       opacity: 0;
-      transform: translateX(-50%) scale(0.2) rotate(28deg);
+      transform: translateX(-50%) scale(0.15) rotate(32deg);
     }
 
-    .envelope-scene.is-open .envelope__letter {
-      z-index: 8;
-      transform: translateY(-50%);
-      box-shadow:
-        0 38px 65px rgba(69, 20, 44, 0.3),
-        0 0 42px rgba(255, 148, 192, 0.24);
+    .envelope__shine {
+      position: absolute;
+      z-index: 14;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .envelope__shine::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -45%;
+      width: 30%;
+      height: 140%;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+      transform: rotate(13deg);
+      animation: envelopeShine 6s ease-in-out infinite;
     }
 
     .open-label {
@@ -525,7 +674,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin-top: 28px;
+      margin-top: 23px;
       padding: 12px 20px;
       border: 1px solid rgba(255, 233, 242, 0.15);
       border-radius: 999px;
@@ -533,6 +682,9 @@
       background: rgba(255, 255, 255, 0.045);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 12px 32px rgba(0, 0, 0, 0.2);
       font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.2em;
@@ -555,6 +707,10 @@
       animation: none;
     }
 
+    .envelope-scene.is-open .envelope {
+      animation-play-state: paused;
+    }
+
     .intro-heart,
     .intro-sparkle,
     .intro-butterfly {
@@ -570,7 +726,12 @@
       height: var(--size);
       opacity: 0;
       transform: rotate(45deg);
-      background: linear-gradient(145deg, #ffd6e6, #ff609f);
+      background:
+        linear-gradient(
+          145deg,
+          #ffd6e6,
+          #ff609f
+        );
       filter: drop-shadow(0 0 10px rgba(255, 100, 163, 0.6));
       animation: introHeartFloat var(--duration) linear infinite;
       animation-delay: var(--delay);
@@ -612,6 +773,7 @@
       text-shadow:
         0 0 10px rgba(255, 159, 202, 0.72),
         0 0 24px rgba(255, 116, 179, 0.46);
+      filter: drop-shadow(0 8px 13px rgba(0, 0, 0, 0.22));
       animation: introButterfly var(--duration) ease-in-out infinite;
       animation-delay: var(--delay);
     }
@@ -628,6 +790,15 @@
       transition:
         opacity 1s var(--ease),
         visibility 1s var(--ease);
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background:
+        radial-gradient(circle at 50% 14%, rgba(255, 185, 217, 0.07), transparent 25%);
     }
 
     .hero {
@@ -654,6 +825,8 @@
     }
 
     .hero__header {
+      position: relative;
+      z-index: 8;
       width: min(920px, 100%);
       text-align: center;
     }
@@ -669,6 +842,21 @@
       font-weight: 600;
       letter-spacing: 0.3em;
       text-transform: uppercase;
+    }
+
+    .hero__eyebrow::before,
+    .hero__eyebrow::after {
+      content: "";
+      width: clamp(20px, 4vw, 58px);
+      height: 1px;
+    }
+
+    .hero__eyebrow::before {
+      background: linear-gradient(90deg, transparent, rgba(255, 220, 234, 0.5));
+    }
+
+    .hero__eyebrow::after {
+      background: linear-gradient(90deg, rgba(255, 220, 234, 0.5), transparent);
     }
 
     .hero__title {
@@ -696,6 +884,7 @@
       background-size: 220% 100%;
       background-clip: text;
       -webkit-background-clip: text;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
       animation: chromeShine 8s ease-in-out infinite;
     }
 
@@ -718,6 +907,7 @@
     }
 
     .hero__image-stage {
+      position: relative;
       width: 100%;
       height: 100%;
       min-height: 0;
@@ -730,6 +920,19 @@
       position: relative;
       display: inline-block;
       animation: heroBounce 5.6s ease-in-out infinite;
+    }
+
+    .hero__image-aura {
+      position: absolute;
+      inset: -32px;
+      z-index: -1;
+      border-radius: 44px;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255, 184, 217, 0.28), transparent 34%),
+        radial-gradient(circle at 25% 70%, rgba(255, 110, 174, 0.2), transparent 30%),
+        radial-gradient(circle at 80% 68%, rgba(255, 149, 197, 0.18), transparent 28%);
+      filter: blur(28px);
+      animation: auraPulse 4.8s ease-in-out infinite;
     }
 
     .hero__image-frame {
@@ -753,6 +956,33 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+    }
+
+    .hero__gloss {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      overflow: hidden;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .hero__gloss::before {
+      content: "";
+      position: absolute;
+      top: -12%;
+      left: -55%;
+      width: 42%;
+      height: 135%;
+      transform: rotate(12deg);
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 225, 238, 0.18),
+          transparent
+        );
+      animation: glossSweep 8s ease-in-out infinite;
     }
 
     .hero__lightning {
@@ -781,6 +1011,7 @@
       position: absolute;
       user-select: none;
       pointer-events: none;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
     }
 
     .sticker--heart1 {
@@ -811,25 +1042,25 @@
       animation: stickerFloatD 4.9s ease-in-out infinite;
     }
 
-    .butterfly--1 {
+    .butterfly--one {
       top: 8%;
       left: 19%;
       font-size: 30px;
-      animation: butterflyDrift1 6.6s ease-in-out infinite;
+      animation: butterflyDriftOne 6.6s ease-in-out infinite;
     }
 
-    .butterfly--2 {
+    .butterfly--two {
       top: 13%;
       right: 15%;
       font-size: 28px;
-      animation: butterflyDrift2 7.4s ease-in-out infinite;
+      animation: butterflyDriftTwo 7.4s ease-in-out infinite;
     }
 
-    .butterfly--3 {
+    .butterfly--three {
       bottom: 22%;
       left: 57%;
       font-size: 22px;
-      animation: butterflyDrift3 5.8s ease-in-out infinite;
+      animation: butterflyDriftThree 5.8s ease-in-out infinite;
     }
 
     .hero__footer {
@@ -872,13 +1103,64 @@
       }
     }
 
-    @keyframes envelopeFloat {
+    @keyframes introLightSweep {
+      0%, 24% {
+        transform: translateX(-100%);
+      }
+
+      52%, 100% {
+        transform: translateX(100%);
+      }
+    }
+
+    @keyframes orbOne {
       0%, 100% {
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
       }
 
       50% {
-        transform: translateY(-10px);
+        transform: translate3d(70px, 34px, 0);
+      }
+    }
+
+    @keyframes orbTwo {
+      0%, 100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform: translate3d(-58px, -38px, 0);
+      }
+    }
+
+    @keyframes envelopeFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(-0.25deg);
+      }
+
+      50% {
+        transform: translateY(-11px) rotate(0.25deg);
+      }
+    }
+
+    @keyframes envelopeShine {
+      0%, 15% {
+        transform: translateX(0) rotate(13deg);
+        opacity: 0;
+      }
+
+      26% {
+        opacity: 1;
+      }
+
+      50% {
+        transform: translateX(470%) rotate(13deg);
+        opacity: 0.8;
+      }
+
+      64%, 100% {
+        transform: translateX(470%) rotate(13deg);
+        opacity: 0;
       }
     }
 
@@ -953,6 +1235,39 @@
       }
     }
 
+    @keyframes auraPulse {
+      0%, 100% {
+        opacity: 0.7;
+        transform: scale(0.96);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.03);
+      }
+    }
+
+    @keyframes glossSweep {
+      0%, 12% {
+        transform: translateX(0) rotate(12deg);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      48% {
+        transform: translateX(310%) rotate(12deg);
+        opacity: 0.85;
+      }
+
+      60%, 100% {
+        transform: translateX(310%) rotate(12deg);
+        opacity: 0;
+      }
+    }
+
     @keyframes lightningPulse {
       0%, 100% {
         opacity: 0.34;
@@ -1014,7 +1329,7 @@
       }
     }
 
-    @keyframes butterflyDrift1 {
+    @keyframes butterflyDriftOne {
       0%, 100% {
         transform: translate3d(0, 0, 0) rotate(-6deg);
       }
@@ -1024,7 +1339,7 @@
       }
     }
 
-    @keyframes butterflyDrift2 {
+    @keyframes butterflyDriftTwo {
       0%, 100% {
         transform: translate3d(0, 0, 0) rotate(5deg);
       }
@@ -1034,7 +1349,7 @@
       }
     }
 
-    @keyframes butterflyDrift3 {
+    @keyframes butterflyDriftThree {
       0%, 100% {
         transform: translate3d(0, 0, 0) rotate(-3deg);
       }
@@ -1046,28 +1361,33 @@
 
     @media (max-width: 640px) {
       .envelope-screen {
-        padding: 16px;
+        padding: 14px;
       }
 
       .envelope-heading {
-        margin-bottom: 24px;
+        margin-bottom: 18px;
+      }
+
+      .envelope-heading h2 {
+        font-size: clamp(39px, 12vw, 54px);
       }
 
       .envelope-button {
-        width: min(370px, 92vw);
+        width: min(390px, 94vw);
       }
 
-      .envelope__letter {
-        padding: 16px;
+      .envelope__paper-content {
+        padding: 19px;
       }
 
-      .envelope__letter-copy {
+      .envelope__paper-copy {
+        max-width: 230px;
         font-size: 10px;
       }
 
       .envelope__seal {
-        width: 48px;
-        height: 48px;
+        width: 49px;
+        height: 49px;
       }
 
       .envelope__seal::before {
@@ -1075,7 +1395,7 @@
       }
 
       .open-label {
-        margin-top: 22px;
+        margin-top: 18px;
         padding: 10px 16px;
         font-size: 8px;
       }
@@ -1089,6 +1409,10 @@
 
       .hero__container {
         gap: 7px;
+      }
+
+      .hero__eyebrow {
+        font-size: 7px;
       }
 
       .hero__title {
@@ -1110,6 +1434,10 @@
         border-radius: 18px;
       }
 
+      .hero__image-aura {
+        inset: -20px;
+      }
+
       .hero__footer {
         font-size: 7px;
       }
@@ -1117,6 +1445,20 @@
       .sticker,
       .butterfly {
         font-size: 17px;
+      }
+    }
+
+    @media (max-height: 700px) {
+      .envelope-heading {
+        margin-bottom: 12px;
+      }
+
+      .envelope-button {
+        width: min(390px, 82vh);
+      }
+
+      .open-label {
+        margin-top: 12px;
       }
     }
 
@@ -1133,6 +1475,7 @@
       .intro-sparkle,
       .intro-butterfly,
       .hero__lightning,
+      .hero__gloss,
       .sticker,
       .butterfly {
         display: none;
@@ -1143,6 +1486,9 @@
 
 <body class="intro-active">
   <div class="intro" id="intro">
+    <div class="intro-orb intro-orb--one" aria-hidden="true"></div>
+    <div class="intro-orb intro-orb--two" aria-hidden="true"></div>
+
     <span class="intro-heart" style="left: 8%; --size: 13px; --duration: 12s; --delay: -4s; --drift: 34px;"></span>
     <span class="intro-heart" style="left: 22%; --size: 9px; --duration: 10s; --delay: -7s; --drift: -28px;"></span>
     <span class="intro-heart" style="left: 48%; --size: 15px; --duration: 14s; --delay: -9s; --drift: 40px;"></span>
@@ -1180,24 +1526,29 @@
           aria-label="Open the anniversary letter"
         >
           <span class="envelope" aria-hidden="true">
+            <span class="envelope__shadow"></span>
+
             <span class="envelope__back"></span>
+            <span class="envelope__inside"></span>
 
-            <span class="envelope__letter">
-              <span class="envelope__letter-small">
-                Made especially for you
-              </span>
+            <span class="envelope__paper">
+              <span class="envelope__paper-content">
+                <span class="envelope__paper-small">
+                  Made especially for you
+                </span>
 
-              <span class="envelope__letter-title">
-                My beautiful girl
-              </span>
+                <span class="envelope__paper-title">
+                  My beautiful girl
+                </span>
 
-              <span class="envelope__letter-copy">
-                A little page filled with our memories and all my love.
+                <span class="envelope__paper-copy">
+                  A little page filled with our memories and all my love.
+                </span>
               </span>
             </span>
 
             <span class="envelope__flap">
-              <span class="envelope__flap-face"></span>
+              <span class="envelope__flap-front"></span>
               <span class="envelope__flap-back"></span>
             </span>
 
@@ -1205,9 +1556,11 @@
               <span class="envelope__front-left"></span>
               <span class="envelope__front-right"></span>
               <span class="envelope__front-bottom"></span>
+              <span class="envelope__front-highlight"></span>
             </span>
 
             <span class="envelope__seal"></span>
+            <span class="envelope__shine"></span>
           </span>
         </button>
 
@@ -1242,6 +1595,8 @@
 
         <div class="hero__image-stage">
           <div class="hero__float-wrap">
+            <div class="hero__image-aura" aria-hidden="true"></div>
+
             <div class="hero__image-frame">
               <img
                 class="hero__image"
@@ -1254,6 +1609,7 @@
                 decoding="async"
               >
 
+              <div class="hero__gloss" aria-hidden="true"></div>
               <div class="hero__lightning" aria-hidden="true"></div>
             </div>
 
@@ -1263,9 +1619,9 @@
               <span class="sticker sticker--spark">✦</span>
               <span class="sticker sticker--bolt">⚡</span>
 
-              <span class="butterfly butterfly--1">🦋</span>
-              <span class="butterfly butterfly--2">🦋</span>
-              <span class="butterfly butterfly--3">🦋</span>
+              <span class="butterfly butterfly--one">🦋</span>
+              <span class="butterfly butterfly--two">🦋</span>
+              <span class="butterfly butterfly--three">🦋</span>
             </div>
           </div>
         </div>
@@ -1285,14 +1641,37 @@
       const envelopeScreen = document.getElementById("envelopeScreen");
       const envelopeScene = document.getElementById("envelopeScene");
       const envelopeButton = document.getElementById("envelopeButton");
+      const heroImage = document.getElementById("heroImage");
 
       let opened = false;
 
       const wait = (duration) =>
         new Promise((resolve) => window.setTimeout(resolve, duration));
 
+      const waitForHeroImage = async () => {
+        if (!heroImage) {
+          await wait(1200);
+          return;
+        }
+
+        if (heroImage.complete && heroImage.naturalWidth > 0) {
+          await wait(850);
+          return;
+        }
+
+        const imageReady = new Promise((resolve) => {
+          heroImage.addEventListener("load", resolve, { once: true });
+          heroImage.addEventListener("error", resolve, { once: true });
+        });
+
+        await Promise.race([
+          imageReady,
+          wait(2300)
+        ]);
+      };
+
       const showEnvelope = async () => {
-        await wait(1300);
+        await waitForHeroImage();
 
         loadingScreen.classList.add("is-hidden");
 
@@ -1310,7 +1689,7 @@
         envelopeScene.classList.add("is-open");
         envelopeButton.disabled = true;
 
-        await wait(1550);
+        await wait(1800);
 
         document.body.classList.remove("intro-active");
         intro.classList.add("is-leaving");
