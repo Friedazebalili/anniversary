@@ -262,6 +262,21 @@
       will-change: transform;
     }
 
+    .hero__image-aura {
+      position: absolute;
+      inset: -34px;
+      z-index: -1;
+      border-radius: 44px;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255, 184, 217, 0.28), transparent 34%),
+        radial-gradient(circle at 25% 70%, rgba(255, 110, 174, 0.20), transparent 30%),
+        radial-gradient(circle at 80% 68%, rgba(255, 149, 197, 0.18), transparent 28%);
+      filter: blur(28px);
+      opacity: 0.95;
+      animation: auraPulse 4.8s ease-in-out infinite;
+    }
+
     .hero__image-frame {
       position: relative;
       height: min(68svh, 760px);
@@ -275,7 +290,8 @@
       box-shadow:
         0 32px 90px var(--shadow),
         0 0 0 1px rgba(255, 255, 255, 0.035),
-        0 0 60px rgba(231, 136, 176, 0.15);
+        0 0 60px rgba(231, 136, 176, 0.15),
+        0 0 110px rgba(255, 115, 183, 0.15);
       transform: translateZ(0);
     }
 
@@ -298,7 +314,38 @@
       z-index: 3;
       border-radius: inherit;
       pointer-events: none;
-      background: linear-gradient(180deg, rgba(10, 4, 9, 0.01), transparent 60%, rgba(7, 3, 6, 0.1));
+      background:
+        linear-gradient(180deg, rgba(10, 4, 9, 0.01), transparent 60%, rgba(7, 3, 6, 0.1)),
+        radial-gradient(circle at 50% 50%, rgba(255, 180, 212, 0.06), transparent 70%);
+    }
+
+    .hero__image-gloss {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      border-radius: inherit;
+      overflow: hidden;
+    }
+
+    .hero__image-gloss::before {
+      content: "";
+      position: absolute;
+      top: -10%;
+      left: -55%;
+      width: 42%;
+      height: 130%;
+      transform: rotate(12deg);
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.02) 18%,
+        rgba(255,225,238,0.18) 48%,
+        rgba(255,255,255,0.03) 78%,
+        rgba(255,255,255,0) 100%
+      );
+      filter: blur(2px);
+      animation: glossSweep 8s ease-in-out infinite;
     }
 
     .hero__image {
@@ -316,13 +363,14 @@
     .hero__lightning {
       position: absolute;
       inset: -2px;
-      z-index: 4;
+      z-index: 5;
       border-radius: inherit;
       pointer-events: none;
       opacity: 0.72;
       box-shadow:
         0 0 12px rgba(255, 91, 160, 0.9),
         0 0 28px rgba(255, 95, 164, 0.5),
+        0 0 54px rgba(255, 95, 164, 0.24),
         inset 0 0 14px rgba(255, 102, 168, 0.16);
       animation: lightningPulse 2.4s ease-in-out infinite;
     }
@@ -355,20 +403,25 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 6;
+      z-index: 7;
     }
 
-    .sticker {
+    .sticker,
+    .butterfly {
       position: absolute;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      user-select: none;
+      pointer-events: none;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
+    }
+
+    .sticker {
       color: #ffd7e8;
       text-shadow:
         0 0 12px rgba(255, 112, 173, 0.65),
         0 0 28px rgba(255, 112, 173, 0.45);
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
-      user-select: none;
     }
 
     .sticker--heart1 {
@@ -398,6 +451,35 @@
       font-size: clamp(20px, 2vw, 30px);
       color: #ff9bcc;
       animation: stickerFloatD 4.9s ease-in-out infinite;
+    }
+
+    .butterfly {
+      color: #ffc6dd;
+      text-shadow:
+        0 0 10px rgba(255, 161, 204, 0.72),
+        0 0 22px rgba(255, 124, 184, 0.5);
+      transform-origin: center;
+    }
+
+    .butterfly--1 {
+      top: 8%;
+      left: 19%;
+      font-size: clamp(24px, 2.2vw, 32px);
+      animation: butterflyDrift1 6.6s ease-in-out infinite;
+    }
+
+    .butterfly--2 {
+      top: 13%;
+      right: 15%;
+      font-size: clamp(22px, 2vw, 30px);
+      animation: butterflyDrift2 7.4s ease-in-out infinite;
+    }
+
+    .butterfly--3 {
+      bottom: 22%;
+      left: 57%;
+      font-size: clamp(18px, 1.7vw, 24px);
+      animation: butterflyDrift3 5.8s ease-in-out infinite;
     }
 
     .hero__footer {
@@ -580,6 +662,35 @@
       }
     }
 
+    @keyframes auraPulse {
+      0%, 100% {
+        opacity: 0.7;
+        transform: scale(0.96);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.03);
+      }
+    }
+
+    @keyframes glossSweep {
+      0%, 12% {
+        transform: translateX(0) rotate(12deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      48% {
+        transform: translateX(310%) rotate(12deg);
+        opacity: 0.85;
+      }
+      60%, 100% {
+        transform: translateX(310%) rotate(12deg);
+        opacity: 0;
+      }
+    }
+
     @keyframes heroBounce {
       0%, 100% {
         transform: translateY(0);
@@ -707,6 +818,26 @@
       50% { transform: translateY(-11px) rotate(-10deg) scale(1.08); }
     }
 
+    @keyframes butterflyDrift1 {
+      0%, 100% { transform: translate3d(0,0,0) rotate(-6deg) scale(1); }
+      25% { transform: translate3d(10px,-10px,0) rotate(6deg) scale(1.08); }
+      50% { transform: translate3d(18px,2px,0) rotate(-4deg) scale(0.94); }
+      75% { transform: translate3d(8px,-12px,0) rotate(8deg) scale(1.06); }
+    }
+
+    @keyframes butterflyDrift2 {
+      0%, 100% { transform: translate3d(0,0,0) rotate(5deg) scale(1); }
+      30% { transform: translate3d(-12px,-9px,0) rotate(-7deg) scale(1.07); }
+      60% { transform: translate3d(-18px,4px,0) rotate(4deg) scale(0.95); }
+      80% { transform: translate3d(-7px,-8px,0) rotate(-9deg) scale(1.05); }
+    }
+
+    @keyframes butterflyDrift3 {
+      0%, 100% { transform: translate3d(0,0,0) rotate(-3deg) scale(1); }
+      33% { transform: translate3d(9px,-7px,0) rotate(7deg) scale(1.05); }
+      66% { transform: translate3d(-6px,6px,0) rotate(-6deg) scale(0.96); }
+    }
+
     @keyframes ambientFloat {
       0%, 100% {
         transform: translate3d(0, 0, 0) scale(1);
@@ -733,7 +864,8 @@
       .sticker--heart1,
       .sticker--heart2,
       .sticker--spark,
-      .sticker--bolt {
+      .sticker--bolt,
+      .butterfly {
         font-size: 20px;
       }
     }
@@ -787,6 +919,11 @@
         border-radius: 18px;
       }
 
+      .hero__image-aura {
+        inset: -20px;
+        border-radius: 24px;
+      }
+
       .hero__footer {
         font-size: 7px;
         letter-spacing: 0.15em;
@@ -802,25 +939,19 @@
       .sticker--heart1,
       .sticker--heart2,
       .sticker--spark,
-      .sticker--bolt {
+      .sticker--bolt,
+      .butterfly {
         font-size: 17px;
       }
 
-      .sticker--heart1 {
-        left: -2%;
-      }
+      .sticker--heart1 { left: -2%; }
+      .sticker--heart2 { right: -2%; }
+      .sticker--spark { left: -1.5%; }
+      .sticker--bolt { right: -2%; }
 
-      .sticker--heart2 {
-        right: -2%;
-      }
-
-      .sticker--spark {
-        left: -1.5%;
-      }
-
-      .sticker--bolt {
-        right: -2%;
-      }
+      .butterfly--1 { left: 15%; }
+      .butterfly--2 { right: 11%; }
+      .butterfly--3 { left: 54%; bottom: 24%; }
     }
 
     @media (max-height: 720px) and (min-width: 641px) {
@@ -865,7 +996,10 @@
       .twinkle-cross,
       .hero__lightning,
       .hero__glow,
+      .hero__image-aura,
+      .hero__image-gloss,
       .sticker,
+      .butterfly,
       .ambient-blur {
         display: none;
       }
@@ -920,13 +1054,9 @@
         <header class="hero__header">
           <p class="hero__eyebrow">A Love Worth Celebrating</p>
 
-          <h1 class="hero__title" id="hero-title">
-            Happy Anniversary
-          </h1>
+          <h1 class="hero__title" id="hero-title">Happy Anniversary</h1>
 
-          <p class="hero__script">
-            To my beautiful girl
-          </p>
+          <p class="hero__script">To my beautiful girl</p>
 
           <p class="hero__message">
             Every moment with you is my favorite, and every memory we create
@@ -938,6 +1068,8 @@
           <div class="hero__glow" aria-hidden="true"></div>
 
           <div class="hero__float-wrap">
+            <div class="hero__image-aura" aria-hidden="true"></div>
+
             <div class="hero__image-frame">
               <img
                 class="hero__image"
@@ -949,6 +1081,7 @@
                 decoding="async"
               >
 
+              <div class="hero__image-gloss" aria-hidden="true"></div>
               <div class="hero__lightning" aria-hidden="true"></div>
             </div>
 
@@ -957,6 +1090,10 @@
               <span class="sticker sticker--heart2">💗</span>
               <span class="sticker sticker--spark">✦</span>
               <span class="sticker sticker--bolt">⚡</span>
+
+              <span class="butterfly butterfly--1">🦋</span>
+              <span class="butterfly butterfly--2">🦋</span>
+              <span class="butterfly butterfly--3">🦋</span>
             </div>
           </div>
         </div>
