@@ -3,81 +3,88 @@
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(pointer: fine)").matches;
-  const mobileQuery = window.matchMedia("(max-width: 640px)");
+  const mobile = window.matchMedia("(max-width: 640px)").matches;
 
-  gsap.registerPlugin(ScrollTrigger);
-
-  const lenis = reduceMotion ? null : new Lenis({ duration: 1.12, smoothWheel: true, wheelMultiplier: .9, touchMultiplier: 1, anchors: true });
-  if (lenis) {
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add(time => lenis.raf(time * 1000));
-    gsap.ticker.lagSmoothing(0);
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
   }
 
   const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
   intro
     .set([".hero__content", ".collage-stage", ".scroll-cue"], { autoAlpha: 0 })
-    .fromTo(".collage-stage", { autoAlpha: 0, scale: .88, y: 40 }, { autoAlpha: 1, scale: 1, y: 0, duration: 1.5 }, .12)
-    .fromTo(".eyebrow", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: .75 }, .42)
-    .fromTo(".chrome-title__line", { autoAlpha: 0, y: -36 }, { autoAlpha: 1, y: 0, duration: 1.05, stagger: .12 }, .5)
-    .fromTo(".hero__subtitle", { autoAlpha: 0, y: 22 }, { autoAlpha: 1, y: 0, duration: .9 }, .86)
-    .fromTo(".hero__copy", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: .8 }, 1.02)
-    .to(".hero__content", { autoAlpha: 1, duration: .01 }, .36)
-    .to(".scroll-cue", { autoAlpha: 1, duration: .7 }, 1.35);
+    .fromTo(".collage-stage", { autoAlpha: 0, scale: .94, y: 22 }, { autoAlpha: 1, scale: 1, y: 0, duration: 1.05 }, .08)
+    .fromTo(".eyebrow", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .55 }, .28)
+    .fromTo(".chrome-title__line", { autoAlpha: 0, y: -22 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .08 }, .34)
+    .fromTo(".hero__subtitle", { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: .65 }, .58)
+    .fromTo(".hero__copy", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: .55 }, .68)
+    .to(".hero__content", { autoAlpha: 1, duration: .01 }, .24)
+    .to(".scroll-cue", { autoAlpha: 1, duration: .45 }, .9);
 
-  if (!reduceMotion) {
+  if (!reduceMotion && window.ScrollTrigger) {
     gsap.to(".collage-frame", {
-      scale: 1.13,
-      yPercent: -5,
+      scale: 1.045,
+      yPercent: -2,
       ease: "none",
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: .35
+      }
     });
-    gsap.to(".hero__backdrop", {
-      yPercent: 10,
-      scale: 1.18,
-      ease: "none",
-      scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
-    });
+
     gsap.to(".hero__content", {
-      yPercent: -34,
-      autoAlpha: .08,
+      yPercent: -18,
+      autoAlpha: .16,
       ease: "none",
-      scrollTrigger: { trigger: ".hero", start: "15% top", end: "70% top", scrub: true }
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "12% top",
+        end: "68% top",
+        scrub: .35
+      }
     });
+
     gsap.to(".scroll-cue", {
       autoAlpha: 0,
-      scrollTrigger: { trigger: ".hero", start: "8% top", end: "18% top", scrub: true }
+      scrollTrigger: {
+        trigger: ".hero",
+        start: "6% top",
+        end: "14% top",
+        scrub: .25
+      }
     });
 
-    gsap.utils.toArray(".reveal-block").forEach(el => {
-      gsap.from(el, { y: 68, autoAlpha: 0, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 82%", once: true } });
+    gsap.utils.toArray(".reveal-block").forEach((el) => {
+      gsap.from(el, {
+        y: 42,
+        autoAlpha: 0,
+        duration: .85,
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 86%", once: true }
+      });
     });
 
     gsap.utils.toArray(".memory-card").forEach((card, index) => {
       gsap.from(card, {
-        y: 80,
+        y: 44,
         autoAlpha: 0,
-        scale: .96,
-        duration: 1.15,
-        delay: (index % 3) * .08,
+        scale: .985,
+        duration: .75,
+        delay: (index % 3) * .05,
         ease: "power3.out",
-        scrollTrigger: { trigger: card, start: "top 88%", once: true }
-      });
-      gsap.to(card, {
-        yPercent: index % 2 ? -5 : 5,
-        ease: "none",
-        scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: 1.2 }
+        scrollTrigger: { trigger: card, start: "top 90%", once: true }
       });
     });
   }
 
   document.querySelector("[data-scroll-top]")?.addEventListener("click", () => {
-    if (lenis) lenis.scrollTo(0, { duration: 1.8 });
-    else window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   const musicButton = document.querySelector(".music-toggle");
   const audio = document.getElementById("anniversary-audio");
+
   musicButton?.addEventListener("click", async () => {
     try {
       if (audio.paused) {
@@ -96,113 +103,186 @@
       musicButton.classList.remove("is-playing");
     }
   });
+
   audio?.addEventListener("error", () => {
-    if (musicButton) musicButton.querySelector(".music-toggle__text").textContent = "Add anniversary-song.mp3";
+    const label = musicButton?.querySelector(".music-toggle__text");
+    if (label) label.textContent = "Add anniversary-song.mp3";
   });
 
   if (finePointer && !reduceMotion) {
     document.body.classList.add("has-pointer");
     const glow = document.querySelector(".cursor-glow");
     const frame = document.querySelector(".collage-frame");
-    const xTo = gsap.quickTo(glow, "x", { duration: .42, ease: "power3" });
-    const yTo = gsap.quickTo(glow, "y", { duration: .42, ease: "power3" });
+    const glowX = gsap.quickTo(glow, "x", { duration: .28, ease: "power2.out" });
+    const glowY = gsap.quickTo(glow, "y", { duration: .28, ease: "power2.out" });
+    const rotateX = gsap.quickTo(frame, "rotateX", { duration: .55, ease: "power3.out" });
+    const rotateY = gsap.quickTo(frame, "rotateY", { duration: .55, ease: "power3.out" });
+    const moveX = gsap.quickTo(frame, "x", { duration: .55, ease: "power3.out" });
+    const moveY = gsap.quickTo(frame, "y", { duration: .55, ease: "power3.out" });
+    let pointerRaf = 0;
+    let latestX = 0;
+    let latestY = 0;
 
-    window.addEventListener("pointermove", event => {
-      xTo(event.clientX);
-      yTo(event.clientY);
-      const nx = event.clientX / window.innerWidth - .5;
-      const ny = event.clientY / window.innerHeight - .5;
-      gsap.to(frame, { rotateY: nx * 5, rotateX: ny * -5, x: nx * 11, y: ny * 9, duration: 1, ease: "power3.out", overwrite: "auto" });
+    window.addEventListener("pointermove", (event) => {
+      latestX = event.clientX;
+      latestY = event.clientY;
+      if (pointerRaf) return;
+      pointerRaf = requestAnimationFrame(() => {
+        glowX(latestX);
+        glowY(latestY);
+        const nx = latestX / innerWidth - .5;
+        const ny = latestY / innerHeight - .5;
+        rotateY(nx * 3.2);
+        rotateX(ny * -3.2);
+        moveX(nx * 6);
+        moveY(ny * 5);
+        pointerRaf = 0;
+      });
     }, { passive: true });
 
-    document.addEventListener("mouseleave", () => gsap.to(frame, { rotateX: 0, rotateY: 0, x: 0, y: 0, duration: 1.1, ease: "power3.out" }));
+    document.addEventListener("mouseleave", () => {
+      rotateX(0);
+      rotateY(0);
+      moveX(0);
+      moveY(0);
+    });
   }
 
   const canvas = document.getElementById("ambient-canvas");
   const ctx = canvas?.getContext("2d", { alpha: true });
-  let dpr = Math.min(window.devicePixelRatio || 1, 2);
   let width = innerWidth;
   let height = innerHeight;
   let particles = [];
   let rafId = 0;
-  let lastTime = performance.now();
-
+  let lastFrame = 0;
+  const targetFrame = mobile ? 1000 / 24 : 1000 / 30;
   const colors = ["255,226,236", "247,180,205", "255,244,248", "218,157,179"];
+
   const makeParticles = () => {
-    const mobile = mobileQuery.matches;
-    const sparkleCount = mobile ? 22 : 54;
-    const petalCount = mobile ? 9 : 22;
-    const heartCount = mobile ? 3 : 7;
-    const butterflyCount = mobile ? 1 : 3;
-    const counts = { sparkle: sparkleCount, petal: petalCount, heart: heartCount, butterfly: butterflyCount };
-    particles = Object.entries(counts).flatMap(([type, count]) => Array.from({ length: count }, () => ({
-      type,
-      x: Math.random() * width,
-      y: Math.random() * height,
-      size: type === "sparkle" ? .6 + Math.random() * 1.7 : type === "petal" ? 2.5 + Math.random() * 4.5 : type === "heart" ? 4 + Math.random() * 6 : 5 + Math.random() * 6,
-      speedY: type === "heart" ? -(6 + Math.random() * 10) : type === "butterfly" ? -3 + Math.random() * 6 : type === "petal" ? 10 + Math.random() * 18 : 2 + Math.random() * 7,
-      speedX: type === "butterfly" ? 12 + Math.random() * 14 : -5 + Math.random() * 10,
-      drift: Math.random() * Math.PI * 2,
-      alpha: .12 + Math.random() * .38,
-      twinkle: .5 + Math.random() * 1.8,
-      rotation: Math.random() * Math.PI * 2,
-      rotationSpeed: -.35 + Math.random() * .7,
-      color: colors[Math.floor(Math.random() * colors.length)]
-    })));
+    const counts = mobile
+      ? { sparkle: 10, petal: 5, heart: 1, butterfly: 0 }
+      : { sparkle: 24, petal: 10, heart: 3, butterfly: 1 };
+
+    particles = Object.entries(counts).flatMap(([type, count]) =>
+      Array.from({ length: count }, () => ({
+        type,
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: type === "sparkle" ? .7 + Math.random() * 1.2 : type === "petal" ? 2.5 + Math.random() * 3.2 : type === "heart" ? 4 + Math.random() * 4 : 5 + Math.random() * 4,
+        speedY: type === "heart" ? -(5 + Math.random() * 7) : type === "butterfly" ? -2 + Math.random() * 4 : type === "petal" ? 8 + Math.random() * 12 : 1 + Math.random() * 4,
+        speedX: type === "butterfly" ? 8 + Math.random() * 8 : -3 + Math.random() * 6,
+        drift: Math.random() * Math.PI * 2,
+        alpha: .1 + Math.random() * .24,
+        twinkle: .5 + Math.random() * 1.3,
+        rotation: Math.random() * Math.PI * 2,
+        rotationSpeed: -.2 + Math.random() * .4,
+        color: colors[Math.floor(Math.random() * colors.length)]
+      }))
+    );
   };
 
-  const resize = () => {
+  const resizeCanvas = () => {
     width = innerWidth;
     height = innerHeight;
-    dpr = Math.min(devicePixelRatio || 1, 2);
+    const dpr = 1;
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     makeParticles();
   };
 
-  const drawSparkle = (p, t) => {
-    const pulse = .45 + Math.sin(t * p.twinkle + p.drift) * .35;
-    ctx.save(); ctx.globalAlpha = Math.max(.05,p.alpha * pulse); ctx.fillStyle = `rgb(${p.color})`; ctx.shadowBlur = 12; ctx.shadowColor = `rgba(${p.color},.85)`; ctx.beginPath(); ctx.arc(p.x,p.y,p.size,0,Math.PI*2); ctx.fill(); ctx.restore();
-  };
-  const drawPetal = p => {
-    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rotation); ctx.globalAlpha = p.alpha; ctx.fillStyle = `rgba(${p.color},.9)`; ctx.beginPath(); ctx.ellipse(0,0,p.size*1.45,p.size*.62,.4,0,Math.PI*2); ctx.fill(); ctx.restore();
-  };
-  const drawHeart = p => {
-    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rotation); ctx.scale(p.size/10,p.size/10); ctx.globalAlpha = p.alpha; ctx.fillStyle = `rgba(${p.color},.7)`; ctx.shadowBlur = 12; ctx.shadowColor = `rgba(${p.color},.5)`; ctx.beginPath(); ctx.moveTo(0,3); ctx.bezierCurveTo(-8,-2,-5,-10,0,-5); ctx.bezierCurveTo(5,-10,8,-2,0,3); ctx.fill(); ctx.restore();
-  };
-  const drawButterfly = (p,t) => {
-    const flap = .65 + Math.sin(t*5+p.drift)*.35;
-    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(Math.sin(t+p.drift)*.25); ctx.globalAlpha = p.alpha; ctx.fillStyle = `rgba(${p.color},.7)`; ctx.beginPath(); ctx.ellipse(-p.size*.35,0,p.size*.45,p.size*.22,-.45*flap,0,Math.PI*2); ctx.ellipse(p.size*.35,0,p.size*.45,p.size*.22,.45*flap,0,Math.PI*2); ctx.fill(); ctx.restore();
+  const drawParticle = (p, t) => {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    ctx.globalAlpha = p.alpha;
+    ctx.fillStyle = `rgba(${p.color},.9)`;
+
+    if (p.type === "sparkle") {
+      const pulse = .55 + Math.sin(t * p.twinkle + p.drift) * .3;
+      ctx.globalAlpha *= pulse;
+      ctx.beginPath();
+      ctx.arc(0, 0, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (p.type === "petal") {
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.size * 1.35, p.size * .58, .4, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (p.type === "heart") {
+      ctx.scale(p.size / 10, p.size / 10);
+      ctx.beginPath();
+      ctx.moveTo(0, 3);
+      ctx.bezierCurveTo(-8, -2, -5, -10, 0, -5);
+      ctx.bezierCurveTo(5, -10, 8, -2, 0, 3);
+      ctx.fill();
+    } else {
+      const flap = .7 + Math.sin(t * 4 + p.drift) * .3;
+      ctx.beginPath();
+      ctx.ellipse(-p.size * .32, 0, p.size * .4, p.size * .2, -.4 * flap, 0, Math.PI * 2);
+      ctx.ellipse(p.size * .32, 0, p.size * .4, p.size * .2, .4 * flap, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.restore();
   };
 
-  const animate = now => {
-    const delta = Math.min((now-lastTime)/1000,.05); lastTime = now; const t = now/1000; ctx.clearRect(0,0,width,height);
-    particles.forEach(p => {
+  const animate = (now) => {
+    if (now - lastFrame < targetFrame) {
+      rafId = requestAnimationFrame(animate);
+      return;
+    }
+
+    const delta = Math.min((now - lastFrame) / 1000, .05);
+    lastFrame = now;
+    const t = now / 1000;
+    ctx.clearRect(0, 0, width, height);
+
+    particles.forEach((p) => {
       p.y += p.speedY * delta;
-      p.x += (p.speedX + Math.sin(t*.7+p.drift)*(p.type === "petal" ? 6 : p.type === "butterfly" ? 8 : 1.2)) * delta;
+      p.x += (p.speedX + Math.sin(t * .6 + p.drift) * (p.type === "petal" ? 3 : p.type === "butterfly" ? 5 : .7)) * delta;
       p.rotation += p.rotationSpeed * delta;
-      if (p.type === "heart" && p.y < -30) { p.y = height+30; p.x = Math.random()*width; }
-      else if (p.y > height+30) { p.y = -30; p.x = Math.random()*width; }
-      if (p.x < -40) p.x = width+40; if (p.x > width+40) p.x = -40;
-      if (p.type === "sparkle") drawSparkle(p,t); else if (p.type === "petal") drawPetal(p); else if (p.type === "heart") drawHeart(p); else drawButterfly(p,t);
+
+      if (p.type === "heart" && p.y < -20) {
+        p.y = height + 20;
+        p.x = Math.random() * width;
+      } else if (p.y > height + 20) {
+        p.y = -20;
+        p.x = Math.random() * width;
+      }
+
+      if (p.x < -30) p.x = width + 30;
+      if (p.x > width + 30) p.x = -30;
+      drawParticle(p, t);
     });
+
     rafId = requestAnimationFrame(animate);
   };
 
   if (!reduceMotion && canvas && ctx) {
-    resize(); rafId = requestAnimationFrame(animate); addEventListener("resize", resize, { passive: true });
-  } else canvas?.remove();
+    resizeCanvas();
+    rafId = requestAnimationFrame(animate);
+    let resizeTimer;
+    addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(resizeCanvas, 150);
+    }, { passive: true });
+  } else {
+    canvas?.remove();
+  }
 
   document.addEventListener("visibilitychange", () => {
     if (reduceMotion || !canvas) return;
-    if (document.hidden) cancelAnimationFrame(rafId); else { lastTime = performance.now(); rafId = requestAnimationFrame(animate); }
+    if (document.hidden) cancelAnimationFrame(rafId);
+    else {
+      lastFrame = performance.now();
+      rafId = requestAnimationFrame(animate);
+    }
   });
 
   addEventListener("load", () => {
     document.body.classList.remove("is-loading");
-    ScrollTrigger.refresh();
+    ScrollTrigger?.refresh();
   }, { once: true });
 })();
