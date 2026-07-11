@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#11080f">
+  <meta name="theme-color" content="#12080f">
   <meta name="description" content="A romantic anniversary experience made with love.">
   <title>Happy Anniversary</title>
 
@@ -13,17 +13,16 @@
 
   <style>
     :root {
-      --background: #0e070d;
-      --background-soft: #1b0d18;
-      --white: #fff9fb;
-      --muted: rgba(255, 242, 248, 0.72);
-      --pink: #f7bed2;
+      --background: #0d060c;
+      --background-soft: #1b0c18;
+      --white: #fff8fb;
+      --soft-white: rgba(255, 244, 248, 0.74);
+      --pink: #f7bfd3;
       --light-pink: #ffe0eb;
-      --rose-gold: #ddb0a5;
-      --border: rgba(255, 238, 245, 0.14);
-      --shadow: rgba(0, 0, 0, 0.55);
+      --border: rgba(255, 237, 244, 0.16);
+      --shadow: rgba(0, 0, 0, 0.58);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --page-width: 1500px;
+      --page-width: 1180px;
     }
 
     * {
@@ -31,8 +30,9 @@
     }
 
     html {
-      scroll-behavior: smooth;
+      min-width: 320px;
       background: var(--background);
+      scroll-behavior: smooth;
     }
 
     body {
@@ -42,8 +42,10 @@
       overflow-x: hidden;
       color: var(--white);
       background:
-        radial-gradient(circle at 50% 0%, rgba(231, 145, 181, 0.18), transparent 32%),
-        linear-gradient(180deg, #1c0d19 0%, var(--background) 65%);
+        radial-gradient(circle at 50% 0%, rgba(231, 139, 179, 0.18), transparent 34%),
+        radial-gradient(circle at 12% 65%, rgba(167, 67, 115, 0.11), transparent 28%),
+        radial-gradient(circle at 88% 60%, rgba(239, 164, 194, 0.1), transparent 30%),
+        linear-gradient(180deg, #1c0d19 0%, #10080f 48%, #090508 100%);
       font-family: "DM Sans", sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -72,9 +74,8 @@
       inset: 0;
       z-index: -3;
       background:
-        radial-gradient(circle at 18% 20%, rgba(255, 215, 230, 0.08), transparent 25%),
-        radial-gradient(circle at 82% 62%, rgba(197, 96, 142, 0.11), transparent 32%),
-        linear-gradient(145deg, #180b16, #0c060b 72%);
+        radial-gradient(circle at 50% 24%, rgba(255, 218, 232, 0.07), transparent 27%),
+        linear-gradient(145deg, rgba(42, 18, 37, 0.7), rgba(9, 4, 8, 0.9));
     }
 
     .hero::after {
@@ -82,9 +83,9 @@
       position: absolute;
       inset: auto 0 0;
       z-index: -2;
-      height: 42%;
+      height: 35%;
       pointer-events: none;
-      background: linear-gradient(180deg, transparent, rgba(6, 3, 6, 0.48));
+      background: linear-gradient(180deg, transparent, rgba(6, 3, 5, 0.52));
     }
 
     .hero__shell {
@@ -95,15 +96,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: clamp(24px, 3vw, 42px);
+      gap: clamp(24px, 3vw, 40px);
     }
 
     .hero__header {
       position: relative;
-      z-index: 5;
-      width: min(1080px, 100%);
+      z-index: 3;
+      width: min(940px, 100%);
       text-align: center;
-      animation: headerEntrance 1s var(--ease) both;
+      animation: headerReveal 1s var(--ease) both;
     }
 
     .hero__eyebrow {
@@ -111,31 +112,31 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      margin: 0 0 15px;
-      color: rgba(255, 234, 242, 0.68);
+      margin: 0 0 14px;
+      color: rgba(255, 235, 243, 0.68);
       font-size: 10px;
       font-weight: 600;
       line-height: 1.2;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.31em;
       text-transform: uppercase;
     }
 
     .hero__eyebrow::before,
     .hero__eyebrow::after {
       content: "";
-      width: clamp(24px, 5vw, 70px);
+      width: clamp(26px, 5vw, 66px);
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 222, 235, 0.5));
+      background: linear-gradient(90deg, transparent, rgba(255, 221, 234, 0.48));
     }
 
     .hero__eyebrow::after {
-      background: linear-gradient(90deg, rgba(255, 222, 235, 0.5), transparent);
+      background: linear-gradient(90deg, rgba(255, 221, 234, 0.48), transparent);
     }
 
     .hero__title {
       margin: 0;
       font-family: "Playfair Display", serif;
-      font-size: clamp(47px, 7vw, 112px);
+      font-size: clamp(48px, 7vw, 104px);
       font-weight: 500;
       line-height: 0.9;
       letter-spacing: -0.055em;
@@ -144,40 +145,40 @@
       background:
         linear-gradient(
           105deg,
-          #8f596d 0%,
-          #f9dce6 13%,
+          #7d4c60 0%,
+          #f6d7e2 12%,
           #ffffff 22%,
-          #b88194 34%,
-          #fff0f5 47%,
-          #986075 60%,
-          #ffffff 74%,
-          #d8a7b7 86%,
-          #815064 100%
+          #aa7187 34%,
+          #fff0f5 48%,
+          #986175 60%,
+          #ffffff 73%,
+          #d9a7b8 86%,
+          #75475a 100%
         );
       background-size: 220% 100%;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-stroke: 1px rgba(255, 255, 255, 0.13);
-      filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.4));
-      animation: chromeShine 8s 1.5s ease-in-out infinite;
+      filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.42));
+      animation: chromeShine 8s 1.4s ease-in-out infinite;
     }
 
     .hero__script {
-      margin: 8px 0 0;
+      margin: 9px 0 0;
       color: var(--light-pink);
       font-family: "Great Vibes", cursive;
-      font-size: clamp(35px, 5vw, 72px);
+      font-size: clamp(34px, 5vw, 68px);
       font-weight: 400;
       line-height: 1;
       text-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.38),
-        0 0 22px rgba(255, 169, 203, 0.15);
+        0 8px 24px rgba(0, 0, 0, 0.42),
+        0 0 22px rgba(255, 177, 207, 0.14);
     }
 
     .hero__message {
-      max-width: 620px;
+      max-width: 610px;
       margin: 16px auto 0;
-      color: var(--muted);
+      color: var(--soft-white);
       font-size: clamp(14px, 1.4vw, 18px);
       font-weight: 300;
       line-height: 1.7;
@@ -187,19 +188,21 @@
     .hero__image-stage {
       position: relative;
       width: 100%;
-      animation: imageEntrance 1.25s 0.15s var(--ease) both;
+      display: flex;
+      justify-content: center;
+      animation: imageReveal 1.2s 0.15s var(--ease) both;
     }
 
     .hero__glow {
       position: absolute;
-      inset: 10% 4% -4%;
+      inset: 8% 7% -4%;
       z-index: -1;
       border-radius: 50%;
       pointer-events: none;
       background: radial-gradient(
         ellipse at center,
-        rgba(255, 183, 211, 0.27),
-        rgba(210, 107, 153, 0.11) 44%,
+        rgba(255, 183, 211, 0.26),
+        rgba(208, 104, 151, 0.1) 46%,
         transparent 75%
       );
       filter: blur(50px);
@@ -207,16 +210,15 @@
 
     .hero__image-frame {
       position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
+      width: min(100%, 1050px);
       overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: clamp(22px, 2.5vw, 40px);
-      background: #140a12;
+      border-radius: clamp(22px, 2.6vw, 38px);
+      background: #10080e;
       box-shadow:
-        0 44px 115px var(--shadow),
+        0 42px 110px var(--shadow),
         0 0 0 1px rgba(255, 255, 255, 0.035),
-        0 0 70px rgba(231, 138, 177, 0.13);
+        0 0 68px rgba(231, 136, 176, 0.13);
       transform: translateZ(0);
     }
 
@@ -228,8 +230,8 @@
       pointer-events: none;
       border-radius: inherit;
       box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        inset 0 0 80px rgba(0, 0, 0, 0.12);
+        inset 0 0 0 1px rgba(255, 255, 255, 0.09),
+        inset 0 0 70px rgba(0, 0, 0, 0.12);
     }
 
     .hero__image-frame::after {
@@ -242,51 +244,49 @@
       background:
         linear-gradient(
           180deg,
-          rgba(12, 5, 11, 0.03),
-          transparent 55%,
-          rgba(8, 3, 7, 0.15)
+          rgba(10, 4, 9, 0.02),
+          transparent 60%,
+          rgba(7, 3, 6, 0.12)
         );
     }
 
     .hero__image {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      transform: scale(1.002);
+      height: auto;
+      object-fit: contain;
+      object-position: center;
       transition: transform 0.8s var(--ease);
     }
 
     .hero__image-frame:hover .hero__image {
-      transform: scale(1.018);
+      transform: scale(1.012);
     }
 
     .hero__footer {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      color: rgba(255, 238, 244, 0.55);
+      gap: 11px;
+      color: rgba(255, 238, 244, 0.54);
       font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      animation: footerEntrance 0.9s 0.65s var(--ease) both;
+      animation: footerReveal 0.9s 0.55s var(--ease) both;
     }
 
     .hero__footer-dot {
       width: 5px;
       height: 5px;
-      flex: 0 0 auto;
       border-radius: 50%;
       background: var(--pink);
       box-shadow: 0 0 13px rgba(247, 190, 210, 0.85);
     }
 
-    @keyframes headerEntrance {
+    @keyframes headerReveal {
       from {
         opacity: 0;
-        transform: translateY(-24px);
+        transform: translateY(-22px);
       }
 
       to {
@@ -295,10 +295,10 @@
       }
     }
 
-    @keyframes imageEntrance {
+    @keyframes imageReveal {
       from {
         opacity: 0;
-        transform: translateY(34px) scale(0.975);
+        transform: translateY(30px) scale(0.98);
       }
 
       to {
@@ -307,10 +307,10 @@
       }
     }
 
-    @keyframes footerEntrance {
+    @keyframes footerReveal {
       from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(14px);
       }
 
       to {
@@ -333,8 +333,8 @@
 
     @media (max-width: 900px) {
       .hero {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 15px;
+        padding-right: 15px;
       }
 
       .hero__shell {
@@ -343,10 +343,11 @@
       }
 
       .hero__header {
-        padding-top: 12px;
+        padding-top: 8px;
       }
 
       .hero__image-frame {
+        width: min(100%, 760px);
         border-radius: 25px;
       }
     }
@@ -354,33 +355,33 @@
     @media (max-width: 640px) {
       .hero {
         padding:
-          max(24px, env(safe-area-inset-top))
+          max(23px, env(safe-area-inset-top))
           10px
-          max(24px, env(safe-area-inset-bottom));
+          max(23px, env(safe-area-inset-bottom));
       }
 
       .hero__shell {
-        gap: 22px;
+        gap: 21px;
       }
 
       .hero__header {
-        padding-inline: 8px;
+        padding-inline: 7px;
       }
 
       .hero__eyebrow {
-        margin-bottom: 11px;
+        margin-bottom: 10px;
         font-size: 8px;
         letter-spacing: 0.22em;
       }
 
       .hero__title {
-        font-size: clamp(38px, 12vw, 60px);
+        font-size: clamp(38px, 12vw, 59px);
         line-height: 0.93;
       }
 
       .hero__script {
         margin-top: 7px;
-        font-size: clamp(31px, 10vw, 46px);
+        font-size: clamp(31px, 10vw, 45px);
       }
 
       .hero__message {
@@ -391,13 +392,14 @@
       }
 
       .hero__image-frame {
-        min-height: 230px;
-        aspect-ratio: 16 / 9;
+        width: 100%;
         border-radius: 18px;
       }
 
       .hero__image {
-        object-position: center center;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
       }
 
       .hero__footer {
@@ -406,17 +408,10 @@
       }
     }
 
-    @media (max-width: 420px) {
-      .hero__image-frame {
-        min-height: 215px;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
-        scroll-behavior: auto !important;
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
@@ -452,10 +447,10 @@
           <div class="hero__image-frame">
             <img
               class="hero__image"
-              src="assets/anniversary-collage.png"
+              src="anniversary.png"
               alt="A romantic anniversary collage featuring the couple and portraits"
-              width="1792"
-              height="1024"
+              width="1122"
+              height="1402"
               fetchpriority="high"
               decoding="async"
             >
