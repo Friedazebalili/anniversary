@@ -20,10 +20,10 @@
       --pink: #ffb7d1;
       --pink-soft: #ffd8e6;
       --pink-strong: #ff5fa2;
-      --rose: #dc90ad;
-      --border: rgba(255, 235, 243, 0.16);
+      --border: rgba(255, 235, 243, 0.18);
       --shadow: rgba(0, 0, 0, 0.58);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --image-ratio: 1122 / 1402;
     }
 
     * {
@@ -57,13 +57,6 @@
       max-width: 100%;
     }
 
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-    }
-
     .page {
       position: relative;
       width: 100%;
@@ -79,8 +72,18 @@
       inset: 0;
       z-index: -4;
       background:
-        linear-gradient(120deg, rgba(255, 255, 255, 0.025), transparent 28%, transparent 70%, rgba(255, 255, 255, 0.02)),
-        radial-gradient(circle at 50% 20%, rgba(255, 216, 231, 0.07), transparent 26%);
+        linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.025),
+          transparent 28%,
+          transparent 70%,
+          rgba(255, 255, 255, 0.02)
+        ),
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(255, 216, 231, 0.07),
+          transparent 26%
+        );
     }
 
     .page::after {
@@ -89,8 +92,12 @@
       inset: auto 0 0;
       z-index: -3;
       height: 30%;
-      background: linear-gradient(180deg, transparent, rgba(4, 2, 4, 0.55));
       pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(4, 2, 4, 0.55)
+      );
     }
 
     .hero {
@@ -98,10 +105,10 @@
       width: 100%;
       height: 100%;
       padding:
-        max(18px, env(safe-area-inset-top))
-        max(20px, env(safe-area-inset-right))
-        max(18px, env(safe-area-inset-bottom))
-        max(20px, env(safe-area-inset-left));
+        max(14px, env(safe-area-inset-top))
+        max(18px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(18px, env(safe-area-inset-left));
     }
 
     .hero__container {
@@ -111,8 +118,9 @@
       margin: 0 auto;
       display: grid;
       grid-template-rows: auto minmax(0, 1fr) auto;
-      gap: clamp(12px, 2vh, 20px);
       align-items: center;
+      justify-items: center;
+      gap: clamp(8px, 1.4vh, 14px);
     }
 
     .hero__header {
@@ -129,7 +137,7 @@
       align-items: center;
       justify-content: center;
       gap: 12px;
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: rgba(255, 233, 242, 0.67);
       font-size: 9px;
       font-weight: 600;
@@ -146,11 +154,19 @@
     }
 
     .hero__eyebrow::before {
-      background: linear-gradient(90deg, transparent, rgba(255, 220, 234, 0.5));
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 220, 234, 0.5)
+      );
     }
 
     .hero__eyebrow::after {
-      background: linear-gradient(90deg, rgba(255, 220, 234, 0.5), transparent);
+      background: linear-gradient(
+        90deg,
+        rgba(255, 220, 234, 0.5),
+        transparent
+      );
     }
 
     .hero__title {
@@ -184,7 +200,7 @@
     }
 
     .hero__script {
-      margin: 3px 0 0;
+      margin: 2px 0 0;
       color: var(--pink-soft);
       font-family: "Great Vibes", cursive;
       font-size: clamp(28px, 4vw, 54px);
@@ -197,11 +213,11 @@
 
     .hero__message {
       max-width: 580px;
-      margin: 8px auto 0;
+      margin: 7px auto 0;
       color: var(--muted);
       font-size: clamp(12px, 1.15vw, 15px);
       font-weight: 300;
-      line-height: 1.55;
+      line-height: 1.5;
       letter-spacing: 0.01em;
     }
 
@@ -219,9 +235,11 @@
 
     .hero__glow {
       position: absolute;
-      inset: 8% 8% -3%;
+      width: min(80vw, 760px);
+      height: 84%;
       z-index: -3;
       border-radius: 46%;
+      pointer-events: none;
       background:
         radial-gradient(
           ellipse at center,
@@ -232,63 +250,17 @@
       filter: blur(50px);
       opacity: 0.9;
       animation: glowPulse 4.8s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    .hero__lightning {
-      position: absolute;
-      inset: -8px;
-      z-index: -1;
-      border-radius: clamp(22px, 2.4vw, 38px);
-      pointer-events: none;
-      opacity: 0.68;
-      filter: blur(1px);
-    }
-
-    .hero__lightning::before,
-    .hero__lightning::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-    }
-
-    .hero__lightning::before {
-      background:
-        linear-gradient(90deg, transparent 2%, rgba(255, 99, 166, 0.95) 5%, transparent 8%) top left / 30% 2px no-repeat,
-        linear-gradient(90deg, transparent 35%, rgba(255, 190, 221, 0.95) 46%, transparent 55%) top center / 42% 2px no-repeat,
-        linear-gradient(90deg, transparent 72%, rgba(255, 96, 163, 0.95) 86%, transparent 98%) top right / 35% 2px no-repeat,
-        linear-gradient(180deg, transparent 4%, rgba(255, 115, 174, 0.9) 14%, transparent 26%) left top / 2px 34% no-repeat,
-        linear-gradient(180deg, transparent 45%, rgba(255, 180, 214, 0.95) 56%, transparent 70%) right center / 2px 34% no-repeat,
-        linear-gradient(90deg, transparent 8%, rgba(255, 109, 171, 0.95) 24%, transparent 40%) bottom left / 36% 2px no-repeat,
-        linear-gradient(90deg, transparent 48%, rgba(255, 205, 226, 0.95) 58%, transparent 72%) bottom center / 42% 2px no-repeat,
-        linear-gradient(90deg, transparent 78%, rgba(255, 93, 160, 0.95) 90%, transparent 100%) bottom right / 30% 2px no-repeat;
-      box-shadow:
-        0 0 12px rgba(255, 91, 160, 0.9),
-        0 0 26px rgba(255, 95, 164, 0.55),
-        inset 0 0 18px rgba(255, 102, 168, 0.18);
-      animation: lightningPulse 2.4s ease-in-out infinite;
-    }
-
-    .hero__lightning::after {
-      inset: -3px;
-      border: 1px solid rgba(255, 127, 183, 0.28);
-      box-shadow:
-        0 0 18px rgba(255, 99, 166, 0.38),
-        0 0 42px rgba(255, 99, 166, 0.18);
-      animation: lightningHalo 3.4s ease-in-out infinite;
     }
 
     .hero__image-frame {
       position: relative;
-      width: min(100%, 900px);
-      height: 100%;
-      max-height: min(68svh, 760px);
-      aspect-ratio: 1122 / 1402;
+      height: min(68svh, 760px);
+      width: auto;
+      max-width: 100%;
+      aspect-ratio: var(--image-ratio);
       overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: clamp(22px, 2.6vw, 40px);
+      border-radius: clamp(20px, 2.4vw, 36px);
       background: #10070e;
       box-shadow:
         0 32px 90px var(--shadow),
@@ -317,15 +289,44 @@
       border-radius: inherit;
       pointer-events: none;
       background:
-        linear-gradient(180deg, rgba(10, 4, 9, 0.01), transparent 60%, rgba(7, 3, 6, 0.1));
+        linear-gradient(
+          180deg,
+          rgba(10, 4, 9, 0.01),
+          transparent 60%,
+          rgba(7, 3, 6, 0.1)
+        );
+    }
+
+    .hero__lightning {
+      position: absolute;
+      inset: -2px;
+      z-index: 4;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0.7;
+      box-shadow:
+        0 0 12px rgba(255, 91, 160, 0.9),
+        0 0 28px rgba(255, 95, 164, 0.5),
+        inset 0 0 14px rgba(255, 102, 168, 0.16);
+      animation: lightningPulse 2.4s ease-in-out infinite;
+    }
+
+    .hero__lightning::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 121, 180, 0.35);
+      border-radius: inherit;
+      box-shadow:
+        0 0 18px rgba(255, 99, 166, 0.45),
+        0 0 38px rgba(255, 99, 166, 0.22);
     }
 
     .hero__image {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center center;
-      transform: scale(1.001);
+      object-fit: cover;
+      object-position: center;
       transition: transform 0.8s var(--ease);
     }
 
@@ -373,7 +374,11 @@
       height: var(--size);
       opacity: 0;
       transform: rotate(45deg);
-      background: linear-gradient(135deg, rgba(255, 204, 225, 0.96), rgba(255, 89, 157, 0.86));
+      background: linear-gradient(
+        135deg,
+        rgba(255, 204, 225, 0.96),
+        rgba(255, 89, 157, 0.86)
+      );
       filter: drop-shadow(0 0 10px rgba(255, 100, 164, 0.65));
       animation: heartFloat var(--duration) linear infinite;
       animation-delay: var(--delay);
@@ -476,45 +481,31 @@
     @keyframes lightningPulse {
       0%,
       100% {
-        opacity: 0.35;
-        filter: brightness(0.85);
-        transform: scale(0.998);
+        opacity: 0.32;
+        filter: brightness(0.9);
       }
 
       10% {
         opacity: 0.95;
-        filter: brightness(1.45);
+        filter: brightness(1.5);
       }
 
       16% {
-        opacity: 0.45;
+        opacity: 0.42;
       }
 
       22% {
         opacity: 1;
-        filter: brightness(1.7);
+        filter: brightness(1.75);
       }
 
       48% {
-        opacity: 0.55;
+        opacity: 0.5;
       }
 
       72% {
-        opacity: 0.88;
+        opacity: 0.85;
         filter: brightness(1.35);
-      }
-    }
-
-    @keyframes lightningHalo {
-      0%,
-      100% {
-        opacity: 0.35;
-        transform: scale(0.995);
-      }
-
-      50% {
-        opacity: 0.9;
-        transform: scale(1.012);
       }
     }
 
@@ -560,21 +551,12 @@
       }
 
       .hero {
-        padding-left: 14px;
-        padding-right: 14px;
-      }
-
-      .hero__container {
-        gap: 12px;
+        padding-left: 12px;
+        padding-right: 12px;
       }
 
       .hero__image-frame {
-        width: min(100%, 700px);
-        max-height: 64svh;
-      }
-
-      .hero__message {
-        max-width: 500px;
+        height: min(64svh, 680px);
       }
     }
 
@@ -585,17 +567,17 @@
 
       .hero {
         padding:
-          max(12px, env(safe-area-inset-top))
+          max(10px, env(safe-area-inset-top))
           8px
-          max(12px, env(safe-area-inset-bottom));
+          max(10px, env(safe-area-inset-bottom));
       }
 
       .hero__container {
-        gap: 9px;
+        gap: 7px;
       }
 
       .hero__eyebrow {
-        margin-bottom: 5px;
+        margin-bottom: 4px;
         font-size: 7px;
         letter-spacing: 0.2em;
       }
@@ -618,12 +600,12 @@
         max-width: 340px;
         margin-top: 4px;
         font-size: 11px;
-        line-height: 1.42;
+        line-height: 1.4;
       }
 
       .hero__image-frame {
-        width: min(100%, 460px);
-        max-height: 62svh;
+        height: min(61svh, 560px);
+        max-width: 100%;
         border-radius: 18px;
       }
 
@@ -640,7 +622,7 @@
 
     @media (max-height: 720px) and (min-width: 641px) {
       .hero__eyebrow {
-        margin-bottom: 5px;
+        margin-bottom: 3px;
       }
 
       .hero__title {
@@ -652,16 +634,16 @@
       }
 
       .hero__message {
-        margin-top: 5px;
+        margin-top: 4px;
         font-size: 12px;
       }
 
       .hero__image-frame {
-        max-height: 58svh;
+        height: min(57svh, 600px);
       }
 
       .hero__container {
-        gap: 8px;
+        gap: 6px;
       }
     }
 
@@ -712,7 +694,9 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__container">
         <header class="hero__header">
-          <p class="hero__eyebrow">A Love Worth Celebrating</p>
+          <p class="hero__eyebrow">
+            A Love Worth Celebrating
+          </p>
 
           <h1 class="hero__title" id="hero-title">
             Happy Anniversary
@@ -732,8 +716,6 @@
           <div class="hero__glow" aria-hidden="true"></div>
 
           <div class="hero__image-frame">
-            <div class="hero__lightning" aria-hidden="true"></div>
-
             <img
               class="hero__image"
               src="https://raw.githubusercontent.com/Friedazebalili/anniversary/1cee58e2b08a23aad86acdddce2020f1679450bb/assets/anniversary.png"
@@ -743,6 +725,8 @@
               fetchpriority="high"
               decoding="async"
             >
+
+            <div class="hero__lightning" aria-hidden="true"></div>
           </div>
         </div>
 
