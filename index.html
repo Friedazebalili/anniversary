@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#130b12">
-  <meta name="description" content="A premium interactive anniversary experience.">
+  <meta name="theme-color" content="#120812">
+  <meta name="description" content="A premium interactive anniversary experience made with love.">
   <title>Happy Anniversary</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Italiana&family=Parisienne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.25/dist/lenis.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="is-loading">
   <noscript>
     <div class="noscript">This experience works best with JavaScript enabled.</div>
   </noscript>
@@ -30,18 +30,19 @@
         <div class="hero__light hero__light--right" aria-hidden="true"></div>
 
         <div class="hero__content">
-          <p class="eyebrow">A LOVE STORY, STILL UNFOLDING</p>
-
+          <p class="eyebrow">OUR FAVORITE LOVE STORY</p>
           <h1 class="chrome-title" id="hero-title">
-            <span class="chrome-title__line">HAPPY</span>
-            <span class="chrome-title__line">ANNIVERSARY <span class="title-heart" aria-hidden="true">♥</span></span>
+            <span class="chrome-title__line">Happy</span>
+            <span class="chrome-title__line">Anniversary</span>
           </h1>
-
-          <p class="hero__subtitle">Every moment with you is my favorite.</p>
+          <p class="hero__subtitle">To my beautiful girl</p>
+          <p class="hero__copy">Every moment with you is my favorite.</p>
         </div>
 
         <div class="portrait-stage" aria-label="Anniversary collage">
           <div class="portrait-glow" aria-hidden="true"></div>
+          <div class="portrait-orbit portrait-orbit--one" aria-hidden="true"></div>
+          <div class="portrait-orbit portrait-orbit--two" aria-hidden="true"></div>
           <div class="portrait-frame" data-parallax="0.6">
             <div class="portrait-frame__sheen" aria-hidden="true"></div>
             <img
@@ -56,8 +57,13 @@
           </div>
         </div>
 
+        <div class="hero__note" aria-hidden="true">
+          <span class="hero__note-dot"></span>
+          <span>Made with all my love</span>
+        </div>
+
         <div class="scroll-cue" aria-hidden="true">
-          <span>Scroll to feel the story</span>
+          <span>Scroll to continue</span>
           <i></i>
         </div>
       </div>
@@ -66,30 +72,31 @@
     <section class="story" aria-labelledby="story-title">
       <div class="story__shell">
         <div class="story__intro reveal-block">
-          <p class="section-kicker">US, IN EVERY UNIVERSE</p>
-          <h2 id="story-title">The kind of love that makes ordinary days feel cinematic.</h2>
+          <p class="section-kicker">OUR LITTLE UNIVERSE</p>
+          <h2 id="story-title">You make ordinary days feel like my favorite memories.</h2>
+          <p class="story__lead">Every laugh, every adventure, every quiet moment — they all feel brighter because I get to share them with you.</p>
         </div>
 
         <div class="story-grid">
           <article class="glass-card reveal-card">
             <span class="glass-card__index">01</span>
             <p class="glass-card__label">THE BEGINNING</p>
-            <h3>You made the world feel softer.</h3>
-            <p>Some people arrive quietly and somehow change the atmosphere of everything. That is what you did.</p>
+            <h3>You made everything feel softer.</h3>
+            <p>You arrived and somehow the world became warmer, kinder, and more beautiful.</p>
           </article>
 
           <article class="glass-card reveal-card">
             <span class="glass-card__index">02</span>
-            <p class="glass-card__label">THE NOW</p>
-            <h3>Every version of life is better with you in it.</h3>
+            <p class="glass-card__label">RIGHT NOW</p>
+            <h3>Life is better with you in it.</h3>
             <p>The laughter, the adventures, the calm moments, and even the chaos all mean more because they are ours.</p>
           </article>
 
           <article class="glass-card reveal-card">
             <span class="glass-card__index">03</span>
-            <p class="glass-card__label">THE ALWAYS</p>
+            <p class="glass-card__label">ALWAYS</p>
             <h3>I would still choose you.</h3>
-            <p>Across every timeline, every city, every season, and every lifetime. You, every single time.</p>
+            <p>Across every city, every season, every timeline, and every lifetime — you, every single time.</p>
           </article>
         </div>
       </div>
@@ -98,8 +105,8 @@
     <section class="promise" aria-labelledby="promise-title">
       <div class="promise__beam" aria-hidden="true"></div>
       <div class="promise__content reveal-block">
-        <p class="section-kicker">A SMALL PROMISE</p>
-        <h2 id="promise-title">To keep choosing the beautiful life we are creating together.</h2>
+        <p class="section-kicker">A PROMISE FROM ME TO YOU</p>
+        <h2 id="promise-title">To keep choosing this beautiful life we are creating together.</h2>
         <p class="promise__copy">Thank you for every memory behind us and every dream still waiting ahead.</p>
       </div>
     </section>
@@ -111,6 +118,7 @@
         <p>Here is to us — and to everything that comes next.</p>
         <div class="signature" aria-label="With all my love">With all my love</div>
       </div>
+
       <button class="replay-button" type="button" data-scroll-top>
         <span>Replay the moment</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m0 0-6 6m6-6 6 6"/></svg>
