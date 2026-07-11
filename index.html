@@ -14,12 +14,12 @@
   <style>
     :root {
       --bg: #090407;
-      --bg-soft: #180a15;
       --white: #fff9fc;
-      --muted: rgba(255, 241, 247, 0.76);
+      --muted: rgba(255, 241, 247, 0.78);
       --pink: #ffb7d1;
       --pink-soft: #ffd8e6;
       --pink-strong: #ff5fa2;
+      --pink-glow: rgba(255, 116, 181, 0.45);
       --border: rgba(255, 235, 243, 0.18);
       --shadow: rgba(0, 0, 0, 0.58);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -70,34 +70,65 @@
       content: "";
       position: absolute;
       inset: 0;
-      z-index: -4;
+      z-index: -5;
       background:
-        linear-gradient(
-          120deg,
-          rgba(255, 255, 255, 0.025),
-          transparent 28%,
-          transparent 70%,
-          rgba(255, 255, 255, 0.02)
-        ),
-        radial-gradient(
-          circle at 50% 20%,
-          rgba(255, 216, 231, 0.07),
-          transparent 26%
-        );
+        radial-gradient(circle at 50% 15%, rgba(255, 185, 217, 0.07), transparent 24%),
+        linear-gradient(120deg, rgba(255, 255, 255, 0.022), transparent 28%, transparent 70%, rgba(255, 255, 255, 0.018));
     }
 
     .page::after {
       content: "";
       position: absolute;
       inset: auto 0 0;
-      z-index: -3;
+      z-index: -4;
       height: 30%;
       pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        transparent,
-        rgba(4, 2, 4, 0.55)
-      );
+      background: linear-gradient(180deg, transparent, rgba(4, 2, 4, 0.55));
+    }
+
+    .ambient-blur {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: -3;
+      overflow: hidden;
+    }
+
+    .ambient-blur span {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(70px);
+      opacity: 0.45;
+      animation: ambientFloat linear infinite;
+    }
+
+    .ambient-blur span:nth-child(1) {
+      width: 280px;
+      height: 280px;
+      left: -60px;
+      top: 10%;
+      background: rgba(255, 118, 183, 0.18);
+      animation-duration: 14s;
+    }
+
+    .ambient-blur span:nth-child(2) {
+      width: 240px;
+      height: 240px;
+      right: -40px;
+      top: 18%;
+      background: rgba(255, 182, 213, 0.15);
+      animation-duration: 18s;
+      animation-direction: reverse;
+    }
+
+    .ambient-blur span:nth-child(3) {
+      width: 320px;
+      height: 320px;
+      left: 50%;
+      bottom: -80px;
+      transform: translateX(-50%);
+      background: rgba(239, 104, 172, 0.14);
+      animation-duration: 16s;
     }
 
     .hero {
@@ -154,19 +185,11 @@
     }
 
     .hero__eyebrow::before {
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 220, 234, 0.5)
-      );
+      background: linear-gradient(90deg, transparent, rgba(255, 220, 234, 0.5));
     }
 
     .hero__eyebrow::after {
-      background: linear-gradient(
-        90deg,
-        rgba(255, 220, 234, 0.5),
-        transparent
-      );
+      background: linear-gradient(90deg, rgba(255, 220, 234, 0.5), transparent);
     }
 
     .hero__title {
@@ -178,19 +201,7 @@
       letter-spacing: -0.055em;
       text-transform: uppercase;
       color: transparent;
-      background:
-        linear-gradient(
-          105deg,
-          #754759 0%,
-          #f5d4df 12%,
-          #ffffff 22%,
-          #a96e84 34%,
-          #fff0f5 47%,
-          #965d71 59%,
-          #ffffff 72%,
-          #d9a5b5 85%,
-          #744557 100%
-        );
+      background: linear-gradient(105deg, #754759 0%, #f5d4df 12%, #ffffff 22%, #a96e84 34%, #fff0f5 47%, #965d71 59%, #ffffff 72%, #d9a5b5 85%, #744557 100%);
       background-size: 220% 100%;
       background-clip: text;
       -webkit-background-clip: text;
@@ -206,9 +217,7 @@
       font-size: clamp(28px, 4vw, 54px);
       font-weight: 400;
       line-height: 1;
-      text-shadow:
-        0 7px 22px rgba(0, 0, 0, 0.42),
-        0 0 20px rgba(255, 178, 207, 0.15);
+      text-shadow: 0 7px 22px rgba(0, 0, 0, 0.42), 0 0 20px rgba(255, 178, 207, 0.15);
     }
 
     .hero__message {
@@ -240,16 +249,17 @@
       z-index: -3;
       border-radius: 46%;
       pointer-events: none;
-      background:
-        radial-gradient(
-          ellipse at center,
-          rgba(255, 177, 208, 0.3),
-          rgba(210, 95, 146, 0.12) 46%,
-          transparent 76%
-        );
+      background: radial-gradient(ellipse at center, rgba(255, 177, 208, 0.3), rgba(210, 95, 146, 0.12) 46%, transparent 76%);
       filter: blur(50px);
-      opacity: 0.9;
+      opacity: 0.92;
       animation: glowPulse 4.8s ease-in-out infinite;
+    }
+
+    .hero__float-wrap {
+      position: relative;
+      display: inline-block;
+      animation: heroBounce 5.6s ease-in-out infinite;
+      will-change: transform;
     }
 
     .hero__image-frame {
@@ -288,38 +298,7 @@
       z-index: 3;
       border-radius: inherit;
       pointer-events: none;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(10, 4, 9, 0.01),
-          transparent 60%,
-          rgba(7, 3, 6, 0.1)
-        );
-    }
-
-    .hero__lightning {
-      position: absolute;
-      inset: -2px;
-      z-index: 4;
-      border-radius: inherit;
-      pointer-events: none;
-      opacity: 0.7;
-      box-shadow:
-        0 0 12px rgba(255, 91, 160, 0.9),
-        0 0 28px rgba(255, 95, 164, 0.5),
-        inset 0 0 14px rgba(255, 102, 168, 0.16);
-      animation: lightningPulse 2.4s ease-in-out infinite;
-    }
-
-    .hero__lightning::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border: 1px solid rgba(255, 121, 180, 0.35);
-      border-radius: inherit;
-      box-shadow:
-        0 0 18px rgba(255, 99, 166, 0.45),
-        0 0 38px rgba(255, 99, 166, 0.22);
+      background: linear-gradient(180deg, rgba(10, 4, 9, 0.01), transparent 60%, rgba(7, 3, 6, 0.1));
     }
 
     .hero__image {
@@ -331,7 +310,94 @@
     }
 
     .hero__image-frame:hover .hero__image {
-      transform: scale(1.012);
+      transform: scale(1.015);
+    }
+
+    .hero__lightning {
+      position: absolute;
+      inset: -2px;
+      z-index: 4;
+      border-radius: inherit;
+      pointer-events: none;
+      opacity: 0.72;
+      box-shadow:
+        0 0 12px rgba(255, 91, 160, 0.9),
+        0 0 28px rgba(255, 95, 164, 0.5),
+        inset 0 0 14px rgba(255, 102, 168, 0.16);
+      animation: lightningPulse 2.4s ease-in-out infinite;
+    }
+
+    .hero__lightning::before,
+    .hero__lightning::after {
+      content: "";
+      position: absolute;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .hero__lightning::before {
+      inset: 0;
+      border: 1px solid rgba(255, 121, 180, 0.35);
+      box-shadow:
+        0 0 18px rgba(255, 99, 166, 0.45),
+        0 0 38px rgba(255, 99, 166, 0.22);
+    }
+
+    .hero__lightning::after {
+      inset: 14px;
+      border-radius: 22px;
+      border: 1px dashed rgba(255, 176, 213, 0.18);
+      opacity: 0.6;
+      animation: innerPulse 3s ease-in-out infinite;
+    }
+
+    .hero__stickers {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 6;
+    }
+
+    .sticker {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffd7e8;
+      text-shadow:
+        0 0 12px rgba(255, 112, 173, 0.65),
+        0 0 28px rgba(255, 112, 173, 0.45);
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
+      user-select: none;
+    }
+
+    .sticker--heart1 {
+      top: 7%;
+      left: -4.8%;
+      font-size: clamp(20px, 2.2vw, 30px);
+      animation: stickerFloatA 4.8s ease-in-out infinite;
+    }
+
+    .sticker--heart2 {
+      top: 17%;
+      right: -4%;
+      font-size: clamp(18px, 2vw, 28px);
+      animation: stickerFloatB 5.2s ease-in-out infinite;
+    }
+
+    .sticker--spark {
+      bottom: 10%;
+      left: -4.2%;
+      font-size: clamp(22px, 2vw, 30px);
+      animation: stickerFloatC 4.6s ease-in-out infinite;
+    }
+
+    .sticker--bolt {
+      bottom: 15%;
+      right: -4.6%;
+      font-size: clamp(20px, 2vw, 30px);
+      color: #ff9bcc;
+      animation: stickerFloatD 4.9s ease-in-out infinite;
     }
 
     .hero__footer {
@@ -374,11 +440,7 @@
       height: var(--size);
       opacity: 0;
       transform: rotate(45deg);
-      background: linear-gradient(
-        135deg,
-        rgba(255, 204, 225, 0.96),
-        rgba(255, 89, 157, 0.86)
-      );
+      background: linear-gradient(135deg, rgba(255, 204, 225, 0.96), rgba(255, 89, 157, 0.86));
       filter: drop-shadow(0 0 10px rgba(255, 100, 164, 0.65));
       animation: heartFloat var(--duration) linear infinite;
       animation-delay: var(--delay);
@@ -417,12 +479,59 @@
       animation-delay: var(--delay);
     }
 
+    .bubble {
+      position: absolute;
+      bottom: -60px;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.05) 28%, rgba(255, 182, 214, 0.24) 70%, rgba(255, 130, 188, 0.1) 100%);
+      border: 1px solid rgba(255, 215, 231, 0.16);
+      box-shadow:
+        inset 0 0 12px rgba(255, 255, 255, 0.1),
+        0 0 18px rgba(255, 128, 186, 0.18);
+      opacity: 0;
+      animation: bubbleFloat var(--duration) linear infinite;
+      animation-delay: var(--delay);
+    }
+
+    .twinkle-cross {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      opacity: 0.8;
+      animation: crossBlink var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .twinkle-cross::before,
+    .twinkle-cross::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background: linear-gradient(180deg, rgba(255, 244, 248, 0), rgba(255, 218, 232, 1), rgba(255, 244, 248, 0));
+      transform: translate(-50%, -50%);
+      border-radius: 999px;
+      box-shadow: 0 0 10px rgba(255, 190, 219, 0.5);
+    }
+
+    .twinkle-cross::before {
+      width: 2px;
+      height: 100%;
+    }
+
+    .twinkle-cross::after {
+      width: 100%;
+      height: 2px;
+    }
+
     @keyframes headerReveal {
       from {
         opacity: 0;
         transform: translateY(-20px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -434,7 +543,6 @@
         opacity: 0;
         transform: translateY(26px) scale(0.98);
       }
-
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -446,7 +554,6 @@
         opacity: 0;
         transform: translateY(12px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -454,58 +561,73 @@
     }
 
     @keyframes chromeShine {
-      0%,
-      18% {
+      0%, 18% {
         background-position: 115% 50%;
       }
-
-      48%,
-      100% {
+      48%, 100% {
         background-position: -115% 50%;
       }
     }
 
     @keyframes glowPulse {
-      0%,
-      100% {
-        opacity: 0.6;
+      0%, 100% {
+        opacity: 0.62;
         transform: scale(0.97);
       }
-
       50% {
         opacity: 1;
-        transform: scale(1.04);
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes heroBounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(-8px);
+      }
+      50% {
+        transform: translateY(-14px);
+      }
+      75% {
+        transform: translateY(-7px);
       }
     }
 
     @keyframes lightningPulse {
-      0%,
-      100% {
-        opacity: 0.32;
-        filter: brightness(0.9);
+      0%, 100% {
+        opacity: 0.34;
+        filter: brightness(0.92);
       }
-
       10% {
-        opacity: 0.95;
-        filter: brightness(1.5);
+        opacity: 0.96;
+        filter: brightness(1.52);
       }
-
       16% {
         opacity: 0.42;
       }
-
       22% {
         opacity: 1;
         filter: brightness(1.75);
       }
-
       48% {
-        opacity: 0.5;
+        opacity: 0.52;
       }
-
       72% {
-        opacity: 0.85;
-        filter: brightness(1.35);
+        opacity: 0.88;
+        filter: brightness(1.36);
+      }
+    }
+
+    @keyframes innerPulse {
+      0%, 100% {
+        opacity: 0.22;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(0.99);
       }
     }
 
@@ -514,34 +636,83 @@
         opacity: 0;
         transform: translate3d(0, 0, 0) rotate(45deg) scale(0.7);
       }
-
       10% {
         opacity: 0.72;
       }
-
       55% {
         opacity: 0.5;
       }
-
       100% {
         opacity: 0;
-        transform:
-          translate3d(var(--drift), -115vh, 0)
-          rotate(405deg)
-          scale(1.1);
+        transform: translate3d(var(--drift), -115vh, 0) rotate(405deg) scale(1.1);
+      }
+    }
+
+    @keyframes bubbleFloat {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0) scale(0.65);
+      }
+      12% {
+        opacity: 0.55;
+      }
+      60% {
+        opacity: 0.35;
+      }
+      100% {
+        opacity: 0;
+        transform: translate3d(var(--drift), -105vh, 0) scale(1.08);
       }
     }
 
     @keyframes sparkleTwinkle {
-      0%,
-      100% {
+      0%, 100% {
         opacity: 0.15;
         transform: scale(0.7);
       }
-
       50% {
         opacity: 1;
         transform: scale(1.4);
+      }
+    }
+
+    @keyframes crossBlink {
+      0%, 100% {
+        opacity: 0.24;
+        transform: scale(0.7) rotate(0deg);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.15) rotate(15deg);
+      }
+    }
+
+    @keyframes stickerFloatA {
+      0%, 100% { transform: translateY(0) rotate(-8deg) scale(1); }
+      50% { transform: translateY(-10px) rotate(6deg) scale(1.08); }
+    }
+
+    @keyframes stickerFloatB {
+      0%, 100% { transform: translateY(0) rotate(6deg) scale(1); }
+      50% { transform: translateY(-12px) rotate(-8deg) scale(1.07); }
+    }
+
+    @keyframes stickerFloatC {
+      0%, 100% { transform: translateY(0) rotate(-4deg) scale(1); }
+      50% { transform: translateY(-9px) rotate(10deg) scale(1.06); }
+    }
+
+    @keyframes stickerFloatD {
+      0%, 100% { transform: translateY(0) rotate(5deg) scale(1); }
+      50% { transform: translateY(-11px) rotate(-10deg) scale(1.08); }
+    }
+
+    @keyframes ambientFloat {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(20px, -18px, 0) scale(1.06);
       }
     }
 
@@ -557,6 +728,13 @@
 
       .hero__image-frame {
         height: min(64svh, 680px);
+      }
+
+      .sticker--heart1,
+      .sticker--heart2,
+      .sticker--spark,
+      .sticker--bolt {
+        font-size: 20px;
       }
     }
 
@@ -615,8 +793,33 @@
       }
 
       .heart:nth-child(n + 7),
-      .sparkle:nth-child(n + 11) {
+      .sparkle:nth-child(n + 9),
+      .bubble:nth-child(n + 6),
+      .twinkle-cross:nth-child(n + 5) {
         display: none;
+      }
+
+      .sticker--heart1,
+      .sticker--heart2,
+      .sticker--spark,
+      .sticker--bolt {
+        font-size: 17px;
+      }
+
+      .sticker--heart1 {
+        left: -2%;
+      }
+
+      .sticker--heart2 {
+        right: -2%;
+      }
+
+      .sticker--spark {
+        left: -1.5%;
+      }
+
+      .sticker--bolt {
+        right: -2%;
       }
     }
 
@@ -658,8 +861,12 @@
 
       .heart,
       .sparkle,
+      .bubble,
+      .twinkle-cross,
       .hero__lightning,
-      .hero__glow {
+      .hero__glow,
+      .sticker,
+      .ambient-blur {
         display: none;
       }
     }
@@ -668,6 +875,12 @@
 
 <body>
   <main class="page">
+    <div class="ambient-blur" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <div class="effects" aria-hidden="true">
       <span class="heart" style="left: 6%; --size: 14px; --duration: 12s; --delay: -2s; --drift: 45px;"></span>
       <span class="heart" style="left: 16%; --size: 10px; --duration: 10s; --delay: -6s; --drift: -32px;"></span>
@@ -677,6 +890,12 @@
       <span class="heart" style="left: 76%; --size: 12px; --duration: 12s; --delay: -5s; --drift: -48px;"></span>
       <span class="heart" style="left: 88%; --size: 19px; --duration: 16s; --delay: -11s; --drift: 28px;"></span>
       <span class="heart" style="left: 95%; --size: 9px; --duration: 10s; --delay: -7s; --drift: -24px;"></span>
+
+      <span class="bubble" style="left: 12%; --size: 26px; --duration: 14s; --delay: -4s; --drift: 28px;"></span>
+      <span class="bubble" style="left: 25%; --size: 16px; --duration: 11s; --delay: -2s; --drift: -18px;"></span>
+      <span class="bubble" style="left: 53%; --size: 22px; --duration: 13s; --delay: -8s; --drift: 34px;"></span>
+      <span class="bubble" style="left: 72%; --size: 18px; --duration: 12s; --delay: -5s; --drift: -26px;"></span>
+      <span class="bubble" style="left: 90%; --size: 24px; --duration: 15s; --delay: -10s; --drift: 20px;"></span>
 
       <span class="sparkle" style="left: 8%; top: 12%; --size: 3px; --duration: 3.1s; --delay: -1s;"></span>
       <span class="sparkle" style="left: 18%; top: 35%; --size: 2px; --duration: 2.6s; --delay: -2s;"></span>
@@ -689,14 +908,17 @@
       <span class="sparkle" style="left: 91%; top: 30%; --size: 3px; --duration: 3s; --delay: -2.3s;"></span>
       <span class="sparkle" style="left: 14%; top: 80%; --size: 3px; --duration: 3.3s; --delay: -1.5s;"></span>
       <span class="sparkle" style="left: 84%; top: 86%; --size: 4px; --duration: 3.6s; --delay: -2.7s;"></span>
+
+      <span class="twinkle-cross" style="left: 22%; top: 20%; --size: 16px; --duration: 3.8s; --delay: -1.7s;"></span>
+      <span class="twinkle-cross" style="left: 76%; top: 14%; --size: 14px; --duration: 4.4s; --delay: -0.9s;"></span>
+      <span class="twinkle-cross" style="left: 67%; top: 76%; --size: 18px; --duration: 4.1s; --delay: -2.2s;"></span>
+      <span class="twinkle-cross" style="left: 11%; top: 68%; --size: 12px; --duration: 3.9s; --delay: -1.3s;"></span>
     </div>
 
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__container">
         <header class="hero__header">
-          <p class="hero__eyebrow">
-            A Love Worth Celebrating
-          </p>
+          <p class="hero__eyebrow">A Love Worth Celebrating</p>
 
           <h1 class="hero__title" id="hero-title">
             Happy Anniversary
@@ -715,18 +937,27 @@
         <div class="hero__image-stage">
           <div class="hero__glow" aria-hidden="true"></div>
 
-          <div class="hero__image-frame">
-            <img
-              class="hero__image"
-              src="https://raw.githubusercontent.com/Friedazebalili/anniversary/1cee58e2b08a23aad86acdddce2020f1679450bb/assets/anniversary.png"
-              alt="A romantic anniversary collage featuring the couple and portraits"
-              width="1122"
-              height="1402"
-              fetchpriority="high"
-              decoding="async"
-            >
+          <div class="hero__float-wrap">
+            <div class="hero__image-frame">
+              <img
+                class="hero__image"
+                src="https://raw.githubusercontent.com/Friedazebalili/anniversary/1cee58e2b08a23aad86acdddce2020f1679450bb/assets/anniversary.png"
+                alt="A romantic anniversary collage featuring the couple and portraits"
+                width="1122"
+                height="1402"
+                fetchpriority="high"
+                decoding="async"
+              >
 
-            <div class="hero__lightning" aria-hidden="true"></div>
+              <div class="hero__lightning" aria-hidden="true"></div>
+            </div>
+
+            <div class="hero__stickers" aria-hidden="true">
+              <span class="sticker sticker--heart1">💕</span>
+              <span class="sticker sticker--heart2">💗</span>
+              <span class="sticker sticker--spark">✦</span>
+              <span class="sticker sticker--bolt">⚡</span>
+            </div>
           </div>
         </div>
 
