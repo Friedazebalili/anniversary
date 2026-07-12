@@ -4438,7 +4438,124 @@
       }
     }
 
-  </style>
+  
+
+    /* Gift section visibility and pink gift-box refinement */
+    .gift-heading {
+      width: min(680px, 100%);
+      margin: 0 auto 34px;
+      padding: 0 12px;
+      overflow: visible;
+    }
+
+    .gift-title {
+      max-width: 650px;
+      margin: 0 auto;
+      color: #ffe5f1;
+      font-size: clamp(48px, 6.4vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      text-shadow:
+        0 0 24px rgba(255, 145, 194, 0.2),
+        0 12px 30px rgba(0, 0, 0, 0.22);
+      animation: none;
+      overflow-wrap: normal;
+    }
+
+    .gift-copy {
+      margin-top: 16px;
+      color: rgba(255, 235, 244, 0.75);
+    }
+
+    .gift-stage {
+      min-height: 430px;
+    }
+
+    .gift-box-button {
+      width: min(320px, 82vw);
+      min-height: 350px;
+      padding: 28px 24px 24px;
+      gap: 14px;
+      border-color: rgba(255, 204, 228, 0.25);
+      background:
+        radial-gradient(circle at 50% 24%, rgba(255, 189, 218, 0.25), transparent 38%),
+        linear-gradient(145deg, rgba(255, 155, 199, 0.13), rgba(255, 255, 255, 0.025));
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.34),
+        0 0 58px rgba(255, 100, 170, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .gift-box-button:hover {
+      border-color: rgba(255, 211, 232, 0.42);
+      background:
+        radial-gradient(circle at 50% 24%, rgba(255, 198, 223, 0.32), transparent 40%),
+        linear-gradient(145deg, rgba(255, 155, 199, 0.18), rgba(255, 255, 255, 0.035));
+    }
+
+    .gift-icon-halo {
+      top: 43%;
+      width: 236px;
+      height: 236px;
+      background: radial-gradient(circle, rgba(255, 154, 201, 0.32), rgba(255, 110, 177, 0.1) 47%, transparent 72%);
+    }
+
+    .gift-box-icon {
+      width: min(230px, 68vw);
+      height: auto;
+      font-size: 0;
+      filter: none;
+      animation: giftIconSway 4.2s ease-in-out infinite;
+    }
+
+    .cute-gift-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .gift-tap-label {
+      color: #fff6fb;
+      border-color: rgba(255, 220, 236, 0.28);
+      background: linear-gradient(90deg, rgba(179, 54, 112, 0.78), rgba(225, 91, 151, 0.78));
+      box-shadow: 0 10px 26px rgba(120, 30, 75, 0.28);
+    }
+
+    @media (max-width: 600px) {
+      .gift-heading {
+        margin-bottom: 28px;
+        padding: 0 6px;
+      }
+
+      .gift-title {
+        max-width: 340px;
+        font-size: clamp(43px, 13.5vw, 58px);
+        line-height: 1.02;
+      }
+
+      .gift-copy {
+        max-width: 330px;
+        font-size: 12px;
+      }
+
+      .gift-stage {
+        min-height: 390px;
+      }
+
+      .gift-box-button {
+        width: min(300px, 88vw);
+        min-height: 320px;
+        padding: 24px 18px 20px;
+      }
+
+      .gift-box-icon {
+        width: min(205px, 68vw);
+      }
+    }
+</style>
 </head>
 
 <body class="is-locked">
@@ -5090,7 +5207,47 @@
             aria-label="Open your anniversary gift"
           >
             <span class="gift-icon-halo" aria-hidden="true"></span>
-            <span class="gift-box-icon" aria-hidden="true">🎁</span>
+            <span class="gift-box-icon" aria-hidden="true">
+              <svg class="cute-gift-svg" viewBox="0 0 260 250" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cuteGiftBody" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#ffd9eb"/>
+                    <stop offset="50%" stop-color="#ff9bc6"/>
+                    <stop offset="100%" stop-color="#d94e8e"/>
+                  </linearGradient>
+                  <linearGradient id="cuteGiftLid" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#fff0f7"/>
+                    <stop offset="55%" stop-color="#ffb5d4"/>
+                    <stop offset="100%" stop-color="#e7639c"/>
+                  </linearGradient>
+                  <linearGradient id="cuteGiftRibbon" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#fff8fc"/>
+                    <stop offset="55%" stop-color="#ffd0e4"/>
+                    <stop offset="100%" stop-color="#f28ab7"/>
+                  </linearGradient>
+                  <filter id="cuteGiftShadow" x="-30%" y="-30%" width="160%" height="180%">
+                    <feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#5c173b" flood-opacity=".32"/>
+                  </filter>
+                </defs>
+                <g filter="url(#cuteGiftShadow)">
+                  <ellipse cx="130" cy="226" rx="82" ry="13" fill="rgba(78,20,53,.22)"/>
+                  <rect x="48" y="98" width="164" height="120" rx="18" fill="url(#cuteGiftBody)"/>
+                  <rect x="112" y="98" width="36" height="120" rx="8" fill="url(#cuteGiftRibbon)"/>
+                  <rect x="36" y="75" width="188" height="48" rx="17" fill="url(#cuteGiftLid)"/>
+                  <rect x="112" y="75" width="36" height="48" rx="8" fill="url(#cuteGiftRibbon)"/>
+                  <path d="M128 77C99 71 80 56 84 40c4-14 22-17 36-8 13 8 20 24 22 39Z" fill="#ff7fb4"/>
+                  <path d="M132 77c29-6 48-21 44-37-4-14-22-17-36-8-13 8-20 24-22 39Z" fill="#ff7fb4"/>
+                  <ellipse cx="130" cy="78" rx="24" ry="18" fill="#f45b9a"/>
+                  <path d="M93 112h18" stroke="#fff7fb" stroke-width="5" stroke-linecap="round" opacity=".72"/>
+                  <path d="M67 139h20" stroke="#fff7fb" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+                  <circle cx="68" cy="66" r="5" fill="#fff6fb"/>
+                  <path d="M68 54v24M56 66h24" stroke="#fff6fb" stroke-width="3" stroke-linecap="round"/>
+                  <circle cx="202" cy="51" r="4" fill="#fff6fb"/>
+                  <path d="M202 42v18M193 51h18" stroke="#fff6fb" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M190 160c0-9 12-14 18-5 6-9 18-4 18 5 0 11-18 21-18 21s-18-10-18-21Z" fill="#fff0f7" opacity=".85"/>
+                </g>
+              </svg>
+            </span>
             <span class="gift-tap-label">Tap to open</span>
           </button>
 
