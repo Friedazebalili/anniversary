@@ -2,29 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#160b13">
-  <meta
-    name="description"
-    content="A romantic anniversary experience made with love."
-  >
-
+  <meta name="description" content="A romantic anniversary experience made with love.">
   <title>Happy Anniversary</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --background: #090407;
+      --bg: #090407;
+      --bg-soft: #1d0d19;
       --white: #fff9fc;
       --muted: rgba(255, 241, 247, 0.76);
       --pink: #ffb7d1;
@@ -44,7 +34,7 @@
     html {
       min-width: 320px;
       height: 100%;
-      background: var(--background);
+      background: var(--bg);
     }
 
     body {
@@ -54,27 +44,10 @@
       overflow: hidden;
       color: var(--white);
       background:
-        radial-gradient(
-          circle at 50% -8%,
-          rgba(229, 127, 170, 0.22),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 12% 70%,
-          rgba(122, 42, 85, 0.14),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 88% 68%,
-          rgba(245, 152, 190, 0.12),
-          transparent 30%
-        ),
-        linear-gradient(
-          180deg,
-          #1c0d19 0%,
-          #10070e 48%,
-          #080407 100%
-        );
+        radial-gradient(circle at 50% -8%, rgba(229, 127, 170, 0.22), transparent 34%),
+        radial-gradient(circle at 12% 70%, rgba(122, 42, 85, 0.14), transparent 30%),
+        radial-gradient(circle at 88% 68%, rgba(245, 152, 190, 0.12), transparent 30%),
+        linear-gradient(180deg, #1c0d19 0%, #10070e 48%, #080407 100%);
       font-family: "DM Sans", sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -105,29 +78,13 @@
       overflow: hidden;
       isolation: isolate;
       background:
-        radial-gradient(
-          circle at 50% 42%,
-          rgba(255, 157, 199, 0.2),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 10% 82%,
-          rgba(158, 56, 108, 0.16),
-          transparent 31%
-        ),
-        radial-gradient(
-          circle at 90% 18%,
-          rgba(255, 202, 224, 0.12),
-          transparent 27%
-        ),
-        linear-gradient(
-          145deg,
-          #241020,
-          #0e070c 70%
-        );
+        radial-gradient(circle at 50% 42%, rgba(255, 157, 199, 0.18), transparent 32%),
+        radial-gradient(circle at 8% 85%, rgba(158, 56, 108, 0.15), transparent 30%),
+        radial-gradient(circle at 92% 15%, rgba(255, 202, 224, 0.11), transparent 27%),
+        linear-gradient(145deg, #241020, #0e070c 70%);
       transition:
-        opacity 0.95s var(--ease),
-        visibility 0.95s var(--ease);
+        opacity 1s var(--ease),
+        visibility 1s var(--ease);
     }
 
     .intro.is-leaving {
@@ -140,16 +97,15 @@
       content: "";
       position: absolute;
       inset: 0;
+      opacity: 0.035;
       pointer-events: none;
-      opacity: 0.038;
-      background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
     .intro-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
+      filter: blur(90px);
       pointer-events: none;
       opacity: 0.28;
     }
@@ -158,23 +114,23 @@
       width: 330px;
       height: 330px;
       left: -140px;
-      top: 16%;
+      top: 12%;
       background: #ff6fac;
       animation: orbOne 13s ease-in-out infinite;
     }
 
     .intro-orb--two {
-      width: 290px;
-      height: 290px;
-      right: -120px;
-      bottom: 8%;
+      width: 300px;
+      height: 300px;
+      right: -130px;
+      bottom: 5%;
       background: #ffc1da;
       animation: orbTwo 16s ease-in-out infinite;
     }
 
     .loading-screen {
       position: relative;
-      z-index: 10;
+      z-index: 20;
       width: min(420px, calc(100% - 40px));
       text-align: center;
       transition:
@@ -195,10 +151,8 @@
       width: 76px;
       height: 68px;
       margin: 0 auto 24px;
-      filter:
-        drop-shadow(0 0 22px rgba(255, 119, 178, 0.66));
-      animation:
-        loadingHeartPulse 1.8s ease-in-out infinite;
+      filter: drop-shadow(0 0 22px rgba(255, 119, 178, 0.66));
+      animation: loadingHeartPulse 1.8s ease-in-out infinite;
     }
 
     .loading-heart::before,
@@ -209,13 +163,7 @@
       width: 42px;
       height: 64px;
       border-radius: 42px 42px 0 0;
-      background:
-        linear-gradient(
-          145deg,
-          #ffe5ef,
-          #ff8fbe 48%,
-          #e74991
-        );
+      background: linear-gradient(145deg, #ffe5ef, #ff8fbe 48%, #e74991);
     }
 
     .loading-heart::before {
@@ -266,22 +214,21 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          #ffb5d1,
-          #fff4f8,
-          #ff76ad,
-          transparent
-        );
+      background: linear-gradient(
+        90deg,
+        transparent,
+        #ffb5d1,
+        #fff4f8,
+        #ff76ad,
+        transparent
+      );
       animation: loadingSweep 1.45s ease-in-out infinite;
     }
 
     .envelope-screen {
       position: absolute;
       inset: 0;
-      z-index: 20;
+      z-index: 30;
       display: grid;
       place-items: center;
       padding: 24px;
@@ -302,15 +249,15 @@
 
     .envelope-scene {
       position: relative;
-      width: min(570px, 95vw);
+      width: min(560px, 95vw);
       text-align: center;
     }
 
     .envelope-heading {
-      margin-bottom: 24px;
+      margin-bottom: 30px;
       transition:
-        opacity 0.5s ease,
-        transform 0.5s ease;
+        opacity 0.45s ease,
+        transform 0.45s ease;
     }
 
     .envelope-heading p {
@@ -336,102 +283,333 @@
 
     .envelope-scene.is-open .envelope-heading {
       opacity: 0;
-      transform: translateY(-16px);
+      transform: translateY(-18px);
+    }
+
+    .envelope-stage {
+      position: relative;
+      width: min(470px, 92vw);
+      height: 360px;
+      margin: 0 auto;
+      perspective: 1500px;
     }
 
     .envelope-button {
-      position: relative;
-      width: min(470px, 92vw);
-      margin: 0 auto;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 100%;
+      height: 270px;
       padding: 0;
       border: 0;
       color: inherit;
       background: transparent;
       cursor: pointer;
+      transform: translateX(-50%);
       -webkit-tap-highlight-color: transparent;
     }
 
     .envelope-button:focus-visible {
       outline: 2px solid #ffc1d8;
-      outline-offset: 10px;
-      border-radius: 30px;
+      outline-offset: 12px;
+      border-radius: 28px;
     }
 
-    .envelope-wrap {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 470 / 340;
+    .envelope-object {
+      position: absolute;
+      inset: 0;
       animation: envelopeFloat 4.8s ease-in-out infinite;
       filter:
-        drop-shadow(0 36px 48px rgba(0, 0, 0, 0.42))
-        drop-shadow(0 0 34px rgba(255, 104, 170, 0.2));
-    }
-
-    .envelope-svg {
-      width: 100%;
-      height: 100%;
-      overflow: visible;
+        drop-shadow(0 32px 40px rgba(0, 0, 0, 0.4))
+        drop-shadow(0 0 28px rgba(255, 104, 170, 0.18));
     }
 
     .envelope-shadow {
-      transform-origin: center;
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      bottom: 5px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.34);
+      filter: blur(14px);
       transition:
         opacity 0.8s ease,
         transform 0.8s ease;
     }
 
-    .envelope-paper {
-      transform-origin: 235px 245px;
-      transition:
-        transform 1.15s var(--ease),
-        filter 1.15s var(--ease);
+    .envelope-body {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 15px;
+      height: 220px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 244, 248, 0.3);
+      border-radius: 24px;
+      background: linear-gradient(145deg, #ffe5ee, #efa9c4 52%, #d96796);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -20px 35px rgba(120, 27, 68, 0.08);
+    }
+
+    .envelope-body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.18;
+      background:
+        radial-gradient(circle at 20% 25%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 77% 66%, #fff 0 1px, transparent 2px),
+        radial-gradient(circle at 60% 16%, #fff 0 1px, transparent 2px);
+      background-size: 74px 74px;
+    }
+
+    .envelope-inner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 35px;
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .envelope-inner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+      background: linear-gradient(180deg, #c84e81, #e88eaf);
+      opacity: 0.72;
     }
 
     .envelope-flap {
-      transform-box: fill-box;
+      position: absolute;
+      z-index: 8;
+      left: 0;
+      right: 0;
+      top: 35px;
+      height: 145px;
       transform-origin: center top;
+      transform-style: preserve-3d;
       transition:
-        transform 0.95s var(--ease),
-        opacity 0.5s ease;
+        transform 1s var(--ease),
+        z-index 0s 0.5s;
     }
 
-    .envelope-seal {
-      transform-box: fill-box;
-      transform-origin: center;
-      transition:
-        transform 0.65s var(--ease),
-        opacity 0.35s ease;
+    .envelope-flap-front,
+    .envelope-flap-back {
+      position: absolute;
+      inset: 0;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      backface-visibility: hidden;
     }
 
-    .envelope-letter-content {
+    .envelope-flap-front {
+      background: linear-gradient(180deg, #ffe8f0, #f2b1c9 58%, #d96796);
+      border-top: 1px solid rgba(255, 255, 255, 0.42);
+    }
+
+    .envelope-flap-front::after {
+      content: "";
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      top: 6px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    }
+
+    .envelope-flap-back {
+      background: linear-gradient(180deg, #c94d80, #ed9dbb);
+      transform: rotateX(180deg);
+    }
+
+    .envelope-front {
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      right: 0;
+      bottom: 15px;
+      height: 220px;
+      overflow: hidden;
+      border-radius: 24px;
+      pointer-events: none;
+    }
+
+    .envelope-left-fold,
+    .envelope-right-fold,
+    .envelope-bottom-fold {
+      position: absolute;
+      inset: 0;
+    }
+
+    .envelope-left-fold {
+      clip-path: polygon(0 0, 53% 56%, 0 100%);
+      background: linear-gradient(145deg, #f9ccdc, #df79a2);
+    }
+
+    .envelope-right-fold {
+      clip-path: polygon(100% 0, 47% 56%, 100% 100%);
+      background: linear-gradient(215deg, #f8c7d9, #db6c98);
+    }
+
+    .envelope-bottom-fold {
+      clip-path: polygon(0 100%, 50% 43%, 100% 100%);
+      background: linear-gradient(180deg, #ef9fbd, #cd4d82);
+    }
+
+    .envelope-outline {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      box-shadow: inset 0 -18px 30px rgba(100, 20, 57, 0.08);
+    }
+
+    .wax-seal {
+      position: absolute;
+      z-index: 14;
+      left: 50%;
+      top: 139px;
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 240, 246, 0.42);
+      border-radius: 50%;
+      color: #fff4f8;
+      background: radial-gradient(circle at 35% 27%, #ffc6dc, #db4d8c 62%, #9d2b60);
+      box-shadow:
+        0 9px 18px rgba(83, 14, 47, 0.32),
+        0 0 28px rgba(255, 99, 168, 0.52),
+        inset 0 1px 2px rgba(255, 255, 255, 0.62);
+      transform: translateX(-50%);
+      transition:
+        opacity 0.4s ease,
+        transform 0.65s var(--ease);
+    }
+
+    .wax-seal::before {
+      content: "♥";
+      font-size: 24px;
+    }
+
+    .wax-seal::after {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+    }
+
+    .letter-card {
+      position: absolute;
+      z-index: 4;
+      left: 7%;
+      right: 7%;
+      bottom: 34px;
+      height: 240px;
+      overflow: hidden;
+      border: 1px solid rgba(147, 63, 101, 0.14);
+      border-radius: 20px;
+      color: #54253b;
+      background:
+        radial-gradient(circle at 50% 8%, rgba(255, 170, 207, 0.2), transparent 30%),
+        linear-gradient(180deg, #fffafd, #ffe7f0);
+      box-shadow:
+        0 18px 32px rgba(75, 20, 46, 0.2),
+        inset 0 0 34px rgba(255, 173, 206, 0.14);
+      transform: translateY(68px);
+      transition:
+        transform 1.15s 0.32s var(--ease),
+        box-shadow 1.15s 0.32s var(--ease);
+    }
+
+    .letter-card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(181, 79, 126, 0.13);
+      border-radius: 13px;
+      pointer-events: none;
+    }
+
+    .letter-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 36px;
       opacity: 0;
+      transform: translateY(14px);
       transition:
-        opacity 0.5s ease 0.45s;
+        opacity 0.65s 0.95s ease,
+        transform 0.65s 0.95s var(--ease);
     }
 
-    .envelope-scene.is-open .envelope-wrap {
+    .letter-kicker {
+      margin: 0 0 8px;
+      color: #7a3555;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .letter-title {
+      margin: 0;
+      color: #a53d6d;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(36px, 7vw, 48px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .letter-message {
+      max-width: 320px;
+      margin: 14px 0 0;
+      color: rgba(82, 36, 58, 0.76);
+      font-family: "Playfair Display", serif;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .letter-signature {
+      margin: 15px 0 0;
+      color: #b94879;
+      font-family: "Great Vibes", cursive;
+      font-size: 25px;
+      line-height: 1;
+    }
+
+    .envelope-scene.is-open .envelope-object {
       animation-play-state: paused;
     }
 
     .envelope-scene.is-open .envelope-flap {
-      transform: translateY(-2px) scaleY(-1);
-      opacity: 0.92;
+      z-index: 1;
+      transform: rotateX(180deg);
     }
 
-    .envelope-scene.is-open .envelope-seal {
+    .envelope-scene.is-open .wax-seal {
       opacity: 0;
-      transform: scale(0.15) rotate(35deg);
+      transform: translateX(-50%) scale(0.15) rotate(35deg);
     }
 
-    .envelope-scene.is-open .envelope-paper {
-      transform: translateY(-112px);
-      filter:
-        drop-shadow(0 28px 28px rgba(66, 20, 42, 0.3))
-        drop-shadow(0 0 22px rgba(255, 143, 190, 0.24));
+    .envelope-scene.is-open .letter-card {
+      z-index: 20;
+      transform: translateY(-145px);
+      box-shadow:
+        0 38px 70px rgba(59, 15, 36, 0.34),
+        0 0 45px rgba(255, 145, 191, 0.24);
     }
 
-    .envelope-scene.is-open .envelope-letter-content {
+    .envelope-scene.is-open .letter-content {
       opacity: 1;
+      transform: translateY(0);
     }
 
     .envelope-scene.is-open .envelope-shadow {
@@ -439,12 +617,12 @@
       transform: scaleX(0.86);
     }
 
-    .open-label {
+    .tap-label {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 22px;
       padding: 12px 20px;
       border: 1px solid rgba(255, 233, 242, 0.15);
       border-radius: 999px;
@@ -459,23 +637,99 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      animation:
-        openLabelPulse 2.4s ease-in-out infinite;
+      animation: openLabelPulse 2.4s ease-in-out infinite;
       transition:
         opacity 0.4s ease,
         transform 0.4s ease;
     }
 
-    .open-label::before {
+    .tap-label::before {
       content: "♡";
       color: #ffc6dc;
       font-size: 14px;
     }
 
-    .envelope-scene.is-open .open-label {
+    .envelope-scene.is-open .tap-label {
       opacity: 0;
       transform: translateY(12px);
+      pointer-events: none;
       animation: none;
+    }
+
+    .continue-button {
+      position: relative;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      margin-top: 28px;
+      padding: 14px 24px;
+      border: 1px solid rgba(255, 221, 235, 0.22);
+      border-radius: 999px;
+      color: #fff7fa;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 144, 191, 0.26),
+          rgba(194, 68, 126, 0.18)
+        );
+      box-shadow:
+        0 14px 36px rgba(0, 0, 0, 0.26),
+        0 0 28px rgba(255, 99, 167, 0.13),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(18px);
+      transition:
+        opacity 0.65s 1.25s ease,
+        visibility 0.65s 1.25s ease,
+        transform 0.65s 1.25s var(--ease),
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .continue-button::after {
+      content: "→";
+      color: #ffd1e3;
+      font-size: 16px;
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+
+    .continue-button:hover {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 154, 198, 0.36),
+          rgba(207, 75, 137, 0.28)
+        );
+      box-shadow:
+        0 16px 42px rgba(0, 0, 0, 0.3),
+        0 0 34px rgba(255, 99, 167, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.13);
+    }
+
+    .continue-button:hover::after {
+      transform: translateX(4px);
+    }
+
+    .continue-button:focus-visible {
+      outline: 2px solid #ffc1d8;
+      outline-offset: 5px;
+    }
+
+    .envelope-scene.is-open .continue-button {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     .intro-heart,
@@ -493,16 +747,9 @@
       height: var(--size);
       opacity: 0;
       transform: rotate(45deg);
-      background:
-        linear-gradient(
-          145deg,
-          #ffd6e6,
-          #ff609f
-        );
-      filter:
-        drop-shadow(0 0 10px rgba(255, 100, 163, 0.6));
-      animation:
-        introHeartFloat var(--duration) linear infinite;
+      background: linear-gradient(145deg, #ffd6e6, #ff609f);
+      filter: drop-shadow(0 0 10px rgba(255, 100, 163, 0.6));
+      animation: introHeartFloat var(--duration) linear infinite;
       animation-delay: var(--delay);
     }
 
@@ -532,8 +779,7 @@
       box-shadow:
         0 0 8px #ffc9de,
         0 0 18px rgba(255, 106, 171, 0.55);
-      animation:
-        introSparkle var(--duration) ease-in-out infinite;
+      animation: introSparkle var(--duration) ease-in-out infinite;
       animation-delay: var(--delay);
     }
 
@@ -543,10 +789,8 @@
       text-shadow:
         0 0 10px rgba(255, 159, 202, 0.72),
         0 0 24px rgba(255, 116, 179, 0.46);
-      filter:
-        drop-shadow(0 8px 13px rgba(0, 0, 0, 0.22));
-      animation:
-        introButterfly var(--duration) ease-in-out infinite;
+      filter: drop-shadow(0 8px 13px rgba(0, 0, 0, 0.22));
+      animation: introButterfly var(--duration) ease-in-out infinite;
       animation-delay: var(--delay);
     }
 
@@ -570,11 +814,7 @@
       inset: 0;
       z-index: -3;
       background:
-        radial-gradient(
-          circle at 50% 14%,
-          rgba(255, 185, 217, 0.07),
-          transparent 25%
-        );
+        radial-gradient(circle at 50% 14%, rgba(255, 185, 217, 0.07), transparent 25%);
     }
 
     .hero {
@@ -628,21 +868,11 @@
     }
 
     .hero__eyebrow::before {
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 220, 234, 0.5)
-        );
+      background: linear-gradient(90deg, transparent, rgba(255, 220, 234, 0.5));
     }
 
     .hero__eyebrow::after {
-      background:
-        linear-gradient(
-          90deg,
-          rgba(255, 220, 234, 0.5),
-          transparent
-        );
+      background: linear-gradient(90deg, rgba(255, 220, 234, 0.5), transparent);
     }
 
     .hero__title {
@@ -671,8 +901,7 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
-      animation:
-        chromeShine 8s ease-in-out infinite;
+      animation: chromeShine 8s ease-in-out infinite;
     }
 
     .hero__script {
@@ -706,8 +935,7 @@
     .hero__float-wrap {
       position: relative;
       display: inline-block;
-      animation:
-        heroBounce 5.6s ease-in-out infinite;
+      animation: heroBounce 5.6s ease-in-out infinite;
     }
 
     .hero__image-aura {
@@ -716,24 +944,11 @@
       z-index: -1;
       border-radius: 44px;
       background:
-        radial-gradient(
-          circle at 50% 20%,
-          rgba(255, 184, 217, 0.28),
-          transparent 34%
-        ),
-        radial-gradient(
-          circle at 25% 70%,
-          rgba(255, 110, 174, 0.2),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 68%,
-          rgba(255, 149, 197, 0.18),
-          transparent 28%
-        );
+        radial-gradient(circle at 50% 20%, rgba(255, 184, 217, 0.28), transparent 34%),
+        radial-gradient(circle at 25% 70%, rgba(255, 110, 174, 0.2), transparent 30%),
+        radial-gradient(circle at 80% 68%, rgba(255, 149, 197, 0.18), transparent 28%);
       filter: blur(28px);
-      animation:
-        auraPulse 4.8s ease-in-out infinite;
+      animation: auraPulse 4.8s ease-in-out infinite;
     }
 
     .hero__image-frame {
@@ -783,8 +998,7 @@
           rgba(255, 225, 238, 0.18),
           transparent
         );
-      animation:
-        glossSweep 8s ease-in-out infinite;
+      animation: glossSweep 8s ease-in-out infinite;
     }
 
     .hero__lightning {
@@ -798,8 +1012,7 @@
         0 0 28px rgba(255, 95, 164, 0.5),
         0 0 54px rgba(255, 95, 164, 0.24),
         inset 0 0 14px rgba(255, 102, 168, 0.16);
-      animation:
-        lightningPulse 2.4s ease-in-out infinite;
+      animation: lightningPulse 2.4s ease-in-out infinite;
     }
 
     .hero__stickers {
@@ -814,64 +1027,56 @@
       position: absolute;
       user-select: none;
       pointer-events: none;
-      filter:
-        drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
     }
 
     .sticker--heart1 {
       top: 7%;
       left: -5%;
       font-size: 28px;
-      animation:
-        stickerFloatA 4.8s ease-in-out infinite;
+      animation: stickerFloatA 4.8s ease-in-out infinite;
     }
 
     .sticker--heart2 {
       top: 17%;
       right: -4%;
       font-size: 26px;
-      animation:
-        stickerFloatB 5.2s ease-in-out infinite;
+      animation: stickerFloatB 5.2s ease-in-out infinite;
     }
 
     .sticker--spark {
       bottom: 10%;
       left: -4%;
       font-size: 28px;
-      animation:
-        stickerFloatC 4.6s ease-in-out infinite;
+      animation: stickerFloatC 4.6s ease-in-out infinite;
     }
 
     .sticker--bolt {
       bottom: 15%;
       right: -4%;
       font-size: 28px;
-      animation:
-        stickerFloatD 4.9s ease-in-out infinite;
+      animation: stickerFloatD 4.9s ease-in-out infinite;
     }
 
     .butterfly--one {
       top: 8%;
       left: 19%;
       font-size: 30px;
-      animation:
-        butterflyDriftOne 6.6s ease-in-out infinite;
+      animation: butterflyDriftOne 6.6s ease-in-out infinite;
     }
 
     .butterfly--two {
       top: 13%;
       right: 15%;
       font-size: 28px;
-      animation:
-        butterflyDriftTwo 7.4s ease-in-out infinite;
+      animation: butterflyDriftTwo 7.4s ease-in-out infinite;
     }
 
     .butterfly--three {
       bottom: 22%;
       left: 57%;
       font-size: 22px;
-      animation:
-        butterflyDriftThree 5.8s ease-in-out infinite;
+      animation: butterflyDriftThree 5.8s ease-in-out infinite;
     }
 
     .hero__footer {
@@ -891,8 +1096,7 @@
       height: 5px;
       border-radius: 50%;
       background: var(--pink);
-      box-shadow:
-        0 0 13px rgba(247, 190, 210, 0.85);
+      box-shadow: 0 0 13px rgba(247, 190, 210, 0.85);
     }
 
     @keyframes loadingHeartPulse {
@@ -945,7 +1149,7 @@
       }
 
       50% {
-        transform: translateY(-11px) rotate(0.25deg);
+        transform: translateY(-10px) rotate(0.25deg);
       }
     }
 
@@ -963,10 +1167,7 @@
     @keyframes introHeartFloat {
       0% {
         opacity: 0;
-        transform:
-          translate3d(0, 0, 0)
-          rotate(45deg)
-          scale(0.7);
+        transform: translate3d(0, 0, 0) rotate(45deg) scale(0.7);
       }
 
       12% {
@@ -998,15 +1199,11 @@
     @keyframes introButterfly {
       0%,
       100% {
-        transform:
-          translate3d(0, 0, 0)
-          rotate(-6deg);
+        transform: translate3d(0, 0, 0) rotate(-6deg);
       }
 
       50% {
-        transform:
-          translate3d(12px, -16px, 0)
-          rotate(8deg);
+        transform: translate3d(12px, -16px, 0) rotate(8deg);
       }
     }
 
@@ -1049,9 +1246,7 @@
     @keyframes glossSweep {
       0%,
       12% {
-        transform:
-          translateX(0)
-          rotate(12deg);
+        transform: translateX(0) rotate(12deg);
         opacity: 0;
       }
 
@@ -1060,17 +1255,13 @@
       }
 
       48% {
-        transform:
-          translateX(310%)
-          rotate(12deg);
+        transform: translateX(310%) rotate(12deg);
         opacity: 0.85;
       }
 
       60%,
       100% {
-        transform:
-          translateX(310%)
-          rotate(12deg);
+        transform: translateX(310%) rotate(12deg);
         opacity: 0;
       }
     }
@@ -1100,105 +1291,77 @@
     @keyframes stickerFloatA {
       0%,
       100% {
-        transform:
-          translateY(0)
-          rotate(-8deg);
+        transform: translateY(0) rotate(-8deg);
       }
 
       50% {
-        transform:
-          translateY(-10px)
-          rotate(6deg);
+        transform: translateY(-10px) rotate(6deg);
       }
     }
 
     @keyframes stickerFloatB {
       0%,
       100% {
-        transform:
-          translateY(0)
-          rotate(6deg);
+        transform: translateY(0) rotate(6deg);
       }
 
       50% {
-        transform:
-          translateY(-12px)
-          rotate(-8deg);
+        transform: translateY(-12px) rotate(-8deg);
       }
     }
 
     @keyframes stickerFloatC {
       0%,
       100% {
-        transform:
-          translateY(0)
-          rotate(-4deg);
+        transform: translateY(0) rotate(-4deg);
       }
 
       50% {
-        transform:
-          translateY(-9px)
-          rotate(10deg);
+        transform: translateY(-9px) rotate(10deg);
       }
     }
 
     @keyframes stickerFloatD {
       0%,
       100% {
-        transform:
-          translateY(0)
-          rotate(5deg);
+        transform: translateY(0) rotate(5deg);
       }
 
       50% {
-        transform:
-          translateY(-11px)
-          rotate(-10deg);
+        transform: translateY(-11px) rotate(-10deg);
       }
     }
 
     @keyframes butterflyDriftOne {
       0%,
       100% {
-        transform:
-          translate3d(0, 0, 0)
-          rotate(-6deg);
+        transform: translate3d(0, 0, 0) rotate(-6deg);
       }
 
       50% {
-        transform:
-          translate3d(18px, -12px, 0)
-          rotate(8deg);
+        transform: translate3d(18px, -12px, 0) rotate(8deg);
       }
     }
 
     @keyframes butterflyDriftTwo {
       0%,
       100% {
-        transform:
-          translate3d(0, 0, 0)
-          rotate(5deg);
+        transform: translate3d(0, 0, 0) rotate(5deg);
       }
 
       50% {
-        transform:
-          translate3d(-18px, -10px, 0)
-          rotate(-8deg);
+        transform: translate3d(-18px, -10px, 0) rotate(-8deg);
       }
     }
 
     @keyframes butterflyDriftThree {
       0%,
       100% {
-        transform:
-          translate3d(0, 0, 0)
-          rotate(-3deg);
+        transform: translate3d(0, 0, 0) rotate(-3deg);
       }
 
       50% {
-        transform:
-          translate3d(10px, -9px, 0)
-          rotate(7deg);
+        transform: translate3d(10px, -9px, 0) rotate(7deg);
       }
     }
 
@@ -1208,20 +1371,67 @@
       }
 
       .envelope-heading {
-        margin-bottom: 18px;
+        margin-bottom: 20px;
       }
 
       .envelope-heading h2 {
         font-size: clamp(39px, 12vw, 54px);
       }
 
-      .envelope-button {
+      .envelope-stage {
         width: min(400px, 94vw);
+        height: 330px;
       }
 
-      .open-label {
+      .envelope-button {
+        height: 245px;
+      }
+
+      .envelope-body,
+      .envelope-front {
+        height: 195px;
+      }
+
+      .envelope-flap {
+        height: 128px;
+      }
+
+      .wax-seal {
+        top: 126px;
+        width: 52px;
+        height: 52px;
+      }
+
+      .wax-seal::before {
+        font-size: 21px;
+      }
+
+      .letter-card {
+        height: 220px;
+      }
+
+      .letter-content {
+        padding: 24px 25px;
+      }
+
+      .letter-message {
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .envelope-scene.is-open .letter-card {
+        transform: translateY(-125px);
+      }
+
+      .tap-label {
         margin-top: 15px;
         padding: 10px 16px;
+        font-size: 8px;
+      }
+
+      .continue-button {
+        margin-top: 22px;
+        padding: 12px 18px;
         font-size: 8px;
       }
 
@@ -1273,17 +1483,30 @@
       }
     }
 
-    @media (max-height: 700px) {
+    @media (max-height: 720px) {
       .envelope-heading {
         margin-bottom: 10px;
       }
 
-      .envelope-button {
-        width: min(390px, 76vh);
+      .envelope-stage {
+        width: min(390px, 70vh);
+        height: 300px;
       }
 
-      .open-label {
-        margin-top: 10px;
+      .envelope-button {
+        height: 225px;
+      }
+
+      .letter-card {
+        height: 205px;
+      }
+
+      .envelope-scene.is-open .letter-card {
+        transform: translateY(-105px);
+      }
+
+      .continue-button {
+        margin-top: 12px;
       }
     }
 
@@ -1311,437 +1534,114 @@
 
 <body class="intro-active">
   <div class="intro" id="intro">
-    <div
-      class="intro-orb intro-orb--one"
-      aria-hidden="true"
-    ></div>
+    <div class="intro-orb intro-orb--one" aria-hidden="true"></div>
+    <div class="intro-orb intro-orb--two" aria-hidden="true"></div>
 
-    <div
-      class="intro-orb intro-orb--two"
-      aria-hidden="true"
-    ></div>
+    <span class="intro-heart" style="left: 8%; --size: 13px; --duration: 12s; --delay: -4s; --drift: 34px;"></span>
+    <span class="intro-heart" style="left: 22%; --size: 9px; --duration: 10s; --delay: -7s; --drift: -28px;"></span>
+    <span class="intro-heart" style="left: 48%; --size: 15px; --duration: 14s; --delay: -9s; --drift: 40px;"></span>
+    <span class="intro-heart" style="left: 72%; --size: 10px; --duration: 11s; --delay: -3s; --drift: -36px;"></span>
+    <span class="intro-heart" style="left: 91%; --size: 16px; --duration: 15s; --delay: -11s; --drift: 24px;"></span>
 
-    <span
-      class="intro-heart"
-      style="left: 8%; --size: 13px; --duration: 12s; --delay: -4s; --drift: 34px;"
-    ></span>
+    <span class="intro-sparkle" style="left: 12%; top: 18%; --size: 4px; --duration: 3s; --delay: -1s;"></span>
+    <span class="intro-sparkle" style="left: 28%; top: 72%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
+    <span class="intro-sparkle" style="left: 51%; top: 13%; --size: 4px; --duration: 3.4s; --delay: -1.6s;"></span>
+    <span class="intro-sparkle" style="left: 68%; top: 78%; --size: 3px; --duration: 2.8s; --delay: -0.8s;"></span>
+    <span class="intro-sparkle" style="left: 88%; top: 31%; --size: 4px; --duration: 3.2s; --delay: -2.2s;"></span>
 
-    <span
-      class="intro-heart"
-      style="left: 22%; --size: 9px; --duration: 10s; --delay: -7s; --drift: -28px;"
-    ></span>
+    <span class="intro-butterfly" style="left: 12%; top: 30%; --size: 28px; --duration: 6.8s; --delay: -1s;">🦋</span>
+    <span class="intro-butterfly" style="right: 13%; top: 22%; --size: 25px; --duration: 7.5s; --delay: -3s;">🦋</span>
+    <span class="intro-butterfly" style="right: 21%; bottom: 18%; --size: 21px; --duration: 6.2s; --delay: -2s;">🦋</span>
 
-    <span
-      class="intro-heart"
-      style="left: 48%; --size: 15px; --duration: 14s; --delay: -9s; --drift: 40px;"
-    ></span>
-
-    <span
-      class="intro-heart"
-      style="left: 72%; --size: 10px; --duration: 11s; --delay: -3s; --drift: -36px;"
-    ></span>
-
-    <span
-      class="intro-heart"
-      style="left: 91%; --size: 16px; --duration: 15s; --delay: -11s; --drift: 24px;"
-    ></span>
-
-    <span
-      class="intro-sparkle"
-      style="left: 12%; top: 18%; --size: 4px; --duration: 3s; --delay: -1s;"
-    ></span>
-
-    <span
-      class="intro-sparkle"
-      style="left: 28%; top: 72%; --size: 3px; --duration: 2.7s; --delay: -2s;"
-    ></span>
-
-    <span
-      class="intro-sparkle"
-      style="left: 51%; top: 13%; --size: 4px; --duration: 3.4s; --delay: -1.6s;"
-    ></span>
-
-    <span
-      class="intro-sparkle"
-      style="left: 68%; top: 78%; --size: 3px; --duration: 2.8s; --delay: -0.8s;"
-    ></span>
-
-    <span
-      class="intro-sparkle"
-      style="left: 88%; top: 31%; --size: 4px; --duration: 3.2s; --delay: -2.2s;"
-    ></span>
-
-    <span
-      class="intro-butterfly"
-      style="left: 12%; top: 30%; --size: 28px; --duration: 6.8s; --delay: -1s;"
-    >
-      🦋
-    </span>
-
-    <span
-      class="intro-butterfly"
-      style="right: 13%; top: 22%; --size: 25px; --duration: 7.5s; --delay: -3s;"
-    >
-      🦋
-    </span>
-
-    <span
-      class="intro-butterfly"
-      style="right: 21%; bottom: 18%; --size: 21px; --duration: 6.2s; --delay: -2s;"
-    >
-      🦋
-    </span>
-
-    <div
-      class="loading-screen"
-      id="loadingScreen"
-    >
-      <div
-        class="loading-heart"
-        aria-hidden="true"
-      ></div>
-
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-heart" aria-hidden="true"></div>
       <h1>Just for you</h1>
-
       <p>Preparing something special</p>
-
-      <div
-        class="loading-line"
-        aria-hidden="true"
-      ></div>
+      <div class="loading-line" aria-hidden="true"></div>
     </div>
 
-    <div
-      class="envelope-screen"
-      id="envelopeScreen"
-    >
-      <div
-        class="envelope-scene"
-        id="envelopeScene"
-      >
+    <div class="envelope-screen" id="envelopeScreen">
+      <div class="envelope-scene" id="envelopeScene">
         <div class="envelope-heading">
           <p>A little surprise</p>
-
           <h2>You have a love letter</h2>
         </div>
 
-        <button
-          class="envelope-button"
-          id="envelopeButton"
-          type="button"
-          aria-label="Open the anniversary letter"
-        >
-          <div class="envelope-wrap">
-            <svg
-              class="envelope-svg"
-              viewBox="0 0 470 340"
-              role="img"
-              aria-hidden="true"
-            >
-              <defs>
-                <linearGradient
-                  id="envelopeBackGradient"
-                  x1="0"
-                  y1="0"
-                  x2="1"
-                  y2="1"
-                >
-                  <stop offset="0%" stop-color="#ffe7ef"/>
-                  <stop offset="50%" stop-color="#f2b0c9"/>
-                  <stop offset="100%" stop-color="#d96d9a"/>
-                </linearGradient>
+        <div class="envelope-stage">
+          <button
+            class="envelope-button"
+            id="envelopeButton"
+            type="button"
+            aria-label="Open the anniversary letter"
+          >
+            <span class="envelope-object" aria-hidden="true">
+              <span class="envelope-shadow"></span>
 
-                <linearGradient
-                  id="leftFoldGradient"
-                  x1="0"
-                  y1="0"
-                  x2="1"
-                  y2="1"
-                >
-                  <stop offset="0%" stop-color="#fbd0df"/>
-                  <stop offset="100%" stop-color="#df75a0"/>
-                </linearGradient>
+              <span class="letter-card">
+                <span class="letter-content">
+                  <span class="letter-kicker">Made especially for you</span>
 
-                <linearGradient
-                  id="rightFoldGradient"
-                  x1="1"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="0%" stop-color="#f8c6d8"/>
-                  <stop offset="100%" stop-color="#dc6b99"/>
-                </linearGradient>
-
-                <linearGradient
-                  id="bottomFoldGradient"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="0%" stop-color="#ef9cbb"/>
-                  <stop offset="100%" stop-color="#cf4e84"/>
-                </linearGradient>
-
-                <linearGradient
-                  id="flapGradient"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="0%" stop-color="#ffe8f0"/>
-                  <stop offset="58%" stop-color="#f2aec7"/>
-                  <stop offset="100%" stop-color="#da6695"/>
-                </linearGradient>
-
-                <linearGradient
-                  id="paperGradient"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="0%" stop-color="#fffafd"/>
-                  <stop offset="100%" stop-color="#ffe7f0"/>
-                </linearGradient>
-
-                <radialGradient
-                  id="sealGradient"
-                  cx="34%"
-                  cy="26%"
-                  r="70%"
-                >
-                  <stop offset="0%" stop-color="#ffc6dc"/>
-                  <stop offset="62%" stop-color="#db4d8c"/>
-                  <stop offset="100%" stop-color="#9d2b60"/>
-                </radialGradient>
-
-                <filter id="paperShadow">
-                  <feDropShadow
-                    dx="0"
-                    dy="12"
-                    stdDeviation="10"
-                    flood-color="#3d1027"
-                    flood-opacity="0.25"
-                  />
-                </filter>
-
-                <filter id="sealGlow">
-                  <feDropShadow
-                    dx="0"
-                    dy="6"
-                    stdDeviation="6"
-                    flood-color="#ff6cab"
-                    flood-opacity="0.55"
-                  />
-                </filter>
-              </defs>
-
-              <ellipse
-                class="envelope-shadow"
-                cx="235"
-                cy="314"
-                rx="166"
-                ry="14"
-                fill="rgba(0,0,0,0.32)"
-              />
-
-              <g class="envelope-paper">
-                <rect
-                  x="55"
-                  y="72"
-                  width="360"
-                  height="220"
-                  rx="18"
-                  fill="url(#paperGradient)"
-                  stroke="rgba(151,72,108,0.16)"
-                  filter="url(#paperShadow)"
-                />
-
-                <rect
-                  x="70"
-                  y="87"
-                  width="330"
-                  height="190"
-                  rx="12"
-                  fill="none"
-                  stroke="rgba(181,79,126,0.14)"
-                />
-
-                <g class="envelope-letter-content">
-                  <text
-                    x="235"
-                    y="145"
-                    text-anchor="middle"
-                    fill="#7a3555"
-                    font-family="DM Sans, sans-serif"
-                    font-size="9"
-                    font-weight="600"
-                    letter-spacing="2.5"
-                  >
-                    MADE ESPECIALLY FOR YOU
-                  </text>
-
-                  <text
-                    x="235"
-                    y="192"
-                    text-anchor="middle"
-                    fill="#a53d6d"
-                    font-family="Great Vibes, cursive"
-                    font-size="42"
-                  >
+                  <span class="letter-title">
                     My beautiful girl
-                  </text>
+                  </span>
 
-                  <text
-                    x="235"
-                    y="224"
-                    text-anchor="middle"
-                    fill="rgba(82,36,58,0.74)"
-                    font-family="DM Sans, sans-serif"
-                    font-size="11"
-                  >
-                    A little page filled with our memories
-                  </text>
+                  <span class="letter-message">
+                    Every moment with you means more to me than I could ever
+                    explain. Thank you for making my life softer, brighter,
+                    happier, and full of memories I never want to forget.
+                  </span>
 
-                  <text
-                    x="235"
-                    y="242"
-                    text-anchor="middle"
-                    fill="rgba(82,36,58,0.74)"
-                    font-family="DM Sans, sans-serif"
-                    font-size="11"
-                  >
-                    and all my love.
-                  </text>
+                  <span class="letter-signature">
+                    With all my love
+                  </span>
+                </span>
+              </span>
 
-                  <text
-                    x="377"
-                    y="260"
-                    text-anchor="middle"
-                    fill="rgba(186,73,127,0.3)"
-                    font-family="serif"
-                    font-size="18"
-                  >
-                    ✦
-                  </text>
-                </g>
-              </g>
+              <span class="envelope-body">
+                <span class="envelope-inner"></span>
+              </span>
 
-              <rect
-                x="35"
-                y="105"
-                width="400"
-                height="205"
-                rx="25"
-                fill="url(#envelopeBackGradient)"
-                stroke="rgba(255,255,255,0.3)"
-              />
+              <span class="envelope-flap">
+                <span class="envelope-flap-front"></span>
+                <span class="envelope-flap-back"></span>
+              </span>
 
-              <path
-                d="M35 105 L235 235 L435 105"
-                fill="#d55d8e"
-                opacity="0.36"
-              />
+              <span class="envelope-front">
+                <span class="envelope-left-fold"></span>
+                <span class="envelope-right-fold"></span>
+                <span class="envelope-bottom-fold"></span>
+                <span class="envelope-outline"></span>
+              </span>
 
-              <g class="envelope-flap">
-                <path
-                  d="M35 105 L435 105 L235 240 Z"
-                  fill="url(#flapGradient)"
-                  stroke="rgba(255,255,255,0.34)"
-                />
+              <span class="wax-seal"></span>
+            </span>
+          </button>
+        </div>
 
-                <path
-                  d="M50 111 L420 111"
-                  stroke="rgba(255,255,255,0.35)"
-                  stroke-width="1"
-                />
-              </g>
-
-              <path
-                d="M35 105 L235 238 L35 310 Z"
-                fill="url(#leftFoldGradient)"
-              />
-
-              <path
-                d="M435 105 L235 238 L435 310 Z"
-                fill="url(#rightFoldGradient)"
-              />
-
-              <path
-                d="M35 310 L235 224 L435 310 Z"
-                fill="url(#bottomFoldGradient)"
-              />
-
-              <rect
-                x="35"
-                y="105"
-                width="400"
-                height="205"
-                rx="25"
-                fill="none"
-                stroke="rgba(255,255,255,0.22)"
-              />
-
-              <g
-                class="envelope-seal"
-                filter="url(#sealGlow)"
-              >
-                <circle
-                  cx="235"
-                  cy="235"
-                  r="31"
-                  fill="url(#sealGradient)"
-                  stroke="rgba(255,239,246,0.42)"
-                />
-
-                <circle
-                  cx="235"
-                  cy="235"
-                  r="25"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.22)"
-                />
-
-                <text
-                  x="235"
-                  y="244"
-                  text-anchor="middle"
-                  fill="#fff4f8"
-                  font-family="serif"
-                  font-size="24"
-                >
-                  ♥
-                </text>
-              </g>
-            </svg>
-          </div>
-        </button>
-
-        <div class="open-label">
+        <div class="tap-label">
           Tap the envelope to open
         </div>
+
+        <button
+          class="continue-button"
+          id="continueButton"
+          type="button"
+        >
+          Open our anniversary surprise
+        </button>
       </div>
     </div>
   </div>
 
   <main class="page">
-    <section
-      class="hero"
-      aria-labelledby="hero-title"
-    >
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero__container">
         <header class="hero__header">
           <p class="hero__eyebrow">
             A Love Worth Celebrating
           </p>
 
-          <h1
-            class="hero__title"
-            id="hero-title"
-          >
+          <h1 class="hero__title" id="hero-title">
             Happy Anniversary
           </h1>
 
@@ -1757,10 +1657,7 @@
 
         <div class="hero__image-stage">
           <div class="hero__float-wrap">
-            <div
-              class="hero__image-aura"
-              aria-hidden="true"
-            ></div>
+            <div class="hero__image-aura" aria-hidden="true"></div>
 
             <div class="hero__image-frame">
               <img
@@ -1774,21 +1671,11 @@
                 decoding="async"
               >
 
-              <div
-                class="hero__gloss"
-                aria-hidden="true"
-              ></div>
-
-              <div
-                class="hero__lightning"
-                aria-hidden="true"
-              ></div>
+              <div class="hero__gloss" aria-hidden="true"></div>
+              <div class="hero__lightning" aria-hidden="true"></div>
             </div>
 
-            <div
-              class="hero__stickers"
-              aria-hidden="true"
-            >
+            <div class="hero__stickers" aria-hidden="true">
               <span class="sticker sticker--heart1">💕</span>
               <span class="sticker sticker--heart2">💗</span>
               <span class="sticker sticker--spark">✦</span>
@@ -1801,10 +1688,7 @@
           </div>
         </div>
 
-        <div
-          class="hero__footer"
-          aria-hidden="true"
-        >
+        <div class="hero__footer" aria-hidden="true">
           <span class="hero__footer-dot"></span>
           <span>Made with all my love</span>
         </div>
@@ -1819,9 +1703,11 @@
       const envelopeScreen = document.getElementById("envelopeScreen");
       const envelopeScene = document.getElementById("envelopeScene");
       const envelopeButton = document.getElementById("envelopeButton");
+      const continueButton = document.getElementById("continueButton");
       const heroImage = document.getElementById("heroImage");
 
-      let opened = false;
+      let envelopeOpened = false;
+      let pageRevealed = false;
 
       const wait = (duration) =>
         new Promise((resolve) => {
@@ -1830,28 +1716,23 @@
 
       const waitForHeroImage = async () => {
         if (!heroImage) {
-          await wait(1100);
+          await wait(1200);
           return;
         }
 
         if (heroImage.complete && heroImage.naturalWidth > 0) {
-          await wait(800);
+          await wait(1000);
           return;
         }
 
         const imageReady = new Promise((resolve) => {
-          heroImage.addEventListener("load", resolve, {
-            once: true
-          });
-
-          heroImage.addEventListener("error", resolve, {
-            once: true
-          });
+          heroImage.addEventListener("load", resolve, { once: true });
+          heroImage.addEventListener("error", resolve, { once: true });
         });
 
         await Promise.race([
           imageReady,
-          wait(2200)
+          wait(2500)
         ]);
       };
 
@@ -1860,31 +1741,43 @@
 
         loadingScreen.classList.add("is-hidden");
 
-        await wait(430);
+        await wait(500);
 
         envelopeScreen.classList.add("is-visible");
       };
 
-      const openEnvelope = async () => {
-        if (opened) {
+      const openEnvelope = () => {
+        if (envelopeOpened) {
           return;
         }
 
-        opened = true;
+        envelopeOpened = true;
         envelopeScene.classList.add("is-open");
         envelopeButton.disabled = true;
 
-        await wait(1900);
+        window.setTimeout(() => {
+          continueButton.focus({ preventScroll: true });
+        }, 1700);
+      };
+
+      const revealPage = async () => {
+        if (pageRevealed) {
+          return;
+        }
+
+        pageRevealed = true;
+        continueButton.disabled = true;
 
         document.body.classList.remove("intro-active");
         intro.classList.add("is-leaving");
 
-        await wait(950);
+        await wait(1050);
 
         intro.hidden = true;
       };
 
       envelopeButton.addEventListener("click", openEnvelope);
+      continueButton.addEventListener("click", revealPage);
 
       showEnvelope();
     })();
