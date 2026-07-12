@@ -4863,6 +4863,27 @@
       pointer-events: auto !important;
     }
 
+
+
+    .game-tab,
+    .distance-extra-button {
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .game-tab > *,
+    .distance-extra-button > * {
+      pointer-events: none;
+    }
+
+    .game-selector,
+    .game-selector-wrap,
+    .long-distance-extras,
+    .distance-extra-card {
+      position: relative;
+      z-index: 60;
+    }
 </style>
 </head>
 
@@ -6810,21 +6831,21 @@
 
       gameTabs.forEach((tab) => {
         tab.setAttribute("aria-pressed", tab.classList.contains("is-active") ? "true" : "false");
-
-        tab.addEventListener("click", (event) => {
-          event.preventDefault();
-          event.stopPropagation();
-          selectGameTab(tab);
-        });
-
-        tab.addEventListener("pointerup", (event) => {
-          if (event.pointerType === "touch") {
-            event.preventDefault();
-            event.stopPropagation();
-            selectGameTab(tab);
-          }
-        });
       });
+
+      const handleGameTabSelection = (event) => {
+        const tab = event.target.closest(".game-tab");
+
+        if (!tab || !tab.closest(".game-selector")) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        selectGameTab(tab);
+      };
+
+      document.addEventListener("click", handleGameTabSelection, true);
 
       previousGameButton.addEventListener("click", () => {
         const list = games[selectedGameType];
@@ -6903,12 +6924,29 @@
           ];
       });
 
-      messageChallengeButton.addEventListener("click", () => {
-        messageChallengeResult.textContent =
-          messageChallenges[
-            Math.floor(Math.random() * messageChallenges.length)
-          ];
-      });
+      let previousMessageChallengeIndex = -1;
+
+      const pickMessageChallenge = () => {
+        const index = randomIndex(
+          messageChallenges.length,
+          previousMessageChallengeIndex
+        );
+
+        previousMessageChallengeIndex = index;
+        messageChallengeResult.textContent = messageChallenges[index];
+      };
+
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("#messageChallengeButton");
+
+        if (!button) {
+          return;
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        pickMessageChallenge();
+      }, true);
 
       playlistPromptButton.addEventListener("click", () => {
         playlistPromptResult.textContent =
