@@ -2,19 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
   <meta name="theme-color" content="#160b13">
-  <meta name="description" content="A romantic anniversary experience made with love.">
+  <meta
+    name="description"
+    content="A romantic anniversary experience made with love."
+  >
+
   <title>Happy Anniversary</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
       --background: #090407;
-      --background-soft: #1d0d19;
       --white: #fff9fc;
       --muted: rgba(255, 241, 247, 0.76);
       --pink: #ffb7d1;
@@ -44,10 +54,27 @@
       overflow: hidden;
       color: var(--white);
       background:
-        radial-gradient(circle at 50% -8%, rgba(229, 127, 170, 0.22), transparent 34%),
-        radial-gradient(circle at 12% 70%, rgba(122, 42, 85, 0.14), transparent 30%),
-        radial-gradient(circle at 88% 68%, rgba(245, 152, 190, 0.12), transparent 30%),
-        linear-gradient(180deg, #1c0d19 0%, #10070e 48%, #080407 100%);
+        radial-gradient(
+          circle at 50% -8%,
+          rgba(229, 127, 170, 0.22),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 12% 70%,
+          rgba(122, 42, 85, 0.14),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 88% 68%,
+          rgba(245, 152, 190, 0.12),
+          transparent 30%
+        ),
+        linear-gradient(
+          180deg,
+          #1c0d19 0%,
+          #10070e 48%,
+          #080407 100%
+        );
       font-family: "DM Sans", sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -59,7 +86,8 @@
       pointer-events: none;
     }
 
-    img {
+    img,
+    svg {
       display: block;
       max-width: 100%;
     }
@@ -77,10 +105,26 @@
       overflow: hidden;
       isolation: isolate;
       background:
-        radial-gradient(circle at 50% 43%, rgba(255, 157, 199, 0.2), transparent 32%),
-        radial-gradient(circle at 10% 82%, rgba(158, 56, 108, 0.16), transparent 31%),
-        radial-gradient(circle at 90% 18%, rgba(255, 202, 224, 0.12), transparent 27%),
-        linear-gradient(145deg, #241020, #0e070c 70%);
+        radial-gradient(
+          circle at 50% 42%,
+          rgba(255, 157, 199, 0.2),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 10% 82%,
+          rgba(158, 56, 108, 0.16),
+          transparent 31%
+        ),
+        radial-gradient(
+          circle at 90% 18%,
+          rgba(255, 202, 224, 0.12),
+          transparent 27%
+        ),
+        linear-gradient(
+          145deg,
+          #241020,
+          #0e070c 70%
+        );
       transition:
         opacity 0.95s var(--ease),
         visibility 0.95s var(--ease);
@@ -97,19 +141,9 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    }
-
-    .intro::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(115deg, transparent 15%, rgba(255, 255, 255, 0.025) 47%, transparent 70%);
-      transform: translateX(-100%);
-      animation: introLightSweep 8s ease-in-out infinite;
+      opacity: 0.038;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
     .intro-orb {
@@ -161,8 +195,10 @@
       width: 76px;
       height: 68px;
       margin: 0 auto 24px;
-      filter: drop-shadow(0 0 22px rgba(255, 119, 178, 0.66));
-      animation: loadingHeartPulse 1.8s ease-in-out infinite;
+      filter:
+        drop-shadow(0 0 22px rgba(255, 119, 178, 0.66));
+      animation:
+        loadingHeartPulse 1.8s ease-in-out infinite;
     }
 
     .loading-heart::before,
@@ -173,7 +209,13 @@
       width: 42px;
       height: 64px;
       border-radius: 42px 42px 0 0;
-      background: linear-gradient(145deg, #ffe5ef, #ff8fbe 48%, #e74991);
+      background:
+        linear-gradient(
+          145deg,
+          #ffe5ef,
+          #ff8fbe 48%,
+          #e74991
+        );
     }
 
     .loading-heart::before {
@@ -260,7 +302,7 @@
 
     .envelope-scene {
       position: relative;
-      width: min(560px, 95vw);
+      width: min(570px, 95vw);
       text-align: center;
     }
 
@@ -299,374 +341,102 @@
 
     .envelope-button {
       position: relative;
-      width: min(460px, 90vw);
-      aspect-ratio: 460 / 330;
+      width: min(470px, 92vw);
       margin: 0 auto;
       padding: 0;
       border: 0;
       color: inherit;
       background: transparent;
       cursor: pointer;
-      perspective: 1500px;
       -webkit-tap-highlight-color: transparent;
     }
 
     .envelope-button:focus-visible {
       outline: 2px solid #ffc1d8;
       outline-offset: 10px;
-      border-radius: 28px;
+      border-radius: 30px;
     }
 
-    .envelope {
-      position: absolute;
-      inset: 0;
-      transform-style: preserve-3d;
+    .envelope-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 470 / 340;
       animation: envelopeFloat 4.8s ease-in-out infinite;
       filter:
         drop-shadow(0 36px 48px rgba(0, 0, 0, 0.42))
         drop-shadow(0 0 34px rgba(255, 104, 170, 0.2));
     }
 
-    .envelope__shadow {
-      position: absolute;
-      z-index: 0;
-      left: 11%;
-      right: 11%;
-      bottom: 1%;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.35);
-      filter: blur(16px);
+    .envelope-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .envelope-shadow {
+      transform-origin: center;
       transition:
         opacity 0.8s ease,
         transform 0.8s ease;
     }
 
-    .envelope-scene.is-open .envelope__shadow {
-      opacity: 0.5;
-      transform: scaleX(0.9);
-    }
-
-    .envelope__paper {
-      position: absolute;
-      z-index: 2;
-      left: 7%;
-      right: 7%;
-      top: 21%;
-      height: 66%;
-      overflow: hidden;
-      border: 1px solid rgba(117, 48, 80, 0.11);
-      border-radius: 18px 18px 12px 12px;
-      color: #54253b;
-      background:
-        radial-gradient(circle at 50% 8%, rgba(255, 170, 207, 0.2), transparent 30%),
-        linear-gradient(180deg, #fffafd, #ffeaf1 72%, #ffe0eb);
-      box-shadow:
-        0 18px 32px rgba(75, 20, 46, 0.2),
-        inset 0 0 34px rgba(255, 173, 206, 0.14);
-      transform: translateY(27%);
+    .envelope-paper {
+      transform-origin: 235px 245px;
       transition:
         transform 1.15s var(--ease),
-        box-shadow 1.15s var(--ease);
+        filter 1.15s var(--ease);
     }
 
-    .envelope__paper::before {
-      content: "";
-      position: absolute;
-      inset: 13px;
-      border: 1px solid rgba(175, 75, 121, 0.12);
-      border-radius: 12px;
-      pointer-events: none;
-    }
-
-    .envelope__paper::after {
-      content: "✦";
-      position: absolute;
-      right: 20px;
-      bottom: 16px;
-      color: rgba(195, 75, 130, 0.28);
-      font-size: 18px;
-    }
-
-    .envelope__paper-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-    }
-
-    .envelope__paper-small {
-      margin-bottom: 8px;
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.23em;
-      text-transform: uppercase;
-    }
-
-    .envelope__paper-title {
-      color: #a33b6b;
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(32px, 7vw, 48px);
-      font-weight: 400;
-      line-height: 1;
-    }
-
-    .envelope__paper-copy {
-      max-width: 270px;
-      margin-top: 11px;
-      color: rgba(84, 37, 59, 0.72);
-      font-size: 11px;
-      line-height: 1.55;
-    }
-
-    .envelope-scene.is-open .envelope__paper {
-      z-index: 9;
-      transform: translateY(-47%);
-      box-shadow:
-        0 40px 70px rgba(59, 15, 36, 0.32),
-        0 0 44px rgba(255, 145, 191, 0.24);
-    }
-
-    .envelope__back {
-      position: absolute;
-      z-index: 1;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 66%;
-      overflow: hidden;
-      border: 1px solid rgba(255, 247, 250, 0.32);
-      border-radius: 24px;
-      background:
-        linear-gradient(145deg, #ffe6ef 0%, #f3b2ca 47%, #df729e 100%);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.62),
-        inset 0 -22px 36px rgba(143, 40, 87, 0.11);
-    }
-
-    .envelope__back::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      opacity: 0.18;
-      background:
-        radial-gradient(circle at 18% 28%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 79% 62%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 62% 18%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 32% 78%, white 0 1px, transparent 2px);
-      background-size: 72px 72px;
-    }
-
-    .envelope__inside {
-      position: absolute;
-      z-index: 1;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 66%;
-      overflow: hidden;
-      border-radius: 24px;
-    }
-
-    .envelope__inside::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      clip-path: polygon(0 0, 50% 58%, 100% 0);
-      background:
-        linear-gradient(180deg, #d95f91, #ef9fbd);
-      opacity: 0.66;
-    }
-
-    .envelope__flap {
-      position: absolute;
-      z-index: 8;
-      left: 0;
-      right: 0;
-      bottom: 34%;
-      height: 38%;
-      transform-origin: 50% 0;
-      transform-style: preserve-3d;
+    .envelope-flap {
+      transform-box: fill-box;
+      transform-origin: center top;
       transition:
         transform 0.95s var(--ease),
-        z-index 0s 0.48s;
+        opacity 0.5s ease;
     }
 
-    .envelope__flap-front,
-    .envelope__flap-back {
-      position: absolute;
-      inset: 0;
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-      backface-visibility: hidden;
-    }
-
-    .envelope__flap-front {
-      background:
-        linear-gradient(
-          180deg,
-          #ffe7f0 0%,
-          #f1adc5 58%,
-          #dc6a98 100%
-        );
-      filter: drop-shadow(0 5px 5px rgba(110, 29, 67, 0.08));
-    }
-
-    .envelope__flap-front::before {
-      content: "";
-      position: absolute;
-      inset: 1px;
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
-      border-top: 1px solid rgba(255, 255, 255, 0.48);
-      background:
-        linear-gradient(120deg, rgba(255, 255, 255, 0.18), transparent 42%);
-    }
-
-    .envelope__flap-back {
-      background:
-        linear-gradient(
-          180deg,
-          #d65b8e,
-          #ee9fbd
-        );
-      transform: rotateX(180deg);
-    }
-
-    .envelope-scene.is-open .envelope__flap {
-      z-index: 0;
-      transform: rotateX(180deg);
-    }
-
-    .envelope__front {
-      position: absolute;
-      z-index: 6;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 66%;
-      overflow: hidden;
-      border-radius: 24px;
-      pointer-events: none;
-    }
-
-    .envelope__front-left,
-    .envelope__front-right,
-    .envelope__front-bottom {
-      position: absolute;
-      inset: 0;
-    }
-
-    .envelope__front-left {
-      clip-path: polygon(0 0, 52% 56%, 0 100%);
-      background:
-        linear-gradient(
-          145deg,
-          #fad0df,
-          #e57da7
-        );
-    }
-
-    .envelope__front-right {
-      clip-path: polygon(100% 0, 48% 56%, 100% 100%);
-      background:
-        linear-gradient(
-          215deg,
-          #f9ccdc,
-          #df719f
-        );
-    }
-
-    .envelope__front-bottom {
-      clip-path: polygon(0 100%, 50% 43%, 100% 100%);
-      background:
-        linear-gradient(
-          180deg,
-          #efa0bf,
-          #d95e91
-        );
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
-    }
-
-    .envelope__front-highlight {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      border-radius: 24px;
-      box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-        inset 0 -22px 30px rgba(123, 29, 70, 0.08);
-    }
-
-    .envelope__seal {
-      position: absolute;
-      z-index: 12;
-      left: 50%;
-      bottom: 24%;
-      width: 58px;
-      height: 58px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(255, 238, 245, 0.42);
-      border-radius: 50%;
-      color: #fff3f7;
-      background:
-        radial-gradient(circle at 34% 27%, #ffc1d9, #dc4e8d 61%, #a32e64);
-      box-shadow:
-        0 9px 18px rgba(83, 14, 47, 0.32),
-        0 0 28px rgba(255, 99, 168, 0.52),
-        inset 0 1px 2px rgba(255, 255, 255, 0.62);
-      transform: translateX(-50%);
+    .envelope-seal {
+      transform-box: fill-box;
+      transform-origin: center;
       transition:
-        opacity 0.38s ease,
-        transform 0.65s var(--ease);
+        transform 0.65s var(--ease),
+        opacity 0.35s ease;
     }
 
-    .envelope__seal::before {
-      content: "♥";
-      font-size: 23px;
-      text-shadow: 0 2px 4px rgba(100, 14, 52, 0.18);
-    }
-
-    .envelope__seal::after {
-      content: "";
-      position: absolute;
-      inset: 5px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 50%;
-    }
-
-    .envelope-scene.is-open .envelope__seal {
+    .envelope-letter-content {
       opacity: 0;
-      transform: translateX(-50%) scale(0.15) rotate(32deg);
+      transition:
+        opacity 0.5s ease 0.45s;
     }
 
-    .envelope__shine {
-      position: absolute;
-      z-index: 14;
-      inset: 0;
-      overflow: hidden;
-      border-radius: 24px;
-      pointer-events: none;
+    .envelope-scene.is-open .envelope-wrap {
+      animation-play-state: paused;
     }
 
-    .envelope__shine::before {
-      content: "";
-      position: absolute;
-      top: -20%;
-      left: -45%;
-      width: 30%;
-      height: 140%;
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
-      transform: rotate(13deg);
-      animation: envelopeShine 6s ease-in-out infinite;
+    .envelope-scene.is-open .envelope-flap {
+      transform: translateY(-2px) scaleY(-1);
+      opacity: 0.92;
+    }
+
+    .envelope-scene.is-open .envelope-seal {
+      opacity: 0;
+      transform: scale(0.15) rotate(35deg);
+    }
+
+    .envelope-scene.is-open .envelope-paper {
+      transform: translateY(-112px);
+      filter:
+        drop-shadow(0 28px 28px rgba(66, 20, 42, 0.3))
+        drop-shadow(0 0 22px rgba(255, 143, 190, 0.24));
+    }
+
+    .envelope-scene.is-open .envelope-letter-content {
+      opacity: 1;
+    }
+
+    .envelope-scene.is-open .envelope-shadow {
+      opacity: 0.45;
+      transform: scaleX(0.86);
     }
 
     .open-label {
@@ -674,7 +444,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin-top: 23px;
+      margin-top: 20px;
       padding: 12px 20px;
       border: 1px solid rgba(255, 233, 242, 0.15);
       border-radius: 999px;
@@ -689,7 +459,8 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      animation: openLabelPulse 2.4s ease-in-out infinite;
+      animation:
+        openLabelPulse 2.4s ease-in-out infinite;
       transition:
         opacity 0.4s ease,
         transform 0.4s ease;
@@ -705,10 +476,6 @@
       opacity: 0;
       transform: translateY(12px);
       animation: none;
-    }
-
-    .envelope-scene.is-open .envelope {
-      animation-play-state: paused;
     }
 
     .intro-heart,
@@ -732,8 +499,10 @@
           #ffd6e6,
           #ff609f
         );
-      filter: drop-shadow(0 0 10px rgba(255, 100, 163, 0.6));
-      animation: introHeartFloat var(--duration) linear infinite;
+      filter:
+        drop-shadow(0 0 10px rgba(255, 100, 163, 0.6));
+      animation:
+        introHeartFloat var(--duration) linear infinite;
       animation-delay: var(--delay);
     }
 
@@ -763,7 +532,8 @@
       box-shadow:
         0 0 8px #ffc9de,
         0 0 18px rgba(255, 106, 171, 0.55);
-      animation: introSparkle var(--duration) ease-in-out infinite;
+      animation:
+        introSparkle var(--duration) ease-in-out infinite;
       animation-delay: var(--delay);
     }
 
@@ -773,8 +543,10 @@
       text-shadow:
         0 0 10px rgba(255, 159, 202, 0.72),
         0 0 24px rgba(255, 116, 179, 0.46);
-      filter: drop-shadow(0 8px 13px rgba(0, 0, 0, 0.22));
-      animation: introButterfly var(--duration) ease-in-out infinite;
+      filter:
+        drop-shadow(0 8px 13px rgba(0, 0, 0, 0.22));
+      animation:
+        introButterfly var(--duration) ease-in-out infinite;
       animation-delay: var(--delay);
     }
 
@@ -798,7 +570,11 @@
       inset: 0;
       z-index: -3;
       background:
-        radial-gradient(circle at 50% 14%, rgba(255, 185, 217, 0.07), transparent 25%);
+        radial-gradient(
+          circle at 50% 14%,
+          rgba(255, 185, 217, 0.07),
+          transparent 25%
+        );
     }
 
     .hero {
@@ -852,11 +628,21 @@
     }
 
     .hero__eyebrow::before {
-      background: linear-gradient(90deg, transparent, rgba(255, 220, 234, 0.5));
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 220, 234, 0.5)
+        );
     }
 
     .hero__eyebrow::after {
-      background: linear-gradient(90deg, rgba(255, 220, 234, 0.5), transparent);
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 220, 234, 0.5),
+          transparent
+        );
     }
 
     .hero__title {
@@ -885,7 +671,8 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
-      animation: chromeShine 8s ease-in-out infinite;
+      animation:
+        chromeShine 8s ease-in-out infinite;
     }
 
     .hero__script {
@@ -919,7 +706,8 @@
     .hero__float-wrap {
       position: relative;
       display: inline-block;
-      animation: heroBounce 5.6s ease-in-out infinite;
+      animation:
+        heroBounce 5.6s ease-in-out infinite;
     }
 
     .hero__image-aura {
@@ -928,11 +716,24 @@
       z-index: -1;
       border-radius: 44px;
       background:
-        radial-gradient(circle at 50% 20%, rgba(255, 184, 217, 0.28), transparent 34%),
-        radial-gradient(circle at 25% 70%, rgba(255, 110, 174, 0.2), transparent 30%),
-        radial-gradient(circle at 80% 68%, rgba(255, 149, 197, 0.18), transparent 28%);
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(255, 184, 217, 0.28),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 25% 70%,
+          rgba(255, 110, 174, 0.2),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 68%,
+          rgba(255, 149, 197, 0.18),
+          transparent 28%
+        );
       filter: blur(28px);
-      animation: auraPulse 4.8s ease-in-out infinite;
+      animation:
+        auraPulse 4.8s ease-in-out infinite;
     }
 
     .hero__image-frame {
@@ -982,7 +783,8 @@
           rgba(255, 225, 238, 0.18),
           transparent
         );
-      animation: glossSweep 8s ease-in-out infinite;
+      animation:
+        glossSweep 8s ease-in-out infinite;
     }
 
     .hero__lightning {
@@ -996,7 +798,8 @@
         0 0 28px rgba(255, 95, 164, 0.5),
         0 0 54px rgba(255, 95, 164, 0.24),
         inset 0 0 14px rgba(255, 102, 168, 0.16);
-      animation: lightningPulse 2.4s ease-in-out infinite;
+      animation:
+        lightningPulse 2.4s ease-in-out infinite;
     }
 
     .hero__stickers {
@@ -1011,56 +814,64 @@
       position: absolute;
       user-select: none;
       pointer-events: none;
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
+      filter:
+        drop-shadow(0 8px 16px rgba(0, 0, 0, 0.26));
     }
 
     .sticker--heart1 {
       top: 7%;
       left: -5%;
       font-size: 28px;
-      animation: stickerFloatA 4.8s ease-in-out infinite;
+      animation:
+        stickerFloatA 4.8s ease-in-out infinite;
     }
 
     .sticker--heart2 {
       top: 17%;
       right: -4%;
       font-size: 26px;
-      animation: stickerFloatB 5.2s ease-in-out infinite;
+      animation:
+        stickerFloatB 5.2s ease-in-out infinite;
     }
 
     .sticker--spark {
       bottom: 10%;
       left: -4%;
       font-size: 28px;
-      animation: stickerFloatC 4.6s ease-in-out infinite;
+      animation:
+        stickerFloatC 4.6s ease-in-out infinite;
     }
 
     .sticker--bolt {
       bottom: 15%;
       right: -4%;
       font-size: 28px;
-      animation: stickerFloatD 4.9s ease-in-out infinite;
+      animation:
+        stickerFloatD 4.9s ease-in-out infinite;
     }
 
     .butterfly--one {
       top: 8%;
       left: 19%;
       font-size: 30px;
-      animation: butterflyDriftOne 6.6s ease-in-out infinite;
+      animation:
+        butterflyDriftOne 6.6s ease-in-out infinite;
     }
 
     .butterfly--two {
       top: 13%;
       right: 15%;
       font-size: 28px;
-      animation: butterflyDriftTwo 7.4s ease-in-out infinite;
+      animation:
+        butterflyDriftTwo 7.4s ease-in-out infinite;
     }
 
     .butterfly--three {
       bottom: 22%;
       left: 57%;
       font-size: 22px;
-      animation: butterflyDriftThree 5.8s ease-in-out infinite;
+      animation:
+        butterflyDriftThree 5.8s ease-in-out infinite;
     }
 
     .hero__footer {
@@ -1080,11 +891,13 @@
       height: 5px;
       border-radius: 50%;
       background: var(--pink);
-      box-shadow: 0 0 13px rgba(247, 190, 210, 0.85);
+      box-shadow:
+        0 0 13px rgba(247, 190, 210, 0.85);
     }
 
     @keyframes loadingHeartPulse {
-      0%, 100% {
+      0%,
+      100% {
         transform: scale(0.9);
       }
 
@@ -1103,18 +916,9 @@
       }
     }
 
-    @keyframes introLightSweep {
-      0%, 24% {
-        transform: translateX(-100%);
-      }
-
-      52%, 100% {
-        transform: translateX(100%);
-      }
-    }
-
     @keyframes orbOne {
-      0%, 100% {
+      0%,
+      100% {
         transform: translate3d(0, 0, 0);
       }
 
@@ -1124,7 +928,8 @@
     }
 
     @keyframes orbTwo {
-      0%, 100% {
+      0%,
+      100% {
         transform: translate3d(0, 0, 0);
       }
 
@@ -1134,7 +939,8 @@
     }
 
     @keyframes envelopeFloat {
-      0%, 100% {
+      0%,
+      100% {
         transform: translateY(0) rotate(-0.25deg);
       }
 
@@ -1143,29 +949,9 @@
       }
     }
 
-    @keyframes envelopeShine {
-      0%, 15% {
-        transform: translateX(0) rotate(13deg);
-        opacity: 0;
-      }
-
-      26% {
-        opacity: 1;
-      }
-
-      50% {
-        transform: translateX(470%) rotate(13deg);
-        opacity: 0.8;
-      }
-
-      64%, 100% {
-        transform: translateX(470%) rotate(13deg);
-        opacity: 0;
-      }
-    }
-
     @keyframes openLabelPulse {
-      0%, 100% {
+      0%,
+      100% {
         transform: translateY(0);
       }
 
@@ -1177,7 +963,10 @@
     @keyframes introHeartFloat {
       0% {
         opacity: 0;
-        transform: translate3d(0, 0, 0) rotate(45deg) scale(0.7);
+        transform:
+          translate3d(0, 0, 0)
+          rotate(45deg)
+          scale(0.7);
       }
 
       12% {
@@ -1194,7 +983,8 @@
     }
 
     @keyframes introSparkle {
-      0%, 100% {
+      0%,
+      100% {
         opacity: 0.15;
         transform: scale(0.7);
       }
@@ -1206,27 +996,35 @@
     }
 
     @keyframes introButterfly {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(-6deg);
+      0%,
+      100% {
+        transform:
+          translate3d(0, 0, 0)
+          rotate(-6deg);
       }
 
       50% {
-        transform: translate3d(12px, -16px, 0) rotate(8deg);
+        transform:
+          translate3d(12px, -16px, 0)
+          rotate(8deg);
       }
     }
 
     @keyframes chromeShine {
-      0%, 18% {
+      0%,
+      18% {
         background-position: 115% 50%;
       }
 
-      48%, 100% {
+      48%,
+      100% {
         background-position: -115% 50%;
       }
     }
 
     @keyframes heroBounce {
-      0%, 100% {
+      0%,
+      100% {
         transform: translateY(0);
       }
 
@@ -1236,7 +1034,8 @@
     }
 
     @keyframes auraPulse {
-      0%, 100% {
+      0%,
+      100% {
         opacity: 0.7;
         transform: scale(0.96);
       }
@@ -1248,8 +1047,11 @@
     }
 
     @keyframes glossSweep {
-      0%, 12% {
-        transform: translateX(0) rotate(12deg);
+      0%,
+      12% {
+        transform:
+          translateX(0)
+          rotate(12deg);
         opacity: 0;
       }
 
@@ -1258,18 +1060,24 @@
       }
 
       48% {
-        transform: translateX(310%) rotate(12deg);
+        transform:
+          translateX(310%)
+          rotate(12deg);
         opacity: 0.85;
       }
 
-      60%, 100% {
-        transform: translateX(310%) rotate(12deg);
+      60%,
+      100% {
+        transform:
+          translateX(310%)
+          rotate(12deg);
         opacity: 0;
       }
     }
 
     @keyframes lightningPulse {
-      0%, 100% {
+      0%,
+      100% {
         opacity: 0.34;
         filter: brightness(0.92);
       }
@@ -1290,72 +1098,107 @@
     }
 
     @keyframes stickerFloatA {
-      0%, 100% {
-        transform: translateY(0) rotate(-8deg);
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          rotate(-8deg);
       }
 
       50% {
-        transform: translateY(-10px) rotate(6deg);
+        transform:
+          translateY(-10px)
+          rotate(6deg);
       }
     }
 
     @keyframes stickerFloatB {
-      0%, 100% {
-        transform: translateY(0) rotate(6deg);
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          rotate(6deg);
       }
 
       50% {
-        transform: translateY(-12px) rotate(-8deg);
+        transform:
+          translateY(-12px)
+          rotate(-8deg);
       }
     }
 
     @keyframes stickerFloatC {
-      0%, 100% {
-        transform: translateY(0) rotate(-4deg);
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          rotate(-4deg);
       }
 
       50% {
-        transform: translateY(-9px) rotate(10deg);
+        transform:
+          translateY(-9px)
+          rotate(10deg);
       }
     }
 
     @keyframes stickerFloatD {
-      0%, 100% {
-        transform: translateY(0) rotate(5deg);
+      0%,
+      100% {
+        transform:
+          translateY(0)
+          rotate(5deg);
       }
 
       50% {
-        transform: translateY(-11px) rotate(-10deg);
+        transform:
+          translateY(-11px)
+          rotate(-10deg);
       }
     }
 
     @keyframes butterflyDriftOne {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(-6deg);
+      0%,
+      100% {
+        transform:
+          translate3d(0, 0, 0)
+          rotate(-6deg);
       }
 
       50% {
-        transform: translate3d(18px, -12px, 0) rotate(8deg);
+        transform:
+          translate3d(18px, -12px, 0)
+          rotate(8deg);
       }
     }
 
     @keyframes butterflyDriftTwo {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(5deg);
+      0%,
+      100% {
+        transform:
+          translate3d(0, 0, 0)
+          rotate(5deg);
       }
 
       50% {
-        transform: translate3d(-18px, -10px, 0) rotate(-8deg);
+        transform:
+          translate3d(-18px, -10px, 0)
+          rotate(-8deg);
       }
     }
 
     @keyframes butterflyDriftThree {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(-3deg);
+      0%,
+      100% {
+        transform:
+          translate3d(0, 0, 0)
+          rotate(-3deg);
       }
 
       50% {
-        transform: translate3d(10px, -9px, 0) rotate(7deg);
+        transform:
+          translate3d(10px, -9px, 0)
+          rotate(7deg);
       }
     }
 
@@ -1373,29 +1216,11 @@
       }
 
       .envelope-button {
-        width: min(390px, 94vw);
-      }
-
-      .envelope__paper-content {
-        padding: 19px;
-      }
-
-      .envelope__paper-copy {
-        max-width: 230px;
-        font-size: 10px;
-      }
-
-      .envelope__seal {
-        width: 49px;
-        height: 49px;
-      }
-
-      .envelope__seal::before {
-        font-size: 20px;
+        width: min(400px, 94vw);
       }
 
       .open-label {
-        margin-top: 18px;
+        margin-top: 15px;
         padding: 10px 16px;
         font-size: 8px;
       }
@@ -1450,15 +1275,15 @@
 
     @media (max-height: 700px) {
       .envelope-heading {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
       }
 
       .envelope-button {
-        width: min(390px, 82vh);
+        width: min(390px, 76vh);
       }
 
       .open-label {
-        margin-top: 12px;
+        margin-top: 10px;
       }
     }
 
@@ -1486,36 +1311,117 @@
 
 <body class="intro-active">
   <div class="intro" id="intro">
-    <div class="intro-orb intro-orb--one" aria-hidden="true"></div>
-    <div class="intro-orb intro-orb--two" aria-hidden="true"></div>
+    <div
+      class="intro-orb intro-orb--one"
+      aria-hidden="true"
+    ></div>
 
-    <span class="intro-heart" style="left: 8%; --size: 13px; --duration: 12s; --delay: -4s; --drift: 34px;"></span>
-    <span class="intro-heart" style="left: 22%; --size: 9px; --duration: 10s; --delay: -7s; --drift: -28px;"></span>
-    <span class="intro-heart" style="left: 48%; --size: 15px; --duration: 14s; --delay: -9s; --drift: 40px;"></span>
-    <span class="intro-heart" style="left: 72%; --size: 10px; --duration: 11s; --delay: -3s; --drift: -36px;"></span>
-    <span class="intro-heart" style="left: 91%; --size: 16px; --duration: 15s; --delay: -11s; --drift: 24px;"></span>
+    <div
+      class="intro-orb intro-orb--two"
+      aria-hidden="true"
+    ></div>
 
-    <span class="intro-sparkle" style="left: 12%; top: 18%; --size: 4px; --duration: 3s; --delay: -1s;"></span>
-    <span class="intro-sparkle" style="left: 28%; top: 72%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
-    <span class="intro-sparkle" style="left: 51%; top: 13%; --size: 4px; --duration: 3.4s; --delay: -1.6s;"></span>
-    <span class="intro-sparkle" style="left: 68%; top: 78%; --size: 3px; --duration: 2.8s; --delay: -0.8s;"></span>
-    <span class="intro-sparkle" style="left: 88%; top: 31%; --size: 4px; --duration: 3.2s; --delay: -2.2s;"></span>
+    <span
+      class="intro-heart"
+      style="left: 8%; --size: 13px; --duration: 12s; --delay: -4s; --drift: 34px;"
+    ></span>
 
-    <span class="intro-butterfly" style="left: 12%; top: 30%; --size: 28px; --duration: 6.8s; --delay: -1s;">🦋</span>
-    <span class="intro-butterfly" style="right: 13%; top: 22%; --size: 25px; --duration: 7.5s; --delay: -3s;">🦋</span>
-    <span class="intro-butterfly" style="right: 21%; bottom: 18%; --size: 21px; --duration: 6.2s; --delay: -2s;">🦋</span>
+    <span
+      class="intro-heart"
+      style="left: 22%; --size: 9px; --duration: 10s; --delay: -7s; --drift: -28px;"
+    ></span>
 
-    <div class="loading-screen" id="loadingScreen">
-      <div class="loading-heart" aria-hidden="true"></div>
+    <span
+      class="intro-heart"
+      style="left: 48%; --size: 15px; --duration: 14s; --delay: -9s; --drift: 40px;"
+    ></span>
+
+    <span
+      class="intro-heart"
+      style="left: 72%; --size: 10px; --duration: 11s; --delay: -3s; --drift: -36px;"
+    ></span>
+
+    <span
+      class="intro-heart"
+      style="left: 91%; --size: 16px; --duration: 15s; --delay: -11s; --drift: 24px;"
+    ></span>
+
+    <span
+      class="intro-sparkle"
+      style="left: 12%; top: 18%; --size: 4px; --duration: 3s; --delay: -1s;"
+    ></span>
+
+    <span
+      class="intro-sparkle"
+      style="left: 28%; top: 72%; --size: 3px; --duration: 2.7s; --delay: -2s;"
+    ></span>
+
+    <span
+      class="intro-sparkle"
+      style="left: 51%; top: 13%; --size: 4px; --duration: 3.4s; --delay: -1.6s;"
+    ></span>
+
+    <span
+      class="intro-sparkle"
+      style="left: 68%; top: 78%; --size: 3px; --duration: 2.8s; --delay: -0.8s;"
+    ></span>
+
+    <span
+      class="intro-sparkle"
+      style="left: 88%; top: 31%; --size: 4px; --duration: 3.2s; --delay: -2.2s;"
+    ></span>
+
+    <span
+      class="intro-butterfly"
+      style="left: 12%; top: 30%; --size: 28px; --duration: 6.8s; --delay: -1s;"
+    >
+      🦋
+    </span>
+
+    <span
+      class="intro-butterfly"
+      style="right: 13%; top: 22%; --size: 25px; --duration: 7.5s; --delay: -3s;"
+    >
+      🦋
+    </span>
+
+    <span
+      class="intro-butterfly"
+      style="right: 21%; bottom: 18%; --size: 21px; --duration: 6.2s; --delay: -2s;"
+    >
+      🦋
+    </span>
+
+    <div
+      class="loading-screen"
+      id="loadingScreen"
+    >
+      <div
+        class="loading-heart"
+        aria-hidden="true"
+      ></div>
+
       <h1>Just for you</h1>
+
       <p>Preparing something special</p>
-      <div class="loading-line" aria-hidden="true"></div>
+
+      <div
+        class="loading-line"
+        aria-hidden="true"
+      ></div>
     </div>
 
-    <div class="envelope-screen" id="envelopeScreen">
-      <div class="envelope-scene" id="envelopeScene">
+    <div
+      class="envelope-screen"
+      id="envelopeScreen"
+    >
+      <div
+        class="envelope-scene"
+        id="envelopeScene"
+      >
         <div class="envelope-heading">
           <p>A little surprise</p>
+
           <h2>You have a love letter</h2>
         </div>
 
@@ -1525,43 +1431,293 @@
           type="button"
           aria-label="Open the anniversary letter"
         >
-          <span class="envelope" aria-hidden="true">
-            <span class="envelope__shadow"></span>
+          <div class="envelope-wrap">
+            <svg
+              class="envelope-svg"
+              viewBox="0 0 470 340"
+              role="img"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient
+                  id="envelopeBackGradient"
+                  x1="0"
+                  y1="0"
+                  x2="1"
+                  y2="1"
+                >
+                  <stop offset="0%" stop-color="#ffe7ef"/>
+                  <stop offset="50%" stop-color="#f2b0c9"/>
+                  <stop offset="100%" stop-color="#d96d9a"/>
+                </linearGradient>
 
-            <span class="envelope__back"></span>
-            <span class="envelope__inside"></span>
+                <linearGradient
+                  id="leftFoldGradient"
+                  x1="0"
+                  y1="0"
+                  x2="1"
+                  y2="1"
+                >
+                  <stop offset="0%" stop-color="#fbd0df"/>
+                  <stop offset="100%" stop-color="#df75a0"/>
+                </linearGradient>
 
-            <span class="envelope__paper">
-              <span class="envelope__paper-content">
-                <span class="envelope__paper-small">
-                  Made especially for you
-                </span>
+                <linearGradient
+                  id="rightFoldGradient"
+                  x1="1"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop offset="0%" stop-color="#f8c6d8"/>
+                  <stop offset="100%" stop-color="#dc6b99"/>
+                </linearGradient>
 
-                <span class="envelope__paper-title">
-                  My beautiful girl
-                </span>
+                <linearGradient
+                  id="bottomFoldGradient"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop offset="0%" stop-color="#ef9cbb"/>
+                  <stop offset="100%" stop-color="#cf4e84"/>
+                </linearGradient>
 
-                <span class="envelope__paper-copy">
-                  A little page filled with our memories and all my love.
-                </span>
-              </span>
-            </span>
+                <linearGradient
+                  id="flapGradient"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop offset="0%" stop-color="#ffe8f0"/>
+                  <stop offset="58%" stop-color="#f2aec7"/>
+                  <stop offset="100%" stop-color="#da6695"/>
+                </linearGradient>
 
-            <span class="envelope__flap">
-              <span class="envelope__flap-front"></span>
-              <span class="envelope__flap-back"></span>
-            </span>
+                <linearGradient
+                  id="paperGradient"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop offset="0%" stop-color="#fffafd"/>
+                  <stop offset="100%" stop-color="#ffe7f0"/>
+                </linearGradient>
 
-            <span class="envelope__front">
-              <span class="envelope__front-left"></span>
-              <span class="envelope__front-right"></span>
-              <span class="envelope__front-bottom"></span>
-              <span class="envelope__front-highlight"></span>
-            </span>
+                <radialGradient
+                  id="sealGradient"
+                  cx="34%"
+                  cy="26%"
+                  r="70%"
+                >
+                  <stop offset="0%" stop-color="#ffc6dc"/>
+                  <stop offset="62%" stop-color="#db4d8c"/>
+                  <stop offset="100%" stop-color="#9d2b60"/>
+                </radialGradient>
 
-            <span class="envelope__seal"></span>
-            <span class="envelope__shine"></span>
-          </span>
+                <filter id="paperShadow">
+                  <feDropShadow
+                    dx="0"
+                    dy="12"
+                    stdDeviation="10"
+                    flood-color="#3d1027"
+                    flood-opacity="0.25"
+                  />
+                </filter>
+
+                <filter id="sealGlow">
+                  <feDropShadow
+                    dx="0"
+                    dy="6"
+                    stdDeviation="6"
+                    flood-color="#ff6cab"
+                    flood-opacity="0.55"
+                  />
+                </filter>
+              </defs>
+
+              <ellipse
+                class="envelope-shadow"
+                cx="235"
+                cy="314"
+                rx="166"
+                ry="14"
+                fill="rgba(0,0,0,0.32)"
+              />
+
+              <g class="envelope-paper">
+                <rect
+                  x="55"
+                  y="72"
+                  width="360"
+                  height="220"
+                  rx="18"
+                  fill="url(#paperGradient)"
+                  stroke="rgba(151,72,108,0.16)"
+                  filter="url(#paperShadow)"
+                />
+
+                <rect
+                  x="70"
+                  y="87"
+                  width="330"
+                  height="190"
+                  rx="12"
+                  fill="none"
+                  stroke="rgba(181,79,126,0.14)"
+                />
+
+                <g class="envelope-letter-content">
+                  <text
+                    x="235"
+                    y="145"
+                    text-anchor="middle"
+                    fill="#7a3555"
+                    font-family="DM Sans, sans-serif"
+                    font-size="9"
+                    font-weight="600"
+                    letter-spacing="2.5"
+                  >
+                    MADE ESPECIALLY FOR YOU
+                  </text>
+
+                  <text
+                    x="235"
+                    y="192"
+                    text-anchor="middle"
+                    fill="#a53d6d"
+                    font-family="Great Vibes, cursive"
+                    font-size="42"
+                  >
+                    My beautiful girl
+                  </text>
+
+                  <text
+                    x="235"
+                    y="224"
+                    text-anchor="middle"
+                    fill="rgba(82,36,58,0.74)"
+                    font-family="DM Sans, sans-serif"
+                    font-size="11"
+                  >
+                    A little page filled with our memories
+                  </text>
+
+                  <text
+                    x="235"
+                    y="242"
+                    text-anchor="middle"
+                    fill="rgba(82,36,58,0.74)"
+                    font-family="DM Sans, sans-serif"
+                    font-size="11"
+                  >
+                    and all my love.
+                  </text>
+
+                  <text
+                    x="377"
+                    y="260"
+                    text-anchor="middle"
+                    fill="rgba(186,73,127,0.3)"
+                    font-family="serif"
+                    font-size="18"
+                  >
+                    ✦
+                  </text>
+                </g>
+              </g>
+
+              <rect
+                x="35"
+                y="105"
+                width="400"
+                height="205"
+                rx="25"
+                fill="url(#envelopeBackGradient)"
+                stroke="rgba(255,255,255,0.3)"
+              />
+
+              <path
+                d="M35 105 L235 235 L435 105"
+                fill="#d55d8e"
+                opacity="0.36"
+              />
+
+              <g class="envelope-flap">
+                <path
+                  d="M35 105 L435 105 L235 240 Z"
+                  fill="url(#flapGradient)"
+                  stroke="rgba(255,255,255,0.34)"
+                />
+
+                <path
+                  d="M50 111 L420 111"
+                  stroke="rgba(255,255,255,0.35)"
+                  stroke-width="1"
+                />
+              </g>
+
+              <path
+                d="M35 105 L235 238 L35 310 Z"
+                fill="url(#leftFoldGradient)"
+              />
+
+              <path
+                d="M435 105 L235 238 L435 310 Z"
+                fill="url(#rightFoldGradient)"
+              />
+
+              <path
+                d="M35 310 L235 224 L435 310 Z"
+                fill="url(#bottomFoldGradient)"
+              />
+
+              <rect
+                x="35"
+                y="105"
+                width="400"
+                height="205"
+                rx="25"
+                fill="none"
+                stroke="rgba(255,255,255,0.22)"
+              />
+
+              <g
+                class="envelope-seal"
+                filter="url(#sealGlow)"
+              >
+                <circle
+                  cx="235"
+                  cy="235"
+                  r="31"
+                  fill="url(#sealGradient)"
+                  stroke="rgba(255,239,246,0.42)"
+                />
+
+                <circle
+                  cx="235"
+                  cy="235"
+                  r="25"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.22)"
+                />
+
+                <text
+                  x="235"
+                  y="244"
+                  text-anchor="middle"
+                  fill="#fff4f8"
+                  font-family="serif"
+                  font-size="24"
+                >
+                  ♥
+                </text>
+              </g>
+            </svg>
+          </div>
         </button>
 
         <div class="open-label">
@@ -1572,14 +1728,20 @@
   </div>
 
   <main class="page">
-    <section class="hero" aria-labelledby="hero-title">
+    <section
+      class="hero"
+      aria-labelledby="hero-title"
+    >
       <div class="hero__container">
         <header class="hero__header">
           <p class="hero__eyebrow">
             A Love Worth Celebrating
           </p>
 
-          <h1 class="hero__title" id="hero-title">
+          <h1
+            class="hero__title"
+            id="hero-title"
+          >
             Happy Anniversary
           </h1>
 
@@ -1595,7 +1757,10 @@
 
         <div class="hero__image-stage">
           <div class="hero__float-wrap">
-            <div class="hero__image-aura" aria-hidden="true"></div>
+            <div
+              class="hero__image-aura"
+              aria-hidden="true"
+            ></div>
 
             <div class="hero__image-frame">
               <img
@@ -1609,11 +1774,21 @@
                 decoding="async"
               >
 
-              <div class="hero__gloss" aria-hidden="true"></div>
-              <div class="hero__lightning" aria-hidden="true"></div>
+              <div
+                class="hero__gloss"
+                aria-hidden="true"
+              ></div>
+
+              <div
+                class="hero__lightning"
+                aria-hidden="true"
+              ></div>
             </div>
 
-            <div class="hero__stickers" aria-hidden="true">
+            <div
+              class="hero__stickers"
+              aria-hidden="true"
+            >
               <span class="sticker sticker--heart1">💕</span>
               <span class="sticker sticker--heart2">💗</span>
               <span class="sticker sticker--spark">✦</span>
@@ -1626,7 +1801,10 @@
           </div>
         </div>
 
-        <div class="hero__footer" aria-hidden="true">
+        <div
+          class="hero__footer"
+          aria-hidden="true"
+        >
           <span class="hero__footer-dot"></span>
           <span>Made with all my love</span>
         </div>
@@ -1646,27 +1824,34 @@
       let opened = false;
 
       const wait = (duration) =>
-        new Promise((resolve) => window.setTimeout(resolve, duration));
+        new Promise((resolve) => {
+          window.setTimeout(resolve, duration);
+        });
 
       const waitForHeroImage = async () => {
         if (!heroImage) {
-          await wait(1200);
+          await wait(1100);
           return;
         }
 
         if (heroImage.complete && heroImage.naturalWidth > 0) {
-          await wait(850);
+          await wait(800);
           return;
         }
 
         const imageReady = new Promise((resolve) => {
-          heroImage.addEventListener("load", resolve, { once: true });
-          heroImage.addEventListener("error", resolve, { once: true });
+          heroImage.addEventListener("load", resolve, {
+            once: true
+          });
+
+          heroImage.addEventListener("error", resolve, {
+            once: true
+          });
         });
 
         await Promise.race([
           imageReady,
-          wait(2300)
+          wait(2200)
         ]);
       };
 
@@ -1675,7 +1860,7 @@
 
         loadingScreen.classList.add("is-hidden");
 
-        await wait(450);
+        await wait(430);
 
         envelopeScreen.classList.add("is-visible");
       };
@@ -1689,7 +1874,7 @@
         envelopeScene.classList.add("is-open");
         envelopeButton.disabled = true;
 
-        await wait(1800);
+        await wait(1900);
 
         document.body.classList.remove("intro-active");
         intro.classList.add("is-leaving");
