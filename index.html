@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
   <meta name="theme-color" content="#12060e">
-  <meta name="description" content="A dreamy anniversary surprise made with love.">
+  <meta
+    name="description"
+    content="A dreamy anniversary surprise made with love."
+  >
 
   <title>Happy Anniversary</title>
 
@@ -26,6 +32,7 @@
       --pink: #ff8dbd;
       --pink-light: #ffd7e7;
       --pink-bright: #ff5ca4;
+      --rose-gold: #d98fae;
       --lavender: #d7bbff;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --hero-ratio: 1122 / 1402;
@@ -235,7 +242,11 @@
     }
 
     .intro-float-heart::before,
-    .intro-float-heart::after {
+    .intro-float-heart::after,
+    .floating-heart::before,
+    .floating-heart::after,
+    .paper-side-heart::before,
+    .paper-side-heart::after {
       content: "";
       position: absolute;
       width: 100%;
@@ -244,11 +255,15 @@
       background: inherit;
     }
 
-    .intro-float-heart::before {
+    .intro-float-heart::before,
+    .floating-heart::before,
+    .paper-side-heart::before {
       left: -50%;
     }
 
-    .intro-float-heart::after {
+    .intro-float-heart::after,
+    .floating-heart::after,
+    .paper-side-heart::after {
       top: -50%;
     }
 
@@ -539,7 +554,6 @@
       margin: 34px auto 16px;
       display: grid;
       place-items: center;
-      pointer-events: auto;
     }
 
     .heart-button-wrap::before,
@@ -578,7 +592,6 @@
         0 0 28px rgba(255, 101, 168, 0.58),
         inset 0 2px 2px rgba(255, 255, 255, 0.55),
         inset 0 -12px 18px rgba(96, 14, 50, 0.22);
-      pointer-events: auto;
       touch-action: manipulation;
       cursor: pointer;
       transition:
@@ -693,24 +706,6 @@
       filter: drop-shadow(0 0 9px rgba(255, 91, 160, 0.65));
       animation: riseHeart var(--duration) linear infinite;
       animation-delay: var(--delay);
-    }
-
-    .floating-heart::before,
-    .floating-heart::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: inherit;
-    }
-
-    .floating-heart::before {
-      left: -50%;
-    }
-
-    .floating-heart::after {
-      top: -50%;
     }
 
     .floating-ring {
@@ -1140,37 +1135,83 @@
 
     .paper-glow {
       position: absolute;
-      inset: -30px;
+      inset: -38px;
       z-index: -1;
-      border-radius: 42px;
+      border-radius: 52px;
       background:
         radial-gradient(
           circle,
-          rgba(255, 189, 222, 0.29),
-          rgba(255, 110, 174, 0.1) 48%,
+          rgba(255, 189, 222, 0.31),
+          rgba(255, 110, 174, 0.11) 48%,
           transparent 72%
         );
-      filter: blur(25px);
+      filter: blur(26px);
       animation: paperGlowPulse 5s ease-in-out infinite;
+    }
+
+    .paper-frame {
+      position: absolute;
+      inset: -12px;
+      z-index: 0;
+      padding: 3px;
+      border-radius: 24px;
+      background:
+        linear-gradient(
+          120deg,
+          #ffddea 0%,
+          #bd617f 18%,
+          #ffeef5 34%,
+          #cd7898 53%,
+          #fff4f8 72%,
+          #b65476 88%,
+          #ffd8e7 100%
+        );
+      background-size: 250% 250%;
+      box-shadow:
+        0 28px 75px rgba(0, 0, 0, 0.38),
+        0 0 35px rgba(255, 139, 190, 0.22);
+      animation: borderShimmer 9s ease-in-out infinite;
+    }
+
+    .paper-frame::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      border-radius: 17px;
+      box-shadow:
+        inset 0 0 0 1px rgba(155, 67, 106, 0.22),
+        inset 0 0 18px rgba(255, 183, 215, 0.15);
+      pointer-events: none;
+    }
+
+    .paper-frame::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px dashed rgba(176, 89, 126, 0.24);
+      border-radius: 11px;
+      pointer-events: none;
     }
 
     .love-paper {
       position: relative;
+      z-index: 2;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      border: 4px solid #ffa7ca;
-      border-radius: 2px;
+      border: 1px solid rgba(132, 67, 96, 0.15);
+      border-radius: 14px;
       color: #503346;
       background:
         radial-gradient(
           circle at 15% 12%,
-          rgba(255, 195, 222, 0.12),
+          rgba(255, 195, 222, 0.13),
           transparent 22%
         ),
         radial-gradient(
           circle at 86% 84%,
-          rgba(221, 194, 255, 0.08),
+          rgba(221, 194, 255, 0.09),
           transparent 25%
         ),
         repeating-linear-gradient(
@@ -1183,13 +1224,12 @@
         linear-gradient(
           180deg,
           #ffffff 0%,
-          #fffdfE 52%,
-          #fffafc 100%
+          #fffdfd 52%,
+          #fff9fc 100%
         );
       box-shadow:
-        0 34px 80px rgba(0, 0, 0, 0.38),
-        0 0 42px rgba(255, 164, 204, 0.16),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+        inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+        inset 0 0 38px rgba(231, 158, 193, 0.09);
     }
 
     .love-paper::before {
@@ -1204,66 +1244,125 @@
       mix-blend-mode: multiply;
     }
 
-    .love-paper::after {
-      content: "";
+    .paper-ornament {
       position: absolute;
-      left: 5%;
-      right: 5%;
-      bottom: -18px;
-      z-index: -1;
-      height: 26px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.18);
-      filter: blur(14px);
-    }
-
-    .paper-corner {
-      position: absolute;
-      z-index: 5;
-      width: 40px;
-      height: 40px;
+      z-index: 8;
+      width: 68px;
+      height: 68px;
       pointer-events: none;
     }
 
-    .paper-corner::before,
-    .paper-corner::after {
+    .paper-ornament::before,
+    .paper-ornament::after {
       content: "";
       position: absolute;
-      background: linear-gradient(90deg, #ff92bd, #ffd0e2);
       border-radius: 999px;
+      background:
+        linear-gradient(
+          90deg,
+          #b95a7c,
+          #ffe4ed,
+          #d17b9a
+        );
+      box-shadow: 0 0 8px rgba(214, 116, 159, 0.22);
     }
 
-    .paper-corner::before {
-      width: 30px;
+    .paper-ornament::before {
+      top: 10px;
+      left: 4px;
+      width: 56px;
       height: 2px;
     }
 
-    .paper-corner::after {
+    .paper-ornament::after {
+      top: 4px;
+      left: 10px;
       width: 2px;
-      height: 30px;
+      height: 56px;
     }
 
-    .paper-corner--top-left {
-      left: 12px;
-      top: 12px;
+    .paper-ornament span {
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid #d47e9e;
+      border-radius: 50%;
+      background: #fff7fa;
+      box-shadow:
+        0 0 0 3px rgba(255, 194, 218, 0.32),
+        0 0 14px rgba(218, 111, 159, 0.3);
     }
 
-    .paper-corner--top-right {
-      right: 12px;
-      top: 12px;
+    .paper-ornament--tl {
+      top: 3px;
+      left: 3px;
+    }
+
+    .paper-ornament--tr {
+      top: 3px;
+      right: 3px;
       transform: scaleX(-1);
     }
 
-    .paper-corner--bottom-left {
-      left: 12px;
-      bottom: 12px;
+    .paper-ornament--bl {
+      bottom: 3px;
+      left: 3px;
       transform: scaleY(-1);
     }
 
-    .paper-corner--bottom-right {
-      right: 12px;
-      bottom: 12px;
+    .paper-ornament--br {
+      right: 3px;
+      bottom: 3px;
       transform: scale(-1);
+    }
+
+    .paper-pearl {
+      position: absolute;
+      z-index: 9;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #ffffff,
+          #ffe1ec 48%,
+          #c67292 100%
+        );
+      box-shadow:
+        0 0 8px rgba(255, 158, 200, 0.62),
+        0 0 18px rgba(255, 122, 181, 0.2);
+      pointer-events: none;
+      animation: pearlPulse 3s ease-in-out infinite;
+    }
+
+    .paper-pearl--top {
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .paper-pearl--bottom {
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation-delay: -1.5s;
+    }
+
+    .paper-pearl--left {
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation-delay: -0.8s;
+    }
+
+    .paper-pearl--right {
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      animation-delay: -2.2s;
     }
 
     .paper-watermark {
@@ -1333,16 +1432,30 @@
     }
 
     .paper-divider {
-      width: min(190px, 58%);
+      position: relative;
+      width: min(210px, 62%);
       height: 1px;
       margin: 17px auto 21px;
       background:
         linear-gradient(
           90deg,
           transparent,
-          rgba(117, 65, 88, 0.45),
+          rgba(117, 65, 88, 0.5),
           transparent
         );
+    }
+
+    .paper-divider::after {
+      content: "♡";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      padding: 0 9px;
+      color: #c45c88;
+      background: #fffdfd;
+      font-family: "Great Vibes", cursive;
+      font-size: 18px;
+      transform: translate(-50%, -50%);
     }
 
     .letter-lines {
@@ -1459,7 +1572,7 @@
       box-shadow:
         0 0 8px rgba(255, 231, 243, 0.95),
         0 0 18px rgba(255, 121, 179, 0.58);
-      animation: paperStarTwinkle var(--duration) ease-in-out infinite;
+      animation: twinkle var(--duration) ease-in-out infinite;
       animation-delay: var(--delay);
     }
 
@@ -1479,24 +1592,6 @@
       animation-delay: var(--delay);
     }
 
-    .paper-side-heart::before,
-    .paper-side-heart::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: inherit;
-    }
-
-    .paper-side-heart::before {
-      left: -50%;
-    }
-
-    .paper-side-heart::after {
-      top: -50%;
-    }
-
     .paper-butterfly {
       position: absolute;
       color: #ffc5dd;
@@ -1507,15 +1602,6 @@
         0 0 22px rgba(255, 111, 177, 0.45);
       filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.24));
       animation: paperButterflyFly var(--duration) ease-in-out infinite;
-      animation-delay: var(--delay);
-    }
-
-    .paper-bow {
-      position: absolute;
-      color: #ffafd0;
-      font-size: var(--size);
-      filter: drop-shadow(0 0 10px rgba(255, 135, 190, 0.38));
-      animation: paperBowFloat var(--duration) ease-in-out infinite;
       animation-delay: var(--delay);
     }
 
@@ -1579,7 +1665,7 @@
       right: 18px;
       top: 50%;
       z-index: 8000;
-      width: 278px;
+      width: 286px;
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
@@ -1609,8 +1695,8 @@
       background:
         linear-gradient(
           145deg,
-          rgba(55, 17, 41, 0.94),
-          rgba(20, 7, 15, 0.91)
+          rgba(55, 17, 41, 0.95),
+          rgba(20, 7, 15, 0.93)
         );
       box-shadow:
         0 24px 60px rgba(0, 0, 0, 0.38),
@@ -1800,6 +1886,18 @@
       font-size: 8px;
     }
 
+    .music-fallback {
+      display: none;
+      margin-top: 5px;
+      color: #ffbed7;
+      font-size: 7px;
+      line-height: 1.4;
+    }
+
+    .music-dock.has-error .music-fallback {
+      display: block;
+    }
+
     .music-toggle {
       width: 36px;
       height: 36px;
@@ -1837,13 +1935,22 @@
       line-height: 1;
     }
 
-    .youtube-audio-player {
-      position: absolute;
-      width: 1px;
-      height: 1px;
+    .youtube-player-holder {
+      position: fixed;
+      left: -10000px;
+      top: 0;
+      z-index: -100;
+      width: 240px;
+      height: 240px;
       overflow: hidden;
-      opacity: 0;
+      opacity: 0.01;
       pointer-events: none;
+    }
+
+    .youtube-player-holder iframe {
+      width: 240px !important;
+      height: 240px !important;
+      border: 0;
     }
 
     .star-cursor {
@@ -1893,26 +2000,28 @@
       animation: cursorStarPulse 1.8s ease-in-out infinite;
     }
 
-    .cursor-dust {
+    .cursor-dust,
+    .cursor-dust-star,
+    .click-star {
       position: fixed;
       z-index: 29999;
       width: var(--size);
       height: var(--size);
-      border-radius: 50%;
       pointer-events: none;
       background: var(--dust-color);
+      will-change: transform, opacity;
+    }
+
+    .cursor-dust {
+      border-radius: 50%;
       box-shadow:
         0 0 6px var(--dust-color),
         0 0 13px rgba(255, 123, 183, 0.42);
       animation: dustFade var(--duration) ease-out forwards;
-      will-change: transform, opacity;
     }
 
-    .cursor-dust-star {
-      position: fixed;
-      z-index: 29999;
-      width: var(--size);
-      height: var(--size);
+    .cursor-dust-star,
+    .click-star {
       clip-path:
         polygon(
           50% 0%,
@@ -1924,30 +2033,13 @@
           0% 50%,
           38% 35%
         );
-      pointer-events: none;
-      background: var(--dust-color);
       filter: drop-shadow(0 0 6px var(--dust-color));
       animation: dustStarFade var(--duration) ease-out forwards;
-      will-change: transform, opacity;
     }
 
     .click-star {
-      position: fixed;
-      z-index: 29999;
       width: 13px;
       height: 13px;
-      pointer-events: none;
-      clip-path:
-        polygon(
-          50% 0%,
-          62% 35%,
-          100% 50%,
-          62% 65%,
-          50% 100%,
-          38% 65%,
-          0% 50%,
-          38% 35%
-        );
       background: var(--click-color);
       filter: drop-shadow(0 0 7px var(--click-color));
       animation: clickStarBurst 0.75s ease-out forwards;
@@ -1977,10 +2069,6 @@
     }
 
     @keyframes loaderOrbit {
-      from {
-        transform: rotate(0deg);
-      }
-
       to {
         transform: rotate(360deg);
       }
@@ -2079,10 +2167,11 @@
       }
     }
 
-    @keyframes auraPulse {
+    @keyframes auraPulse,
+    @keyframes paperGlowPulse {
       0%,
       100% {
-        opacity: 0.72;
+        opacity: 0.7;
         transform: scale(0.96);
       }
 
@@ -2173,7 +2262,8 @@
     }
 
     @keyframes butterflyFly {
-      0% {
+      0%,
+      100% {
         transform:
           translate3d(0, 0, 0)
           rotate(-8deg)
@@ -2206,13 +2296,6 @@
           translate3d(var(--x4), var(--y4), 0)
           rotate(-6deg)
           scale(1);
-      }
-
-      100% {
-        transform:
-          translate3d(0, 0, 0)
-          rotate(-8deg)
-          scale(0.95);
       }
     }
 
@@ -2288,19 +2371,6 @@
       }
     }
 
-    @keyframes paperGlowPulse {
-      0%,
-      100% {
-        opacity: 0.65;
-        transform: scale(0.96);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.035);
-      }
-    }
-
     @keyframes paperPetalFall {
       0% {
         opacity: 0;
@@ -2317,19 +2387,6 @@
       }
     }
 
-    @keyframes paperStarTwinkle {
-      0%,
-      100% {
-        opacity: 0.15;
-        transform: scale(0.6);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.55);
-      }
-    }
-
     @keyframes paperSideHeart {
       0%,
       100% {
@@ -2339,7 +2396,10 @@
 
       50% {
         opacity: 0.9;
-        transform: translate3d(var(--x), var(--y), 0) rotate(68deg) scale(1.08);
+        transform:
+          translate3d(var(--x), var(--y), 0)
+          rotate(68deg)
+          scale(1.08);
       }
     }
 
@@ -2362,16 +2422,25 @@
       }
     }
 
-    @keyframes paperBowFloat {
+    @keyframes borderShimmer {
       0%,
       100% {
-        opacity: 0.5;
-        transform: translateY(0) rotate(-8deg);
+        background-position: 0% 50%;
       }
 
       50% {
-        opacity: 1;
-        transform: translateY(-14px) rotate(8deg);
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes pearlPulse {
+      0%,
+      100% {
+        filter: brightness(0.94);
+      }
+
+      50% {
+        filter: brightness(1.25);
       }
     }
 
@@ -2402,7 +2471,9 @@
 
       100% {
         opacity: 0;
-        transform: translate3d(var(--dust-x), var(--dust-y), 0) scale(0.1);
+        transform:
+          translate3d(var(--dust-x), var(--dust-y), 0)
+          scale(0.1);
       }
     }
 
@@ -2414,7 +2485,10 @@
 
       100% {
         opacity: 0;
-        transform: translate3d(var(--dust-x), var(--dust-y), 0) rotate(90deg) scale(0.15);
+        transform:
+          translate3d(var(--dust-x), var(--dust-y), 0)
+          rotate(90deg)
+          scale(0.15);
       }
     }
 
@@ -2544,12 +2618,6 @@
         font-size: 7px;
       }
 
-      .floating-heart:nth-of-type(n + 11),
-      .floating-butterfly:nth-of-type(n + 6),
-      .star-dot:nth-of-type(n + 10) {
-        display: none;
-      }
-
       .paper-section {
         height: 215svh;
       }
@@ -2570,13 +2638,14 @@
       }
 
       .paper-stage {
-        width: min(94vw, 510px);
-        height: min(75svh, 650px);
+        width: min(91vw, 510px);
+        height: min(73svh, 650px);
         margin-top: 66px;
       }
 
-      .love-paper {
-        border-width: 3px;
+      .paper-frame {
+        inset: -8px;
+        border-radius: 20px;
       }
 
       .paper-content {
@@ -2612,7 +2681,7 @@
       .music-dock {
         right: 8px;
         bottom: 8px;
-        width: 220px;
+        width: 224px;
       }
 
       .music-player-shell {
@@ -2655,19 +2724,14 @@
       }
 
       .music-status,
-      .music-eyebrow {
+      .music-eyebrow,
+      .music-fallback {
         font-size: 6px;
       }
 
       .music-toggle {
         width: 30px;
         height: 30px;
-      }
-
-      .paper-butterfly:nth-of-type(n + 2),
-      .paper-side-heart:nth-of-type(n + 4),
-      .paper-petal:nth-of-type(n + 7) {
-        display: none;
       }
     }
 
@@ -2716,17 +2780,6 @@
         filter: none !important;
         transform: none !important;
       }
-
-      .record {
-        animation: none !important;
-      }
-
-      .star-cursor,
-      .cursor-dust,
-      .cursor-dust-star,
-      .click-star {
-        display: none !important;
-      }
     }
   </style>
 </head>
@@ -2740,7 +2793,7 @@
     <span class="intro-spark" style="left: 10%; top: 17%; --size: 4px; --duration: 3s; --delay: -1s;"></span>
     <span class="intro-spark" style="left: 22%; top: 74%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
     <span class="intro-spark" style="left: 48%; top: 12%; --size: 4px; --duration: 3.4s; --delay: -1.6s;"></span>
-    <span class="intro-spark" style="left: 67%; top: 77%; --size: 3px; --duration: 2.8s; --delay: -0.8s;"></span>
+    <span class="intro-spark" style="left: 67%; top: 77%; --size: 3px; --duration: 2.8s; --delay: -.8s;"></span>
     <span class="intro-spark" style="left: 89%; top: 28%; --size: 4px; --duration: 3.2s; --delay: -2.2s;"></span>
 
     <span class="intro-float-heart" style="left: 7%; --size: 10px; --duration: 13s; --delay: -4s; --drift: 36px;"></span>
@@ -2754,13 +2807,10 @@
         <span class="loader-mini-star loader-mini-star--one"></span>
         <span class="loader-mini-star loader-mini-star--two"></span>
         <span class="loader-mini-star loader-mini-star--three"></span>
-
         <div class="loader-heart"></div>
       </div>
 
-      <h1 class="loader-title">
-        A little magic is loading
-      </h1>
+      <h1 class="loader-title">A little magic is loading</h1>
 
       <p class="loader-copy" id="loaderMessage">
         Gathering our favorite memories
@@ -2783,9 +2833,7 @@
         A little something made with love
       </p>
 
-      <h2 class="preview-title">
-        Your surprise is ready
-      </h2>
+      <h2 class="preview-title">Your surprise is ready</h2>
 
       <p class="preview-copy">
         I made something special to celebrate us and all the memories
@@ -2810,9 +2858,9 @@
   <main class="site" id="site">
     <section class="hero-section" aria-labelledby="heroTitle">
       <div class="background-effects" aria-hidden="true">
-        <span class="hero-cloud" style="left: -8%; top: 18%; --width: 480px; --opacity: 0.25; --duration: 13s;"></span>
-        <span class="hero-cloud" style="right: -10%; top: 39%; --width: 560px; --opacity: 0.22; --duration: 16s;"></span>
-        <span class="hero-cloud" style="left: 27%; bottom: -6%; --width: 650px; --opacity: 0.18; --duration: 18s;"></span>
+        <span class="hero-cloud" style="left: -8%; top: 18%; --width: 480px; --opacity: .25; --duration: 13s;"></span>
+        <span class="hero-cloud" style="right: -10%; top: 39%; --width: 560px; --opacity: .22; --duration: 16s;"></span>
+        <span class="hero-cloud" style="left: 27%; bottom: -6%; --width: 650px; --opacity: .18; --duration: 18s;"></span>
 
         <span class="floating-heart" style="left: 3%; --size: 9px; --duration: 13s; --delay: -4s; --drift: 50px;"></span>
         <span class="floating-heart" style="left: 9%; --size: 13px; --duration: 16s; --delay: -9s; --drift: -34px;"></span>
@@ -2829,41 +2877,28 @@
         <span class="floating-butterfly" style="right: 6%; top: 18%; --size: 29px; --duration: 12s; --delay: -7s; --x1: -52px; --y1: -18px; --x2: -88px; --y2: 22px; --x3: -38px; --y3: 60px; --x4: 18px; --y4: 24px;">🦋</span>
         <span class="floating-butterfly" style="left: 12%; bottom: 18%; --size: 21px; --duration: 10s; --delay: -5s; --x1: 40px; --y1: -48px; --x2: 78px; --y2: -75px; --x3: 28px; --y3: -100px; --x4: -20px; --y4: -55px;">🦋</span>
         <span class="floating-butterfly" style="right: 14%; bottom: 15%; --size: 23px; --duration: 11.5s; --delay: -2s; --x1: -42px; --y1: -48px; --x2: -76px; --y2: -82px; --x3: -24px; --y3: -108px; --x4: 22px; --y4: -54px;">🦋</span>
-        <span class="floating-butterfly" style="left: 47%; top: 8%; --size: 18px; --duration: 9s; --delay: -4s; --x1: 26px; --y1: 18px; --x2: -15px; --y2: 46px; --x3: 32px; --y3: 70px; --x4: -22px; --y4: 28px;">🦋</span>
-        <span class="floating-butterfly" style="right: 30%; top: 31%; --size: 16px; --duration: 8.5s; --delay: -6s; --x1: -30px; --y1: -22px; --x2: 22px; --y2: -46px; --x3: 52px; --y3: -10px; --x4: 16px; --y4: 28px;">🦋</span>
 
         <span class="floating-ring" style="left: 4%; top: 46%; --size: 54px; --duration: 7s; --delay: -2s;"></span>
         <span class="floating-ring" style="right: 5%; top: 61%; --size: 68px; --duration: 8.5s; --delay: -5s;"></span>
-        <span class="floating-ring" style="left: 23%; top: 10%; --size: 32px; --duration: 6.5s; --delay: -4s;"></span>
-
         <span class="floating-diamond" style="left: 8%; top: 67%; --size: 14px; --duration: 6s; --delay: -2s;"></span>
         <span class="floating-diamond" style="right: 9%; top: 33%; --size: 17px; --duration: 7s; --delay: -4s;"></span>
-        <span class="floating-diamond" style="left: 73%; top: 9%; --size: 11px; --duration: 5.5s; --delay: -3s;"></span>
 
         <span class="star-dot" style="left: 4%; top: 12%; --size: 4px; --duration: 3.2s; --delay: -1s;"></span>
-        <span class="star-dot" style="left: 13%; top: 38%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
         <span class="star-dot" style="left: 21%; top: 76%; --size: 4px; --duration: 3.5s; --delay: -1.4s;"></span>
-        <span class="star-dot" style="left: 31%; top: 14%; --size: 3px; --duration: 2.6s; --delay: -1.8s;"></span>
         <span class="star-dot" style="left: 43%; top: 83%; --size: 4px; --duration: 3.4s; --delay: -2.7s;"></span>
-        <span class="star-dot" style="left: 58%; top: 11%; --size: 3px; --duration: 2.9s; --delay: -1.1s;"></span>
         <span class="star-dot" style="left: 68%; top: 72%; --size: 4px; --duration: 3.1s; --delay: -2.2s;"></span>
-        <span class="star-dot" style="left: 79%; top: 22%; --size: 3px; --duration: 2.8s; --delay: -1.5s;"></span>
         <span class="star-dot" style="left: 91%; top: 58%; --size: 4px; --duration: 3.6s; --delay: -2.4s;"></span>
       </div>
 
       <div class="hero">
         <header class="hero-header">
-          <p class="hero-eyebrow">
-            A Love Worth Celebrating
-          </p>
+          <p class="hero-eyebrow">A Love Worth Celebrating</p>
 
           <h1 class="hero-title" id="heroTitle">
             Happy Anniversary
           </h1>
 
-          <p class="hero-script">
-            To my beautiful girl
-          </p>
+          <p class="hero-script">To my beautiful girl</p>
 
           <p class="hero-copy">
             Every moment with you is my favorite, and every memory we create
@@ -2899,7 +2934,11 @@
       </div>
     </section>
 
-    <section class="paper-section" id="paperSection" aria-labelledby="paperTitle">
+    <section
+      class="paper-section"
+      id="paperSection"
+      aria-labelledby="paperTitle"
+    >
       <div class="paper-sticky">
         <div class="paper-ambient" aria-hidden="true">
           <span class="paper-orb paper-orb--one"></span>
@@ -2908,28 +2947,19 @@
           <span class="paper-petal" style="left: 5%; --size: 12px; --duration: 13s; --delay: -3s; --drift: 70px;"></span>
           <span class="paper-petal" style="left: 15%; --size: 9px; --duration: 11s; --delay: -7s; --drift: -48px;"></span>
           <span class="paper-petal" style="left: 28%; --size: 14px; --duration: 15s; --delay: -10s; --drift: 62px;"></span>
-          <span class="paper-petal" style="left: 44%; --size: 8px; --duration: 12s; --delay: -4s; --drift: -36px;"></span>
           <span class="paper-petal" style="left: 62%; --size: 13px; --duration: 14s; --delay: -8s; --drift: 54px;"></span>
-          <span class="paper-petal" style="left: 79%; --size: 10px; --duration: 12s; --delay: -5s; --drift: -48px;"></span>
           <span class="paper-petal" style="left: 93%; --size: 13px; --duration: 15s; --delay: -12s; --drift: 44px;"></span>
 
           <span class="paper-star" style="left: 8%; top: 18%; --size: 4px; --duration: 3.2s; --delay: -1s;"></span>
           <span class="paper-star" style="left: 17%; top: 68%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
-          <span class="paper-star" style="left: 31%; top: 12%; --size: 4px; --duration: 3.5s; --delay: -1.5s;"></span>
           <span class="paper-star" style="left: 69%; top: 15%; --size: 3px; --duration: 2.9s; --delay: -2.3s;"></span>
-          <span class="paper-star" style="left: 82%; top: 72%; --size: 4px; --duration: 3.4s; --delay: -1.2s;"></span>
           <span class="paper-star" style="left: 93%; top: 31%; --size: 3px; --duration: 2.6s; --delay: -1.8s;"></span>
 
           <span class="paper-side-heart" style="left: 7%; top: 42%; --size: 15px; --duration: 6s; --delay: -2s; --x: 18px; --y: -26px;"></span>
           <span class="paper-side-heart" style="right: 7%; top: 48%; --size: 13px; --duration: 7s; --delay: -4s; --x: -18px; --y: -30px;"></span>
-          <span class="paper-side-heart" style="left: 15%; bottom: 15%; --size: 11px; --duration: 6.5s; --delay: -3s; --x: 22px; --y: -28px;"></span>
-          <span class="paper-side-heart" style="right: 16%; bottom: 17%; --size: 15px; --duration: 7.5s; --delay: -5s; --x: -22px; --y: -34px;"></span>
 
           <span class="paper-butterfly" style="left: 6%; top: 25%; --size: 28px; --duration: 9s; --delay: -3s; --x1: 32px; --y1: -20px; --x2: 58px; --y2: 20px; --x3: 16px; --y3: 48px;">🦋</span>
           <span class="paper-butterfly" style="right: 7%; top: 28%; --size: 25px; --duration: 10s; --delay: -6s; --x1: -35px; --y1: -16px; --x2: -60px; --y2: 24px; --x3: -18px; --y3: 50px;">🦋</span>
-
-          <span class="paper-bow" style="left: 7%; bottom: 31%; --size: 30px; --duration: 7s; --delay: -2s;">🎀</span>
-          <span class="paper-bow" style="right: 8%; bottom: 28%; --size: 27px; --duration: 8s; --delay: -5s;">🎀</span>
         </div>
 
         <div class="paper-scene">
@@ -2945,12 +2975,29 @@
 
           <div class="paper-stage" id="paperStage">
             <div class="paper-glow" aria-hidden="true"></div>
+            <div class="paper-frame" aria-hidden="true"></div>
 
-            <article class="love-paper" id="lovePaper">
-              <div class="paper-corner paper-corner--top-left" aria-hidden="true"></div>
-              <div class="paper-corner paper-corner--top-right" aria-hidden="true"></div>
-              <div class="paper-corner paper-corner--bottom-left" aria-hidden="true"></div>
-              <div class="paper-corner paper-corner--bottom-right" aria-hidden="true"></div>
+            <article class="love-paper">
+              <div class="paper-ornament paper-ornament--tl">
+                <span></span>
+              </div>
+
+              <div class="paper-ornament paper-ornament--tr">
+                <span></span>
+              </div>
+
+              <div class="paper-ornament paper-ornament--bl">
+                <span></span>
+              </div>
+
+              <div class="paper-ornament paper-ornament--br">
+                <span></span>
+              </div>
+
+              <span class="paper-pearl paper-pearl--top"></span>
+              <span class="paper-pearl paper-pearl--bottom"></span>
+              <span class="paper-pearl paper-pearl--left"></span>
+              <span class="paper-pearl paper-pearl--right"></span>
 
               <div class="paper-watermark" aria-hidden="true">
                 ♡
@@ -3002,17 +3049,9 @@
                 </div>
 
                 <div class="paper-signoff" data-reveal="0.91">
-                  <span class="paper-date">
-                    Our Anniversary
-                  </span>
-
-                  <span class="paper-heart">
-                    ♡
-                  </span>
-
-                  <span class="paper-signature">
-                    With all my love
-                  </span>
+                  <span class="paper-date">Our Anniversary</span>
+                  <span class="paper-heart">♡</span>
+                  <span class="paper-signature">With all my love</span>
                 </div>
               </div>
             </article>
@@ -3020,7 +3059,10 @@
 
           <div class="paper-progress-ui" id="paperProgressUI">
             <div class="paper-progress-track">
-              <div class="paper-progress-fill" id="paperProgressFill"></div>
+              <div
+                class="paper-progress-fill"
+                id="paperProgressFill"
+              ></div>
             </div>
 
             <p class="paper-scroll-note" id="paperScrollNote">
@@ -3033,9 +3075,7 @@
 
     <section class="next-section" aria-labelledby="nextTitle">
       <div class="next-card">
-        <p class="next-eyebrow">
-          And there is more
-        </p>
+        <p class="next-eyebrow">And there is more</p>
 
         <h2 class="next-title" id="nextTitle">
           Happy Anniversary ❤️
@@ -3046,64 +3086,66 @@
         </p>
       </div>
     </section>
-
-    <div class="music-dock" id="musicDock">
-      <div class="music-player-shell">
-        <button
-          class="record-player"
-          id="recordPlayerButton"
-          type="button"
-          aria-label="Pause anniversary music"
-          aria-pressed="true"
-        >
-          <span class="turntable">
-            <span class="record">
-              <span class="record-label">
-                <span>our song</span>
-                <span class="record-center"></span>
-              </span>
-            </span>
-
-            <span class="tonearm">
-              <span class="tonearm-head"></span>
-            </span>
-
-            <span class="player-light"></span>
-          </span>
-        </button>
-
-        <div class="music-information">
-          <span class="music-eyebrow">
-            Now playing
-          </span>
-
-          <strong class="music-title">
-            Our anniversary song
-          </strong>
-
-          <span class="music-status" id="musicStatus">
-            Playing from 2:28
-          </span>
-        </div>
-
-        <button
-          class="music-toggle"
-          id="musicToggle"
-          type="button"
-          aria-label="Pause music"
-          aria-pressed="true"
-        >
-          <span class="music-toggle-icon" id="musicToggleIcon">
-            Ⅱ
-          </span>
-        </button>
-      </div>
-
-      <div class="youtube-audio-player" aria-hidden="true">
-        <div id="youtubePlayer"></div>
-      </div>
-    </div>
   </main>
+
+  <div class="music-dock" id="musicDock">
+    <div class="music-player-shell">
+      <button
+        class="record-player"
+        id="recordPlayerButton"
+        type="button"
+        aria-label="Play anniversary music"
+        aria-pressed="false"
+      >
+        <span class="turntable">
+          <span class="record">
+            <span class="record-label">
+              <span>our song</span>
+              <span class="record-center"></span>
+            </span>
+          </span>
+
+          <span class="tonearm">
+            <span class="tonearm-head"></span>
+          </span>
+
+          <span class="player-light"></span>
+        </span>
+      </button>
+
+      <div class="music-information">
+        <span class="music-eyebrow">Anniversary record</span>
+
+        <strong class="music-title">
+          Our anniversary song
+        </strong>
+
+        <span class="music-status" id="musicStatus">
+          Preparing the music
+        </span>
+
+        <span class="music-fallback" id="musicFallback">
+          YouTube blocked embedded playback. Tap the record to retry.
+        </span>
+      </div>
+
+      <button
+        class="music-toggle"
+        id="musicToggle"
+        type="button"
+        aria-label="Play music"
+        aria-pressed="false"
+      >
+        <span class="music-toggle-icon" id="musicToggleIcon">
+          ▶
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="youtube-player-holder" aria-hidden="true">
+    <div id="youtubePlayer"></div>
+  </div>
 
   <div class="star-cursor" id="starCursor" aria-hidden="true">
     <div class="star-cursor-shape"></div>
@@ -3152,13 +3194,17 @@
         "(hover: hover) and (pointer: fine)"
       ).matches;
 
+      const VIDEO_ID = "V4qjAyb4lNI";
+      const VIDEO_START_TIME = 148;
+
       let siteOpened = false;
       let scrollTicking = false;
-
       let youtubePlayer = null;
       let youtubeApiReady = false;
-      let musicRequested = false;
+      let youtubePlayerReady = false;
       let musicPlaying = false;
+      let playWhenReady = false;
+      let musicError = false;
 
       const wait = (duration) =>
         new Promise((resolve) => {
@@ -3169,59 +3215,23 @@
         Math.min(Math.max(value, minimum), maximum);
 
       const runLoader = async () => {
-        const loaderSteps = [
-          {
-            progress: 7,
-            status: "Gathering memories",
-            message: "Collecting all the little moments I love"
-          },
-          {
-            progress: 16,
-            status: "Adding pink magic",
-            message: "Sprinkling in a little sparkle"
-          },
-          {
-            progress: 28,
-            status: "Polishing the stars",
-            message: "Making every detail feel special"
-          },
-          {
-            progress: 42,
-            status: "Warming the memories",
-            message: "Filling the surprise with love"
-          },
-          {
-            progress: 57,
-            status: "Releasing butterflies",
-            message: "Letting the magic come alive"
-          },
-          {
-            progress: 71,
-            status: "Finishing touches",
-            message: "Making sure everything feels perfect"
-          },
-          {
-            progress: 84,
-            status: "Adding one more heart",
-            message: "Your surprise is almost ready"
-          },
-          {
-            progress: 94,
-            status: "One last sparkle",
-            message: "Just a little longer"
-          },
-          {
-            progress: 100,
-            status: "Ready",
-            message: "Made especially for you"
-          }
+        const steps = [
+          [7, "Gathering memories", "Collecting all the little moments I love"],
+          [16, "Adding pink magic", "Sprinkling in a little sparkle"],
+          [28, "Polishing the stars", "Making every detail feel special"],
+          [42, "Warming the memories", "Filling the surprise with love"],
+          [57, "Releasing butterflies", "Letting the magic come alive"],
+          [71, "Finishing touches", "Making sure everything feels perfect"],
+          [84, "Adding one more heart", "Your surprise is almost ready"],
+          [94, "One last sparkle", "Just a little longer"],
+          [100, "Ready", "Made especially for you"]
         ];
 
-        for (const step of loaderSteps) {
-          loaderProgressBar.style.width = `${step.progress}%`;
-          loaderPercent.textContent = `${step.progress}%`;
-          loaderStatus.textContent = step.status;
-          loaderMessage.textContent = step.message;
+        for (const [progress, status, message] of steps) {
+          loaderProgressBar.style.width = `${progress}%`;
+          loaderPercent.textContent = `${progress}%`;
+          loaderStatus.textContent = status;
+          loaderMessage.textContent = message;
 
           await wait(780 + Math.random() * 380);
         }
@@ -3242,115 +3252,47 @@
       };
 
       const updateMusicInterface = () => {
-        musicDock.classList.toggle(
-          "is-playing",
-          musicPlaying
-        );
+        musicDock.classList.toggle("is-playing", musicPlaying);
+        musicDock.classList.toggle("has-error", musicError);
 
-        musicToggleIcon.textContent =
-          musicPlaying ? "Ⅱ" : "▶";
+        musicToggleIcon.textContent = musicPlaying ? "Ⅱ" : "▶";
 
-        musicStatus.textContent =
-          musicPlaying
-            ? "Playing from 2:28"
-            : "Music paused";
-
-        musicToggle.setAttribute(
-          "aria-label",
-          musicPlaying
-            ? "Pause music"
-            : "Play music"
-        );
-
-        musicToggle.setAttribute(
-          "aria-pressed",
-          String(musicPlaying)
-        );
-
-        recordPlayerButton.setAttribute(
-          "aria-label",
-          musicPlaying
-            ? "Pause anniversary music"
-            : "Play anniversary music"
-        );
-
-        recordPlayerButton.setAttribute(
-          "aria-pressed",
-          String(musicPlaying)
-        );
-      };
-
-      const createYouTubePlayer = () => {
-        if (
-          youtubePlayer ||
-          !youtubeApiReady ||
-          typeof window.YT === "undefined"
-        ) {
-          return;
+        if (musicError) {
+          musicStatus.textContent = "Playback was blocked";
+        } else if (!youtubePlayerReady) {
+          musicStatus.textContent = "Preparing the music";
+        } else if (musicPlaying) {
+          musicStatus.textContent = "Playing from 2:28";
+        } else {
+          musicStatus.textContent = "Music paused";
         }
 
-        youtubePlayer = new window.YT.Player(
-          "youtubePlayer",
-          {
-            width: 200,
-            height: 113,
-            videoId: "V4qjAyb4lNI",
-            playerVars: {
-              autoplay: 1,
-              start: 148,
-              controls: 0,
-              rel: 0,
-              playsinline: 1,
-              enablejsapi: 1,
-              loop: 1,
-              playlist: "V4qjAyb4lNI"
-            },
-            events: {
-              onReady: (event) => {
-                event.target.seekTo(148, true);
+        const action = musicPlaying ? "Pause" : "Play";
 
-                if (musicRequested) {
-                  event.target.playVideo();
-                }
-              },
+        musicToggle.setAttribute(
+          "aria-label",
+          `${action} music`
+        );
 
-              onStateChange: (event) => {
-                if (
-                  event.data ===
-                  window.YT.PlayerState.PLAYING
-                ) {
-                  musicPlaying = true;
-                }
+        musicToggle.setAttribute(
+          "aria-pressed",
+          String(musicPlaying)
+        );
 
-                if (
-                  event.data ===
-                    window.YT.PlayerState.PAUSED ||
-                  event.data ===
-                    window.YT.PlayerState.ENDED
-                ) {
-                  musicPlaying = false;
-                }
+        recordPlayerButton.setAttribute(
+          "aria-label",
+          `${action} anniversary music`
+        );
 
-                updateMusicInterface();
-              },
-
-              onError: () => {
-                musicPlaying = false;
-                musicStatus.textContent =
-                  "Music unavailable";
-                updateMusicInterface();
-              }
-            }
-          }
+        recordPlayerButton.setAttribute(
+          "aria-pressed",
+          String(musicPlaying)
         );
       };
 
       window.onYouTubeIframeAPIReady = () => {
         youtubeApiReady = true;
-
-        if (musicRequested) {
-          createYouTubePlayer();
-        }
+        createYouTubePlayer();
       };
 
       const loadYouTubeAPI = () => {
@@ -3362,63 +3304,198 @@
           return;
         }
 
-        const script =
-          document.createElement("script");
+        const script = document.createElement("script");
 
-        script.src =
-          "https://www.youtube.com/iframe_api";
-
+        script.src = "https://www.youtube.com/iframe_api";
         script.async = true;
 
         document.head.appendChild(script);
       };
 
-      const startAnniversaryMusic = () => {
-        musicRequested = true;
-        musicPlaying = true;
-
-        musicDock.classList.add("is-visible");
-        updateMusicInterface();
-
-        loadYouTubeAPI();
-
-        if (youtubeApiReady) {
-          createYouTubePlayer();
-
-          if (
-            youtubePlayer &&
-            typeof youtubePlayer.playVideo === "function"
-          ) {
-            youtubePlayer.seekTo(148, true);
-            youtubePlayer.playVideo();
-          }
-        }
-      };
-
-      const toggleAnniversaryMusic = () => {
+      const createYouTubePlayer = () => {
         if (
-          !youtubePlayer ||
-          typeof youtubePlayer.getPlayerState !== "function"
+          youtubePlayer ||
+          !youtubeApiReady ||
+          typeof window.YT === "undefined"
         ) {
-          startAnniversaryMusic();
           return;
         }
 
-        const playerState =
-          youtubePlayer.getPlayerState();
+        const playerVars = {
+          autoplay: 0,
+          controls: 0,
+          disablekb: 1,
+          enablejsapi: 1,
+          fs: 0,
+          iv_load_policy: 3,
+          loop: 1,
+          modestbranding: 1,
+          playlist: VIDEO_ID,
+          playsinline: 1,
+          rel: 0,
+          start: VIDEO_START_TIME
+        };
 
         if (
-          playerState ===
-          window.YT.PlayerState.PLAYING
+          window.location.protocol === "https:" ||
+          window.location.protocol === "http:"
         ) {
-          youtubePlayer.pauseVideo();
-          musicPlaying = false;
-        } else {
-          youtubePlayer.playVideo();
-          musicPlaying = true;
+          playerVars.origin = window.location.origin;
         }
 
+        youtubePlayer = new window.YT.Player(
+          "youtubePlayer",
+          {
+            width: 240,
+            height: 240,
+            videoId: VIDEO_ID,
+            playerVars,
+
+            events: {
+              onReady: (event) => {
+                youtubePlayerReady = true;
+                musicError = false;
+
+                const iframe = event.target.getIframe();
+
+                if (iframe) {
+                  iframe.setAttribute(
+                    "allow",
+                    "autoplay; encrypted-media; picture-in-picture"
+                  );
+
+                  iframe.setAttribute(
+                    "title",
+                    "Anniversary background music"
+                  );
+                }
+
+                event.target.cueVideoById({
+                  videoId: VIDEO_ID,
+                  startSeconds: VIDEO_START_TIME
+                });
+
+                updateMusicInterface();
+
+                if (playWhenReady) {
+                  playMusic();
+                }
+              },
+
+              onStateChange: (event) => {
+                if (
+                  event.data ===
+                  window.YT.PlayerState.PLAYING
+                ) {
+                  musicPlaying = true;
+                  musicError = false;
+                }
+
+                if (
+                  event.data ===
+                    window.YT.PlayerState.PAUSED ||
+                  event.data ===
+                    window.YT.PlayerState.ENDED ||
+                  event.data ===
+                    window.YT.PlayerState.CUED
+                ) {
+                  musicPlaying = false;
+                }
+
+                updateMusicInterface();
+              },
+
+              onAutoplayBlocked: () => {
+                musicPlaying = false;
+                musicError = false;
+                musicStatus.textContent =
+                  "Tap the record to start the song";
+                updateMusicInterface();
+              },
+
+              onError: () => {
+                musicPlaying = false;
+                musicError = true;
+                updateMusicInterface();
+              }
+            }
+          }
+        );
+      };
+
+      const playMusic = () => {
+        playWhenReady = true;
+        musicDock.classList.add("is-visible");
+
+        if (
+          !youtubePlayerReady ||
+          !youtubePlayer ||
+          typeof youtubePlayer.playVideo !== "function"
+        ) {
+          musicStatus.textContent = "Preparing the music";
+          updateMusicInterface();
+          return;
+        }
+
+        try {
+          const currentTime = youtubePlayer.getCurrentTime();
+
+          if (
+            !Number.isFinite(currentTime) ||
+            currentTime < VIDEO_START_TIME - 2
+          ) {
+            youtubePlayer.seekTo(
+              VIDEO_START_TIME,
+              true
+            );
+          }
+
+          youtubePlayer.unMute();
+          youtubePlayer.setVolume(65);
+          youtubePlayer.playVideo();
+
+          window.setTimeout(() => {
+            if (
+              youtubePlayer &&
+              typeof youtubePlayer.getPlayerState === "function" &&
+              youtubePlayer.getPlayerState() !==
+                window.YT.PlayerState.PLAYING
+            ) {
+              musicPlaying = false;
+              musicStatus.textContent =
+                "Tap the record to start the song";
+              updateMusicInterface();
+            }
+          }, 1400);
+        } catch (error) {
+          musicPlaying = false;
+          musicError = true;
+          updateMusicInterface();
+        }
+      };
+
+      const pauseMusic = () => {
+        playWhenReady = false;
+
+        if (
+          youtubePlayerReady &&
+          youtubePlayer &&
+          typeof youtubePlayer.pauseVideo === "function"
+        ) {
+          youtubePlayer.pauseVideo();
+        }
+
+        musicPlaying = false;
         updateMusicInterface();
+      };
+
+      const toggleMusic = () => {
+        if (musicPlaying) {
+          pauseMusic();
+        } else {
+          musicError = false;
+          playMusic();
+        }
       };
 
       const openSite = async (event) => {
@@ -3435,7 +3512,9 @@
         openSurpriseButton.disabled = true;
 
         site.classList.add("is-visible");
-        startAnniversaryMusic();
+        musicDock.classList.add("is-visible");
+
+        playMusic();
 
         body.classList.remove("is-locked");
         intro.classList.add("is-closing");
@@ -3469,12 +3548,12 @@
 
       musicToggle.addEventListener(
         "click",
-        toggleAnniversaryMusic
+        toggleMusic
       );
 
       recordPlayerButton.addEventListener(
         "click",
-        toggleAnniversaryMusic
+        toggleMusic
       );
 
       const updatePaperSection = () => {
@@ -3494,27 +3573,23 @@
         const progress =
           scrollableDistance > 0
             ? clamp(
-                -sectionRect.top /
-                  scrollableDistance,
+                -sectionRect.top / scrollableDistance,
                 0,
                 1
               )
             : 1;
 
-        const entryProgress =
-          clamp(
-            progress / 0.14,
-            0,
-            1
-          );
+        const entryProgress = clamp(
+          progress / 0.14,
+          0,
+          1
+        );
 
-        const exitProgress =
-          clamp(
-            (progress - 0.92) /
-              0.08,
-            0,
-            1
-          );
+        const exitProgress = clamp(
+          (progress - 0.92) / 0.08,
+          0,
+          1
+        );
 
         const paperScale =
           0.965 +
@@ -3530,16 +3605,10 @@
           `translateY(${paperY}px) scale(${paperScale})`;
 
         paperStage.style.opacity =
-          String(
-            1 -
-            exitProgress * 0.14
-          );
+          String(1 - exitProgress * 0.14);
 
         paperHeading.style.opacity =
-          String(
-            1 -
-            exitProgress * 0.84
-          );
+          String(1 - exitProgress * 0.84);
 
         paperHeading.style.transform =
           `translateX(-50%) translateY(${
@@ -3550,10 +3619,7 @@
           `${Math.round(progress * 100)}%`;
 
         paperProgressUI.style.opacity =
-          String(
-            1 -
-            exitProgress * 0.8
-          );
+          String(1 - exitProgress * 0.8);
 
         paperRevealItems.forEach((item) => {
           const revealPoint =
@@ -3561,15 +3627,10 @@
               item.dataset.reveal || "0"
             );
 
-          if (progress >= revealPoint) {
-            item.classList.add(
-              "is-revealed"
-            );
-          } else {
-            item.classList.remove(
-              "is-revealed"
-            );
-          }
+          item.classList.toggle(
+            "is-revealed",
+            progress >= revealPoint
+          );
         });
 
         if (progress < 0.12) {
@@ -3612,7 +3673,9 @@
         }
       );
 
+      loadYouTubeAPI();
       updatePaperSection();
+      updateMusicInterface();
       runLoader();
 
       if (
@@ -3620,9 +3683,7 @@
         !prefersReducedMotion &&
         starCursor
       ) {
-        body.classList.add(
-          "has-star-cursor"
-        );
+        body.classList.add("has-star-cursor");
 
         let targetX = -100;
         let targetY = -100;
@@ -3644,8 +3705,7 @@
           y,
           index
         ) => {
-          const dust =
-            document.createElement("span");
+          const dust = document.createElement("span");
 
           dust.className =
             index % 3 === 0
@@ -3653,18 +3713,10 @@
               : "cursor-dust";
 
           dust.style.left =
-            `${
-              x -
-              2 +
-              (-5 + Math.random() * 10)
-            }px`;
+            `${x - 2 + (-5 + Math.random() * 10)}px`;
 
           dust.style.top =
-            `${
-              y -
-              2 +
-              (-5 + Math.random() * 10)
-            }px`;
+            `${y - 2 + (-5 + Math.random() * 10)}px`;
 
           dust.style.setProperty(
             "--size",
@@ -3673,26 +3725,17 @@
 
           dust.style.setProperty(
             "--duration",
-            `${
-              0.52 +
-              Math.random() * 0.48
-            }s`
+            `${0.52 + Math.random() * 0.48}s`
           );
 
           dust.style.setProperty(
             "--dust-x",
-            `${
-              -18 +
-              Math.random() * 36
-            }px`
+            `${-18 + Math.random() * 36}px`
           );
 
           dust.style.setProperty(
             "--dust-y",
-            `${
-              10 +
-              Math.random() * 28
-            }px`
+            `${10 + Math.random() * 28}px`
           );
 
           dust.style.setProperty(
@@ -3715,11 +3758,7 @@
         const createDustTrail = (x, y) => {
           const now = performance.now();
 
-          if (
-            now -
-              lastDustTime <
-            24
-          ) {
+          if (now - lastDustTime < 24) {
             return;
           }
 
@@ -3738,10 +3777,7 @@
           }
         };
 
-        const createClickBurst = (
-          x,
-          y
-        ) => {
+        const createClickBurst = (x, y) => {
           const colors = [
             "#ffd4e7",
             "#ff91bf",
@@ -3755,54 +3791,34 @@
             index += 1
           ) {
             const angle =
-              (Math.PI * 2 * index) /
-              8;
+              Math.PI * 2 * index / 8;
 
             const distance =
-              18 +
-              Math.random() * 28;
+              18 + Math.random() * 28;
 
             const star =
-              document.createElement(
-                "span"
-              );
+              document.createElement("span");
 
-            star.className =
-              "click-star";
-
-            star.style.left =
-              `${x - 6}px`;
-
-            star.style.top =
-              `${y - 6}px`;
+            star.className = "click-star";
+            star.style.left = `${x - 6}px`;
+            star.style.top = `${y - 6}px`;
 
             star.style.setProperty(
               "--click-x",
-              `${
-                Math.cos(angle) *
-                distance
-              }px`
+              `${Math.cos(angle) * distance}px`
             );
 
             star.style.setProperty(
               "--click-y",
-              `${
-                Math.sin(angle) *
-                distance
-              }px`
+              `${Math.sin(angle) * distance}px`
             );
 
             star.style.setProperty(
               "--click-color",
-              colors[
-                index %
-                  colors.length
-              ]
+              colors[index % colors.length]
             );
 
-            document.body.appendChild(
-              star
-            );
+            document.body.appendChild(star);
 
             window.setTimeout(() => {
               star.remove();
@@ -3812,12 +3828,10 @@
 
         const animateCursor = () => {
           currentX +=
-            (targetX - currentX) *
-            0.24;
+            (targetX - currentX) * 0.24;
 
           currentY +=
-            (targetY - currentY) *
-            0.24;
+            (targetY - currentY) * 0.24;
 
           starCursor.style.transform =
             `translate3d(${
@@ -3834,18 +3848,12 @@
         window.addEventListener(
           "pointermove",
           (event) => {
-            targetX =
-              event.clientX;
-
-            targetY =
-              event.clientY;
+            targetX = event.clientX;
+            targetY = event.clientY;
 
             if (!cursorVisible) {
               cursorVisible = true;
-
-              starCursor.classList.add(
-                "is-visible"
-              );
+              starCursor.classList.add("is-visible");
             }
 
             createDustTrail(
@@ -3862,10 +3870,7 @@
           "pointerleave",
           () => {
             cursorVisible = false;
-
-            starCursor.classList.remove(
-              "is-visible"
-            );
+            starCursor.classList.remove("is-visible");
           }
         );
 
@@ -3873,10 +3878,7 @@
           "pointerenter",
           () => {
             cursorVisible = true;
-
-            starCursor.classList.add(
-              "is-visible"
-            );
+            starCursor.classList.add("is-visible");
           }
         );
 
