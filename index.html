@@ -119,19 +119,6 @@
       top: -50%;
     }
 
-    .effect-star {
-      position: absolute;
-      width: var(--size);
-      height: var(--size);
-      border-radius: 50%;
-      background: #fff8fc;
-      box-shadow:
-        0 0 8px rgba(255, 230, 241, 0.95),
-        0 0 18px rgba(255, 121, 179, 0.58);
-      animation: twinkle var(--duration) ease-in-out infinite;
-      animation-delay: var(--delay);
-    }
-
     .effect-butterfly {
       position: absolute;
       font-size: var(--size);
@@ -890,6 +877,7 @@
       min-height: 0;
       margin: 10px 10px 0;
       overflow: hidden;
+      isolation: isolate;
       border: 4px solid #fffafc;
       border-radius: 17px;
       background: #1b0b15;
@@ -898,16 +886,48 @@
         inset 0 0 0 1px rgba(195, 91, 136, 0.2);
     }
 
+    .memory-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 185, 214, 0.24),
+          rgba(136, 31, 83, 0.08) 44%,
+          rgba(255, 135, 187, 0.2)
+        );
+      mix-blend-mode: soft-light;
+    }
+
+    .memory-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 30% 15%, rgba(255, 223, 237, 0.22), transparent 28%),
+        linear-gradient(180deg, rgba(255, 163, 202, 0.08), rgba(81, 15, 51, 0.14));
+      box-shadow:
+        inset 0 0 42px rgba(67, 7, 38, 0.18),
+        inset 0 0 12px rgba(255, 210, 229, 0.16);
+    }
+
     .memory-photo img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
       filter:
-        saturate(1.06)
-        contrast(1.015)
-        brightness(1.035)
-        sepia(0.025);
+        saturate(1.09)
+        contrast(1.035)
+        brightness(1.02)
+        sepia(0.075);
       transition:
         transform 1s var(--ease),
         filter 0.65s ease;
@@ -916,9 +936,10 @@
     .memory-slide:hover .memory-photo img {
       transform: scale(1.045);
       filter:
-        saturate(1.12)
-        contrast(1.03)
-        brightness(1.06);
+        saturate(1.15)
+        contrast(1.045)
+        brightness(1.045)
+        sepia(0.09);
     }
 
     .memory-slide--first .memory-photo img {
@@ -1172,7 +1193,7 @@
       -webkit-backdrop-filter: blur(20px);
     }
 
-    .date-generator-panel {
+    .dare-generator-panel {
       padding: clamp(28px, 4vw, 46px);
       display: flex;
       flex-direction: column;
@@ -1180,7 +1201,7 @@
       text-align: center;
     }
 
-    .date-generator-visual {
+    .dare-generator-visual {
       position: relative;
       width: 170px;
       height: 170px;
@@ -1189,8 +1210,8 @@
       place-items: center;
     }
 
-    .date-generator-visual::before,
-    .date-generator-visual::after {
+    .dare-generator-visual::before,
+    .dare-generator-visual::after {
       content: "";
       position: absolute;
       border-radius: 50%;
@@ -1198,18 +1219,18 @@
       animation: loaderOrbit 13s linear infinite;
     }
 
-    .date-generator-visual::before {
+    .dare-generator-visual::before {
       inset: 0;
     }
 
-    .date-generator-visual::after {
+    .dare-generator-visual::after {
       inset: 20px;
       border-style: dashed;
       animation-direction: reverse;
       animation-duration: 9s;
     }
 
-    .date-generator-moon {
+    .dare-generator-heart {
       width: 100px;
       height: 100px;
       border-radius: 50%;
@@ -1217,15 +1238,14 @@
       place-items: center;
       color: #fff4f9;
       font-size: 35px;
-      background:
-        radial-gradient(circle at 35% 30%, #fff6fb, #ffc5df 50%, #a84a78 100%);
+      background: radial-gradient(circle at 35% 30%, #fff6fb, #ffc5df 50%, #a84a78 100%);
       box-shadow:
         0 0 35px rgba(255, 153, 201, 0.35),
         inset -18px -14px 26px rgba(90, 27, 61, 0.18);
       animation: floatSoft 4.5s ease-in-out infinite;
     }
 
-    .date-generator-title,
+    .dare-generator-title,
     .games-title {
       margin: 0;
       color: #ffe6f1;
@@ -1233,10 +1253,10 @@
       font-size: clamp(25px, 3vw, 38px);
     }
 
-    .date-result {
-      min-height: 190px;
+    .dare-result {
+      min-height: 215px;
       margin-top: 24px;
-      padding: 25px;
+      padding: 27px;
       border: 1px solid rgba(255, 224, 238, 0.13);
       border-radius: 22px;
       display: grid;
@@ -1249,12 +1269,12 @@
         transform 0.4s var(--ease);
     }
 
-    .date-result.is-changing {
+    .dare-result.is-changing {
       opacity: 0;
       transform: translateY(8px) scale(0.985);
     }
 
-    .date-result-label,
+    .dare-result-label,
     .game-card-label {
       margin: 0;
       color: rgba(255, 225, 239, 0.5);
@@ -1264,8 +1284,8 @@
       text-transform: uppercase;
     }
 
-    .date-result-title {
-      margin: 8px 0 0;
+    .dare-result-title {
+      margin: 9px 0 0;
       color: #ffe9f3;
       font-family: "Great Vibes", cursive;
       font-size: clamp(36px, 4vw, 52px);
@@ -1273,8 +1293,8 @@
       line-height: 1;
     }
 
-    .date-result-copy {
-      margin: 11px 0 0;
+    .dare-result-copy {
+      margin: 13px 0 0;
       color: rgba(255, 237, 245, 0.68);
       font-size: 12px;
       line-height: 1.65;
@@ -1334,33 +1354,20 @@
     }
 
     .game-selector-wrap {
-      position: relative;
       margin-bottom: 20px;
     }
 
     .game-selector {
-      display: flex;
-      gap: 9px;
-      overflow-x: auto;
-      padding: 2px 2px 10px;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255, 150, 199, 0.35) transparent;
-    }
-
-    .game-selector::-webkit-scrollbar {
-      height: 4px;
-    }
-
-    .game-selector::-webkit-scrollbar-thumb {
-      border-radius: 999px;
-      background: rgba(255, 150, 199, 0.35);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      overflow: visible;
     }
 
     .game-tab {
-      min-width: 135px;
-      min-height: 72px;
-      padding: 11px 10px;
+      min-width: 0;
+      min-height: 76px;
+      padding: 11px 8px;
       border: 1px solid rgba(255, 227, 240, 0.11);
       border-radius: 17px;
       display: grid;
@@ -1369,7 +1376,6 @@
       color: rgba(255, 235, 244, 0.65);
       cursor: pointer;
       background: rgba(255, 255, 255, 0.035);
-      scroll-snap-align: start;
       transition:
         transform 0.3s var(--ease),
         border-color 0.3s ease,
@@ -1390,11 +1396,12 @@
     }
 
     .game-tab-label {
-      font-size: 8px;
+      font-size: 7px;
       font-weight: 700;
-      letter-spacing: 0.11em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       text-align: center;
+      overflow-wrap: anywhere;
     }
 
     .game-card {
@@ -1468,13 +1475,13 @@
     }
 
     .game-actions {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 11px;
       margin-top: 22px;
     }
 
     .secondary-cute-button {
-      flex: 1;
       min-height: 47px;
       padding: 12px 16px;
       border: 1px solid rgba(255, 227, 240, 0.14);
@@ -1482,13 +1489,16 @@
       background: rgba(255, 255, 255, 0.045);
     }
 
-    .next-call-section {
+    .reunion-section {
+      position: relative;
       margin-top: 42px;
-      padding: clamp(26px, 4vw, 42px);
+      overflow: hidden;
+      padding: clamp(30px, 5vw, 52px);
       border: 1px solid rgba(255, 227, 240, 0.12);
       border-radius: 31px;
       background:
-        radial-gradient(circle at 0% 0%, rgba(215, 164, 255, 0.13), transparent 34%),
+        radial-gradient(circle at 8% 15%, rgba(215, 164, 255, 0.13), transparent 34%),
+        radial-gradient(circle at 92% 82%, rgba(255, 114, 181, 0.13), transparent 32%),
         linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018));
       box-shadow:
         0 24px 65px rgba(0, 0, 0, 0.28),
@@ -1496,77 +1506,100 @@
       backdrop-filter: blur(20px);
     }
 
-    .next-call-grid {
+    .reunion-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+      gap: clamp(28px, 5vw, 58px);
       align-items: center;
     }
 
-    .next-call-title {
+    .reunion-badge {
+      width: fit-content;
+      margin-bottom: 15px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 218, 235, 0.16);
+      border-radius: 999px;
+      color: rgba(255, 237, 245, 0.7);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .reunion-title {
       margin: 0;
       color: #ffe8f2;
       font-family: "Playfair Display", serif;
-      font-size: clamp(25px, 3vw, 38px);
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.12;
     }
 
-    .next-call-copy {
-      margin: 12px 0 0;
+    .reunion-title span {
+      display: block;
+      margin-top: 7px;
+      color: #ffb5d3;
+      font-family: "Great Vibes", cursive;
+      font-size: 1.22em;
+      font-weight: 400;
+    }
+
+    .reunion-copy {
+      margin: 16px 0 0;
       color: rgba(255, 235, 244, 0.62);
       font-size: 12px;
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    .next-call-form {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+    .reunion-date {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
       gap: 11px;
+      color: rgba(255, 240, 247, 0.86);
+      font-family: "Playfair Display", serif;
+      font-size: 14px;
     }
 
-    .next-call-input {
-      width: 100%;
-      min-height: 50px;
-      padding: 12px 16px;
-      border: 1px solid rgba(255, 226, 240, 0.15);
-      border-radius: 15px;
-      outline: none;
-      color: #fff1f7;
-      background: rgba(255, 255, 255, 0.045);
-      color-scheme: dark;
-    }
-
-    .next-call-input:focus {
-      border-color: rgba(255, 151, 199, 0.44);
-      box-shadow: 0 0 0 3px rgba(255, 115, 178, 0.08);
-    }
-
-    .next-call-button {
-      min-height: 50px;
-      margin: 0;
-      white-space: nowrap;
+    .reunion-date-icon {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255, 220, 237, 0.17);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 126, 184, 0.1);
     }
 
     .countdown-display {
-      margin-top: 18px;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 9px;
+      gap: 11px;
     }
 
     .countdown-unit {
-      min-height: 74px;
-      padding: 12px 8px;
-      border: 1px solid rgba(255, 224, 238, 0.1);
-      border-radius: 16px;
+      min-height: 118px;
+      padding: 18px 10px;
+      border: 1px solid rgba(255, 224, 238, 0.11);
+      border-radius: 20px;
       display: grid;
       place-items: center;
-      background: rgba(255, 255, 255, 0.035);
+      align-content: center;
+      gap: 8px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 151, 201, 0.12), transparent 55%),
+        rgba(255, 255, 255, 0.035);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 12px 30px rgba(0, 0, 0, 0.14);
     }
 
     .countdown-number {
       color: #ffe9f3;
       font-family: "Playfair Display", serif;
-      font-size: 24px;
+      font-size: clamp(29px, 4vw, 44px);
       font-weight: 600;
       line-height: 1;
     }
@@ -1580,8 +1613,8 @@
     }
 
     .countdown-message {
-      margin: 13px 0 0;
-      color: rgba(255, 235, 244, 0.62);
+      margin: 17px 0 0;
+      color: rgba(255, 235, 244, 0.65);
       font-family: "Playfair Display", serif;
       font-size: 12px;
       font-style: italic;
@@ -1781,6 +1814,11 @@
       border: 10px solid #ffe1ed;
       border-radius: 25px;
       object-fit: contain;
+      filter:
+        saturate(1.09)
+        contrast(1.035)
+        brightness(1.02)
+        sepia(0.075);
       box-shadow:
         0 38px 100px rgba(0, 0, 0, 0.58),
         0 0 55px rgba(255, 110, 178, 0.15);
@@ -2057,19 +2095,6 @@
       }
     }
 
-    @keyframes twinkle {
-      0%,
-      100% {
-        opacity: 0.18;
-        transform: scale(0.6);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.55);
-      }
-    }
-
     @keyframes orbFloat {
       0%,
       100% {
@@ -2100,7 +2125,7 @@
 
     @media (max-width: 980px) {
       .date-night-layout,
-      .next-call-grid {
+      .reunion-grid {
         grid-template-columns: 1fr;
       }
 
@@ -2207,12 +2232,8 @@
         grid-template-columns: 1fr;
       }
 
-      .next-call-form {
-        grid-template-columns: 1fr;
-      }
-
-      .next-call-button {
-        width: 100%;
+      .game-selector {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
@@ -2417,42 +2438,37 @@
       }
 
       .date-night-panel,
-      .next-call-section {
+      .reunion-section {
         border-radius: 25px;
       }
 
-      .date-generator-panel,
+      .dare-generator-panel,
       .games-panel {
         padding: 24px 17px;
       }
 
-      .date-generator-visual {
+      .dare-generator-visual {
         width: 145px;
         height: 145px;
       }
 
-      .date-generator-moon {
+      .dare-generator-heart {
         width: 84px;
         height: 84px;
         font-size: 29px;
       }
 
-      .date-result {
-        min-height: 210px;
+      .dare-result {
+        min-height: 230px;
         padding: 22px 17px;
       }
 
-      .date-result-title {
+      .dare-result-title {
         font-size: 39px;
       }
 
-      .game-selector {
-        margin-left: -2px;
-        margin-right: -2px;
-      }
-
       .game-tab {
-        min-width: 125px;
+        min-height: 72px;
       }
 
       .game-card {
@@ -2469,15 +2485,19 @@
       }
 
       .game-actions {
-        flex-direction: column;
+        grid-template-columns: 1fr 1fr;
       }
 
-      .next-call-section {
-        padding: 24px 17px;
+      .reunion-section {
+        padding: 26px 17px;
       }
 
       .countdown-display {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .countdown-unit {
+        min-height: 94px;
       }
 
       .distance-extra-card {
@@ -2576,8 +2596,8 @@
         font-size: 10px;
       }
 
-      .countdown-unit {
-        min-height: 68px;
+      .game-tab-label {
+        font-size: 6px;
       }
     }
 
@@ -2636,7 +2656,6 @@
     <div class="section-effects" aria-hidden="true">
       <span class="effect-orb" style="left:-120px; top:12%; --size:320px; --opacity:.3; --blur:90px; --orb-color:#ff6aa9; --duration:10s; --delay:0s;"></span>
       <span class="effect-orb" style="right:-120px; bottom:8%; --size:280px; --opacity:.3; --blur:90px; --orb-color:#ffc7de; --duration:13s; --delay:-3s;"></span>
-
       <span class="effect-heart" style="left:7%; --size:10px; --duration:13s; --delay:-4s; --drift:36px;"></span>
       <span class="effect-heart" style="left:53%; --size:13px; --duration:15s; --delay:-11s; --drift:40px;"></span>
       <span class="effect-heart" style="left:92%; --size:11px; --duration:14s; --delay:-10s; --drift:28px;"></span>
@@ -2706,9 +2725,7 @@
       <div class="hero">
         <header class="hero-header">
           <p class="eyebrow">A Love Worth Celebrating</p>
-
           <h1 class="hero-title">Happy Anniversary</h1>
-
           <p class="hero-script">To my beautiful girl</p>
 
           <p class="hero-copy">
@@ -2762,9 +2779,7 @@
           <article class="love-paper">
             <div class="paper-content">
               <div class="paper-intro-content" data-reveal="0.06">
-                <h3 class="paper-letter-title">
-                  My Beautiful Girl,
-                </h3>
+                <h3 class="paper-letter-title">My Beautiful Girl,</h3>
               </div>
 
               <div class="letter-lines">
@@ -2833,13 +2848,8 @@
 
       <div class="memory-sticky">
         <header class="gallery-header">
-          <p class="eyebrow">
-            The moments that became our story
-          </p>
-
-          <h2 class="gallery-title">
-            Our Memory Journey
-          </h2>
+          <p class="eyebrow">The moments that became our story</p>
+          <h2 class="gallery-title">Our Memory Journey</h2>
 
           <p class="gallery-description">
             Scroll slowly through the little moments that made us,
@@ -2883,9 +2893,7 @@
 
       <div class="date-night-container">
         <header class="date-night-heading">
-          <p class="eyebrow">
-            Miles apart, still choosing each other
-          </p>
+          <p class="eyebrow">Miles apart, still choosing each other</p>
 
           <h2 class="date-night-title">
             Long-Distance Date Night
@@ -2898,49 +2906,44 @@
         </header>
 
         <div class="date-night-layout">
-          <section class="date-night-panel date-generator-panel">
-            <div class="date-generator-visual" aria-hidden="true">
-              <div class="date-generator-moon">♡</div>
+          <section class="date-night-panel dare-generator-panel">
+            <div class="dare-generator-visual" aria-hidden="true">
+              <div class="dare-generator-heart">♡</div>
             </div>
 
-            <h3 class="date-generator-title">
-              What should we do on our next call?
+            <h3 class="dare-generator-title">
+              A dare for us
             </h3>
 
-            <div class="date-result" id="dateResult">
-              <p class="date-result-label">
-                Virtual date idea
+            <div class="dare-result" id="dareResult">
+              <p class="dare-result-label">
+                Long-distance couple dare
               </p>
 
-              <h4 class="date-result-title" id="dateResultTitle">
-                Movie Sync Night
+              <h4 class="dare-result-title" id="dareResultTitle">
+                Send the Unsent Selfie
               </h4>
 
-              <p class="date-result-copy" id="dateResultCopy">
-                Choose a movie together, count down from three, press play at the same time,
-                and stay on call for all the commentary and snack reviews.
+              <p class="dare-result-copy" id="dareResultCopy">
+                Both of us have five minutes to take a new selfie without overthinking it.
+                Send them at the exact same time.
               </p>
             </div>
 
             <button
               class="primary-cute-button"
-              id="generateDateButton"
+              id="generateDareButton"
               type="button"
             >
-              Choose Our Virtual Date
+              Give Us Another Dare
             </button>
           </section>
 
           <section class="date-night-panel games-panel">
             <div class="games-header">
               <div>
-                <p class="eyebrow">
-                  Games made for us
-                </p>
-
-                <h3 class="games-title">
-                  Pick a card
-                </h3>
+                <p class="eyebrow">Games made for us</p>
+                <h3 class="games-title">Pick a card</h3>
               </div>
 
               <span class="games-count" id="gamesCount">
@@ -3012,14 +3015,6 @@
               </button>
 
               <button
-                class="primary-cute-button"
-                id="randomGameButton"
-                type="button"
-              >
-                Surprise Me
-              </button>
-
-              <button
                 class="secondary-cute-button"
                 id="nextGameButton"
                 type="button"
@@ -3030,39 +3025,30 @@
           </section>
         </div>
 
-        <section class="next-call-section">
-          <div class="next-call-grid">
+        <section class="reunion-section">
+          <div class="reunion-grid">
             <div>
-              <p class="eyebrow">Something to look forward to</p>
+              <div class="reunion-badge">
+                Our biggest countdown
+              </div>
 
-              <h3 class="next-call-title">
-                Our Next Call Countdown
+              <h3 class="reunion-title">
+                Until the distance ends
+                <span>and you fly to Japan</span>
               </h3>
 
-              <p class="next-call-copy">
-                Choose the date and time of our next planned call. The countdown stays
-                on the page while it is open so we can see exactly how long is left.
+              <p class="reunion-copy">
+                Every day brings us closer to February, when the waiting,
+                time zones, and screen goodbyes finally turn into being together again.
               </p>
+
+              <div class="reunion-date">
+                <span class="reunion-date-icon">✈</span>
+                <span>February 1, 2027 · Japan</span>
+              </div>
             </div>
 
             <div>
-              <div class="next-call-form">
-                <input
-                  class="next-call-input"
-                  id="nextCallInput"
-                  type="datetime-local"
-                  aria-label="Next call date and time"
-                >
-
-                <button
-                  class="primary-cute-button next-call-button"
-                  id="setNextCallButton"
-                  type="button"
-                >
-                  Start Countdown
-                </button>
-              </div>
-
               <div class="countdown-display">
                 <div class="countdown-unit">
                   <strong class="countdown-number" id="countdownDays">00</strong>
@@ -3086,7 +3072,7 @@
               </div>
 
               <p class="countdown-message" id="countdownMessage">
-                Choose our next call time.
+                Getting closer to our life together, one second at a time.
               </p>
             </div>
           </div>
@@ -3171,11 +3157,7 @@
 
         <div class="date-night-footer">
           <span class="date-night-footer-heart">♥</span>
-
-          <span>
-            The distance is temporary. The effort, memories, and love are ours.
-          </span>
-
+          <span>The distance is temporary. February is getting closer.</span>
           <span class="date-night-footer-heart">♥</span>
         </div>
       </div>
@@ -3190,9 +3172,7 @@
       </div>
 
       <div class="final-card">
-        <p class="eyebrow">
-          Today, tomorrow, and every day after
-        </p>
+        <p class="eyebrow">Today, tomorrow, and every day after</p>
 
         <h2 class="final-title">
           Happy Anniversary ❤️
@@ -3266,17 +3246,9 @@
       </button>
 
       <div class="music-information">
-        <span class="music-eyebrow">
-          Anniversary record
-        </span>
-
-        <strong class="music-title">
-          Our anniversary song
-        </strong>
-
-        <span class="music-status" id="musicStatus">
-          Preparing the music
-        </span>
+        <span class="music-eyebrow">Anniversary record</span>
+        <strong class="music-title">Our anniversary song</strong>
+        <span class="music-status" id="musicStatus">Preparing the music</span>
       </div>
 
       <button
@@ -3350,66 +3322,66 @@
         }
       ];
 
-      const virtualDateIdeas = [
+      const coupleDares = [
         {
-          title: "Movie Sync Night",
-          copy: "Choose a movie together, count down from three, press play at the same time, and stay on call for commentary and snack reviews."
+          title: "Send the Unsent Selfie",
+          copy: "Both of us have five minutes to take a new selfie without overthinking it. Send them at the exact same time."
         },
         {
-          title: "Order Each Other Dinner",
-          copy: "Choose a meal for each other, have it delivered, then reveal what you picked and eat together on video call."
+          title: "One-Minute Love Speech",
+          copy: "Take turns giving a one-minute speech about why you still choose each other. No jokes until the minute is finished."
         },
         {
-          title: "Virtual Café Date",
-          copy: "Both make or buy a drink, dress a little nicer than usual, and spend the call pretending you found a quiet café together."
+          title: "Recreate Our First Message",
+          copy: "Find one of our earliest conversations and dramatically read your messages aloud like actors in a serious movie."
         },
         {
-          title: "Online Game Night",
-          copy: "Pick a cooperative or competitive game, keep score, and let the winner choose the next virtual date."
+          title: "The Blushing Voice Note",
+          copy: "Send one voice note containing a compliment that would be difficult to say without smiling in person."
         },
         {
-          title: "Cook the Same Recipe",
-          copy: "Choose one simple recipe, cook it together on video, compare results, and give each other an honest rating."
+          title: "No-Looking Drawing",
+          copy: "Draw each other without looking down at the paper, then reveal both drawings together on video."
         },
         {
-          title: "Virtual Museum Trip",
-          copy: "Explore an online museum or street-view destination together and each choose one favorite place or artwork."
+          title: "Three Photos, One Story",
+          copy: "Choose three photos from your day and use them to tell the other person a tiny story before the call ends."
         },
         {
-          title: "Playlist Exchange Date",
-          copy: "Make a five-song playlist for each other, listen together, and explain why every song made the list."
+          title: "The Outfit Dare",
+          copy: "Choose one item of clothing the other person has to wear during the next video call."
         },
         {
-          title: "Late-Night Question Call",
-          copy: "Turn the lights low, grab a drink, and spend the call answering deeper questions you normally never get around to asking."
+          title: "Future Reunion Scene",
+          copy: "Describe the exact moment you imagine when you finally see each other again in Japan."
         },
         {
-          title: "Drawing Each Other",
-          copy: "Set a timer for ten minutes, draw each other while on video call, and reveal the masterpieces at the same time."
+          title: "Goodnight Recording",
+          copy: "Record a goodnight message now, but the other person is only allowed to listen after the call ends."
         },
         {
-          title: "Online Shopping Challenge",
-          copy: "Give each other a pretend budget and find the funniest, cutest, or most accurate gift you would buy for the other."
+          title: "The Honest Missing-You Dare",
+          copy: "Say the most recent moment when you strongly wished the other person was physically beside you."
         },
         {
-          title: "Future Trip Planning",
-          copy: "Pick one destination, build a tiny shared itinerary, and each choose one thing you absolutely want to do together."
+          title: "Matching Wallpaper Dare",
+          copy: "Choose one photo or design together and both use it as your phone wallpaper for one week."
         },
         {
-          title: "Photo Memory Night",
-          copy: "Take turns screen-sharing old photos and tell the story behind moments the other person may not fully remember."
+          title: "The Secret Screenshot",
+          copy: "At some random point during the call, take a screenshot when the other person is not posing and send it afterward."
         },
         {
-          title: "Same-Snack Challenge",
-          copy: "Both find the closest version of the same snack, taste it together, and compare which country or store did it better."
+          title: "The Three-Clue Surprise",
+          copy: "Plan a future virtual date and give the other person only three clues about what it will be."
         },
         {
-          title: "Watch the Same Sunset",
-          copy: "Choose the closest possible time, go outside or sit by a window, and call while each of you watches the sky."
+          title: "One Song, One Feeling",
+          copy: "Choose a song that matches how you feel about the relationship right now and explain your choice."
         },
         {
-          title: "Digital Scrapbook Date",
-          copy: "Collect screenshots, messages, photos, and song links, then build one shared page about your relationship."
+          title: "The Flirty Whisper",
+          copy: "Whisper one thing you would say if there were no screen between you. Keep it within whatever feels comfortable."
         }
       ];
 
@@ -3921,10 +3893,10 @@
       const galleryClose = document.getElementById("galleryClose");
       const galleryPrevious = document.getElementById("galleryPrevious");
       const galleryNext = document.getElementById("galleryNext");
-      const dateResult = document.getElementById("dateResult");
-      const generateDateButton = document.getElementById("generateDateButton");
-      const dateResultTitle = document.getElementById("dateResultTitle");
-      const dateResultCopy = document.getElementById("dateResultCopy");
+      const dareResult = document.getElementById("dareResult");
+      const generateDareButton = document.getElementById("generateDareButton");
+      const dareResultTitle = document.getElementById("dareResultTitle");
+      const dareResultCopy = document.getElementById("dareResultCopy");
       const gameTabs = Array.from(document.querySelectorAll(".game-tab"));
       const gamesCount = document.getElementById("gamesCount");
       const gameCard = document.getElementById("gameCard");
@@ -3934,10 +3906,7 @@
       const gameCardNote = document.getElementById("gameCardNote");
       const gameCardTag = document.getElementById("gameCardTag");
       const previousGameButton = document.getElementById("previousGameButton");
-      const randomGameButton = document.getElementById("randomGameButton");
       const nextGameButton = document.getElementById("nextGameButton");
-      const nextCallInput = document.getElementById("nextCallInput");
-      const setNextCallButton = document.getElementById("setNextCallButton");
       const countdownDays = document.getElementById("countdownDays");
       const countdownHours = document.getElementById("countdownHours");
       const countdownMinutes = document.getElementById("countdownMinutes");
@@ -3961,6 +3930,7 @@
 
       const VIDEO_ID = "V4qjAyb4lNI";
       const VIDEO_START_TIME = 148;
+      const REUNION_DATE = new Date("2027-02-01T00:00:00+09:00");
 
       let youtubePlayer = null;
       let youtubePlayerReady = false;
@@ -3969,10 +3939,8 @@
       let currentMemory = 0;
       let selectedGameType = "questions";
       let selectedGameIndex = 0;
-      let previousDateIndex = -1;
+      let previousDareIndex = -1;
       let scrollTicking = false;
-      let countdownInterval = null;
-      let nextCallDate = null;
 
       const wait = (duration) =>
         new Promise((resolve) => {
@@ -4279,23 +4247,23 @@
         }
       });
 
-      generateDateButton.addEventListener("click", () => {
+      generateDareButton.addEventListener("click", () => {
         const index = randomIndex(
-          virtualDateIdeas.length,
-          previousDateIndex
+          coupleDares.length,
+          previousDareIndex
         );
 
-        previousDateIndex = index;
-        dateResult.classList.add("is-changing");
+        previousDareIndex = index;
+        dareResult.classList.add("is-changing");
 
         window.setTimeout(() => {
-          dateResultTitle.textContent =
-            virtualDateIdeas[index].title;
+          dareResultTitle.textContent =
+            coupleDares[index].title;
 
-          dateResultCopy.textContent =
-            virtualDateIdeas[index].copy;
+          dareResultCopy.textContent =
+            coupleDares[index].copy;
 
-          dateResult.classList.remove("is-changing");
+          dareResult.classList.remove("is-changing");
         }, 260);
       });
 
@@ -4362,24 +4330,9 @@
         updateGameCard();
       });
 
-      randomGameButton.addEventListener("click", () => {
-        const list = games[selectedGameType];
-
-        selectedGameIndex = randomIndex(
-          list.length,
-          selectedGameIndex
-        );
-
-        updateGameCard();
-      });
-
-      const updateCountdown = () => {
-        if (!nextCallDate) {
-          return;
-        }
-
+      const updateReunionCountdown = () => {
         const difference =
-          nextCallDate.getTime() -
+          REUNION_DATE.getTime() -
           Date.now();
 
         if (difference <= 0) {
@@ -4388,18 +4341,24 @@
           countdownMinutes.textContent = "00";
           countdownSeconds.textContent = "00";
           countdownMessage.textContent =
-            "It is time for our call ♡";
-
-          window.clearInterval(countdownInterval);
-          countdownInterval = null;
+            "The waiting is over. You are finally together in Japan ♡";
           return;
         }
 
-        const totalSeconds = Math.floor(difference / 1000);
-        const days = Math.floor(totalSeconds / 86400);
-        const hours = Math.floor((totalSeconds % 86400) / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        const seconds = totalSeconds % 60;
+        const totalSeconds =
+          Math.floor(difference / 1000);
+
+        const days =
+          Math.floor(totalSeconds / 86400);
+
+        const hours =
+          Math.floor((totalSeconds % 86400) / 3600);
+
+        const minutes =
+          Math.floor((totalSeconds % 3600) / 60);
+
+        const seconds =
+          totalSeconds % 60;
 
         countdownDays.textContent =
           String(days).padStart(2, "0");
@@ -4412,41 +4371,7 @@
 
         countdownSeconds.textContent =
           String(seconds).padStart(2, "0");
-
-        countdownMessage.textContent =
-          "Getting closer one second at a time.";
       };
-
-      setNextCallButton.addEventListener("click", () => {
-        if (!nextCallInput.value) {
-          countdownMessage.textContent =
-            "Choose a future date and time first.";
-          return;
-        }
-
-        const chosenDate =
-          new Date(nextCallInput.value);
-
-        if (
-          Number.isNaN(chosenDate.getTime()) ||
-          chosenDate.getTime() <= Date.now()
-        ) {
-          countdownMessage.textContent =
-            "Please choose a time in the future.";
-          return;
-        }
-
-        nextCallDate = chosenDate;
-
-        if (countdownInterval) {
-          window.clearInterval(countdownInterval);
-        }
-
-        updateCountdown();
-
-        countdownInterval =
-          window.setInterval(updateCountdown, 1000);
-      });
 
       photoChallengeButton.addEventListener("click", () => {
         photoChallengeResult.textContent =
@@ -4617,6 +4542,12 @@
       updatePaper();
       updateGallery();
       updateGameCard();
+      updateReunionCountdown();
+
+      window.setInterval(
+        updateReunionCountdown,
+        1000
+      );
     })();
   </script>
 </body>
