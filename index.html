@@ -2,26 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#160811">
+  <meta name="description" content="A dreamy anniversary experience made with love.">
 
   <title>Happy Anniversary</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --background: #080306;
-      --background-soft: #1a0915;
       --text: #fff6fb;
       --muted: rgba(255, 235, 244, 0.72);
       --soft: rgba(255, 238, 246, 0.55);
@@ -51,27 +44,10 @@
       color: var(--text);
       font-family: "DM Sans", sans-serif;
       background:
-        radial-gradient(
-          circle at 50% -10%,
-          rgba(255, 144, 194, 0.17),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 8% 72%,
-          rgba(255, 91, 164, 0.07),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 92% 22%,
-          rgba(217, 188, 255, 0.08),
-          transparent 25%
-        ),
-        linear-gradient(
-          180deg,
-          #1a0915 0%,
-          #0b0408 48%,
-          #080306 100%
-        );
+        radial-gradient(circle at 50% -10%, rgba(255, 144, 194, 0.17), transparent 32%),
+        radial-gradient(circle at 8% 72%, rgba(255, 91, 164, 0.07), transparent 25%),
+        radial-gradient(circle at 92% 22%, rgba(217, 188, 255, 0.08), transparent 25%),
+        linear-gradient(180deg, #1a0915 0%, #0b0408 48%, #080306 100%);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -96,6 +72,15 @@
       border: 0;
     }
 
+    .eyebrow {
+      margin: 0 0 8px;
+      color: rgba(255, 232, 241, 0.58);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
     .section-effects {
       position: absolute;
       inset: 0;
@@ -110,12 +95,7 @@
       height: var(--size);
       opacity: 0;
       transform: rotate(45deg);
-      background:
-        linear-gradient(
-          145deg,
-          #ffe5f0,
-          #ff72ad
-        );
+      background: linear-gradient(145deg, #ffe5f0, #ff72ad);
       filter: drop-shadow(0 0 9px rgba(255, 102, 170, 0.58));
       animation: riseHeart var(--duration) linear infinite;
       animation-delay: var(--delay);
@@ -175,15 +155,6 @@
       animation-delay: var(--delay);
     }
 
-    .eyebrow {
-      margin: 0 0 8px;
-      color: rgba(255, 232, 241, 0.58);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-    }
-
     .intro {
       position: fixed;
       inset: 0;
@@ -192,26 +163,10 @@
       place-items: center;
       overflow: hidden;
       background:
-        radial-gradient(
-          circle at 50% 38%,
-          rgba(255, 157, 201, 0.24),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 10% 88%,
-          rgba(255, 108, 173, 0.12),
-          transparent 24%
-        ),
-        radial-gradient(
-          circle at 92% 10%,
-          rgba(220, 180, 255, 0.14),
-          transparent 24%
-        ),
-        linear-gradient(
-          145deg,
-          #27111f 0%,
-          #0e060b 75%
-        );
+        radial-gradient(circle at 50% 38%, rgba(255, 157, 201, 0.24), transparent 30%),
+        radial-gradient(circle at 10% 88%, rgba(255, 108, 173, 0.12), transparent 24%),
+        radial-gradient(circle at 92% 10%, rgba(220, 180, 255, 0.14), transparent 24%),
+        linear-gradient(145deg, #27111f 0%, #0e060b 75%);
       transition:
         opacity 0.9s var(--ease),
         visibility 0.9s var(--ease);
@@ -235,12 +190,7 @@
       padding: 34px 28px;
       border: 1px solid rgba(255, 233, 241, 0.1);
       border-radius: 34px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.05),
-          rgba(255, 255, 255, 0.015)
-        );
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
       box-shadow:
         0 28px 80px rgba(0, 0, 0, 0.32),
         0 0 70px rgba(255, 118, 176, 0.08),
@@ -302,13 +252,7 @@
       width: 36px;
       height: 56px;
       border-radius: 36px 36px 0 0;
-      background:
-        linear-gradient(
-          145deg,
-          #ffe9f2,
-          #ff96c2 48%,
-          #d63a81
-        );
+      background: linear-gradient(145deg, #ffe9f2, #ff96c2 48%, #d63a81);
     }
 
     .loader-heart-shape::before {
@@ -369,14 +313,7 @@
       width: 0;
       height: 100%;
       border-radius: inherit;
-      background:
-        linear-gradient(
-          90deg,
-          #ff6ba9,
-          #ffb5d2,
-          #fff3fa,
-          #d7b7ff
-        );
+      background: linear-gradient(90deg, #ff6ba9, #ffb5d2, #fff3fa, #d7b7ff);
       box-shadow: 0 0 16px rgba(255, 112, 177, 0.68);
       transition: width 0.7s var(--ease);
     }
@@ -398,12 +335,7 @@
       padding: clamp(30px, 6vw, 48px);
       border: 1px solid rgba(255, 233, 241, 0.13);
       border-radius: 32px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.06),
-          rgba(255, 255, 255, 0.02)
-        );
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
       box-shadow:
         0 26px 80px rgba(0, 0, 0, 0.38),
         0 0 70px rgba(255, 118, 176, 0.08);
@@ -457,14 +389,7 @@
       padding: 0;
       border-radius: 50%;
       cursor: pointer;
-      background:
-        radial-gradient(
-          circle at 35% 30%,
-          #ffd0e1,
-          #ef6ca6 44%,
-          #c52d75 76%,
-          #861b4d 100%
-        );
+      background: radial-gradient(circle at 35% 30%, #ffd0e1, #ef6ca6 44%, #c52d75 76%, #861b4d 100%);
       box-shadow:
         0 18px 36px rgba(0, 0, 0, 0.28),
         0 0 28px rgba(255, 101, 168, 0.58),
@@ -541,18 +466,7 @@
       line-height: 0.9;
       letter-spacing: -0.055em;
       text-transform: uppercase;
-      background:
-        linear-gradient(
-          105deg,
-          #78495c,
-          #f3d2dd,
-          #ffffff,
-          #ab6f84,
-          #fff0f7,
-          #95596c,
-          #ffffff,
-          #d6a4b5
-        );
+      background: linear-gradient(105deg, #78495c, #f3d2dd, #ffffff, #ab6f84, #fff0f7, #95596c, #ffffff, #d6a4b5);
       background-size: 220% 100%;
       background-clip: text;
       -webkit-background-clip: text;
@@ -654,18 +568,8 @@
       display: grid;
       place-items: center;
       background:
-        radial-gradient(
-          circle at 50% 100%,
-          rgba(255, 192, 219, 0.22),
-          transparent 31%
-        ),
-        linear-gradient(
-          180deg,
-          #25111f 0%,
-          #3e1830 35%,
-          #1b0d17 72%,
-          #0d0509 100%
-        );
+        radial-gradient(circle at 50% 100%, rgba(255, 192, 219, 0.22), transparent 31%),
+        linear-gradient(180deg, #25111f 0%, #3e1830 35%, #1b0d17 72%, #0d0509 100%);
     }
 
     .paper-heading {
@@ -704,17 +608,7 @@
       position: absolute;
       inset: -13px;
       border-radius: 27px;
-      background:
-        linear-gradient(
-          120deg,
-          #6d2e4e,
-          #ffdce9,
-          #ad5879,
-          #fff1f6,
-          #cb7898,
-          #ffe6ef,
-          #823857
-        );
+      background: linear-gradient(120deg, #6d2e4e, #ffdce9, #ad5879, #fff1f6, #cb7898, #ffe6ef, #823857);
       background-size: 250% 250%;
       box-shadow:
         0 30px 80px rgba(0, 0, 0, 0.42),
@@ -731,17 +625,8 @@
       border-radius: 13px;
       color: var(--paper-ink);
       background:
-        radial-gradient(
-          circle at 15% 12%,
-          rgba(255, 195, 222, 0.13),
-          transparent 22%
-        ),
-        linear-gradient(
-          180deg,
-          #ffffff 0%,
-          #fffdfd 52%,
-          #fff9fc 100%
-        );
+        radial-gradient(circle at 15% 12%, rgba(255, 195, 222, 0.13), transparent 22%),
+        linear-gradient(180deg, #ffffff 0%, #fffdfd 52%, #fff9fc 100%);
     }
 
     .paper-content {
@@ -820,6 +705,7 @@
       bottom: 14px;
       width: min(390px, calc(100% - 40px));
       transform: translateX(-50%);
+      transition: opacity 0.4s ease;
     }
 
     .paper-progress-track {
@@ -832,13 +718,7 @@
     .paper-progress-fill {
       width: 0;
       height: 100%;
-      background:
-        linear-gradient(
-          90deg,
-          #ff6fae,
-          #ffc2da,
-          #fff5fb
-        );
+      background: linear-gradient(90deg, #ff6fae, #ffc2da, #fff5fb);
     }
 
     .paper-scroll-note {
@@ -848,6 +728,7 @@
       letter-spacing: 0.18em;
       text-align: center;
       text-transform: uppercase;
+      transition: opacity 0.35s ease;
     }
 
     .memory-journey {
@@ -855,28 +736,10 @@
       height: 650svh;
       isolation: isolate;
       background:
-        radial-gradient(
-          circle at 50% 5%,
-          rgba(255, 139, 194, 0.2),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 10% 65%,
-          rgba(255, 93, 165, 0.11),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 90% 35%,
-          rgba(210, 173, 255, 0.1),
-          transparent 25%
-        ),
-        linear-gradient(
-          180deg,
-          #0d0509 0%,
-          #291021 40%,
-          #130710 75%,
-          #080306 100%
-        );
+        radial-gradient(circle at 50% 5%, rgba(255, 139, 194, 0.2), transparent 30%),
+        radial-gradient(circle at 10% 65%, rgba(255, 93, 165, 0.11), transparent 25%),
+        radial-gradient(circle at 90% 35%, rgba(210, 173, 255, 0.1), transparent 25%),
+        linear-gradient(180deg, #0d0509 0%, #291021 40%, #130710 75%, #080306 100%);
     }
 
     .memory-sticky {
@@ -907,16 +770,7 @@
       font-size: clamp(54px, 7vw, 92px);
       font-weight: 400;
       line-height: 0.95;
-      background:
-        linear-gradient(
-          105deg,
-          #c8799b,
-          #fff1f7 23%,
-          #e3a8bf 42%,
-          #ffffff 57%,
-          #bd668a 80%,
-          #ffe8f2
-        );
+      background: linear-gradient(105deg, #c8799b, #fff1f7 23%, #e3a8bf 42%, #ffffff 57%, #bd668a 80%, #ffe8f2);
       background-size: 220% 100%;
       background-clip: text;
       -webkit-background-clip: text;
@@ -964,11 +818,11 @@
     }
 
     .memory-slide:nth-child(odd) {
-      transform: rotate(-0.8deg);
+      transform: rotate(-0.9deg);
     }
 
     .memory-slide:nth-child(even) {
-      transform: rotate(0.8deg);
+      transform: rotate(0.9deg);
     }
 
     .memory-slide.is-active {
@@ -984,66 +838,61 @@
     .memory-frame {
       position: relative;
       width: 100%;
-      padding: 14px;
-      overflow: visible;
-      border: 0;
-      border-radius: 35px;
+      height: min(75svh, 730px);
+      min-height: 620px;
+      padding: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 239, 247, 0.75);
+      border-radius: 34px;
       cursor: pointer;
-      text-align: inherit;
+      text-align: left;
       background:
-        linear-gradient(
-          145deg,
-          #fff8fb 0%,
-          #ffd7e8 34%,
-          #f4a8c8 66%,
-          #c85c8b 100%
-        );
+        linear-gradient(145deg, #fff9fc 0%, #ffdce9 36%, #eeaac8 68%, #c75c8b 100%);
       box-shadow:
         0 36px 95px rgba(0, 0, 0, 0.46),
         0 0 55px rgba(255, 111, 175, 0.17),
         inset 0 2px 0 rgba(255, 255, 255, 0.88);
     }
 
-    .memory-frame-shell {
-      position: relative;
-      z-index: 2;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.75);
-      border-radius: 25px;
-      background:
-        linear-gradient(
-          180deg,
-          #fff8fb 0%,
-          #f7c5da 54%,
-          #df86ae 100%
-        );
-      box-shadow:
-        inset 0 0 0 1px rgba(131, 42, 82, 0.14),
-        inset 0 0 24px rgba(255, 255, 255, 0.3);
-    }
-
-    .memory-frame-shell::before {
+    .memory-frame::before {
       content: "";
       position: absolute;
-      inset: 8px;
-      z-index: 4;
-      border: 1px dashed rgba(160, 68, 105, 0.24);
-      border-radius: 18px;
+      inset: 7px;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 27px;
       pointer-events: none;
     }
 
-    .memory-photo-wrap {
+    .memory-frame::after {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      z-index: 1;
+      border: 1px dashed rgba(149, 58, 101, 0.24);
+      border-radius: 23px;
+      pointer-events: none;
+    }
+
+    .memory-inner {
       position: relative;
       z-index: 2;
-      padding: 12px 12px 0;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #fffafd 0%, #f7c9dc 58%, #de83ac 100%);
+      display: flex;
+      flex-direction: column;
     }
 
     .memory-photo {
       position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      margin: 10px 10px 0;
       overflow: hidden;
-      height: min(56svh, 585px);
-      border: 5px solid #fff9fc;
-      border-radius: 18px;
+      border: 4px solid #fffafc;
+      border-radius: 17px;
       background: #1b0b15;
       box-shadow:
         0 15px 35px rgba(93, 22, 57, 0.25),
@@ -1077,17 +926,21 @@
       object-position: center 34%;
     }
 
-    .memory-slide--kiss .memory-photo {
-      height: min(50svh, 490px);
+    .memory-slide--beach .memory-photo img {
+      object-position: center;
+    }
+
+    .memory-slide--kiss .memory-photo img {
+      object-position: center;
     }
 
     .memory-number {
       position: absolute;
-      top: 28px;
-      right: 28px;
-      z-index: 10;
-      width: 43px;
-      height: 43px;
+      top: 24px;
+      right: 24px;
+      z-index: 8;
+      width: 42px;
+      height: 42px;
       border: 1px solid rgba(255, 255, 255, 0.62);
       border-radius: 50%;
       display: grid;
@@ -1097,31 +950,92 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       background:
-        radial-gradient(
-          circle at 35% 30%,
-          rgba(255, 184, 215, 0.82),
-          rgba(116, 36, 76, 0.88)
-        );
+        radial-gradient(circle at 35% 30%, rgba(255, 184, 215, 0.82), rgba(116, 36, 76, 0.88));
       box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.23),
         0 0 15px rgba(255, 129, 187, 0.34);
       backdrop-filter: blur(12px);
     }
 
+    .memory-icon {
+      position: absolute;
+      z-index: 8;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      color: #fff8fc;
+      background: rgba(122, 38, 81, 0.78);
+      box-shadow:
+        0 8px 20px rgba(64, 15, 41, 0.24),
+        0 0 15px rgba(255, 122, 183, 0.26);
+      backdrop-filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .memory-icon--bow {
+      top: 25px;
+      left: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      font-size: 21px;
+      transform: rotate(-7deg);
+    }
+
+    .memory-icon--heart {
+      right: 23px;
+      bottom: 139px;
+      width: 39px;
+      height: 39px;
+      border-radius: 50%;
+      font-family: "Playfair Display", serif;
+      font-size: 23px;
+    }
+
+    .memory-icon--star {
+      left: 24px;
+      bottom: 140px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 17px;
+    }
+
+    .memory-pearls {
+      position: absolute;
+      right: 17px;
+      top: 91px;
+      z-index: 8;
+      display: grid;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    .memory-pearls span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 26%, #fff, #ffe4ef 52%, #cb7c9c);
+      box-shadow:
+        0 0 8px rgba(255, 157, 200, 0.5),
+        0 4px 8px rgba(87, 25, 54, 0.15);
+    }
+
     .memory-caption {
-      position: relative;
-      z-index: 3;
-      padding:
-        20px
-        26px
-        22px;
+      flex: 0 0 auto;
+      min-height: 132px;
+      padding: 18px 25px 21px;
       color: #6f354f;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .memory-kicker {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       font-size: 8px;
       font-weight: 700;
       letter-spacing: 0.2em;
@@ -1132,188 +1046,18 @@
     .memory-name {
       display: block;
       font-family: "Parisienne", cursive;
-      font-size: clamp(31px, 4vw, 45px);
-      line-height: 1.05;
+      font-size: clamp(31px, 4vw, 44px);
+      line-height: 1.04;
     }
 
     .memory-text {
       display: block;
       max-width: 400px;
-      margin: 9px auto 0;
+      margin: 8px auto 0;
       color: rgba(92, 42, 67, 0.76);
       font-family: "Playfair Display", serif;
       font-size: 12px;
-      line-height: 1.55;
-    }
-
-    .memory-label-chip {
-      position: relative;
-      z-index: 3;
-      width: fit-content;
-      max-width: calc(100% - 40px);
-      margin: 0 auto 20px;
-      padding: 7px 16px 8px;
-      border: 1px solid rgba(152, 67, 105, 0.18);
-      border-radius: 999px;
-      color: #8f3e63;
-      font-family: "Great Vibes", cursive;
-      font-size: 19px;
-      line-height: 1;
-      background:
-        linear-gradient(
-          145deg,
-          #fffafd,
-          #ffcfe2
-        );
-      box-shadow:
-        0 6px 15px rgba(113, 31, 68, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    }
-
-    .memory-corner-bow {
-      position: absolute;
-      left: -15px;
-      top: 37px;
-      z-index: 12;
-      width: 62px;
-      height: 42px;
-      pointer-events: none;
-      filter:
-        drop-shadow(0 7px 8px rgba(80, 18, 47, 0.22))
-        drop-shadow(0 0 8px rgba(255, 153, 202, 0.3));
-    }
-
-    .memory-corner-bow::before,
-    .memory-corner-bow::after {
-      content: "";
-      position: absolute;
-      top: 5px;
-      width: 31px;
-      height: 28px;
-      border: 2px solid rgba(255, 255, 255, 0.72);
-      background:
-        linear-gradient(
-          145deg,
-          #fff8fc,
-          #ffb6d3 48%,
-          #e75f99 74%,
-          #b42e67
-        );
-    }
-
-    .memory-corner-bow::before {
-      left: 2px;
-      border-radius: 76% 24% 68% 32%;
-      transform: rotate(15deg);
-    }
-
-    .memory-corner-bow::after {
-      right: 2px;
-      border-radius: 24% 76% 32% 68%;
-      transform: rotate(-15deg);
-    }
-
-    .memory-corner-bow-knot {
-      position: absolute;
-      left: 50%;
-      top: 14px;
-      z-index: 3;
-      width: 19px;
-      height: 19px;
-      border: 2px solid rgba(255, 255, 255, 0.75);
-      border-radius: 50%;
-      background:
-        radial-gradient(
-          circle at 34% 28%,
-          #fff,
-          #ff9ac1 55%,
-          #ba326c
-        );
-      transform: translateX(-50%);
-    }
-
-    .memory-side-charm {
-      position: absolute;
-      right: -16px;
-      bottom: 110px;
-      z-index: 10;
-      width: 48px;
-      height: 48px;
-      border: 2px solid rgba(255, 255, 255, 0.76);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #fff8fc;
-      font-family: "Great Vibes", cursive;
-      font-size: 29px;
-      line-height: 1;
-      background:
-        radial-gradient(
-          circle at 35% 28%,
-          #ffddeb,
-          #ee7cab 57%,
-          #b52d67
-        );
-      box-shadow:
-        0 9px 18px rgba(74, 17, 45, 0.25),
-        0 0 17px rgba(255, 117, 179, 0.36);
-      pointer-events: none;
-    }
-
-    .memory-pearl-row {
-      position: absolute;
-      right: -12px;
-      top: 120px;
-      z-index: 9;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      pointer-events: none;
-    }
-
-    .memory-pearl-row span {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background:
-        radial-gradient(
-          circle at 32% 26%,
-          #fff,
-          #ffe4ef 52%,
-          #cb7c9c
-        );
-      box-shadow:
-        0 0 8px rgba(255, 157, 200, 0.5),
-        0 4px 8px rgba(87, 25, 54, 0.15);
-    }
-
-    .memory-stars {
-      position: absolute;
-      inset: -22px;
-      pointer-events: none;
-    }
-
-    .memory-star {
-      position: absolute;
-      width: var(--size);
-      height: var(--size);
-      clip-path:
-        polygon(
-          50% 0%,
-          62% 35%,
-          100% 50%,
-          62% 65%,
-          50% 100%,
-          38% 65%,
-          0% 50%,
-          38% 35%
-        );
-      background: #fff2f8;
-      filter:
-        drop-shadow(0 0 7px #ff93c0)
-        drop-shadow(0 0 14px rgba(255, 92, 162, 0.4));
-      animation: twinkle var(--duration) ease-in-out infinite;
-      animation-delay: var(--delay);
+      line-height: 1.5;
     }
 
     .gallery-progress {
@@ -1332,13 +1076,7 @@
     .gallery-progress-fill {
       width: 0;
       height: 100%;
-      background:
-        linear-gradient(
-          90deg,
-          #ff68a9,
-          #ffd0e2,
-          #fff4fa
-        );
+      background: linear-gradient(90deg, #ff68a9, #ffd0e2, #fff4fa);
       box-shadow: 0 0 14px rgba(255, 105, 171, 0.45);
     }
 
@@ -1388,28 +1126,10 @@
         clamp(90px, 10vw, 140px)
         20px;
       background:
-        radial-gradient(
-          circle at 50% 12%,
-          rgba(255, 170, 212, 0.18),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 10% 70%,
-          rgba(139, 88, 255, 0.13),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 88% 64%,
-          rgba(255, 87, 166, 0.11),
-          transparent 28%
-        ),
-        linear-gradient(
-          180deg,
-          #080306 0%,
-          #17091b 25%,
-          #24102c 58%,
-          #0e0612 100%
-        );
+        radial-gradient(circle at 50% 12%, rgba(255, 170, 212, 0.18), transparent 28%),
+        radial-gradient(circle at 10% 70%, rgba(139, 88, 255, 0.13), transparent 28%),
+        radial-gradient(circle at 88% 64%, rgba(255, 87, 166, 0.11), transparent 28%),
+        linear-gradient(180deg, #080306 0%, #17091b 25%, #24102c 58%, #0e0612 100%);
     }
 
     .date-night-container {
@@ -1452,12 +1172,7 @@
     .date-night-panel {
       border: 1px solid rgba(255, 228, 240, 0.13);
       border-radius: 34px;
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.07),
-          rgba(255, 255, 255, 0.018)
-        );
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018));
       box-shadow:
         0 30px 80px rgba(0, 0, 0, 0.38),
         0 0 45px rgba(255, 103, 171, 0.08);
@@ -1531,14 +1246,7 @@
       margin-top: 22px;
       padding: 14px 25px;
       color: #fff8fb;
-      background:
-        linear-gradient(
-          110deg,
-          #ae336c,
-          #ec69a2,
-          #ffb3d0,
-          #ce4e89
-        );
+      background: linear-gradient(110deg, #ae336c, #ec69a2, #ffb3d0, #ce4e89);
       box-shadow:
         0 14px 30px rgba(0, 0, 0, 0.25),
         0 0 24px rgba(255, 100, 168, 0.28);
@@ -1587,12 +1295,7 @@
     .game-tab.is-active {
       color: #fff8fb;
       border-color: rgba(255, 184, 215, 0.3);
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 135, 188, 0.18),
-          rgba(255, 255, 255, 0.055)
-        );
+      background: linear-gradient(145deg, rgba(255, 135, 188, 0.18), rgba(255, 255, 255, 0.055));
     }
 
     .game-tab-icon {
@@ -1656,17 +1359,8 @@
       isolation: isolate;
       padding: 30px;
       background:
-        radial-gradient(
-          circle at 50% 35%,
-          rgba(255, 146, 192, 0.15),
-          transparent 29%
-        ),
-        linear-gradient(
-          180deg,
-          #080306 0%,
-          #1c0a17 47%,
-          #090306 100%
-        );
+        radial-gradient(circle at 50% 35%, rgba(255, 146, 192, 0.15), transparent 29%),
+        linear-gradient(180deg, #080306 0%, #1c0a17 47%, #090306 100%);
     }
 
     .final-card {
@@ -1730,11 +1424,7 @@
       height: 100%;
       cursor: pointer;
       background:
-        radial-gradient(
-          circle at center,
-          rgba(82, 27, 62, 0.48),
-          rgba(6, 2, 5, 0.94) 68%
-        );
+        radial-gradient(circle at center, rgba(82, 27, 62, 0.48), rgba(6, 2, 5, 0.94) 68%);
       backdrop-filter: blur(20px);
     }
 
@@ -1859,12 +1549,7 @@
       padding: 0;
       border-radius: 17px;
       cursor: pointer;
-      background:
-        linear-gradient(
-          145deg,
-          #f8b7d2,
-          #cf5e91
-        );
+      background: linear-gradient(145deg, #f8b7d2, #cf5e91);
     }
 
     .turntable {
@@ -1872,12 +1557,7 @@
       inset: 5px;
       overflow: hidden;
       border-radius: 13px;
-      background:
-        linear-gradient(
-          145deg,
-          #f8dce8,
-          #df8caf
-        );
+      background: linear-gradient(145deg, #f8dce8, #df8caf);
     }
 
     .record {
@@ -1888,13 +1568,7 @@
       height: 52px;
       border-radius: 50%;
       background:
-        repeating-radial-gradient(
-          circle,
-          #171016 0,
-          #171016 2px,
-          #292029 3px,
-          #292029 4px
-        );
+        repeating-radial-gradient(circle, #171016 0, #171016 2px, #292029 3px, #292029 4px);
     }
 
     .music-dock.is-playing .record {
@@ -1931,8 +1605,11 @@
 
     .music-title {
       margin-top: 3px;
+      overflow: hidden;
       color: #ffeaf3;
       font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .music-status {
@@ -1947,12 +1624,7 @@
       border-radius: 50%;
       color: #fff2f8;
       cursor: pointer;
-      background:
-        radial-gradient(
-          circle at 35% 30%,
-          #ffb9d5,
-          #d6508a
-        );
+      background: radial-gradient(circle at 35% 30%, #ffb9d5, #d6508a);
     }
 
     .youtube-player-holder {
@@ -2031,10 +1703,7 @@
     @keyframes riseHeart {
       0% {
         opacity: 0;
-        transform:
-          translate3d(0, 0, 0)
-          rotate(45deg)
-          scale(0.65);
+        transform: translate3d(0, 0, 0) rotate(45deg) scale(0.65);
       }
 
       12% {
@@ -2043,10 +1712,7 @@
 
       100% {
         opacity: 0;
-        transform:
-          translate3d(var(--drift), -112vh, 0)
-          rotate(405deg)
-          scale(1.08);
+        transform: translate3d(var(--drift), -112vh, 0) rotate(405deg) scale(1.08);
       }
     }
 
@@ -2115,10 +1781,7 @@
     @media (max-width: 900px) {
       .memory-journey {
         height: auto;
-        padding:
-          90px
-          16px
-          110px;
+        padding: 90px 16px 110px;
       }
 
       .memory-sticky {
@@ -2139,7 +1802,7 @@
         display: grid;
         width: min(680px, 100%);
         margin: 42px auto 0;
-        gap: 42px;
+        gap: 38px;
       }
 
       .mobile-gallery .memory-slide {
@@ -2149,14 +1812,27 @@
         transform: none;
       }
 
+      .memory-frame {
+        height: auto;
+        min-height: 0;
+      }
+
+      .memory-inner {
+        height: auto;
+      }
+
       .memory-photo {
+        flex: none;
         height: auto;
         aspect-ratio: 4 / 5;
       }
 
       .memory-slide--kiss .memory-photo {
-        height: auto;
         aspect-ratio: 16 / 10;
+      }
+
+      .memory-caption {
+        min-height: 132px;
       }
 
       .music-dock {
@@ -2261,10 +1937,7 @@
       }
 
       .paper-content {
-        padding:
-          31px
-          18px
-          25px;
+        padding: 31px 18px 25px;
       }
 
       .paper-letter-title {
@@ -2291,38 +1964,38 @@
       }
 
       .mobile-gallery {
-        gap: 32px;
+        gap: 28px;
         margin-top: 35px;
       }
 
       .memory-frame {
-        padding: 9px;
+        padding: 8px;
         border-radius: 26px;
       }
 
-      .memory-frame-shell {
-        border-radius: 20px;
+      .memory-frame::before {
+        inset: 5px;
+        border-radius: 21px;
       }
 
-      .memory-frame-shell::before {
-        inset: 6px;
-        border-radius: 14px;
+      .memory-frame::after {
+        inset: 8px;
+        border-radius: 18px;
       }
 
-      .memory-photo-wrap {
-        padding: 9px 9px 0;
+      .memory-inner {
+        border-radius: 18px;
       }
 
       .memory-photo {
-        border-width: 4px;
-        border-radius: 14px;
+        margin: 8px 8px 0;
+        border-width: 3px;
+        border-radius: 13px;
       }
 
       .memory-caption {
-        padding:
-          17px
-          17px
-          18px;
+        min-height: 125px;
+        padding: 16px 18px 18px;
       }
 
       .memory-kicker {
@@ -2331,7 +2004,7 @@
       }
 
       .memory-name {
-        font-size: 32px;
+        font-size: 31px;
       }
 
       .memory-text {
@@ -2339,50 +2012,51 @@
         line-height: 1.5;
       }
 
-      .memory-label-chip {
-        margin-bottom: 16px;
-        padding: 6px 13px 7px;
-        font-size: 17px;
-      }
-
       .memory-number {
-        top: 21px;
-        right: 21px;
-        width: 38px;
-        height: 38px;
+        top: 19px;
+        right: 19px;
+        width: 37px;
+        height: 37px;
       }
 
-      .memory-corner-bow {
-        left: -8px;
-        top: 30px;
-        transform: scale(0.76);
-        transform-origin: center;
+      .memory-icon--bow {
+        top: 19px;
+        left: 19px;
+        width: 35px;
+        height: 35px;
+        border-radius: 11px;
+        font-size: 18px;
       }
 
-      .memory-side-charm {
-        right: -7px;
-        bottom: 98px;
-        width: 39px;
-        height: 39px;
-        font-size: 24px;
+      .memory-icon--heart {
+        right: 17px;
+        bottom: 133px;
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
       }
 
-      .memory-pearl-row {
-        right: 1px;
-        top: 103px;
+      .memory-icon--star {
+        left: 17px;
+        bottom: 133px;
+        width: 31px;
+        height: 31px;
+        font-size: 15px;
+      }
+
+      .memory-pearls {
+        right: 12px;
+        top: 74px;
         gap: 5px;
       }
 
-      .memory-pearl-row span {
+      .memory-pearls span {
         width: 7px;
         height: 7px;
       }
 
       .date-night-section {
-        padding:
-          82px
-          12px
-          95px;
+        padding: 82px 12px 95px;
       }
 
       .date-night-heading {
@@ -2504,23 +2178,17 @@
     }
 
     @media (max-width: 380px) {
-      .memory-corner-bow {
-        left: -3px;
-        transform: scale(0.65);
-      }
-
-      .memory-side-charm {
-        right: -3px;
-        transform: scale(0.88);
-      }
-
       .memory-caption {
         padding-left: 13px;
         padding-right: 13px;
       }
 
       .memory-name {
-        font-size: 29px;
+        font-size: 28px;
+      }
+
+      .memory-text {
+        font-size: 10px;
       }
     }
 
@@ -2590,9 +2258,7 @@
         <div class="loader-heart-shape"></div>
       </div>
 
-      <h1 class="loader-title">
-        A little magic is loading
-      </h1>
+      <h1 class="loader-title">A little magic is loading</h1>
 
       <p class="loader-copy" id="loaderMessage">
         Gathering our favorite memories
@@ -2611,13 +2277,9 @@
     </div>
 
     <div class="preview-screen" id="previewScreen">
-      <p class="eyebrow">
-        A little something made with love
-      </p>
+      <p class="eyebrow">A little something made with love</p>
 
-      <h2 class="preview-title">
-        Your surprise is ready
-      </h2>
+      <h2 class="preview-title">Your surprise is ready</h2>
 
       <p class="preview-copy">
         I made something special to celebrate us and all the memories
@@ -2654,17 +2316,11 @@
 
       <div class="hero">
         <header class="hero-header">
-          <p class="eyebrow">
-            A Love Worth Celebrating
-          </p>
+          <p class="eyebrow">A Love Worth Celebrating</p>
 
-          <h1 class="hero-title">
-            Happy Anniversary
-          </h1>
+          <h1 class="hero-title">Happy Anniversary</h1>
 
-          <p class="hero-script">
-            To my beautiful girl
-          </p>
+          <p class="hero-script">To my beautiful girl</p>
 
           <p class="hero-copy">
             Every moment with you is my favorite, and every memory we create
@@ -2707,13 +2363,8 @@
         </div>
 
         <header class="paper-heading" id="paperHeading">
-          <p class="eyebrow">
-            A little letter from my heart
-          </p>
-
-          <h2 class="paper-title">
-            A love letter for you
-          </h2>
+          <p class="eyebrow">A little letter from my heart</p>
+          <h2 class="paper-title">A love letter for you</h2>
         </header>
 
         <div class="paper-stage" id="paperStage">
@@ -2767,7 +2418,7 @@
           </article>
         </div>
 
-        <div class="paper-progress-ui">
+        <div class="paper-progress-ui" id="paperProgressUi">
           <div class="paper-progress-track">
             <div class="paper-progress-fill" id="paperProgressFill"></div>
           </div>
@@ -2860,7 +2511,7 @@
               What should we do tonight?
             </h3>
 
-            <div class="date-result" id="dateResult">
+            <div class="date-result">
               <p class="date-result-label">
                 Tonight's date
               </p>
@@ -3083,7 +2734,6 @@
           kicker: "Where our story became real",
           name: "Our First Meetup",
           text: "The first time we finally met in person and everything suddenly felt real.",
-          label: "first hello",
           className: "memory-slide--first"
         },
         {
@@ -3091,7 +2741,6 @@
           kicker: "Our first adventure",
           name: "First Travel Together",
           text: "Our first trip together, with the ocean beside us and a whole story still ahead.",
-          label: "first trip",
           className: "memory-slide--beach"
         },
         {
@@ -3099,7 +2748,6 @@
           kicker: "A quiet favorite",
           name: "A Simple Day With You",
           text: "One of those ordinary moments that became special simply because you were there.",
-          label: "just us",
           className: ""
         },
         {
@@ -3107,7 +2755,6 @@
           kicker: "Only us",
           name: "A Moment of Our Own",
           text: "A tiny moment that belonged only to us and became one of my favorite memories.",
-          label: "my love",
           className: "memory-slide--kiss"
         },
         {
@@ -3115,7 +2762,6 @@
           kicker: "Side by side",
           name: "Close to You",
           text: "Everywhere feels softer, warmer, and more familiar whenever you are beside me.",
-          label: "together",
           className: ""
         },
         {
@@ -3123,7 +2769,6 @@
           kicker: "The little moments",
           name: "Ordinary Became Special",
           text: "The kind of memory that reminds me happiness can live inside the simplest days.",
-          label: "favorite",
           className: ""
         },
         {
@@ -3131,7 +2776,6 @@
           kicker: "A beautiful day in Japan",
           name: "Another Adventure",
           text: "A beautiful place made even better because I got to experience it with you.",
-          label: "our story",
           className: ""
         }
       ];
@@ -3249,6 +2893,7 @@
       const previewScreen = document.getElementById("previewScreen");
       const openSurpriseButton = document.getElementById("openSurpriseButton");
       const site = document.getElementById("site");
+
       const loaderProgressBar = document.getElementById("loaderProgressBar");
       const loaderPercent = document.getElementById("loaderPercent");
       const loaderStatus = document.getElementById("loaderStatus");
@@ -3258,7 +2903,9 @@
       const paperStage = document.getElementById("paperStage");
       const paperHeading = document.getElementById("paperHeading");
       const paperProgressFill = document.getElementById("paperProgressFill");
+      const paperProgressUi = document.getElementById("paperProgressUi");
       const paperScrollNote = document.getElementById("paperScrollNote");
+
       const paperRevealItems = Array.from(
         document.querySelectorAll("#paperSection [data-reveal]")
       );
@@ -3302,10 +2949,12 @@
       let youtubePlayer = null;
       let youtubePlayerReady = false;
       let musicPlaying = false;
+      let playWhenReady = false;
       let currentMemory = 0;
       let selectedGameType = "questions";
       let selectedGameIndex = 0;
       let previousDateIndex = -1;
+      let scrollTicking = false;
 
       const wait = (duration) =>
         new Promise((resolve) => {
@@ -3318,8 +2967,7 @@
       const createMemoryCard = (memory, index) => {
         const article = document.createElement("article");
 
-        article.className =
-          `memory-slide ${memory.className || ""}`;
+        article.className = `memory-slide ${memory.className || ""}`;
 
         article.innerHTML = `
           <button
@@ -3327,48 +2975,35 @@
             type="button"
             aria-label="Open ${memory.name}"
           >
-            <span class="memory-corner-bow" aria-hidden="true">
-              <span class="memory-corner-bow-knot"></span>
-            </span>
+            <span class="memory-icon memory-icon--bow" aria-hidden="true">🎀</span>
+            <span class="memory-icon memory-icon--heart" aria-hidden="true">♡</span>
+            <span class="memory-icon memory-icon--star" aria-hidden="true">✦</span>
 
-            <span class="memory-side-charm" aria-hidden="true">♡</span>
-
-            <span class="memory-pearl-row" aria-hidden="true">
+            <span class="memory-pearls" aria-hidden="true">
               <span></span>
               <span></span>
               <span></span>
               <span></span>
-            </span>
-
-            <span class="memory-stars" aria-hidden="true">
-              <span class="memory-star" style="left:7%; top:10%; --size:7px; --duration:3s; --delay:-1s;"></span>
-              <span class="memory-star" style="right:4%; bottom:15%; --size:6px; --duration:2.7s; --delay:-2s;"></span>
             </span>
 
             <span class="memory-number">
               ${String(index + 1).padStart(2, "0")}
             </span>
 
-            <span class="memory-frame-shell">
-              <span class="memory-photo-wrap">
-                <span class="memory-photo">
-                  <img
-                    src="${memory.image}"
-                    alt="${memory.name}"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                </span>
+            <span class="memory-inner">
+              <span class="memory-photo">
+                <img
+                  src="${memory.image}"
+                  alt="${memory.name}"
+                  loading="lazy"
+                  decoding="async"
+                >
               </span>
 
               <span class="memory-caption">
                 <span class="memory-kicker">${memory.kicker}</span>
                 <span class="memory-name">${memory.name}</span>
                 <span class="memory-text">${memory.text}</span>
-              </span>
-
-              <span class="memory-label-chip">
-                ${memory.label}
               </span>
             </span>
           </button>
@@ -3427,9 +3062,11 @@
         }
 
         await wait(700);
+
         loaderScreen.classList.add("is-hidden");
 
         await wait(450);
+
         previewScreen.classList.add("is-visible");
       };
 
@@ -3442,6 +3079,7 @@
         playMusic();
 
         await wait(900);
+
         intro.hidden = true;
       });
 
@@ -3475,17 +3113,26 @@
         if (progress < 0.15) {
           paperScrollNote.textContent =
             "Scroll slowly to begin the letter";
+
+          paperScrollNote.style.opacity = "1";
+          paperProgressUi.style.opacity = "1";
         } else if (progress < 0.88) {
           paperScrollNote.textContent =
             "Keep scrolling to reveal every word";
+
+          paperScrollNote.style.opacity = "1";
+          paperProgressUi.style.opacity = "1";
         } else {
-          paperScrollNote.textContent =
-            "The whole letter is now yours";
+          paperScrollNote.textContent = "";
+          paperScrollNote.style.opacity = "0";
+          paperProgressUi.style.opacity =
+            String(1 - clamp((progress - 0.9) / 0.1, 0, 1));
         }
       };
 
       const updateGallery = () => {
         if (window.innerWidth <= 900) {
+          memoryTrack.style.transform = "";
           return;
         }
 
@@ -3534,14 +3181,23 @@
           memories[activeIndex].name;
       };
 
+      const requestScrollUpdate = () => {
+        if (scrollTicking) {
+          return;
+        }
+
+        scrollTicking = true;
+
+        window.requestAnimationFrame(() => {
+          updatePaper();
+          updateGallery();
+          scrollTicking = false;
+        });
+      };
+
       window.addEventListener(
         "scroll",
-        () => {
-          window.requestAnimationFrame(() => {
-            updatePaper();
-            updateGallery();
-          });
-        },
+        requestScrollUpdate,
         {
           passive: true
         }
@@ -3549,10 +3205,7 @@
 
       window.addEventListener(
         "resize",
-        () => {
-          updatePaper();
-          updateGallery();
-        },
+        requestScrollUpdate,
         {
           passive: true
         }
@@ -3595,6 +3248,28 @@
 
       galleryBackdrop.addEventListener("click", closeMemory);
       galleryClose.addEventListener("click", closeMemory);
+
+      document.addEventListener("keydown", (event) => {
+        if (!galleryLightbox.classList.contains("is-open")) {
+          return;
+        }
+
+        if (event.key === "Escape") {
+          closeMemory();
+        }
+
+        if (event.key === "ArrowLeft") {
+          openMemory(
+            (currentMemory - 1 + memories.length) % memories.length
+          );
+        }
+
+        if (event.key === "ArrowRight") {
+          openMemory(
+            (currentMemory + 1) % memories.length
+          );
+        }
+      });
 
       generateDateButton.addEventListener("click", () => {
         let index = Math.floor(
@@ -3683,16 +3358,30 @@
           playerVars: {
             autoplay: 0,
             controls: 0,
+            disablekb: 1,
+            enablejsapi: 1,
             loop: 1,
             playlist: VIDEO_ID,
             playsinline: 1,
+            rel: 0,
             start: VIDEO_START_TIME
           },
 
           events: {
-            onReady: () => {
+            onReady: (event) => {
               youtubePlayerReady = true;
-              musicStatus.textContent = "Tap to play our song";
+
+              event.target.cueVideoById({
+                videoId: VIDEO_ID,
+                startSeconds: VIDEO_START_TIME
+              });
+
+              musicStatus.textContent =
+                "Tap to play our song";
+
+              if (playWhenReady) {
+                playMusic();
+              }
             },
 
             onStateChange: (event) => {
@@ -3711,34 +3400,83 @@
                 musicPlaying
                   ? "Playing our song"
                   : "Music paused";
+            },
+
+            onError: () => {
+              musicPlaying = false;
+              musicStatus.textContent =
+                "Tap the record to retry";
+
+              musicDock.classList.remove("is-playing");
+              musicToggleIcon.textContent = "▶";
             }
           }
         });
       };
 
       const loadYouTube = () => {
+        if (
+          document.querySelector(
+            'script[src="https://www.youtube.com/iframe_api"]'
+          )
+        ) {
+          return;
+        }
+
         const script = document.createElement("script");
         script.src = "https://www.youtube.com/iframe_api";
+        script.async = true;
+
         document.head.appendChild(script);
       };
 
       const playMusic = () => {
-        if (!youtubePlayerReady) {
+        playWhenReady = true;
+        musicDock.classList.add("is-visible");
+
+        if (!youtubePlayerReady || !youtubePlayer) {
+          musicStatus.textContent =
+            "Preparing the music";
           return;
         }
 
-        youtubePlayer.seekTo(VIDEO_START_TIME, true);
-        youtubePlayer.setVolume(65);
-        youtubePlayer.playVideo();
+        try {
+          const currentTime =
+            youtubePlayer.getCurrentTime();
+
+          if (
+            !Number.isFinite(currentTime) ||
+            currentTime < VIDEO_START_TIME - 2
+          ) {
+            youtubePlayer.seekTo(
+              VIDEO_START_TIME,
+              true
+            );
+          }
+
+          youtubePlayer.unMute();
+          youtubePlayer.setVolume(65);
+          youtubePlayer.playVideo();
+        } catch (error) {
+          musicStatus.textContent =
+            "Tap the record to retry";
+        }
+      };
+
+      const pauseMusic = () => {
+        playWhenReady = false;
+
+        if (
+          youtubePlayerReady &&
+          youtubePlayer
+        ) {
+          youtubePlayer.pauseVideo();
+        }
       };
 
       const toggleMusic = () => {
-        if (!youtubePlayerReady) {
-          return;
-        }
-
         if (musicPlaying) {
-          youtubePlayer.pauseVideo();
+          pauseMusic();
         } else {
           playMusic();
         }
