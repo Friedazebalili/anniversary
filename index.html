@@ -1,114 +1,3898 @@
-<section class="paper-section" id="paperSection" aria-labelledby="paperTitle">
-  <div class="paper-sticky">
-    <div class="paper-ambient" aria-hidden="true">
-      <span class="paper-orb paper-orb--one"></span>
-      <span class="paper-orb paper-orb--two"></span>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#12060e">
+  <meta name="description" content="A dreamy anniversary surprise made with love.">
 
-      <span class="paper-petal" style="left: 5%; --size: 12px; --duration: 13s; --delay: -3s; --drift: 70px;"></span>
-      <span class="paper-petal" style="left: 15%; --size: 9px; --duration: 11s; --delay: -7s; --drift: -48px;"></span>
-      <span class="paper-petal" style="left: 28%; --size: 14px; --duration: 15s; --delay: -10s; --drift: 62px;"></span>
-      <span class="paper-petal" style="left: 44%; --size: 8px; --duration: 12s; --delay: -4s; --drift: -36px;"></span>
-      <span class="paper-petal" style="left: 62%; --size: 13px; --duration: 14s; --delay: -8s; --drift: 54px;"></span>
-      <span class="paper-petal" style="left: 79%; --size: 10px; --duration: 12s; --delay: -5s; --drift: -48px;"></span>
-      <span class="paper-petal" style="left: 93%; --size: 13px; --duration: 15s; --delay: -12s; --drift: 44px;"></span>
+  <title>Happy Anniversary</title>
 
-      <span class="paper-star" style="left: 8%; top: 18%; --size: 4px; --duration: 3.2s; --delay: -1s;"></span>
-      <span class="paper-star" style="left: 17%; top: 68%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
-      <span class="paper-star" style="left: 31%; top: 12%; --size: 4px; --duration: 3.5s; --delay: -1.5s;"></span>
-      <span class="paper-star" style="left: 69%; top: 15%; --size: 3px; --duration: 2.9s; --delay: -2.3s;"></span>
-      <span class="paper-star" style="left: 82%; top: 72%; --size: 4px; --duration: 3.4s; --delay: -1.2s;"></span>
-      <span class="paper-star" style="left: 93%; top: 31%; --size: 3px; --duration: 2.6s; --delay: -1.8s;"></span>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      <span class="paper-side-heart" style="left: 7%; top: 42%; --size: 15px; --duration: 6s; --delay: -2s; --x: 18px; --y: -26px;"></span>
-      <span class="paper-side-heart" style="right: 7%; top: 48%; --size: 13px; --duration: 7s; --delay: -4s; --x: -18px; --y: -30px;"></span>
-      <span class="paper-side-heart" style="left: 15%; bottom: 15%; --size: 11px; --duration: 6.5s; --delay: -3s; --x: 22px; --y: -28px;"></span>
-      <span class="paper-side-heart" style="right: 16%; bottom: 17%; --size: 15px; --duration: 7.5s; --delay: -5s; --x: -22px; --y: -34px;"></span>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
-      <span class="paper-butterfly" style="left: 6%; top: 25%; --size: 28px; --duration: 9s; --delay: -3s; --x1: 32px; --y1: -20px; --x2: 58px; --y2: 20px; --x3: 16px; --y3: 48px;">🦋</span>
-      <span class="paper-butterfly" style="right: 7%; top: 28%; --size: 25px; --duration: 10s; --delay: -6s; --x1: -35px; --y1: -16px; --x2: -60px; --y2: 24px; --x3: -18px; --y3: 50px;">🦋</span>
+  <style>
+    :root {
+      --background: #0b0408;
+      --background-soft: #1b0a16;
+      --text: #fff6fb;
+      --muted: rgba(255, 235, 244, 0.76);
+      --soft: rgba(255, 238, 246, 0.58);
+      --pink: #ff8dbd;
+      --pink-light: #ffd7e7;
+      --pink-bright: #ff5ca4;
+      --lavender: #d7bbff;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --hero-ratio: 1122 / 1402;
+    }
 
-      <span class="paper-bow" style="left: 7%; bottom: 31%; --size: 30px; --duration: 7s; --delay: -2s;">🎀</span>
-      <span class="paper-bow" style="right: 8%; bottom: 28%; --size: 27px; --duration: 8s; --delay: -5s;">🎀</span>
-    </div>
+    * {
+      box-sizing: border-box;
+    }
 
-    <div class="paper-scene">
-      <header class="paper-heading" id="paperHeading">
-        <p class="paper-eyebrow">A little letter from my heart</p>
-        <h2 class="paper-title" id="paperTitle">A love letter for you</h2>
-      </header>
+    html {
+      scroll-behavior: smooth;
+      background: var(--background);
+    }
 
-      <div class="paper-stage" id="paperStage">
-        <div class="paper-glow" aria-hidden="true"></div>
+    body {
+      margin: 0;
+      min-width: 320px;
+      overflow-x: hidden;
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(255, 144, 194, 0.18),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          rgba(255, 100, 174, 0.08),
+          transparent 24%
+        ),
+        radial-gradient(
+          circle at 90% 18%,
+          rgba(210, 165, 255, 0.08),
+          transparent 26%
+        ),
+        linear-gradient(
+          180deg,
+          #1b0a16 0%,
+          #0c0409 54%,
+          #080306 100%
+        );
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-        <article class="love-paper" id="lovePaper">
-          <div class="paper-corner paper-corner--top-left" aria-hidden="true"></div>
-          <div class="paper-corner paper-corner--top-right" aria-hidden="true"></div>
-          <div class="paper-corner paper-corner--bottom-left" aria-hidden="true"></div>
-          <div class="paper-corner paper-corner--bottom-right" aria-hidden="true"></div>
+    body.is-locked {
+      overflow: hidden;
+    }
 
-          <div class="paper-watermark" aria-hidden="true">♡</div>
+    body.has-star-cursor,
+    body.has-star-cursor button,
+    body.has-star-cursor a {
+      cursor: none;
+    }
 
-          <div class="paper-content">
-            <div class="paper-intro-content" data-reveal="0.06">
-              <p class="paper-date-top">Written with love</p>
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-              <h3 class="paper-letter-title">
-                My Beautiful Girl,
-              </h3>
+    button,
+    a {
+      font: inherit;
+      color: inherit;
+    }
 
-              <div class="paper-divider" aria-hidden="true"></div>
-            </div>
+    button {
+      border: 0;
+    }
 
-            <div class="letter-lines">
-              <p class="letter-line" data-reveal="0.16">
-                From the moment you came into my life, everything started feeling softer,
-                brighter, and more meaningful.
-              </p>
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 50% 38%,
+          rgba(255, 157, 201, 0.24),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 10% 88%,
+          rgba(255, 108, 173, 0.12),
+          transparent 24%
+        ),
+        radial-gradient(
+          circle at 92% 10%,
+          rgba(220, 180, 255, 0.14),
+          transparent 24%
+        ),
+        linear-gradient(
+          145deg,
+          #27111f 0%,
+          #0e060b 75%
+        );
+      transition:
+        opacity 0.9s var(--ease),
+        visibility 0.9s var(--ease);
+    }
 
-              <p class="letter-line" data-reveal="0.29">
-                You turned ordinary days into memories I want to keep forever,
-                and you made love feel like the safest place I could ever belong to.
-              </p>
+    .intro.is-closing {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
 
-              <p class="letter-line" data-reveal="0.42">
-                I love your smile, your warmth, your heart, and all the little things
-                about you that make you so beautifully you.
-              </p>
+    .intro::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      pointer-events: none;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    }
 
-              <p class="letter-line" data-reveal="0.55">
-                Thank you for every laugh, every late night, every sweet moment,
-                and every memory we have made together.
-              </p>
+    .intro::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          115deg,
+          transparent 22%,
+          rgba(255, 255, 255, 0.035) 47%,
+          transparent 70%
+        );
+      transform: translateX(-120%);
+      animation: introSweep 7s ease-in-out infinite;
+    }
 
-              <p class="letter-line" data-reveal="0.68">
-                No matter where life takes us, I hope we keep choosing each other,
-                keep growing together, and keep making our story even more beautiful.
-              </p>
+    .intro-orb {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      filter: blur(90px);
+      pointer-events: none;
+      animation: orbFloat 10s ease-in-out infinite;
+    }
 
-              <p class="letter-line" data-reveal="0.81">
-                Happy anniversary, my love. You will always be one of the most precious
-                parts of my world.
-              </p>
-            </div>
+    .intro-orb--one {
+      width: 320px;
+      height: 320px;
+      top: 12%;
+      left: -120px;
+      background: #ff6aa9;
+    }
 
-            <div class="paper-signoff" data-reveal="0.91">
-              <span class="paper-date">Our Anniversary</span>
-              <span class="paper-heart">♡</span>
-              <span class="paper-signature">With all my love</span>
-            </div>
-          </div>
-        </article>
+    .intro-orb--two {
+      width: 280px;
+      height: 280px;
+      right: -120px;
+      bottom: 8%;
+      background: #ffc7de;
+      animation-duration: 13s;
+      animation-delay: -3s;
+    }
+
+    .intro-orb--three {
+      width: 240px;
+      height: 240px;
+      left: 50%;
+      bottom: -150px;
+      background: #cfaeff;
+      transform: translateX(-50%);
+      animation-duration: 15s;
+      animation-delay: -7s;
+    }
+
+    .intro-spark {
+      position: absolute;
+      z-index: 1;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: #fff8fc;
+      box-shadow:
+        0 0 8px rgba(255, 232, 244, 0.95),
+        0 0 18px rgba(255, 113, 178, 0.62);
+      animation: twinkle var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+      pointer-events: none;
+    }
+
+    .intro-float-heart {
+      position: absolute;
+      bottom: -40px;
+      width: var(--size);
+      height: var(--size);
+      opacity: 0;
+      transform: rotate(45deg);
+      background:
+        linear-gradient(
+          145deg,
+          #ffd8e8,
+          #ff6fac
+        );
+      filter: drop-shadow(0 0 10px rgba(255, 103, 168, 0.65));
+      animation: riseHeart var(--duration) linear infinite;
+      animation-delay: var(--delay);
+      pointer-events: none;
+    }
+
+    .intro-float-heart::before,
+    .intro-float-heart::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: inherit;
+    }
+
+    .intro-float-heart::before {
+      left: -50%;
+    }
+
+    .intro-float-heart::after {
+      top: -50%;
+    }
+
+    .loader-screen,
+    .preview-screen {
+      position: relative;
+      z-index: 20;
+      width: min(500px, calc(100vw - 32px));
+      text-align: center;
+    }
+
+    .loader-screen {
+      padding: 34px 28px;
+      border: 1px solid rgba(255, 233, 241, 0.1);
+      border-radius: 34px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.015)
+        );
+      box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.32),
+        0 0 70px rgba(255, 118, 176, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      transition:
+        opacity 0.55s var(--ease),
+        visibility 0.55s var(--ease),
+        transform 0.55s var(--ease);
+    }
+
+    .loader-screen.is-hidden {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-15px) scale(0.97);
+      pointer-events: none;
+    }
+
+    .loader-emblem {
+      position: relative;
+      width: 116px;
+      height: 116px;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+    }
+
+    .loader-emblem::before,
+    .loader-emblem::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 170, 207, 0.22);
+      animation: loaderOrbit 6s linear infinite;
+    }
+
+    .loader-emblem::after {
+      inset: 14px;
+      border-style: dashed;
+      border-color: rgba(255, 214, 231, 0.28);
+      animation-direction: reverse;
+      animation-duration: 8s;
+    }
+
+    .loader-heart {
+      position: relative;
+      width: 68px;
+      height: 60px;
+      filter: drop-shadow(0 0 22px rgba(255, 107, 171, 0.66));
+      animation: loaderPulse 1.9s ease-in-out infinite;
+    }
+
+    .loader-heart::before,
+    .loader-heart::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 36px;
+      height: 56px;
+      border-radius: 36px 36px 0 0;
+      background:
+        linear-gradient(
+          145deg,
+          #ffe9f2,
+          #ff96c2 48%,
+          #d63a81
+        );
+    }
+
+    .loader-heart::before {
+      left: 33px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .loader-heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .loader-mini-star {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      clip-path:
+        polygon(
+          50% 0%,
+          62% 35%,
+          100% 50%,
+          62% 65%,
+          50% 100%,
+          38% 65%,
+          0% 50%,
+          38% 35%
+        );
+      background: #fff5fa;
+      filter: drop-shadow(0 0 7px #ff9fc8);
+      animation: miniStarFloat 3s ease-in-out infinite;
+    }
+
+    .loader-mini-star--one {
+      top: 10px;
+      right: 14px;
+    }
+
+    .loader-mini-star--two {
+      left: 8px;
+      bottom: 21px;
+      animation-delay: -1.3s;
+    }
+
+    .loader-mini-star--three {
+      right: 2px;
+      bottom: 10px;
+      width: 6px;
+      height: 6px;
+      animation-delay: -2s;
+    }
+
+    .loader-title,
+    .preview-title {
+      margin: 0;
+      color: var(--pink-light);
+      font-family: "Great Vibes", cursive;
+      font-weight: 400;
+      line-height: 1;
+      text-shadow:
+        0 0 24px rgba(255, 137, 186, 0.28),
+        0 10px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .loader-title {
+      font-size: clamp(44px, 8vw, 68px);
+    }
+
+    .loader-copy,
+    .preview-copy {
+      max-width: 350px;
+      margin: 14px auto 0;
+      color: var(--soft);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .loader-progress {
+      position: relative;
+      width: min(300px, 88%);
+      margin: 26px auto 0;
+    }
+
+    .loader-progress-track {
+      position: relative;
+      height: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 220, 234, 0.13);
+      border-radius: 999px;
+      background: rgba(255, 231, 241, 0.06);
+      box-shadow:
+        inset 0 2px 7px rgba(0, 0, 0, 0.22),
+        0 0 18px rgba(255, 106, 172, 0.07);
+    }
+
+    .loader-progress-bar {
+      position: relative;
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background:
+        linear-gradient(
+          90deg,
+          #ff6ba9,
+          #ffb5d2,
+          #fff3fa,
+          #d7b7ff
+        );
+      box-shadow: 0 0 16px rgba(255, 112, 177, 0.68);
+      transition: width 0.7s var(--ease);
+    }
+
+    .loader-progress-bar::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 36px;
+      height: 100%;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.85),
+          transparent
+        );
+      animation: progressGlint 1.4s ease-in-out infinite;
+    }
+
+    .loader-progress-meta {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      color: rgba(255, 230, 241, 0.48);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .preview-screen {
+      position: absolute;
+      z-index: 30;
+      padding: clamp(30px, 6vw, 48px);
+      border: 1px solid rgba(255, 233, 241, 0.13);
+      border-radius: 32px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.02)
+        );
+      box-shadow:
+        0 26px 80px rgba(0, 0, 0, 0.38),
+        0 0 70px rgba(255, 118, 176, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(22px) scale(0.97);
+      transition:
+        opacity 0.7s var(--ease),
+        visibility 0.7s var(--ease),
+        transform 0.7s var(--ease);
+    }
+
+    .preview-screen.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .preview-eyebrow,
+    .hero-eyebrow,
+    .paper-eyebrow,
+    .next-eyebrow {
+      margin: 0 0 8px;
+      color: rgba(255, 232, 241, 0.58);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+
+    .preview-title {
+      font-size: clamp(44px, 9vw, 70px);
+    }
+
+    .heart-button-wrap {
+      position: relative;
+      z-index: 40;
+      width: 146px;
+      height: 146px;
+      margin: 34px auto 16px;
+      display: grid;
+      place-items: center;
+      pointer-events: auto;
+    }
+
+    .heart-button-wrap::before,
+    .heart-button-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 155, 202, 0.18);
+      pointer-events: none;
+      animation: heartRing 2.8s ease-out infinite;
+    }
+
+    .heart-button-wrap::after {
+      animation-delay: 1.4s;
+    }
+
+    .heart-button {
+      position: relative;
+      z-index: 50;
+      width: 106px;
+      height: 106px;
+      padding: 0;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #ffd0e1,
+          #ef6ca6 44%,
+          #c52d75 76%,
+          #861b4d 100%
+        );
+      box-shadow:
+        0 18px 36px rgba(0, 0, 0, 0.28),
+        0 0 28px rgba(255, 101, 168, 0.58),
+        inset 0 2px 2px rgba(255, 255, 255, 0.55),
+        inset 0 -12px 18px rgba(96, 14, 50, 0.22);
+      pointer-events: auto;
+      touch-action: manipulation;
+      cursor: pointer;
+      transition:
+        transform 0.35s var(--ease),
+        filter 0.35s ease;
+      animation: floatSoft 4s ease-in-out infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .heart-button::before {
+      content: "♥";
+      display: block;
+      color: #fff8fb;
+      font-size: 46px;
+      line-height: 106px;
+      text-align: center;
+      text-shadow: 0 3px 10px rgba(111, 18, 58, 0.3);
+      pointer-events: none;
+    }
+
+    .heart-button::after {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      pointer-events: none;
+    }
+
+    .heart-button:hover {
+      transform: translateY(-5px) scale(1.06);
+      filter: brightness(1.08);
+    }
+
+    .heart-button:active {
+      transform: scale(0.94);
+    }
+
+    .heart-button:focus-visible {
+      outline: 2px solid #ffd4e6;
+      outline-offset: 8px;
+    }
+
+    .preview-label {
+      margin: 0;
+      color: rgba(255, 236, 244, 0.72);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .site {
+      position: relative;
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.9s var(--ease),
+        visibility 0.9s var(--ease);
+    }
+
+    .site.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .background-effects {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-cloud {
+      position: absolute;
+      width: var(--width);
+      height: calc(var(--width) * 0.32);
+      border-radius: 999px;
+      opacity: var(--opacity);
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(255, 218, 235, 0.36),
+          rgba(255, 151, 199, 0.08) 52%,
+          transparent 72%
+        );
+      filter: blur(12px);
+      animation: cloudFloat var(--duration) ease-in-out infinite alternate;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -60px;
+      width: var(--size);
+      height: var(--size);
+      opacity: 0;
+      transform: rotate(45deg);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 229, 240, 0.98),
+          rgba(255, 92, 164, 0.88)
+        );
+      filter: drop-shadow(0 0 9px rgba(255, 91, 160, 0.65));
+      animation: riseHeart var(--duration) linear infinite;
+      animation-delay: var(--delay);
+    }
+
+    .floating-heart::before,
+    .floating-heart::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: inherit;
+    }
+
+    .floating-heart::before {
+      left: -50%;
+    }
+
+    .floating-heart::after {
+      top: -50%;
+    }
+
+    .floating-ring {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      border: 1px solid rgba(255, 154, 202, 0.42);
+      border-radius: 50%;
+      box-shadow:
+        0 0 16px rgba(255, 109, 174, 0.24),
+        inset 0 0 12px rgba(255, 173, 214, 0.12);
+      animation: ringFloat var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .floating-diamond {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      transform: rotate(45deg);
+      border: 1px solid rgba(255, 221, 236, 0.5);
+      background: rgba(255, 173, 211, 0.08);
+      box-shadow: 0 0 15px rgba(255, 113, 178, 0.36);
+      animation: diamondFloat var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .floating-butterfly {
+      position: absolute;
+      color: #ffc8df;
+      font-size: var(--size);
+      opacity: 0.9;
+      text-shadow:
+        0 0 10px rgba(255, 156, 204, 0.9),
+        0 0 22px rgba(255, 111, 177, 0.45);
+      filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.26));
+      animation: butterflyFly var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+      will-change: transform;
+    }
+
+    .star-dot {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: #fff8fc;
+      box-shadow:
+        0 0 8px rgba(255, 230, 241, 0.92),
+        0 0 18px rgba(255, 121, 179, 0.55);
+      animation: twinkle var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      width: min(1260px, 100%);
+      min-height: 100svh;
+      margin: 0 auto;
+      padding:
+        max(14px, env(safe-area-inset-top))
+        10px
+        max(12px, env(safe-area-inset-bottom));
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+      align-items: center;
+      justify-items: center;
+      gap: clamp(8px, 1.6vh, 16px);
+    }
+
+    .hero-header {
+      width: min(930px, 100%);
+      text-align: center;
+      animation: revealDown 1s 0.1s var(--ease) both;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: "";
+      width: clamp(22px, 4vw, 58px);
+      height: 1px;
+    }
+
+    .hero-eyebrow::before {
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 224, 234, 0.5)
+        );
+    }
+
+    .hero-eyebrow::after {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 224, 234, 0.5),
+          transparent
+        );
+    }
+
+    .hero-title {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 5.8vw, 84px);
+      font-weight: 600;
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+      color: transparent;
+      background:
+        linear-gradient(
+          105deg,
+          #78495c 0%,
+          #f3d2dd 12%,
+          #ffffff 22%,
+          #ab6f84 35%,
+          #fff0f7 48%,
+          #95596c 60%,
+          #ffffff 74%,
+          #d6a4b5 88%,
+          #704353 100%
+        );
+      background-size: 220% 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
+      filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.4));
+      animation: chromeShine 8s ease-in-out infinite;
+    }
+
+    .hero-script {
+      margin: 2px 0 0;
+      color: var(--pink-light);
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(28px, 4vw, 54px);
+      line-height: 1;
+      text-shadow: 0 0 16px rgba(255, 148, 195, 0.2);
+    }
+
+    .hero-copy {
+      max-width: 600px;
+      margin: 8px auto 0;
+      color: var(--muted);
+      font-size: clamp(12px, 1.15vw, 15px);
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    .hero-stage {
+      width: 100%;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: revealUp 1.1s 0.2s var(--ease) both;
+    }
+
+    .hero-float {
+      position: relative;
+      display: inline-block;
+      animation: bounceSoft 5.8s ease-in-out infinite;
+    }
+
+    .hero-aura {
+      position: absolute;
+      inset: -32px;
+      z-index: -1;
+      border-radius: 42px;
+      background:
+        radial-gradient(
+          circle at 50% 20%,
+          rgba(255, 184, 217, 0.32),
+          transparent 34%
+        ),
+        radial-gradient(
+          circle at 25% 70%,
+          rgba(255, 110, 174, 0.22),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 68%,
+          rgba(255, 149, 197, 0.2),
+          transparent 28%
+        );
+      filter: blur(30px);
+      animation: auraPulse 4.8s ease-in-out infinite;
+    }
+
+    .hero-frame {
+      position: relative;
+      width: auto;
+      max-width: 100%;
+      height: min(68svh, 760px);
+      aspect-ratio: var(--hero-ratio);
+      overflow: hidden;
+      border: 1px solid rgba(255, 235, 243, 0.18);
+      border-radius: clamp(22px, 2.5vw, 36px);
+      background: #11070d;
+      box-shadow:
+        0 32px 90px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(231, 136, 176, 0.2),
+        0 0 120px rgba(255, 115, 183, 0.18);
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.01);
+    }
+
+    .hero-gloss {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-gloss::before {
+      content: "";
+      position: absolute;
+      top: -12%;
+      left: -55%;
+      width: 42%;
+      height: 135%;
+      transform: rotate(12deg);
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 225, 238, 0.2),
+          transparent
+        );
+      animation: glossSweep 8s ease-in-out infinite;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: -2px;
+      z-index: 2;
+      border-radius: inherit;
+      pointer-events: none;
+      box-shadow:
+        0 0 12px rgba(255, 91, 160, 0.9),
+        0 0 28px rgba(255, 95, 164, 0.5),
+        0 0 56px rgba(255, 95, 164, 0.24),
+        inset 0 0 14px rgba(255, 102, 168, 0.16);
+      animation: imagePulse 2.6s ease-in-out infinite;
+    }
+
+    .hero-footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 237, 244, 0.54);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-footer-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #ffb8d5;
+      box-shadow: 0 0 12px rgba(247, 190, 210, 0.9);
+    }
+
+    .paper-section {
+      position: relative;
+      height: 230svh;
+      isolation: isolate;
+    }
+
+    .paper-sticky {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(255, 192, 219, 0.22),
+          transparent 31%
+        ),
+        radial-gradient(
+          circle at 16% 20%,
+          rgba(255, 141, 190, 0.12),
+          transparent 24%
+        ),
+        radial-gradient(
+          circle at 84% 26%,
+          rgba(220, 182, 255, 0.1),
+          transparent 25%
+        ),
+        linear-gradient(
+          180deg,
+          #25111f 0%,
+          #3e1830 35%,
+          #1b0d17 72%,
+          #0d0509 100%
+        );
+    }
+
+    .paper-sticky::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          115deg,
+          transparent 20%,
+          rgba(255, 255, 255, 0.025) 47%,
+          transparent 72%
+        );
+      transform: translateX(-100%);
+      animation: paperLightSweep 10s ease-in-out infinite;
+    }
+
+    .paper-ambient {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .paper-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.23;
+      animation: paperOrbFloat 12s ease-in-out infinite;
+    }
+
+    .paper-orb--one {
+      width: 280px;
+      height: 280px;
+      left: -110px;
+      top: 28%;
+      background: #ff78b4;
+    }
+
+    .paper-orb--two {
+      width: 320px;
+      height: 320px;
+      right: -130px;
+      bottom: 10%;
+      background: #e6bdff;
+      animation-duration: 16s;
+      animation-delay: -5s;
+    }
+
+    .paper-scene {
+      position: relative;
+      z-index: 2;
+      width: min(1000px, calc(100% - 24px));
+      height: 100svh;
+      display: grid;
+      place-items: center;
+    }
+
+    .paper-heading {
+      position: absolute;
+      top: clamp(12px, 2.3vh, 24px);
+      left: 50%;
+      z-index: 15;
+      width: min(760px, calc(100% - 20px));
+      padding: 11px 18px 13px;
+      border: 1px solid rgba(255, 228, 240, 0.18);
+      border-radius: 22px;
+      text-align: center;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(45, 14, 34, 0.91),
+          rgba(20, 7, 15, 0.76)
+        );
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.34),
+        0 0 28px rgba(255, 124, 183, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      transform: translateX(-50%);
+      will-change: opacity, transform;
+    }
+
+    .paper-heading .paper-eyebrow {
+      margin: 0 0 4px;
+      color: rgba(255, 230, 242, 0.8);
+    }
+
+    .paper-title {
+      margin: 0;
+      color: #ffe7f2;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1;
+      text-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.34),
+        0 0 22px rgba(255, 177, 213, 0.3);
+    }
+
+    .paper-stage {
+      position: relative;
+      width: min(660px, 91vw);
+      height: min(76svh, 750px);
+      margin-top: clamp(70px, 9vh, 94px);
+      transform: translateY(10px) scale(0.965);
+      will-change: transform, opacity;
+    }
+
+    .paper-glow {
+      position: absolute;
+      inset: -30px;
+      z-index: -1;
+      border-radius: 42px;
+      background:
+        radial-gradient(
+          circle,
+          rgba(255, 189, 222, 0.29),
+          rgba(255, 110, 174, 0.1) 48%,
+          transparent 72%
+        );
+      filter: blur(25px);
+      animation: paperGlowPulse 5s ease-in-out infinite;
+    }
+
+    .love-paper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 4px solid #ffa7ca;
+      border-radius: 2px;
+      color: #503346;
+      background:
+        radial-gradient(
+          circle at 15% 12%,
+          rgba(255, 195, 222, 0.12),
+          transparent 22%
+        ),
+        radial-gradient(
+          circle at 86% 84%,
+          rgba(221, 194, 255, 0.08),
+          transparent 25%
+        ),
+        repeating-linear-gradient(
+          0deg,
+          rgba(94, 51, 73, 0.012) 0,
+          rgba(94, 51, 73, 0.012) 1px,
+          transparent 1px,
+          transparent 5px
+        ),
+        linear-gradient(
+          180deg,
+          #ffffff 0%,
+          #fffdfE 52%,
+          #fffafc 100%
+        );
+      box-shadow:
+        0 34px 80px rgba(0, 0, 0, 0.38),
+        0 0 42px rgba(255, 164, 204, 0.16),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    }
+
+    .love-paper::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.045;
+      pointer-events: none;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+
+    .love-paper::after {
+      content: "";
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      bottom: -18px;
+      z-index: -1;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.18);
+      filter: blur(14px);
+    }
+
+    .paper-corner {
+      position: absolute;
+      z-index: 5;
+      width: 40px;
+      height: 40px;
+      pointer-events: none;
+    }
+
+    .paper-corner::before,
+    .paper-corner::after {
+      content: "";
+      position: absolute;
+      background: linear-gradient(90deg, #ff92bd, #ffd0e2);
+      border-radius: 999px;
+    }
+
+    .paper-corner::before {
+      width: 30px;
+      height: 2px;
+    }
+
+    .paper-corner::after {
+      width: 2px;
+      height: 30px;
+    }
+
+    .paper-corner--top-left {
+      left: 12px;
+      top: 12px;
+    }
+
+    .paper-corner--top-right {
+      right: 12px;
+      top: 12px;
+      transform: scaleX(-1);
+    }
+
+    .paper-corner--bottom-left {
+      left: 12px;
+      bottom: 12px;
+      transform: scaleY(-1);
+    }
+
+    .paper-corner--bottom-right {
+      right: 12px;
+      bottom: 12px;
+      transform: scale(-1);
+    }
+
+    .paper-watermark {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 0;
+      color: rgba(255, 129, 182, 0.045);
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(190px, 31vw, 340px);
+      line-height: 1;
+      transform: translate(-50%, -50%) rotate(-8deg);
+      pointer-events: none;
+    }
+
+    .paper-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      padding:
+        clamp(40px, 6vh, 62px)
+        clamp(28px, 6vw, 62px)
+        clamp(34px, 5vh, 52px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .paper-intro-content,
+    .letter-line,
+    .paper-signoff {
+      opacity: 0;
+      filter: blur(5px);
+      transform: translateY(22px);
+      transition:
+        opacity 0.76s var(--ease),
+        transform 0.76s var(--ease),
+        filter 0.76s var(--ease);
+    }
+
+    .paper-intro-content.is-revealed,
+    .letter-line.is-revealed,
+    .paper-signoff.is-revealed {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateY(0);
+    }
+
+    .paper-date-top {
+      margin: 0 0 9px;
+      color: rgba(80, 51, 70, 0.56);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+    }
+
+    .paper-letter-title {
+      margin: 0;
+      color: #754158;
+      font-family: "Parisienne", cursive;
+      font-size: clamp(34px, 4.4vw, 52px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .paper-divider {
+      width: min(190px, 58%);
+      height: 1px;
+      margin: 17px auto 21px;
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(117, 65, 88, 0.45),
+          transparent
+        );
+    }
+
+    .letter-lines {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .letter-line {
+      margin: 0 0 13px;
+      color: #593a4c;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(13px, 1.45vw, 17px);
+      line-height: 1.67;
+    }
+
+    .paper-signoff {
+      width: 100%;
+      max-width: 520px;
+      margin-top: auto;
+      padding-top: 8px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: end;
+      gap: 12px;
+    }
+
+    .paper-date {
+      justify-self: start;
+      color: rgba(77, 49, 65, 0.68);
+      font-size: 11px;
+      font-style: italic;
+    }
+
+    .paper-heart {
+      color: #d45d91;
+      font-family: "Great Vibes", cursive;
+      font-size: 34px;
+      line-height: 1;
+      transform: rotate(-8deg);
+    }
+
+    .paper-signature {
+      justify-self: end;
+      color: #754158;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(27px, 3.7vw, 40px);
+      line-height: 1;
+    }
+
+    .paper-progress-ui {
+      position: absolute;
+      left: 50%;
+      bottom: clamp(9px, 1.6vh, 18px);
+      z-index: 14;
+      width: min(390px, calc(100% - 40px));
+      transform: translateX(-50%);
+    }
+
+    .paper-progress-track {
+      height: 3px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 231, 241, 0.1);
+    }
+
+    .paper-progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background:
+        linear-gradient(
+          90deg,
+          #ff6fae,
+          #ffc2da,
+          #fff5fb
+        );
+      box-shadow: 0 0 12px rgba(255, 111, 174, 0.62);
+    }
+
+    .paper-scroll-note {
+      margin: 8px 0 0;
+      color: rgba(255, 237, 245, 0.68);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .paper-petal {
+      position: absolute;
+      top: -40px;
+      width: var(--size);
+      height: calc(var(--size) * 0.68);
+      border-radius: 75% 15% 75% 20%;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 224, 232, 0.94),
+          rgba(245, 145, 181, 0.68)
+        );
+      filter: drop-shadow(0 4px 6px rgba(89, 37, 62, 0.16));
+      animation: paperPetalFall var(--duration) linear infinite;
+      animation-delay: var(--delay);
+    }
+
+    .paper-star {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: #fff8fc;
+      box-shadow:
+        0 0 8px rgba(255, 231, 243, 0.95),
+        0 0 18px rgba(255, 121, 179, 0.58);
+      animation: paperStarTwinkle var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .paper-side-heart {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 224, 238, 0.93),
+          rgba(255, 103, 168, 0.76)
+        );
+      filter: drop-shadow(0 0 9px rgba(255, 104, 168, 0.48));
+      transform: rotate(45deg);
+      animation: paperSideHeart var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .paper-side-heart::before,
+    .paper-side-heart::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: inherit;
+    }
+
+    .paper-side-heart::before {
+      left: -50%;
+    }
+
+    .paper-side-heart::after {
+      top: -50%;
+    }
+
+    .paper-butterfly {
+      position: absolute;
+      color: #ffc5dd;
+      font-size: var(--size);
+      opacity: 0.9;
+      text-shadow:
+        0 0 10px rgba(255, 156, 204, 0.86),
+        0 0 22px rgba(255, 111, 177, 0.45);
+      filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.24));
+      animation: paperButterflyFly var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .paper-bow {
+      position: absolute;
+      color: #ffafd0;
+      font-size: var(--size);
+      filter: drop-shadow(0 0 10px rgba(255, 135, 190, 0.38));
+      animation: paperBowFloat var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .next-section {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 50% 18%,
+          rgba(255, 146, 192, 0.12),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #3c1730 0%,
+          #180914 44%,
+          #0b0408 100%
+        );
+    }
+
+    .next-card {
+      width: min(720px, calc(100% - 28px));
+      padding: clamp(30px, 5vw, 54px);
+      border: 1px solid rgba(255, 234, 244, 0.12);
+      border-radius: 30px;
+      text-align: center;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.02)
+        );
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.34),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .next-title {
+      margin: 0;
+      color: #ffe3ef;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(48px, 7vw, 74px);
+      line-height: 1;
+    }
+
+    .next-copy {
+      max-width: 460px;
+      margin: 14px auto 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .music-dock {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      z-index: 8000;
+      width: 278px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-50%) translateX(30px);
+      transition:
+        opacity 0.7s var(--ease),
+        visibility 0.7s var(--ease),
+        transform 0.7s var(--ease);
+    }
+
+    .music-dock.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .music-player-shell {
+      position: relative;
+      padding: 13px;
+      display: grid;
+      grid-template-columns: 74px minmax(0, 1fr) 38px;
+      align-items: center;
+      gap: 11px;
+      border: 1px solid rgba(255, 225, 238, 0.17);
+      border-radius: 22px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(55, 17, 41, 0.94),
+          rgba(20, 7, 15, 0.91)
+        );
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.38),
+        0 0 35px rgba(255, 111, 174, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .record-player {
+      position: relative;
+      width: 74px;
+      height: 74px;
+      padding: 0;
+      border-radius: 17px;
+      cursor: pointer;
+      background:
+        linear-gradient(
+          145deg,
+          #f8b7d2,
+          #cf5e91
+        );
+      box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.26),
+        inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    }
+
+    .turntable {
+      position: absolute;
+      inset: 5px;
+      overflow: hidden;
+      border-radius: 13px;
+      background:
+        linear-gradient(
+          145deg,
+          #f8dce8,
+          #df8caf
+        );
+    }
+
+    .record {
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background:
+        repeating-radial-gradient(
+          circle,
+          #171016 0,
+          #171016 2px,
+          #292029 3px,
+          #292029 4px
+        );
+      box-shadow:
+        0 7px 12px rgba(0, 0, 0, 0.28),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .music-dock.is-playing .record {
+      animation: recordSpin 3.6s linear infinite;
+    }
+
+    .record-label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #6f294b;
+      background:
+        radial-gradient(
+          circle,
+          #fff2f8,
+          #f28eb8
+        );
+      font-size: 5px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transform: translate(-50%, -50%);
+    }
+
+    .record-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3a1729;
+      transform: translate(-50%, -50%);
+    }
+
+    .tonearm {
+      position: absolute;
+      right: 5px;
+      top: 8px;
+      width: 4px;
+      height: 40px;
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          180deg,
+          #fff6fa,
+          #8f5471
+        );
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+      transform: rotate(13deg);
+      transform-origin: 50% 5px;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .music-dock.is-playing .tonearm {
+      transform: rotate(25deg);
+    }
+
+    .tonearm::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -3px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #fff2f8;
+      transform: translateX(-50%);
+    }
+
+    .tonearm-head {
+      position: absolute;
+      left: 50%;
+      bottom: -4px;
+      width: 8px;
+      height: 10px;
+      border-radius: 3px;
+      background: #5e2c47;
+      transform: translateX(-50%);
+    }
+
+    .player-light {
+      position: absolute;
+      right: 6px;
+      bottom: 6px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #8d5b72;
+    }
+
+    .music-dock.is-playing .player-light {
+      background: #ff79b4;
+      box-shadow: 0 0 9px #ff79b4;
+    }
+
+    .music-information {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .music-eyebrow {
+      color: rgba(255, 226, 239, 0.52);
+      font-size: 7px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .music-title {
+      margin-top: 3px;
+      overflow: hidden;
+      color: #ffeaf3;
+      font-size: 11px;
+      font-weight: 500;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .music-status {
+      margin-top: 3px;
+      color: rgba(255, 230, 241, 0.56);
+      font-size: 8px;
+    }
+
+    .music-toggle {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 231, 241, 0.14);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff2f8;
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #ffb9d5,
+          #d6508a
+        );
+      box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.24),
+        0 0 16px rgba(255, 100, 166, 0.23);
+      cursor: pointer;
+      transition:
+        transform 0.25s var(--ease),
+        filter 0.25s ease;
+    }
+
+    .music-toggle:hover,
+    .record-player:hover {
+      filter: brightness(1.08);
+    }
+
+    .music-toggle:hover {
+      transform: scale(1.07);
+    }
+
+    .music-toggle-icon {
+      font-size: 12px;
+      line-height: 1;
+    }
+
+    .youtube-audio-player {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .star-cursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 30000;
+      width: 28px;
+      height: 28px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate3d(-100px, -100px, 0);
+      transition: opacity 0.18s ease;
+      will-change: transform;
+    }
+
+    .star-cursor.is-visible {
+      opacity: 1;
+    }
+
+    .star-cursor-shape {
+      width: 100%;
+      height: 100%;
+      clip-path:
+        polygon(
+          50% 0%,
+          62% 35%,
+          100% 50%,
+          62% 65%,
+          50% 100%,
+          38% 65%,
+          0% 50%,
+          38% 35%
+        );
+      background:
+        radial-gradient(
+          circle at 35% 28%,
+          #ffffff,
+          #ffd0e5 30%,
+          #ff82b7 62%,
+          #e84c91 100%
+        );
+      box-shadow:
+        0 0 8px rgba(255, 215, 235, 0.95),
+        0 0 18px rgba(255, 111, 177, 0.72),
+        0 0 30px rgba(255, 111, 177, 0.38);
+      animation: cursorStarPulse 1.8s ease-in-out infinite;
+    }
+
+    .cursor-dust {
+      position: fixed;
+      z-index: 29999;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      pointer-events: none;
+      background: var(--dust-color);
+      box-shadow:
+        0 0 6px var(--dust-color),
+        0 0 13px rgba(255, 123, 183, 0.42);
+      animation: dustFade var(--duration) ease-out forwards;
+      will-change: transform, opacity;
+    }
+
+    .cursor-dust-star {
+      position: fixed;
+      z-index: 29999;
+      width: var(--size);
+      height: var(--size);
+      clip-path:
+        polygon(
+          50% 0%,
+          62% 35%,
+          100% 50%,
+          62% 65%,
+          50% 100%,
+          38% 65%,
+          0% 50%,
+          38% 35%
+        );
+      pointer-events: none;
+      background: var(--dust-color);
+      filter: drop-shadow(0 0 6px var(--dust-color));
+      animation: dustStarFade var(--duration) ease-out forwards;
+      will-change: transform, opacity;
+    }
+
+    .click-star {
+      position: fixed;
+      z-index: 29999;
+      width: 13px;
+      height: 13px;
+      pointer-events: none;
+      clip-path:
+        polygon(
+          50% 0%,
+          62% 35%,
+          100% 50%,
+          62% 65%,
+          50% 100%,
+          38% 65%,
+          0% 50%,
+          38% 35%
+        );
+      background: var(--click-color);
+      filter: drop-shadow(0 0 7px var(--click-color));
+      animation: clickStarBurst 0.75s ease-out forwards;
+    }
+
+    @keyframes introSweep {
+      0%,
+      25% {
+        transform: translateX(-120%);
+      }
+
+      62%,
+      100% {
+        transform: translateX(120%);
+      }
+    }
+
+    @keyframes orbFloat {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform: translate3d(60px, 24px, 0);
+      }
+    }
+
+    @keyframes loaderOrbit {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes loaderPulse {
+      0%,
+      100% {
+        transform: scale(0.92);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+    }
+
+    @keyframes miniStarFloat {
+      0%,
+      100% {
+        opacity: 0.45;
+        transform: translateY(0) rotate(0deg) scale(0.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateY(-8px) rotate(22deg) scale(1.15);
+      }
+    }
+
+    @keyframes progressGlint {
+      from {
+        transform: translateX(-80px);
+      }
+
+      to {
+        transform: translateX(80px);
+      }
+    }
+
+    @keyframes floatSoft {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    @keyframes heartRing {
+      0% {
+        opacity: 0.5;
+        transform: scale(0.56);
+      }
+
+      75%,
+      100% {
+        opacity: 0;
+        transform: scale(1.14);
+      }
+    }
+
+    @keyframes revealDown {
+      from {
+        opacity: 0;
+        transform: translateY(-22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes revealUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes bounceSoft {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    @keyframes auraPulse {
+      0%,
+      100% {
+        opacity: 0.72;
+        transform: scale(0.96);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.03);
+      }
+    }
+
+    @keyframes glossSweep {
+      0%,
+      12% {
+        transform: translateX(0) rotate(12deg);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      48% {
+        transform: translateX(310%) rotate(12deg);
+        opacity: 0.84;
+      }
+
+      60%,
+      100% {
+        transform: translateX(310%) rotate(12deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes imagePulse {
+      0%,
+      100% {
+        opacity: 0.34;
+      }
+
+      14% {
+        opacity: 1;
+      }
+
+      24% {
+        opacity: 0.45;
+      }
+
+      72% {
+        opacity: 0.88;
+      }
+    }
+
+    @keyframes chromeShine {
+      0%,
+      18% {
+        background-position: 115% 50%;
+      }
+
+      48%,
+      100% {
+        background-position: -115% 50%;
+      }
+    }
+
+    @keyframes riseHeart {
+      0% {
+        opacity: 0;
+        transform:
+          translate3d(0, 0, 0)
+          rotate(45deg)
+          scale(0.65);
+      }
+
+      12% {
+        opacity: 0.74;
+      }
+
+      80% {
+        opacity: 0.45;
+      }
+
+      100% {
+        opacity: 0;
+        transform:
+          translate3d(var(--drift), -112vh, 0)
+          rotate(405deg)
+          scale(1.08);
+      }
+    }
+
+    @keyframes butterflyFly {
+      0% {
+        transform:
+          translate3d(0, 0, 0)
+          rotate(-8deg)
+          scale(0.95);
+      }
+
+      18% {
+        transform:
+          translate3d(var(--x1), var(--y1), 0)
+          rotate(12deg)
+          scale(1.08);
+      }
+
+      38% {
+        transform:
+          translate3d(var(--x2), var(--y2), 0)
+          rotate(-10deg)
+          scale(0.98);
+      }
+
+      62% {
+        transform:
+          translate3d(var(--x3), var(--y3), 0)
+          rotate(11deg)
+          scale(1.06);
+      }
+
+      82% {
+        transform:
+          translate3d(var(--x4), var(--y4), 0)
+          rotate(-6deg)
+          scale(1);
+      }
+
+      100% {
+        transform:
+          translate3d(0, 0, 0)
+          rotate(-8deg)
+          scale(0.95);
+      }
+    }
+
+    @keyframes twinkle {
+      0%,
+      100% {
+        opacity: 0.18;
+        transform: scale(0.6);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.55);
+      }
+    }
+
+    @keyframes cloudFloat {
+      from {
+        transform: translate3d(-22px, 0, 0) scale(0.96);
+      }
+
+      to {
+        transform: translate3d(26px, -10px, 0) scale(1.06);
+      }
+    }
+
+    @keyframes ringFloat {
+      0%,
+      100% {
+        opacity: 0.2;
+        transform: translateY(0) scale(0.92);
+      }
+
+      50% {
+        opacity: 0.7;
+        transform: translateY(-18px) scale(1.08);
+      }
+    }
+
+    @keyframes diamondFloat {
+      0%,
+      100% {
+        opacity: 0.22;
+        transform: translateY(0) rotate(45deg);
+      }
+
+      50% {
+        opacity: 0.75;
+        transform: translateY(-16px) rotate(75deg);
+      }
+    }
+
+    @keyframes paperLightSweep {
+      0%,
+      25% {
+        transform: translateX(-100%);
+      }
+
+      58%,
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    @keyframes paperOrbFloat {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform: translate3d(45px, -24px, 0);
+      }
+    }
+
+    @keyframes paperGlowPulse {
+      0%,
+      100% {
+        opacity: 0.65;
+        transform: scale(0.96);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.035);
+      }
+    }
+
+    @keyframes paperPetalFall {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0) rotate(0deg);
+      }
+
+      12% {
+        opacity: 0.75;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(var(--drift), 110vh, 0) rotate(540deg);
+      }
+    }
+
+    @keyframes paperStarTwinkle {
+      0%,
+      100% {
+        opacity: 0.15;
+        transform: scale(0.6);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.55);
+      }
+    }
+
+    @keyframes paperSideHeart {
+      0%,
+      100% {
+        opacity: 0.32;
+        transform: translate3d(0, 0, 0) rotate(45deg) scale(0.9);
+      }
+
+      50% {
+        opacity: 0.9;
+        transform: translate3d(var(--x), var(--y), 0) rotate(68deg) scale(1.08);
+      }
+    }
+
+    @keyframes paperButterflyFly {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) rotate(-8deg);
+      }
+
+      30% {
+        transform: translate3d(var(--x1), var(--y1), 0) rotate(10deg);
+      }
+
+      62% {
+        transform: translate3d(var(--x2), var(--y2), 0) rotate(-7deg);
+      }
+
+      82% {
+        transform: translate3d(var(--x3), var(--y3), 0) rotate(8deg);
+      }
+    }
+
+    @keyframes paperBowFloat {
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: translateY(0) rotate(-8deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateY(-14px) rotate(8deg);
+      }
+    }
+
+    @keyframes recordSpin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes cursorStarPulse {
+      0%,
+      100% {
+        transform: scale(0.9) rotate(0deg);
+        filter: brightness(0.95);
+      }
+
+      50% {
+        transform: scale(1.12) rotate(14deg);
+        filter: brightness(1.16);
+      }
+    }
+
+    @keyframes dustFade {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(var(--dust-x), var(--dust-y), 0) scale(0.1);
+      }
+    }
+
+    @keyframes dustStarFade {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(var(--dust-x), var(--dust-y), 0) rotate(90deg) scale(0.15);
+      }
+    }
+
+    @keyframes clickStarBurst {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(0.3) rotate(0deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform:
+          translate3d(var(--click-x), var(--click-y), 0)
+          scale(1.2)
+          rotate(140deg);
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .music-dock {
+        right: 10px;
+        top: auto;
+        bottom: 12px;
+        width: 250px;
+        transform: translateX(30px);
+      }
+
+      .music-dock.is-visible {
+        transform: translateX(0);
+      }
+
+      .music-player-shell {
+        grid-template-columns: 62px minmax(0, 1fr) 36px;
+        padding: 10px;
+      }
+
+      .record-player {
+        width: 62px;
+        height: 62px;
+      }
+
+      .record {
+        width: 43px;
+        height: 43px;
+      }
+
+      .record-label {
+        width: 19px;
+        height: 19px;
+        font-size: 4px;
+      }
+
+      .tonearm {
+        height: 34px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .loader-screen {
+        padding: 28px 20px;
+        border-radius: 26px;
+      }
+
+      .preview-screen {
+        padding: 30px 22px;
+        border-radius: 26px;
+      }
+
+      .loader-title,
+      .preview-title {
+        font-size: clamp(40px, 12vw, 58px);
+      }
+
+      .loader-emblem {
+        width: 100px;
+        height: 100px;
+      }
+
+      .heart-button-wrap {
+        width: 128px;
+        height: 128px;
+        margin-top: 28px;
+      }
+
+      .heart-button {
+        width: 92px;
+        height: 92px;
+      }
+
+      .heart-button::before {
+        font-size: 40px;
+        line-height: 92px;
+      }
+
+      .hero {
+        padding:
+          max(10px, env(safe-area-inset-top))
+          8px
+          max(10px, env(safe-area-inset-bottom));
+        gap: 7px;
+      }
+
+      .hero-title {
+        font-size: clamp(32px, 10.4vw, 48px);
+      }
+
+      .hero-script {
+        font-size: clamp(25px, 8vw, 38px);
+      }
+
+      .hero-copy {
+        max-width: 340px;
+        margin-top: 4px;
+        font-size: 11px;
+      }
+
+      .hero-frame {
+        height: min(61svh, 560px);
+        border-radius: 18px;
+      }
+
+      .hero-aura {
+        inset: -20px;
+      }
+
+      .hero-footer {
+        font-size: 7px;
+      }
+
+      .floating-heart:nth-of-type(n + 11),
+      .floating-butterfly:nth-of-type(n + 6),
+      .star-dot:nth-of-type(n + 10) {
+        display: none;
+      }
+
+      .paper-section {
+        height: 215svh;
+      }
+
+      .paper-heading {
+        top: 8px;
+        width: calc(100% - 14px);
+        padding: 8px 12px 10px;
+        border-radius: 17px;
+      }
+
+      .paper-heading .paper-eyebrow {
+        font-size: 7px;
+      }
+
+      .paper-title {
+        font-size: clamp(30px, 8vw, 40px);
+      }
+
+      .paper-stage {
+        width: min(94vw, 510px);
+        height: min(75svh, 650px);
+        margin-top: 66px;
+      }
+
+      .love-paper {
+        border-width: 3px;
+      }
+
+      .paper-content {
+        padding: 34px 21px 28px;
+      }
+
+      .paper-letter-title {
+        font-size: clamp(30px, 8vw, 39px);
+      }
+
+      .letter-line {
+        margin-bottom: 10px;
+        font-size: clamp(11px, 3.15vw, 14px);
+        line-height: 1.55;
+      }
+
+      .paper-date {
+        font-size: 9px;
+      }
+
+      .paper-heart {
+        font-size: 27px;
+      }
+
+      .paper-signature {
+        font-size: clamp(23px, 7vw, 31px);
+      }
+
+      .paper-progress-ui {
+        bottom: 6px;
+      }
+
+      .music-dock {
+        right: 8px;
+        bottom: 8px;
+        width: 220px;
+      }
+
+      .music-player-shell {
+        grid-template-columns: 52px minmax(0, 1fr) 32px;
+        gap: 8px;
+        padding: 8px;
+        border-radius: 17px;
+      }
+
+      .record-player {
+        width: 52px;
+        height: 52px;
+        border-radius: 13px;
+      }
+
+      .turntable {
+        inset: 4px;
+      }
+
+      .record {
+        left: 5px;
+        top: 5px;
+        width: 35px;
+        height: 35px;
+      }
+
+      .record-label {
+        width: 16px;
+        height: 16px;
+      }
+
+      .tonearm {
+        right: 3px;
+        top: 5px;
+        height: 29px;
+      }
+
+      .music-title {
+        font-size: 9px;
+      }
+
+      .music-status,
+      .music-eyebrow {
+        font-size: 6px;
+      }
+
+      .music-toggle {
+        width: 30px;
+        height: 30px;
+      }
+
+      .paper-butterfly:nth-of-type(n + 2),
+      .paper-side-heart:nth-of-type(n + 4),
+      .paper-petal:nth-of-type(n + 7) {
+        display: none;
+      }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .star-cursor,
+      .cursor-dust,
+      .cursor-dust-star,
+      .click-star {
+        display: none !important;
+      }
+
+      body,
+      body button,
+      body a {
+        cursor: auto !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .paper-section {
+        height: auto;
+        min-height: 100svh;
+      }
+
+      .paper-sticky {
+        position: relative;
+        min-height: 100svh;
+      }
+
+      .paper-intro-content,
+      .letter-line,
+      .paper-signoff {
+        opacity: 1 !important;
+        filter: none !important;
+        transform: none !important;
+      }
+
+      .record {
+        animation: none !important;
+      }
+
+      .star-cursor,
+      .cursor-dust,
+      .cursor-dust-star,
+      .click-star {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="is-locked">
+  <div class="intro" id="intro">
+    <div class="intro-orb intro-orb--one" aria-hidden="true"></div>
+    <div class="intro-orb intro-orb--two" aria-hidden="true"></div>
+    <div class="intro-orb intro-orb--three" aria-hidden="true"></div>
+
+    <span class="intro-spark" style="left: 10%; top: 17%; --size: 4px; --duration: 3s; --delay: -1s;"></span>
+    <span class="intro-spark" style="left: 22%; top: 74%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
+    <span class="intro-spark" style="left: 48%; top: 12%; --size: 4px; --duration: 3.4s; --delay: -1.6s;"></span>
+    <span class="intro-spark" style="left: 67%; top: 77%; --size: 3px; --duration: 2.8s; --delay: -0.8s;"></span>
+    <span class="intro-spark" style="left: 89%; top: 28%; --size: 4px; --duration: 3.2s; --delay: -2.2s;"></span>
+
+    <span class="intro-float-heart" style="left: 7%; --size: 10px; --duration: 13s; --delay: -4s; --drift: 36px;"></span>
+    <span class="intro-float-heart" style="left: 25%; --size: 8px; --duration: 11s; --delay: -8s; --drift: -28px;"></span>
+    <span class="intro-float-heart" style="left: 53%; --size: 13px; --duration: 15s; --delay: -11s; --drift: 40px;"></span>
+    <span class="intro-float-heart" style="left: 75%; --size: 9px; --duration: 12s; --delay: -6s; --drift: -35px;"></span>
+    <span class="intro-float-heart" style="left: 92%; --size: 11px; --duration: 14s; --delay: -10s; --drift: 28px;"></span>
+
+    <div class="loader-screen" id="loaderScreen">
+      <div class="loader-emblem" aria-hidden="true">
+        <span class="loader-mini-star loader-mini-star--one"></span>
+        <span class="loader-mini-star loader-mini-star--two"></span>
+        <span class="loader-mini-star loader-mini-star--three"></span>
+
+        <div class="loader-heart"></div>
       </div>
 
-      <div class="paper-progress-ui" id="paperProgressUI">
-        <div class="paper-progress-track">
-          <div class="paper-progress-fill" id="paperProgressFill"></div>
+      <h1 class="loader-title">
+        A little magic is loading
+      </h1>
+
+      <p class="loader-copy" id="loaderMessage">
+        Gathering our favorite memories
+      </p>
+
+      <div class="loader-progress">
+        <div class="loader-progress-track">
+          <div class="loader-progress-bar" id="loaderProgressBar"></div>
         </div>
 
-        <p class="paper-scroll-note" id="paperScrollNote">
-          Scroll slowly to reveal the letter
-        </p>
+        <div class="loader-progress-meta">
+          <span id="loaderStatus">Creating something special</span>
+          <span id="loaderPercent">0%</span>
+        </div>
       </div>
     </div>
+
+    <div class="preview-screen" id="previewScreen">
+      <p class="preview-eyebrow">
+        A little something made with love
+      </p>
+
+      <h2 class="preview-title">
+        Your surprise is ready
+      </h2>
+
+      <p class="preview-copy">
+        I made something special to celebrate us and all the memories
+        that mean so much to me.
+      </p>
+
+      <div class="heart-button-wrap">
+        <button
+          class="heart-button"
+          id="openSurpriseButton"
+          type="button"
+          aria-label="Open the anniversary surprise"
+        ></button>
+      </div>
+
+      <p class="preview-label">
+        Tap the heart to preview your surprise
+      </p>
+    </div>
   </div>
-</section>
+
+  <main class="site" id="site">
+    <section class="hero-section" aria-labelledby="heroTitle">
+      <div class="background-effects" aria-hidden="true">
+        <span class="hero-cloud" style="left: -8%; top: 18%; --width: 480px; --opacity: 0.25; --duration: 13s;"></span>
+        <span class="hero-cloud" style="right: -10%; top: 39%; --width: 560px; --opacity: 0.22; --duration: 16s;"></span>
+        <span class="hero-cloud" style="left: 27%; bottom: -6%; --width: 650px; --opacity: 0.18; --duration: 18s;"></span>
+
+        <span class="floating-heart" style="left: 3%; --size: 9px; --duration: 13s; --delay: -4s; --drift: 50px;"></span>
+        <span class="floating-heart" style="left: 9%; --size: 13px; --duration: 16s; --delay: -9s; --drift: -34px;"></span>
+        <span class="floating-heart" style="left: 17%; --size: 7px; --duration: 11s; --delay: -7s; --drift: 24px;"></span>
+        <span class="floating-heart" style="left: 27%; --size: 11px; --duration: 15s; --delay: -12s; --drift: -42px;"></span>
+        <span class="floating-heart" style="left: 38%; --size: 8px; --duration: 12s; --delay: -3s; --drift: 28px;"></span>
+        <span class="floating-heart" style="left: 49%; --size: 14px; --duration: 18s; --delay: -15s; --drift: -46px;"></span>
+        <span class="floating-heart" style="left: 61%; --size: 9px; --duration: 13s; --delay: -6s; --drift: 34px;"></span>
+        <span class="floating-heart" style="left: 72%; --size: 12px; --duration: 16s; --delay: -11s; --drift: -38px;"></span>
+        <span class="floating-heart" style="left: 82%; --size: 8px; --duration: 12s; --delay: -5s; --drift: 30px;"></span>
+        <span class="floating-heart" style="left: 92%; --size: 14px; --duration: 17s; --delay: -13s; --drift: -44px;"></span>
+
+        <span class="floating-butterfly" style="left: 5%; top: 22%; --size: 25px; --duration: 11s; --delay: -3s; --x1: 45px; --y1: -30px; --x2: 80px; --y2: 12px; --x3: 30px; --y3: 52px; --x4: -18px; --y4: 18px;">🦋</span>
+        <span class="floating-butterfly" style="right: 6%; top: 18%; --size: 29px; --duration: 12s; --delay: -7s; --x1: -52px; --y1: -18px; --x2: -88px; --y2: 22px; --x3: -38px; --y3: 60px; --x4: 18px; --y4: 24px;">🦋</span>
+        <span class="floating-butterfly" style="left: 12%; bottom: 18%; --size: 21px; --duration: 10s; --delay: -5s; --x1: 40px; --y1: -48px; --x2: 78px; --y2: -75px; --x3: 28px; --y3: -100px; --x4: -20px; --y4: -55px;">🦋</span>
+        <span class="floating-butterfly" style="right: 14%; bottom: 15%; --size: 23px; --duration: 11.5s; --delay: -2s; --x1: -42px; --y1: -48px; --x2: -76px; --y2: -82px; --x3: -24px; --y3: -108px; --x4: 22px; --y4: -54px;">🦋</span>
+        <span class="floating-butterfly" style="left: 47%; top: 8%; --size: 18px; --duration: 9s; --delay: -4s; --x1: 26px; --y1: 18px; --x2: -15px; --y2: 46px; --x3: 32px; --y3: 70px; --x4: -22px; --y4: 28px;">🦋</span>
+        <span class="floating-butterfly" style="right: 30%; top: 31%; --size: 16px; --duration: 8.5s; --delay: -6s; --x1: -30px; --y1: -22px; --x2: 22px; --y2: -46px; --x3: 52px; --y3: -10px; --x4: 16px; --y4: 28px;">🦋</span>
+
+        <span class="floating-ring" style="left: 4%; top: 46%; --size: 54px; --duration: 7s; --delay: -2s;"></span>
+        <span class="floating-ring" style="right: 5%; top: 61%; --size: 68px; --duration: 8.5s; --delay: -5s;"></span>
+        <span class="floating-ring" style="left: 23%; top: 10%; --size: 32px; --duration: 6.5s; --delay: -4s;"></span>
+
+        <span class="floating-diamond" style="left: 8%; top: 67%; --size: 14px; --duration: 6s; --delay: -2s;"></span>
+        <span class="floating-diamond" style="right: 9%; top: 33%; --size: 17px; --duration: 7s; --delay: -4s;"></span>
+        <span class="floating-diamond" style="left: 73%; top: 9%; --size: 11px; --duration: 5.5s; --delay: -3s;"></span>
+
+        <span class="star-dot" style="left: 4%; top: 12%; --size: 4px; --duration: 3.2s; --delay: -1s;"></span>
+        <span class="star-dot" style="left: 13%; top: 38%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
+        <span class="star-dot" style="left: 21%; top: 76%; --size: 4px; --duration: 3.5s; --delay: -1.4s;"></span>
+        <span class="star-dot" style="left: 31%; top: 14%; --size: 3px; --duration: 2.6s; --delay: -1.8s;"></span>
+        <span class="star-dot" style="left: 43%; top: 83%; --size: 4px; --duration: 3.4s; --delay: -2.7s;"></span>
+        <span class="star-dot" style="left: 58%; top: 11%; --size: 3px; --duration: 2.9s; --delay: -1.1s;"></span>
+        <span class="star-dot" style="left: 68%; top: 72%; --size: 4px; --duration: 3.1s; --delay: -2.2s;"></span>
+        <span class="star-dot" style="left: 79%; top: 22%; --size: 3px; --duration: 2.8s; --delay: -1.5s;"></span>
+        <span class="star-dot" style="left: 91%; top: 58%; --size: 4px; --duration: 3.6s; --delay: -2.4s;"></span>
+      </div>
+
+      <div class="hero">
+        <header class="hero-header">
+          <p class="hero-eyebrow">
+            A Love Worth Celebrating
+          </p>
+
+          <h1 class="hero-title" id="heroTitle">
+            Happy Anniversary
+          </h1>
+
+          <p class="hero-script">
+            To my beautiful girl
+          </p>
+
+          <p class="hero-copy">
+            Every moment with you is my favorite, and every memory we create
+            becomes another beautiful part of the life I always want to share with you.
+          </p>
+        </header>
+
+        <div class="hero-stage">
+          <div class="hero-float">
+            <div class="hero-aura" aria-hidden="true"></div>
+
+            <div class="hero-frame">
+              <img
+                class="hero-image"
+                src="https://raw.githubusercontent.com/Friedazebalili/anniversary/1cee58e2b08a23aad86acdddce2020f1679450bb/assets/anniversary.png"
+                alt="A romantic anniversary collage featuring the couple and portraits"
+                width="1122"
+                height="1402"
+                fetchpriority="high"
+                decoding="async"
+              >
+
+              <div class="hero-gloss" aria-hidden="true"></div>
+              <div class="hero-glow" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-footer" aria-hidden="true">
+          <span class="hero-footer-dot"></span>
+          <span>Made with all my love</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section" id="paperSection" aria-labelledby="paperTitle">
+      <div class="paper-sticky">
+        <div class="paper-ambient" aria-hidden="true">
+          <span class="paper-orb paper-orb--one"></span>
+          <span class="paper-orb paper-orb--two"></span>
+
+          <span class="paper-petal" style="left: 5%; --size: 12px; --duration: 13s; --delay: -3s; --drift: 70px;"></span>
+          <span class="paper-petal" style="left: 15%; --size: 9px; --duration: 11s; --delay: -7s; --drift: -48px;"></span>
+          <span class="paper-petal" style="left: 28%; --size: 14px; --duration: 15s; --delay: -10s; --drift: 62px;"></span>
+          <span class="paper-petal" style="left: 44%; --size: 8px; --duration: 12s; --delay: -4s; --drift: -36px;"></span>
+          <span class="paper-petal" style="left: 62%; --size: 13px; --duration: 14s; --delay: -8s; --drift: 54px;"></span>
+          <span class="paper-petal" style="left: 79%; --size: 10px; --duration: 12s; --delay: -5s; --drift: -48px;"></span>
+          <span class="paper-petal" style="left: 93%; --size: 13px; --duration: 15s; --delay: -12s; --drift: 44px;"></span>
+
+          <span class="paper-star" style="left: 8%; top: 18%; --size: 4px; --duration: 3.2s; --delay: -1s;"></span>
+          <span class="paper-star" style="left: 17%; top: 68%; --size: 3px; --duration: 2.7s; --delay: -2s;"></span>
+          <span class="paper-star" style="left: 31%; top: 12%; --size: 4px; --duration: 3.5s; --delay: -1.5s;"></span>
+          <span class="paper-star" style="left: 69%; top: 15%; --size: 3px; --duration: 2.9s; --delay: -2.3s;"></span>
+          <span class="paper-star" style="left: 82%; top: 72%; --size: 4px; --duration: 3.4s; --delay: -1.2s;"></span>
+          <span class="paper-star" style="left: 93%; top: 31%; --size: 3px; --duration: 2.6s; --delay: -1.8s;"></span>
+
+          <span class="paper-side-heart" style="left: 7%; top: 42%; --size: 15px; --duration: 6s; --delay: -2s; --x: 18px; --y: -26px;"></span>
+          <span class="paper-side-heart" style="right: 7%; top: 48%; --size: 13px; --duration: 7s; --delay: -4s; --x: -18px; --y: -30px;"></span>
+          <span class="paper-side-heart" style="left: 15%; bottom: 15%; --size: 11px; --duration: 6.5s; --delay: -3s; --x: 22px; --y: -28px;"></span>
+          <span class="paper-side-heart" style="right: 16%; bottom: 17%; --size: 15px; --duration: 7.5s; --delay: -5s; --x: -22px; --y: -34px;"></span>
+
+          <span class="paper-butterfly" style="left: 6%; top: 25%; --size: 28px; --duration: 9s; --delay: -3s; --x1: 32px; --y1: -20px; --x2: 58px; --y2: 20px; --x3: 16px; --y3: 48px;">🦋</span>
+          <span class="paper-butterfly" style="right: 7%; top: 28%; --size: 25px; --duration: 10s; --delay: -6s; --x1: -35px; --y1: -16px; --x2: -60px; --y2: 24px; --x3: -18px; --y3: 50px;">🦋</span>
+
+          <span class="paper-bow" style="left: 7%; bottom: 31%; --size: 30px; --duration: 7s; --delay: -2s;">🎀</span>
+          <span class="paper-bow" style="right: 8%; bottom: 28%; --size: 27px; --duration: 8s; --delay: -5s;">🎀</span>
+        </div>
+
+        <div class="paper-scene">
+          <header class="paper-heading" id="paperHeading">
+            <p class="paper-eyebrow">
+              A little letter from my heart
+            </p>
+
+            <h2 class="paper-title" id="paperTitle">
+              A love letter for you
+            </h2>
+          </header>
+
+          <div class="paper-stage" id="paperStage">
+            <div class="paper-glow" aria-hidden="true"></div>
+
+            <article class="love-paper" id="lovePaper">
+              <div class="paper-corner paper-corner--top-left" aria-hidden="true"></div>
+              <div class="paper-corner paper-corner--top-right" aria-hidden="true"></div>
+              <div class="paper-corner paper-corner--bottom-left" aria-hidden="true"></div>
+              <div class="paper-corner paper-corner--bottom-right" aria-hidden="true"></div>
+
+              <div class="paper-watermark" aria-hidden="true">
+                ♡
+              </div>
+
+              <div class="paper-content">
+                <div class="paper-intro-content" data-reveal="0.06">
+                  <p class="paper-date-top">
+                    Written with love
+                  </p>
+
+                  <h3 class="paper-letter-title">
+                    My Beautiful Girl,
+                  </h3>
+
+                  <div class="paper-divider" aria-hidden="true"></div>
+                </div>
+
+                <div class="letter-lines">
+                  <p class="letter-line" data-reveal="0.16">
+                    From the moment you came into my life, everything started feeling softer,
+                    brighter, and more meaningful.
+                  </p>
+
+                  <p class="letter-line" data-reveal="0.29">
+                    You turned ordinary days into memories I want to keep forever,
+                    and you made love feel like the safest place I could ever belong to.
+                  </p>
+
+                  <p class="letter-line" data-reveal="0.42">
+                    I love your smile, your warmth, your heart, and all the little things
+                    about you that make you so beautifully you.
+                  </p>
+
+                  <p class="letter-line" data-reveal="0.55">
+                    Thank you for every laugh, every late night, every sweet moment,
+                    and every memory we have made together.
+                  </p>
+
+                  <p class="letter-line" data-reveal="0.68">
+                    No matter where life takes us, I hope we keep choosing each other,
+                    keep growing together, and keep making our story even more beautiful.
+                  </p>
+
+                  <p class="letter-line" data-reveal="0.81">
+                    Happy anniversary, my love. You will always be one of the most precious
+                    parts of my world.
+                  </p>
+                </div>
+
+                <div class="paper-signoff" data-reveal="0.91">
+                  <span class="paper-date">
+                    Our Anniversary
+                  </span>
+
+                  <span class="paper-heart">
+                    ♡
+                  </span>
+
+                  <span class="paper-signature">
+                    With all my love
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="paper-progress-ui" id="paperProgressUI">
+            <div class="paper-progress-track">
+              <div class="paper-progress-fill" id="paperProgressFill"></div>
+            </div>
+
+            <p class="paper-scroll-note" id="paperScrollNote">
+              Scroll slowly to reveal the letter
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="next-section" aria-labelledby="nextTitle">
+      <div class="next-card">
+        <p class="next-eyebrow">
+          And there is more
+        </p>
+
+        <h2 class="next-title" id="nextTitle">
+          Happy Anniversary ❤️
+        </h2>
+
+        <p class="next-copy">
+          Every part of this was made for you, with love.
+        </p>
+      </div>
+    </section>
+
+    <div class="music-dock" id="musicDock">
+      <div class="music-player-shell">
+        <button
+          class="record-player"
+          id="recordPlayerButton"
+          type="button"
+          aria-label="Pause anniversary music"
+          aria-pressed="true"
+        >
+          <span class="turntable">
+            <span class="record">
+              <span class="record-label">
+                <span>our song</span>
+                <span class="record-center"></span>
+              </span>
+            </span>
+
+            <span class="tonearm">
+              <span class="tonearm-head"></span>
+            </span>
+
+            <span class="player-light"></span>
+          </span>
+        </button>
+
+        <div class="music-information">
+          <span class="music-eyebrow">
+            Now playing
+          </span>
+
+          <strong class="music-title">
+            Our anniversary song
+          </strong>
+
+          <span class="music-status" id="musicStatus">
+            Playing from 2:28
+          </span>
+        </div>
+
+        <button
+          class="music-toggle"
+          id="musicToggle"
+          type="button"
+          aria-label="Pause music"
+          aria-pressed="true"
+        >
+          <span class="music-toggle-icon" id="musicToggleIcon">
+            Ⅱ
+          </span>
+        </button>
+      </div>
+
+      <div class="youtube-audio-player" aria-hidden="true">
+        <div id="youtubePlayer"></div>
+      </div>
+    </div>
+  </main>
+
+  <div class="star-cursor" id="starCursor" aria-hidden="true">
+    <div class="star-cursor-shape"></div>
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const body = document.body;
+      const intro = document.getElementById("intro");
+      const loaderScreen = document.getElementById("loaderScreen");
+      const previewScreen = document.getElementById("previewScreen");
+      const openSurpriseButton = document.getElementById("openSurpriseButton");
+      const site = document.getElementById("site");
+
+      const loaderProgressBar = document.getElementById("loaderProgressBar");
+      const loaderPercent = document.getElementById("loaderPercent");
+      const loaderStatus = document.getElementById("loaderStatus");
+      const loaderMessage = document.getElementById("loaderMessage");
+
+      const paperSection = document.getElementById("paperSection");
+      const paperStage = document.getElementById("paperStage");
+      const paperHeading = document.getElementById("paperHeading");
+      const paperProgressUI = document.getElementById("paperProgressUI");
+      const paperProgressFill = document.getElementById("paperProgressFill");
+      const paperScrollNote = document.getElementById("paperScrollNote");
+
+      const paperRevealItems = Array.from(
+        document.querySelectorAll("#paperSection [data-reveal]")
+      );
+
+      const musicDock = document.getElementById("musicDock");
+      const recordPlayerButton = document.getElementById("recordPlayerButton");
+      const musicToggle = document.getElementById("musicToggle");
+      const musicToggleIcon = document.getElementById("musicToggleIcon");
+      const musicStatus = document.getElementById("musicStatus");
+
+      const starCursor = document.getElementById("starCursor");
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      const finePointer = window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+      ).matches;
+
+      let siteOpened = false;
+      let scrollTicking = false;
+
+      let youtubePlayer = null;
+      let youtubeApiReady = false;
+      let musicRequested = false;
+      let musicPlaying = false;
+
+      const wait = (duration) =>
+        new Promise((resolve) => {
+          window.setTimeout(resolve, duration);
+        });
+
+      const clamp = (value, minimum, maximum) =>
+        Math.min(Math.max(value, minimum), maximum);
+
+      const runLoader = async () => {
+        const loaderSteps = [
+          {
+            progress: 7,
+            status: "Gathering memories",
+            message: "Collecting all the little moments I love"
+          },
+          {
+            progress: 16,
+            status: "Adding pink magic",
+            message: "Sprinkling in a little sparkle"
+          },
+          {
+            progress: 28,
+            status: "Polishing the stars",
+            message: "Making every detail feel special"
+          },
+          {
+            progress: 42,
+            status: "Warming the memories",
+            message: "Filling the surprise with love"
+          },
+          {
+            progress: 57,
+            status: "Releasing butterflies",
+            message: "Letting the magic come alive"
+          },
+          {
+            progress: 71,
+            status: "Finishing touches",
+            message: "Making sure everything feels perfect"
+          },
+          {
+            progress: 84,
+            status: "Adding one more heart",
+            message: "Your surprise is almost ready"
+          },
+          {
+            progress: 94,
+            status: "One last sparkle",
+            message: "Just a little longer"
+          },
+          {
+            progress: 100,
+            status: "Ready",
+            message: "Made especially for you"
+          }
+        ];
+
+        for (const step of loaderSteps) {
+          loaderProgressBar.style.width = `${step.progress}%`;
+          loaderPercent.textContent = `${step.progress}%`;
+          loaderStatus.textContent = step.status;
+          loaderMessage.textContent = step.message;
+
+          await wait(780 + Math.random() * 380);
+        }
+
+        await wait(900);
+
+        loaderScreen.classList.add("is-hidden");
+
+        await wait(500);
+
+        previewScreen.classList.add("is-visible");
+
+        window.setTimeout(() => {
+          openSurpriseButton.focus({
+            preventScroll: true
+          });
+        }, 500);
+      };
+
+      const updateMusicInterface = () => {
+        musicDock.classList.toggle(
+          "is-playing",
+          musicPlaying
+        );
+
+        musicToggleIcon.textContent =
+          musicPlaying ? "Ⅱ" : "▶";
+
+        musicStatus.textContent =
+          musicPlaying
+            ? "Playing from 2:28"
+            : "Music paused";
+
+        musicToggle.setAttribute(
+          "aria-label",
+          musicPlaying
+            ? "Pause music"
+            : "Play music"
+        );
+
+        musicToggle.setAttribute(
+          "aria-pressed",
+          String(musicPlaying)
+        );
+
+        recordPlayerButton.setAttribute(
+          "aria-label",
+          musicPlaying
+            ? "Pause anniversary music"
+            : "Play anniversary music"
+        );
+
+        recordPlayerButton.setAttribute(
+          "aria-pressed",
+          String(musicPlaying)
+        );
+      };
+
+      const createYouTubePlayer = () => {
+        if (
+          youtubePlayer ||
+          !youtubeApiReady ||
+          typeof window.YT === "undefined"
+        ) {
+          return;
+        }
+
+        youtubePlayer = new window.YT.Player(
+          "youtubePlayer",
+          {
+            width: 200,
+            height: 113,
+            videoId: "V4qjAyb4lNI",
+            playerVars: {
+              autoplay: 1,
+              start: 148,
+              controls: 0,
+              rel: 0,
+              playsinline: 1,
+              enablejsapi: 1,
+              loop: 1,
+              playlist: "V4qjAyb4lNI"
+            },
+            events: {
+              onReady: (event) => {
+                event.target.seekTo(148, true);
+
+                if (musicRequested) {
+                  event.target.playVideo();
+                }
+              },
+
+              onStateChange: (event) => {
+                if (
+                  event.data ===
+                  window.YT.PlayerState.PLAYING
+                ) {
+                  musicPlaying = true;
+                }
+
+                if (
+                  event.data ===
+                    window.YT.PlayerState.PAUSED ||
+                  event.data ===
+                    window.YT.PlayerState.ENDED
+                ) {
+                  musicPlaying = false;
+                }
+
+                updateMusicInterface();
+              },
+
+              onError: () => {
+                musicPlaying = false;
+                musicStatus.textContent =
+                  "Music unavailable";
+                updateMusicInterface();
+              }
+            }
+          }
+        );
+      };
+
+      window.onYouTubeIframeAPIReady = () => {
+        youtubeApiReady = true;
+
+        if (musicRequested) {
+          createYouTubePlayer();
+        }
+      };
+
+      const loadYouTubeAPI = () => {
+        if (
+          document.querySelector(
+            'script[src="https://www.youtube.com/iframe_api"]'
+          )
+        ) {
+          return;
+        }
+
+        const script =
+          document.createElement("script");
+
+        script.src =
+          "https://www.youtube.com/iframe_api";
+
+        script.async = true;
+
+        document.head.appendChild(script);
+      };
+
+      const startAnniversaryMusic = () => {
+        musicRequested = true;
+        musicPlaying = true;
+
+        musicDock.classList.add("is-visible");
+        updateMusicInterface();
+
+        loadYouTubeAPI();
+
+        if (youtubeApiReady) {
+          createYouTubePlayer();
+
+          if (
+            youtubePlayer &&
+            typeof youtubePlayer.playVideo === "function"
+          ) {
+            youtubePlayer.seekTo(148, true);
+            youtubePlayer.playVideo();
+          }
+        }
+      };
+
+      const toggleAnniversaryMusic = () => {
+        if (
+          !youtubePlayer ||
+          typeof youtubePlayer.getPlayerState !== "function"
+        ) {
+          startAnniversaryMusic();
+          return;
+        }
+
+        const playerState =
+          youtubePlayer.getPlayerState();
+
+        if (
+          playerState ===
+          window.YT.PlayerState.PLAYING
+        ) {
+          youtubePlayer.pauseVideo();
+          musicPlaying = false;
+        } else {
+          youtubePlayer.playVideo();
+          musicPlaying = true;
+        }
+
+        updateMusicInterface();
+      };
+
+      const openSite = async (event) => {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        if (siteOpened) {
+          return;
+        }
+
+        siteOpened = true;
+        openSurpriseButton.disabled = true;
+
+        site.classList.add("is-visible");
+        startAnniversaryMusic();
+
+        body.classList.remove("is-locked");
+        intro.classList.add("is-closing");
+
+        window.scrollTo({
+          top: 0,
+          behavior: "auto"
+        });
+
+        await wait(950);
+
+        intro.hidden = true;
+      };
+
+      openSurpriseButton.addEventListener(
+        "click",
+        openSite
+      );
+
+      openSurpriseButton.addEventListener(
+        "keydown",
+        (event) => {
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            openSite(event);
+          }
+        }
+      );
+
+      musicToggle.addEventListener(
+        "click",
+        toggleAnniversaryMusic
+      );
+
+      recordPlayerButton.addEventListener(
+        "click",
+        toggleAnniversaryMusic
+      );
+
+      const updatePaperSection = () => {
+        scrollTicking = false;
+
+        if (!paperSection) {
+          return;
+        }
+
+        const sectionRect =
+          paperSection.getBoundingClientRect();
+
+        const scrollableDistance =
+          paperSection.offsetHeight -
+          window.innerHeight;
+
+        const progress =
+          scrollableDistance > 0
+            ? clamp(
+                -sectionRect.top /
+                  scrollableDistance,
+                0,
+                1
+              )
+            : 1;
+
+        const entryProgress =
+          clamp(
+            progress / 0.14,
+            0,
+            1
+          );
+
+        const exitProgress =
+          clamp(
+            (progress - 0.92) /
+              0.08,
+            0,
+            1
+          );
+
+        const paperScale =
+          0.965 +
+          entryProgress * 0.035 -
+          exitProgress * 0.018;
+
+        const paperY =
+          10 -
+          entryProgress * 10 -
+          exitProgress * 22;
+
+        paperStage.style.transform =
+          `translateY(${paperY}px) scale(${paperScale})`;
+
+        paperStage.style.opacity =
+          String(
+            1 -
+            exitProgress * 0.14
+          );
+
+        paperHeading.style.opacity =
+          String(
+            1 -
+            exitProgress * 0.84
+          );
+
+        paperHeading.style.transform =
+          `translateX(-50%) translateY(${
+            -exitProgress * 16
+          }px)`;
+
+        paperProgressFill.style.width =
+          `${Math.round(progress * 100)}%`;
+
+        paperProgressUI.style.opacity =
+          String(
+            1 -
+            exitProgress * 0.8
+          );
+
+        paperRevealItems.forEach((item) => {
+          const revealPoint =
+            Number.parseFloat(
+              item.dataset.reveal || "0"
+            );
+
+          if (progress >= revealPoint) {
+            item.classList.add(
+              "is-revealed"
+            );
+          } else {
+            item.classList.remove(
+              "is-revealed"
+            );
+          }
+        });
+
+        if (progress < 0.12) {
+          paperScrollNote.textContent =
+            "Scroll slowly to begin the letter";
+        } else if (progress < 0.88) {
+          paperScrollNote.textContent =
+            "Keep scrolling to reveal every word";
+        } else {
+          paperScrollNote.textContent =
+            "The whole letter is now yours";
+        }
+      };
+
+      const requestPaperUpdate = () => {
+        if (scrollTicking) {
+          return;
+        }
+
+        scrollTicking = true;
+
+        window.requestAnimationFrame(
+          updatePaperSection
+        );
+      };
+
+      window.addEventListener(
+        "scroll",
+        requestPaperUpdate,
+        {
+          passive: true
+        }
+      );
+
+      window.addEventListener(
+        "resize",
+        requestPaperUpdate,
+        {
+          passive: true
+        }
+      );
+
+      updatePaperSection();
+      runLoader();
+
+      if (
+        finePointer &&
+        !prefersReducedMotion &&
+        starCursor
+      ) {
+        body.classList.add(
+          "has-star-cursor"
+        );
+
+        let targetX = -100;
+        let targetY = -100;
+        let currentX = -100;
+        let currentY = -100;
+        let cursorVisible = false;
+        let lastDustTime = 0;
+
+        const dustColors = [
+          "#ffd4e7",
+          "#ff9bc5",
+          "#ff71ad",
+          "#f5c7ff",
+          "#fff3fa"
+        ];
+
+        const createDustParticle = (
+          x,
+          y,
+          index
+        ) => {
+          const dust =
+            document.createElement("span");
+
+          dust.className =
+            index % 3 === 0
+              ? "cursor-dust-star"
+              : "cursor-dust";
+
+          dust.style.left =
+            `${
+              x -
+              2 +
+              (-5 + Math.random() * 10)
+            }px`;
+
+          dust.style.top =
+            `${
+              y -
+              2 +
+              (-5 + Math.random() * 10)
+            }px`;
+
+          dust.style.setProperty(
+            "--size",
+            `${2 + Math.random() * 4.5}px`
+          );
+
+          dust.style.setProperty(
+            "--duration",
+            `${
+              0.52 +
+              Math.random() * 0.48
+            }s`
+          );
+
+          dust.style.setProperty(
+            "--dust-x",
+            `${
+              -18 +
+              Math.random() * 36
+            }px`
+          );
+
+          dust.style.setProperty(
+            "--dust-y",
+            `${
+              10 +
+              Math.random() * 28
+            }px`
+          );
+
+          dust.style.setProperty(
+            "--dust-color",
+            dustColors[
+              Math.floor(
+                Math.random() *
+                dustColors.length
+              )
+            ]
+          );
+
+          document.body.appendChild(dust);
+
+          window.setTimeout(() => {
+            dust.remove();
+          }, 1100);
+        };
+
+        const createDustTrail = (x, y) => {
+          const now = performance.now();
+
+          if (
+            now -
+              lastDustTime <
+            24
+          ) {
+            return;
+          }
+
+          lastDustTime = now;
+
+          for (
+            let index = 0;
+            index < 4;
+            index += 1
+          ) {
+            createDustParticle(
+              x - index * 3,
+              y - index * 2,
+              index
+            );
+          }
+        };
+
+        const createClickBurst = (
+          x,
+          y
+        ) => {
+          const colors = [
+            "#ffd4e7",
+            "#ff91bf",
+            "#f2c7ff",
+            "#fff3fa"
+          ];
+
+          for (
+            let index = 0;
+            index < 8;
+            index += 1
+          ) {
+            const angle =
+              (Math.PI * 2 * index) /
+              8;
+
+            const distance =
+              18 +
+              Math.random() * 28;
+
+            const star =
+              document.createElement(
+                "span"
+              );
+
+            star.className =
+              "click-star";
+
+            star.style.left =
+              `${x - 6}px`;
+
+            star.style.top =
+              `${y - 6}px`;
+
+            star.style.setProperty(
+              "--click-x",
+              `${
+                Math.cos(angle) *
+                distance
+              }px`
+            );
+
+            star.style.setProperty(
+              "--click-y",
+              `${
+                Math.sin(angle) *
+                distance
+              }px`
+            );
+
+            star.style.setProperty(
+              "--click-color",
+              colors[
+                index %
+                  colors.length
+              ]
+            );
+
+            document.body.appendChild(
+              star
+            );
+
+            window.setTimeout(() => {
+              star.remove();
+            }, 900);
+          }
+        };
+
+        const animateCursor = () => {
+          currentX +=
+            (targetX - currentX) *
+            0.24;
+
+          currentY +=
+            (targetY - currentY) *
+            0.24;
+
+          starCursor.style.transform =
+            `translate3d(${
+              currentX - 14
+            }px, ${
+              currentY - 14
+            }px, 0)`;
+
+          window.requestAnimationFrame(
+            animateCursor
+          );
+        };
+
+        window.addEventListener(
+          "pointermove",
+          (event) => {
+            targetX =
+              event.clientX;
+
+            targetY =
+              event.clientY;
+
+            if (!cursorVisible) {
+              cursorVisible = true;
+
+              starCursor.classList.add(
+                "is-visible"
+              );
+            }
+
+            createDustTrail(
+              event.clientX,
+              event.clientY
+            );
+          },
+          {
+            passive: true
+          }
+        );
+
+        document.addEventListener(
+          "pointerleave",
+          () => {
+            cursorVisible = false;
+
+            starCursor.classList.remove(
+              "is-visible"
+            );
+          }
+        );
+
+        document.addEventListener(
+          "pointerenter",
+          () => {
+            cursorVisible = true;
+
+            starCursor.classList.add(
+              "is-visible"
+            );
+          }
+        );
+
+        document.addEventListener(
+          "click",
+          (event) => {
+            createClickBurst(
+              event.clientX,
+              event.clientY
+            );
+          }
+        );
+
+        animateCursor();
+      }
+    })();
+  </script>
+</body>
+</html>
