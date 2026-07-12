@@ -2309,6 +2309,126 @@
       line-height: 1.55;
     }
 
+    .other-games-section {
+      position: relative;
+      margin-top: 42px;
+      padding: clamp(28px, 4vw, 44px);
+      overflow: hidden;
+      border: 1px solid rgba(255, 227, 240, 0.12);
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255, 139, 194, 0.14), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(202, 159, 255, 0.11), transparent 32%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.24),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .other-games-header {
+      width: min(700px, 100%);
+      margin: 0 auto 28px;
+      text-align: center;
+    }
+
+    .other-games-title {
+      margin: 0;
+      color: #ffe8f2;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.15;
+    }
+
+    .other-games-copy {
+      max-width: 590px;
+      margin: 12px auto 0;
+      color: rgba(255, 235, 244, 0.62);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .other-games-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .other-game-link {
+      position: relative;
+      min-height: 150px;
+      padding: 22px 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 226, 239, 0.12);
+      border-radius: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(255, 245, 249, 0.9);
+      text-align: center;
+      text-decoration: none;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 151, 201, 0.14), transparent 58%),
+        rgba(255, 255, 255, 0.035);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 14px 32px rgba(0, 0, 0, 0.16);
+      transition:
+        transform 0.35s var(--ease),
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .other-game-link::after {
+      content: "↗";
+      position: absolute;
+      right: 14px;
+      top: 12px;
+      color: rgba(255, 235, 244, 0.45);
+      font-size: 13px;
+    }
+
+    .other-game-link:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 183, 215, 0.32);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 151, 201, 0.22), transparent 60%),
+        rgba(255, 255, 255, 0.055);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 20px 42px rgba(0, 0, 0, 0.22),
+        0 0 24px rgba(255, 104, 170, 0.1);
+    }
+
+    .other-game-icon {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(255, 222, 237, 0.16);
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      background: linear-gradient(145deg, rgba(255, 151, 201, 0.16), rgba(255, 255, 255, 0.04));
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    }
+
+    .other-game-name {
+      color: #ffe9f3;
+      font-family: "Playfair Display", serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .other-game-description {
+      color: rgba(255, 235, 244, 0.55);
+      font-size: 10px;
+      line-height: 1.55;
+    }
+
     .date-night-footer {
       width: min(820px, 100%);
       margin: 44px auto 0;
@@ -5168,6 +5288,65 @@
             </p>
           </article>
         </div>
+
+        <section class="other-games-section" aria-labelledby="otherGamesTitle">
+          <header class="other-games-header">
+            <p class="eyebrow">More ways to play together</p>
+            <h3 class="other-games-title" id="otherGamesTitle">
+              Other Games We Can Enjoy
+            </h3>
+            <p class="other-games-copy">
+              A few more places we can visit whenever we want a fun little date night,
+              a challenge, or something chaotic to laugh about together.
+            </p>
+          </header>
+
+          <div class="other-games-grid">
+            <a
+              class="other-game-link"
+              href="https://dialed.gg/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="other-game-icon" aria-hidden="true">🎯</span>
+              <span class="other-game-name">Dialed</span>
+              <span class="other-game-description">Quick games and challenges for us to play together.</span>
+            </a>
+
+            <a
+              class="other-game-link"
+              href="https://www.geoguessr.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="other-game-icon" aria-hidden="true">🌍</span>
+              <span class="other-game-name">GeoGuessr</span>
+              <span class="other-game-description">Travel the world together and guess where we landed.</span>
+            </a>
+
+            <a
+              class="other-game-link"
+              href="https://garticphone.com/lobby"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="other-game-icon" aria-hidden="true">✏️</span>
+              <span class="other-game-name">Gartic Phone</span>
+              <span class="other-game-description">Draw, guess, and create completely unhinged stories together.</span>
+            </a>
+
+            <a
+              class="other-game-link"
+              href="https://squabble.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="other-game-icon" aria-hidden="true">🔤</span>
+              <span class="other-game-name">Squabble</span>
+              <span class="other-game-description">A fast word battle for the two of us to compete in.</span>
+            </a>
+          </div>
+        </section>
 
         <div class="date-night-footer">
           <span class="date-night-footer-heart">♥</span>
