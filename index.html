@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Great+Vibes&family=Parisienne&family=Playfair+Display:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
@@ -108,6 +108,85 @@
       border: 0;
     }
 
+    .section-effects {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .effect-heart {
+      position: absolute;
+      bottom: -55px;
+      width: var(--size);
+      height: var(--size);
+      opacity: 0;
+      transform: rotate(45deg);
+      background:
+        linear-gradient(
+          145deg,
+          #ffe5f0,
+          #ff72ad
+        );
+      filter: drop-shadow(0 0 9px rgba(255, 102, 170, 0.58));
+      animation: riseHeart var(--duration) linear infinite;
+      animation-delay: var(--delay);
+    }
+
+    .effect-heart::before,
+    .effect-heart::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: inherit;
+    }
+
+    .effect-heart::before {
+      left: -50%;
+    }
+
+    .effect-heart::after {
+      top: -50%;
+    }
+
+    .effect-star {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      background: #fff8fc;
+      box-shadow:
+        0 0 8px rgba(255, 230, 241, 0.95),
+        0 0 18px rgba(255, 121, 179, 0.58);
+      animation: twinkle var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .effect-butterfly {
+      position: absolute;
+      font-size: var(--size);
+      opacity: 0.92;
+      filter:
+        drop-shadow(0 0 8px rgba(255, 151, 199, 0.75))
+        drop-shadow(0 8px 14px rgba(0, 0, 0, 0.25));
+      animation: butterflyFly var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
+    .effect-orb {
+      position: absolute;
+      width: var(--size);
+      height: var(--size);
+      border-radius: 50%;
+      opacity: var(--opacity);
+      filter: blur(var(--blur));
+      background: var(--orb-color);
+      animation: orbFloat var(--duration) ease-in-out infinite;
+      animation-delay: var(--delay);
+    }
+
     .intro {
       position: fixed;
       inset: 0;
@@ -155,137 +234,6 @@
       pointer-events: none;
       background-image:
         url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-    }
-
-    .intro::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(
-          115deg,
-          transparent 22%,
-          rgba(255, 255, 255, 0.035) 47%,
-          transparent 70%
-        );
-      transform: translateX(-120%);
-      animation: introSweep 7s ease-in-out infinite;
-    }
-
-    .intro-orb {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.3;
-      filter: blur(90px);
-      pointer-events: none;
-      animation: orbFloat 10s ease-in-out infinite;
-    }
-
-    .intro-orb--one {
-      width: 320px;
-      height: 320px;
-      top: 12%;
-      left: -120px;
-      background: #ff6aa9;
-    }
-
-    .intro-orb--two {
-      width: 280px;
-      height: 280px;
-      right: -120px;
-      bottom: 8%;
-      background: #ffc7de;
-      animation-duration: 13s;
-      animation-delay: -3s;
-    }
-
-    .intro-orb--three {
-      width: 240px;
-      height: 240px;
-      left: 50%;
-      bottom: -150px;
-      background: #cfaeff;
-      transform: translateX(-50%);
-      animation-duration: 15s;
-      animation-delay: -7s;
-    }
-
-    .intro-spark,
-    .star-dot,
-    .paper-star,
-    .gallery-sparkle {
-      position: absolute;
-      width: var(--size);
-      height: var(--size);
-      border-radius: 50%;
-      background: #fff8fc;
-      box-shadow:
-        0 0 8px rgba(255, 230, 241, 0.92),
-        0 0 18px rgba(255, 121, 179, 0.55);
-      animation: twinkle var(--duration) ease-in-out infinite;
-      animation-delay: var(--delay);
-      pointer-events: none;
-    }
-
-    .intro-heart,
-    .floating-heart,
-    .gallery-heart,
-    .paper-side-heart {
-      position: absolute;
-      width: var(--size);
-      height: var(--size);
-      opacity: 0;
-      transform: rotate(45deg);
-      background:
-        linear-gradient(
-          145deg,
-          #ffe1ed,
-          #ff70ab
-        );
-      filter: drop-shadow(0 0 9px rgba(255, 102, 170, 0.6));
-      animation: riseHeart var(--duration) linear infinite;
-      animation-delay: var(--delay);
-      pointer-events: none;
-    }
-
-    .intro-heart {
-      bottom: -40px;
-    }
-
-    .floating-heart,
-    .gallery-heart {
-      bottom: -60px;
-    }
-
-    .intro-heart::before,
-    .intro-heart::after,
-    .floating-heart::before,
-    .floating-heart::after,
-    .gallery-heart::before,
-    .gallery-heart::after,
-    .paper-side-heart::before,
-    .paper-side-heart::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: inherit;
-    }
-
-    .intro-heart::before,
-    .floating-heart::before,
-    .gallery-heart::before,
-    .paper-side-heart::before {
-      left: -50%;
-    }
-
-    .intro-heart::after,
-    .floating-heart::after,
-    .gallery-heart::after,
-    .paper-side-heart::after {
-      top: -50%;
     }
 
     .loader-screen,
@@ -387,45 +335,6 @@
       left: 0;
       transform: rotate(45deg);
       transform-origin: 100% 100%;
-    }
-
-    .loader-star {
-      position: absolute;
-      width: 9px;
-      height: 9px;
-      clip-path:
-        polygon(
-          50% 0%,
-          62% 35%,
-          100% 50%,
-          62% 65%,
-          50% 100%,
-          38% 65%,
-          0% 50%,
-          38% 35%
-        );
-      background: #fff5fa;
-      filter: drop-shadow(0 0 7px #ff9fc8);
-      animation: miniStarFloat 3s ease-in-out infinite;
-    }
-
-    .loader-star--one {
-      top: 10px;
-      right: 14px;
-    }
-
-    .loader-star--two {
-      left: 8px;
-      bottom: 21px;
-      animation-delay: -1.3s;
-    }
-
-    .loader-star--three {
-      right: 2px;
-      bottom: 10px;
-      width: 6px;
-      height: 6px;
-      animation-delay: -2s;
     }
 
     .loader-title,
@@ -550,21 +459,17 @@
       transform: translateY(0) scale(1);
     }
 
-    .preview-eyebrow,
-    .hero-eyebrow,
-    .paper-eyebrow,
-    .gallery-eyebrow,
-    .final-eyebrow {
+    .preview-title {
+      font-size: clamp(44px, 9vw, 70px);
+    }
+
+    .eyebrow {
       margin: 0 0 8px;
       color: rgba(255, 232, 241, 0.58);
       font-size: 9px;
       font-weight: 600;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-    }
-
-    .preview-title {
-      font-size: clamp(44px, 9vw, 70px);
     }
 
     .heart-button-wrap {
@@ -614,12 +519,10 @@
         0 0 28px rgba(255, 101, 168, 0.58),
         inset 0 2px 2px rgba(255, 255, 255, 0.55),
         inset 0 -12px 18px rgba(96, 14, 50, 0.22);
-      touch-action: manipulation;
       animation: floatSoft 4s ease-in-out infinite;
       transition:
         transform 0.35s var(--ease),
         filter 0.35s ease;
-      -webkit-tap-highlight-color: transparent;
     }
 
     .heart-button::before {
@@ -630,7 +533,6 @@
       line-height: 106px;
       text-align: center;
       text-shadow: 0 3px 10px rgba(111, 18, 58, 0.3);
-      pointer-events: none;
     }
 
     .heart-button:hover {
@@ -666,46 +568,6 @@
       min-height: 100svh;
       overflow: hidden;
       isolation: isolate;
-    }
-
-    .hero-effects,
-    .gallery-effects {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .hero-cloud {
-      position: absolute;
-      width: var(--width);
-      height: calc(var(--width) * 0.32);
-      border-radius: 999px;
-      opacity: var(--opacity);
-      background:
-        radial-gradient(
-          ellipse at center,
-          rgba(255, 218, 235, 0.36),
-          rgba(255, 151, 199, 0.08) 52%,
-          transparent 72%
-        );
-      filter: blur(12px);
-      animation: cloudFloat var(--duration) ease-in-out infinite alternate;
-    }
-
-    .floating-butterfly,
-    .paper-butterfly {
-      position: absolute;
-      color: #ffc8df;
-      font-size: var(--size);
-      opacity: 0.9;
-      text-shadow:
-        0 0 10px rgba(255, 156, 204, 0.9),
-        0 0 22px rgba(255, 111, 177, 0.45);
-      filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.26));
-      animation: butterflyFly var(--duration) ease-in-out infinite;
-      animation-delay: var(--delay);
-      pointer-events: none;
     }
 
     .hero {
@@ -756,7 +618,6 @@
       background-size: 220% 100%;
       background-clip: text;
       -webkit-background-clip: text;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.12);
       filter: drop-shadow(0 10px 26px rgba(0, 0, 0, 0.4));
       animation: chromeShine 8s ease-in-out infinite;
     }
@@ -789,7 +650,6 @@
 
     .hero-float {
       position: relative;
-      display: inline-block;
       animation: bounceSoft 5.8s ease-in-out infinite;
     }
 
@@ -808,11 +668,6 @@
           circle at 25% 70%,
           rgba(255, 110, 174, 0.22),
           transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 68%,
-          rgba(255, 149, 197, 0.2),
-          transparent 28%
         );
       filter: blur(30px);
       animation: auraPulse 4.8s ease-in-out infinite;
@@ -1095,6 +950,7 @@
     .memory-journey {
       position: relative;
       height: 650svh;
+      isolation: isolate;
       background:
         radial-gradient(
           circle at 50% 5%,
@@ -1128,9 +984,9 @@
       display: grid;
       grid-template-rows: auto minmax(0, 1fr) auto;
       padding:
-        max(30px, env(safe-area-inset-top))
+        max(24px, env(safe-area-inset-top))
         0
-        max(20px, env(safe-area-inset-bottom));
+        max(18px, env(safe-area-inset-bottom));
     }
 
     .gallery-header {
@@ -1185,13 +1041,12 @@
     .memory-track {
       display: flex;
       align-items: center;
-      gap: clamp(55px, 7vw, 110px);
+      gap: clamp(58px, 7vw, 112px);
       width: max-content;
       padding:
-        40px
+        36px
         max(12vw, calc((100vw - 540px) / 2))
-        38px;
-      transform: translate3d(0, 0, 0);
+        34px;
       will-change: transform;
     }
 
@@ -1199,62 +1054,85 @@
       position: relative;
       width: min(520px, 76vw);
       flex: 0 0 auto;
-      transform-origin: center;
       transition:
-        opacity 0.45s ease,
-        filter 0.45s ease;
+        opacity 0.5s ease,
+        filter 0.5s ease,
+        transform 0.6s var(--ease);
     }
 
     .memory-slide:nth-child(odd) {
-      transform: rotate(-1.4deg);
+      transform: rotate(-1.1deg);
     }
 
     .memory-slide:nth-child(even) {
-      transform: rotate(1.6deg);
+      transform: rotate(1.25deg);
     }
 
     .memory-slide.is-active {
-      z-index: 4;
+      z-index: 5;
+      transform: rotate(0deg) translateY(-7px);
     }
 
     .memory-slide:not(.is-active) {
       opacity: 0.56;
-      filter: saturate(0.72) brightness(0.82);
+      filter: saturate(0.75) brightness(0.82);
     }
 
     .memory-frame {
       position: relative;
-      padding: 13px;
-      border: 1px solid rgba(255, 227, 239, 0.18);
-      border-radius: 34px;
+      width: 100%;
+      padding: 14px 14px 12px;
+      overflow: visible;
+      border-radius: 35px;
+      cursor: pointer;
       background:
         linear-gradient(
           145deg,
-          rgba(255, 242, 248, 0.95),
-          rgba(255, 205, 227, 0.89) 48%,
-          rgba(211, 119, 159, 0.92)
+          #fff8fb 0%,
+          #ffd7e8 32%,
+          #f4a8c8 67%,
+          #c85c8b 100%
         );
       box-shadow:
-        0 35px 95px rgba(0, 0, 0, 0.45),
-        0 0 55px rgba(255, 111, 175, 0.16),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 36px 95px rgba(0, 0, 0, 0.46),
+        0 0 55px rgba(255, 111, 175, 0.17),
+        inset 0 2px 0 rgba(255, 255, 255, 0.88);
     }
 
     .memory-frame::before {
       content: "";
       position: absolute;
       inset: 7px;
-      border: 1px solid rgba(255, 255, 255, 0.74);
-      border-radius: 27px;
+      z-index: 0;
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      border-radius: 28px;
+      box-shadow:
+        inset 0 0 0 1px rgba(135, 46, 86, 0.16),
+        inset 0 0 20px rgba(255, 255, 255, 0.3);
+      pointer-events: none;
+    }
+
+    .memory-frame::after {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      z-index: 0;
+      border: 1px dashed rgba(170, 70, 111, 0.25);
+      border-radius: 24px;
       pointer-events: none;
     }
 
     .memory-photo {
       position: relative;
+      z-index: 2;
       overflow: hidden;
-      height: min(59svh, 610px);
+      height: min(58svh, 600px);
+      border: 5px solid #fff7fb;
       border-radius: 23px;
       background: #1b0b15;
+      box-shadow:
+        0 15px 35px rgba(93, 22, 57, 0.25),
+        inset 0 0 0 1px rgba(195, 91, 136, 0.2);
     }
 
     .memory-photo img {
@@ -1263,13 +1141,13 @@
       object-fit: cover;
       object-position: center;
       filter:
-        saturate(1.05)
-        contrast(1.02)
-        brightness(1.02)
-        sepia(0.04);
+        saturate(1.06)
+        contrast(1.015)
+        brightness(1.035)
+        sepia(0.025);
       transition:
         transform 1s var(--ease),
-        filter 0.6s ease;
+        filter 0.65s ease;
     }
 
     .memory-slide:hover .memory-photo img {
@@ -1277,42 +1155,22 @@
       filter:
         saturate(1.12)
         contrast(1.03)
-        brightness(1.05);
+        brightness(1.06);
     }
 
     .memory-slide--first .memory-photo img {
       object-position: center 34%;
     }
 
-    .memory-slide--beach .memory-photo img {
-      object-position: center;
-    }
-
     .memory-slide--kiss .memory-photo {
-      height: min(52svh, 500px);
-    }
-
-    .memory-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(255, 210, 229, 0.07),
-          transparent 32%,
-          rgba(18, 5, 13, 0.48) 100%
-        );
+      height: min(51svh, 500px);
     }
 
     .memory-caption {
       position: relative;
-      min-height: 108px;
-      padding:
-        19px
-        18px
-        12px;
+      z-index: 2;
+      min-height: 116px;
+      padding: 19px 18px 10px;
       text-align: center;
       color: #6f354f;
     }
@@ -1321,10 +1179,10 @@
       display: block;
       margin-bottom: 5px;
       font-size: 8px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      opacity: 0.65;
+      opacity: 0.62;
     }
 
     .memory-name {
@@ -1336,8 +1194,8 @@
 
     .memory-text {
       display: block;
-      max-width: 380px;
-      margin: 7px auto 0;
+      max-width: 390px;
+      margin: 8px auto 0;
       color: rgba(92, 42, 67, 0.76);
       font-family: "Playfair Display", serif;
       font-size: 12px;
@@ -1346,118 +1204,226 @@
 
     .memory-number {
       position: absolute;
-      top: 26px;
-      right: 26px;
-      z-index: 5;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      top: 28px;
+      right: 27px;
+      z-index: 8;
+      width: 43px;
+      height: 43px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
       border-radius: 50%;
       display: grid;
       place-items: center;
-      color: #fff3f8;
+      color: #fff5fa;
       font-size: 9px;
+      font-weight: 700;
       letter-spacing: 0.12em;
-      background: rgba(83, 21, 52, 0.46);
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          rgba(255, 184, 215, 0.78),
+          rgba(116, 36, 76, 0.85)
+        );
       backdrop-filter: blur(12px);
-      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.22);
+      box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.23),
+        0 0 15px rgba(255, 129, 187, 0.34);
     }
 
     .memory-bow {
       position: absolute;
-      left: -17px;
-      top: 40px;
-      z-index: 7;
-      width: 58px;
-      height: 42px;
-      filter: drop-shadow(0 6px 8px rgba(76, 17, 44, 0.24));
+      left: -26px;
+      top: 48px;
+      z-index: 10;
+      width: 82px;
+      height: 57px;
+      filter:
+        drop-shadow(0 8px 9px rgba(76, 17, 44, 0.25))
+        drop-shadow(0 0 9px rgba(255, 158, 204, 0.28));
+      pointer-events: none;
     }
 
-    .memory-bow::before,
-    .memory-bow::after {
-      content: "";
+    .memory-bow-left,
+    .memory-bow-right {
       position: absolute;
-      top: 6px;
-      width: 31px;
-      height: 28px;
-      border-radius: 70% 20% 70% 20%;
+      top: 5px;
+      width: 43px;
+      height: 37px;
+      border: 2px solid rgba(255, 255, 255, 0.7);
       background:
         linear-gradient(
           145deg,
-          #fff4f9,
-          #ffabd0 52%,
-          #d54d8b
+          #fff7fb 0%,
+          #ffc0da 45%,
+          #ef78aa 73%,
+          #b83670 100%
         );
     }
 
-    .memory-bow::before {
-      left: 0;
-      transform: rotate(20deg);
+    .memory-bow-left {
+      left: 2px;
+      border-radius: 75% 24% 68% 32%;
+      transform: rotate(18deg);
     }
 
-    .memory-bow::after {
-      right: 0;
-      transform: scaleX(-1) rotate(20deg);
+    .memory-bow-right {
+      right: 2px;
+      border-radius: 24% 75% 32% 68%;
+      transform: rotate(-18deg);
     }
 
-    .memory-bow span {
+    .memory-bow-knot {
       position: absolute;
       left: 50%;
-      top: 50%;
-      z-index: 2;
-      width: 17px;
-      height: 17px;
+      top: 19px;
+      z-index: 3;
+      width: 25px;
+      height: 25px;
+      border: 2px solid rgba(255, 255, 255, 0.7);
       border-radius: 50%;
       background:
         radial-gradient(
-          circle at 35% 30%,
+          circle at 34% 28%,
           #fff,
-          #ff8fbe 66%,
-          #b72b67
+          #ff9ac1 55%,
+          #ba326c
         );
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
     }
 
-    .memory-charm {
+    .memory-ribbon-left,
+    .memory-ribbon-right {
       position: absolute;
-      right: -13px;
-      bottom: 85px;
-      z-index: 6;
-      width: 40px;
-      height: 40px;
-      transform: rotate(45deg);
+      top: 35px;
+      width: 17px;
+      height: 28px;
+      border-radius: 4px 4px 11px 11px;
+      background:
+        linear-gradient(
+          180deg,
+          #ffb8d4,
+          #d94884
+        );
+    }
+
+    .memory-ribbon-left {
+      left: 25px;
+      transform: rotate(12deg);
+    }
+
+    .memory-ribbon-right {
+      right: 25px;
+      transform: rotate(-12deg);
+    }
+
+    .memory-heart-charm {
+      position: absolute;
+      right: -24px;
+      bottom: 92px;
+      z-index: 9;
+      width: 58px;
+      height: 53px;
+      pointer-events: none;
+      filter:
+        drop-shadow(0 9px 11px rgba(66, 16, 41, 0.25))
+        drop-shadow(0 0 13px rgba(255, 112, 178, 0.4));
+    }
+
+    .memory-heart-charm::before,
+    .memory-heart-charm::after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      width: 31px;
+      height: 47px;
+      border: 2px solid rgba(255, 255, 255, 0.75);
+      border-radius: 31px 31px 0 0;
       background:
         linear-gradient(
           145deg,
-          #fff1f7,
-          #ff72ad
+          #fff4fa,
+          #ff9ec5 45%,
+          #d94b88 75%,
+          #a9255d
+        );
+    }
+
+    .memory-heart-charm::before {
+      left: 28px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .memory-heart-charm::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .memory-heart-highlight {
+      position: absolute;
+      top: 13px;
+      left: 17px;
+      z-index: 4;
+      width: 13px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.72);
+      transform: rotate(-30deg);
+    }
+
+    .memory-pearl-chain {
+      position: absolute;
+      right: -13px;
+      top: 118px;
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      pointer-events: none;
+    }
+
+    .memory-pearl-chain span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 32% 26%,
+          #fff,
+          #ffe4ef 52%,
+          #cb7c9c
         );
       box-shadow:
-        0 0 18px rgba(255, 94, 165, 0.5),
-        0 8px 22px rgba(0, 0, 0, 0.2);
+        0 0 8px rgba(255, 157, 200, 0.5),
+        0 4px 8px rgba(87, 25, 54, 0.15);
     }
 
-    .memory-charm::before,
-    .memory-charm::after {
-      content: "";
+    .memory-corner-sticker {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: inherit;
-    }
-
-    .memory-charm::before {
-      left: -50%;
-    }
-
-    .memory-charm::after {
-      top: -50%;
+      left: 24px;
+      bottom: 28px;
+      z-index: 7;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 999px;
+      color: #8f3e63;
+      font-family: "Great Vibes", cursive;
+      font-size: 18px;
+      background:
+        linear-gradient(
+          145deg,
+          #fff9fc,
+          #ffcfe2
+        );
+      box-shadow:
+        0 7px 15px rgba(113, 31, 68, 0.18);
+      transform: rotate(-5deg);
+      pointer-events: none;
     }
 
     .memory-stars {
       position: absolute;
-      inset: -28px;
+      inset: -30px;
       pointer-events: none;
     }
 
@@ -1524,7 +1490,6 @@
       border: 2px solid #56243e;
       border-radius: 50%;
       background: #bf708f;
-      box-shadow: 0 0 0 2px rgba(255, 211, 228, 0.1);
       transition:
         background 0.3s ease,
         box-shadow 0.3s ease,
@@ -1550,6 +1515,541 @@
 
     .mobile-gallery {
       display: none;
+    }
+
+    .date-night-section {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      isolation: isolate;
+      padding:
+        clamp(90px, 10vw, 140px)
+        20px;
+      background:
+        radial-gradient(
+          circle at 50% 12%,
+          rgba(255, 170, 212, 0.18),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 10% 70%,
+          rgba(139, 88, 255, 0.13),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 88% 64%,
+          rgba(255, 87, 166, 0.11),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #080306 0%,
+          #17091b 25%,
+          #24102c 58%,
+          #0e0612 100%
+        );
+    }
+
+    .date-night-container {
+      position: relative;
+      z-index: 3;
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .date-night-heading {
+      width: min(760px, 100%);
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .date-night-title {
+      margin: 0;
+      color: #ffe7f2;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(56px, 8vw, 94px);
+      font-weight: 400;
+      line-height: 0.95;
+      text-shadow:
+        0 0 22px rgba(255, 128, 185, 0.25),
+        0 15px 35px rgba(0, 0, 0, 0.35);
+    }
+
+    .date-night-copy {
+      max-width: 610px;
+      margin: 18px auto 0;
+      color: rgba(255, 235, 244, 0.68);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(13px, 1.35vw, 17px);
+      line-height: 1.75;
+    }
+
+    .date-night-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: clamp(22px, 4vw, 50px);
+      align-items: stretch;
+    }
+
+    .date-night-panel {
+      position: relative;
+      border: 1px solid rgba(255, 228, 240, 0.13);
+      border-radius: 34px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.018)
+        );
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.38),
+        0 0 45px rgba(255, 103, 171, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .date-generator-panel {
+      padding: clamp(28px, 4vw, 46px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .moon-orbit {
+      position: relative;
+      width: min(340px, 78vw);
+      aspect-ratio: 1;
+      margin: 0 auto 28px;
+      display: grid;
+      place-items: center;
+    }
+
+    .moon-orbit::before,
+    .moon-orbit::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 204, 228, 0.14);
+    }
+
+    .moon-orbit::before {
+      inset: 0;
+      animation: loaderOrbit 20s linear infinite;
+    }
+
+    .moon-orbit::after {
+      inset: 24px;
+      border-style: dashed;
+      animation: loaderOrbit 15s linear infinite reverse;
+    }
+
+    .moon-star {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 30% 25%,
+          #fff,
+          #ffd1e5 53%,
+          #d66b9e
+        );
+      box-shadow:
+        0 0 18px rgba(255, 152, 201, 0.68);
+      transform-origin: 0 0;
+      animation: orbitStar 9s linear infinite;
+    }
+
+    .moon-disc {
+      position: relative;
+      width: 205px;
+      height: 205px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(
+          circle at 32% 27%,
+          #fff8fc,
+          #f3cbe0 52%,
+          #aa5d84 100%
+        );
+      box-shadow:
+        0 0 40px rgba(255, 174, 214, 0.38),
+        0 0 100px rgba(255, 100, 178, 0.16),
+        inset -25px -22px 35px rgba(92, 34, 70, 0.18);
+    }
+
+    .moon-disc::before {
+      content: "";
+      position: absolute;
+      right: 25px;
+      top: 15px;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: #27102d;
+      box-shadow: inset 15px 0 18px rgba(255, 179, 216, 0.06);
+    }
+
+    .moon-disc-heart {
+      position: relative;
+      z-index: 2;
+      color: #fff5fa;
+      font-size: 30px;
+      text-shadow: 0 0 16px rgba(255, 167, 210, 0.8);
+      transform: translate(-18px, 19px);
+    }
+
+    .date-generator-title {
+      margin: 0;
+      color: #ffe6f1;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.2;
+    }
+
+    .date-result {
+      width: 100%;
+      min-height: 142px;
+      margin-top: 23px;
+      padding: 22px;
+      border: 1px solid rgba(255, 224, 238, 0.13);
+      border-radius: 22px;
+      display: grid;
+      align-content: center;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.075),
+          rgba(255, 255, 255, 0.022)
+        );
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      transition:
+        transform 0.5s var(--ease),
+        opacity 0.35s ease;
+    }
+
+    .date-result.is-changing {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+
+    .date-result-label {
+      margin: 0;
+      color: rgba(255, 225, 239, 0.5);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .date-result-title {
+      margin: 7px 0 0;
+      color: #ffe9f3;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(34px, 4vw, 50px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .date-result-copy {
+      margin: 9px 0 0;
+      color: rgba(255, 237, 245, 0.68);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .primary-cute-button {
+      position: relative;
+      margin-top: 22px;
+      padding: 14px 25px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.23);
+      border-radius: 999px;
+      color: #fff8fb;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background:
+        linear-gradient(
+          110deg,
+          #ae336c,
+          #ec69a2,
+          #ffb3d0,
+          #ce4e89
+        );
+      background-size: 250% 100%;
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.25),
+        0 0 24px rgba(255, 100, 168, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      transition:
+        transform 0.35s var(--ease),
+        filter 0.35s ease;
+      animation: buttonShine 6s ease-in-out infinite;
+    }
+
+    .primary-cute-button:hover {
+      transform: translateY(-3px) scale(1.02);
+      filter: brightness(1.08);
+    }
+
+    .games-panel {
+      padding: clamp(26px, 4vw, 44px);
+    }
+
+    .games-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .games-title {
+      margin: 0;
+      color: #ffe6f1;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(24px, 3vw, 38px);
+    }
+
+    .games-count {
+      color: rgba(255, 229, 241, 0.46);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .game-selector {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .game-tab {
+      min-height: 74px;
+      padding: 11px 8px;
+      border: 1px solid rgba(255, 227, 240, 0.11);
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      gap: 4px;
+      color: rgba(255, 235, 244, 0.65);
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.035);
+      transition:
+        transform 0.35s var(--ease),
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease;
+    }
+
+    .game-tab:hover,
+    .game-tab.is-active {
+      color: #fff8fb;
+      border-color: rgba(255, 184, 215, 0.3);
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 135, 188, 0.18),
+          rgba(255, 255, 255, 0.055)
+        );
+      transform: translateY(-3px);
+    }
+
+    .game-tab-icon {
+      font-size: 19px;
+      line-height: 1;
+    }
+
+    .game-tab-label {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .game-card {
+      position: relative;
+      min-height: 310px;
+      padding: clamp(26px, 4vw, 42px);
+      border: 1px solid rgba(255, 227, 240, 0.14);
+      border-radius: 27px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 100% 0%,
+          rgba(255, 147, 197, 0.16),
+          transparent 33%
+        ),
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.07),
+          rgba(255, 255, 255, 0.025)
+        );
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 18px 45px rgba(0, 0, 0, 0.2);
+    }
+
+    .game-card-decoration {
+      position: absolute;
+      right: -20px;
+      top: -20px;
+      color: rgba(255, 199, 224, 0.08);
+      font-family: "Great Vibes", cursive;
+      font-size: 170px;
+      line-height: 1;
+      transform: rotate(-9deg);
+      pointer-events: none;
+    }
+
+    .game-card-label {
+      margin: 0;
+      color: rgba(255, 226, 239, 0.48);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+    }
+
+    .game-card-question {
+      position: relative;
+      z-index: 2;
+      margin: 13px 0 0;
+      color: #fff0f7;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(24px, 3vw, 39px);
+      line-height: 1.32;
+    }
+
+    .game-card-note {
+      margin: 18px 0 0;
+      color: rgba(255, 234, 243, 0.58);
+      font-size: 11px;
+      line-height: 1.65;
+    }
+
+    .game-actions {
+      display: flex;
+      gap: 11px;
+      margin-top: 22px;
+    }
+
+    .secondary-cute-button {
+      flex: 1;
+      min-height: 47px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 227, 240, 0.14);
+      border-radius: 999px;
+      color: rgba(255, 239, 246, 0.82);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.045);
+      transition:
+        background 0.3s ease,
+        transform 0.3s var(--ease);
+    }
+
+    .secondary-cute-button:hover {
+      background: rgba(255, 130, 185, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .date-night-footer {
+      width: min(760px, 100%);
+      margin: 45px auto 0;
+      padding: 18px 22px;
+      border: 1px solid rgba(255, 225, 238, 0.1);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(255, 234, 243, 0.65);
+      font-family: "Playfair Display", serif;
+      font-size: 12px;
+      font-style: italic;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .date-night-footer-heart {
+      color: #ff9dc5;
+      font-size: 18px;
+      text-shadow: 0 0 10px rgba(255, 130, 190, 0.55);
+    }
+
+    .final-section {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+      padding: 30px;
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          rgba(255, 146, 192, 0.15),
+          transparent 29%
+        ),
+        linear-gradient(
+          180deg,
+          #080306 0%,
+          #1c0a17 47%,
+          #090306 100%
+        );
+    }
+
+    .final-card {
+      position: relative;
+      z-index: 3;
+      width: min(720px, 100%);
+      padding: clamp(38px, 7vw, 70px);
+      border: 1px solid rgba(255, 234, 244, 0.12);
+      border-radius: 34px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.045);
+      box-shadow:
+        0 28px 80px rgba(0, 0, 0, 0.38),
+        0 0 60px rgba(255, 114, 178, 0.08);
+      backdrop-filter: blur(20px);
+    }
+
+    .final-title {
+      margin: 0;
+      color: #ffe3ef;
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(54px, 9vw, 96px);
+      font-weight: 400;
+      line-height: 0.95;
+    }
+
+    .final-copy {
+      max-width: 500px;
+      margin: 20px auto 0;
+      color: var(--muted);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(13px, 1.45vw, 17px);
+      line-height: 1.8;
     }
 
     .gallery-lightbox {
@@ -1611,7 +2111,9 @@
       width: auto;
       max-width: 100%;
       max-height: calc(82svh - 70px);
-      border: 12px solid #ffd5e6;
+      border: 11px solid #ffe1ed;
+      outline: 2px solid rgba(255, 143, 192, 0.65);
+      outline-offset: -7px;
       border-radius: 28px;
       object-fit: contain;
       box-shadow:
@@ -1628,33 +2130,33 @@
       text-align: center;
     }
 
-    .gallery-close {
+    .gallery-close,
+    .gallery-navigation {
       position: absolute;
-      top: 5px;
-      right: 5px;
       z-index: 6;
-      width: 45px;
-      height: 45px;
+      border: 1px solid rgba(255, 225, 238, 0.15);
       border-radius: 50%;
       color: #fff;
       cursor: pointer;
       background: rgba(75, 22, 51, 0.78);
       backdrop-filter: blur(12px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .gallery-close {
+      top: 5px;
+      right: 5px;
+      width: 45px;
+      height: 45px;
+      font-size: 23px;
     }
 
     .gallery-navigation {
-      position: absolute;
       top: 50%;
-      z-index: 6;
       width: 50px;
       height: 50px;
-      border-radius: 50%;
-      color: #fff;
       font-size: 32px;
-      cursor: pointer;
-      background: rgba(75, 22, 51, 0.78);
       transform: translateY(-50%);
-      backdrop-filter: blur(12px);
     }
 
     .gallery-navigation--previous {
@@ -1663,56 +2165,6 @@
 
     .gallery-navigation--next {
       right: -65px;
-    }
-
-    .final-section {
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      padding: 30px;
-      background:
-        radial-gradient(
-          circle at 50% 35%,
-          rgba(255, 146, 192, 0.15),
-          transparent 29%
-        ),
-        linear-gradient(
-          180deg,
-          #080306 0%,
-          #1c0a17 47%,
-          #090306 100%
-        );
-    }
-
-    .final-card {
-      width: min(720px, 100%);
-      padding: clamp(38px, 7vw, 70px);
-      border: 1px solid rgba(255, 234, 244, 0.12);
-      border-radius: 34px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.045);
-      box-shadow:
-        0 28px 80px rgba(0, 0, 0, 0.38),
-        0 0 60px rgba(255, 114, 178, 0.08);
-      backdrop-filter: blur(20px);
-    }
-
-    .final-title {
-      margin: 0;
-      color: #ffe3ef;
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(54px, 9vw, 96px);
-      font-weight: 400;
-      line-height: 0.95;
-    }
-
-    .final-copy {
-      max-width: 500px;
-      margin: 20px auto 0;
-      color: var(--muted);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(13px, 1.45vw, 17px);
-      line-height: 1.8;
     }
 
     .music-dock {
@@ -1918,29 +2370,6 @@
       animation: dustFade var(--duration) ease-out forwards;
     }
 
-    @keyframes introSweep {
-      0%,
-      25% {
-        transform: translateX(-120%);
-      }
-
-      62%,
-      100% {
-        transform: translateX(120%);
-      }
-    }
-
-    @keyframes orbFloat {
-      0%,
-      100% {
-        transform: translate3d(0, 0, 0);
-      }
-
-      50% {
-        transform: translate3d(45px, -24px, 0);
-      }
-    }
-
     @keyframes loaderOrbit {
       to {
         transform: rotate(360deg);
@@ -1955,17 +2384,6 @@
 
       50% {
         transform: scale(1.08);
-      }
-    }
-
-    @keyframes miniStarFloat {
-      0%,
-      100% {
-        transform: translateY(0) scale(0.8);
-      }
-
-      50% {
-        transform: translateY(-8px) scale(1.15);
       }
     }
 
@@ -2083,7 +2501,7 @@
       }
 
       12% {
-        opacity: 0.74;
+        opacity: 0.72;
       }
 
       100% {
@@ -2123,13 +2541,14 @@
       }
     }
 
-    @keyframes cloudFloat {
-      from {
-        transform: translate3d(-22px, 0, 0);
+    @keyframes orbFloat {
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
       }
 
-      to {
-        transform: translate3d(26px, -10px, 0);
+      50% {
+        transform: translate3d(38px, -24px, 0);
       }
     }
 
@@ -2164,6 +2583,42 @@
       }
     }
 
+    @keyframes orbitStar {
+      from {
+        transform: rotate(0deg) translateX(160px) rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg) translateX(160px) rotate(-360deg);
+      }
+    }
+
+    @keyframes buttonShine {
+      0%,
+      15% {
+        background-position: 100% 50%;
+      }
+
+      55%,
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .date-night-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .date-generator-panel {
+        min-height: 620px;
+      }
+
+      .games-panel {
+        min-height: 590px;
+      }
+    }
+
     @media (max-width: 900px) {
       .memory-journey {
         height: auto;
@@ -2191,22 +2646,14 @@
         display: grid;
         width: min(680px, 100%);
         margin: 42px auto 0;
-        gap: 34px;
+        gap: 38px;
       }
 
       .mobile-gallery .memory-slide {
         width: 100%;
         opacity: 1;
         filter: none;
-      }
-
-      .mobile-gallery .memory-slide:nth-child(odd),
-      .mobile-gallery .memory-slide:nth-child(even) {
         transform: none;
-      }
-
-      .memory-frame {
-        border-radius: 28px;
       }
 
       .memory-photo {
@@ -2337,10 +2784,6 @@
         line-height: 1.5;
       }
 
-      .paper-signoff {
-        font-size: 9px;
-      }
-
       .gallery-header {
         width: 100%;
       }
@@ -2354,26 +2797,32 @@
       }
 
       .mobile-gallery {
-        gap: 26px;
+        gap: 30px;
         margin-top: 35px;
       }
 
       .memory-frame {
-        padding: 9px;
-        border-radius: 23px;
+        padding: 10px 10px 9px;
+        border-radius: 25px;
       }
 
       .memory-frame::before {
         inset: 5px;
-        border-radius: 18px;
+        border-radius: 20px;
       }
 
-      .memory-photo {
+      .memory-frame::after {
+        inset: 8px;
         border-radius: 17px;
       }
 
+      .memory-photo {
+        border-width: 4px;
+        border-radius: 18px;
+      }
+
       .memory-caption {
-        min-height: 95px;
+        min-height: 100px;
         padding: 16px 13px 9px;
       }
 
@@ -2386,15 +2835,119 @@
       }
 
       .memory-bow {
-        left: -8px;
-        top: 28px;
+        left: -14px;
+        top: 33px;
+        transform: scale(0.78);
+        transform-origin: center;
+      }
+
+      .memory-heart-charm {
+        right: -10px;
+        bottom: 84px;
+        transform: scale(0.75);
+        transform-origin: center;
+      }
+
+      .memory-pearl-chain {
+        right: -2px;
+        top: 110px;
         transform: scale(0.8);
       }
 
-      .memory-charm {
-        right: -4px;
-        bottom: 77px;
-        transform: rotate(45deg) scale(0.8);
+      .memory-corner-sticker {
+        left: 17px;
+        bottom: 22px;
+        font-size: 16px;
+      }
+
+      .date-night-section {
+        padding:
+          82px
+          12px
+          95px;
+      }
+
+      .date-night-heading {
+        margin-bottom: 35px;
+      }
+
+      .date-night-title {
+        font-size: clamp(52px, 16vw, 70px);
+      }
+
+      .date-night-copy {
+        font-size: 12px;
+      }
+
+      .date-night-panel {
+        border-radius: 25px;
+      }
+
+      .date-generator-panel,
+      .games-panel {
+        padding: 24px 17px;
+      }
+
+      .date-generator-panel {
+        min-height: 570px;
+      }
+
+      .moon-orbit {
+        width: min(280px, 80vw);
+      }
+
+      .moon-disc {
+        width: 170px;
+        height: 170px;
+      }
+
+      .moon-disc::before {
+        width: 142px;
+        height: 142px;
+        right: 19px;
+        top: 13px;
+      }
+
+      .moon-star {
+        animation-name: orbitStarMobile;
+      }
+
+      .date-result {
+        min-height: 160px;
+        padding: 19px 15px;
+      }
+
+      .date-result-title {
+        font-size: 38px;
+      }
+
+      .game-selector {
+        grid-template-columns: 1fr;
+      }
+
+      .game-tab {
+        min-height: 57px;
+        grid-template-columns: 28px 1fr;
+        justify-items: start;
+        padding: 10px 15px;
+      }
+
+      .game-card {
+        min-height: 330px;
+        padding: 25px 19px;
+      }
+
+      .game-card-question {
+        font-size: 26px;
+      }
+
+      .game-actions {
+        flex-direction: column;
+      }
+
+      .date-night-footer {
+        border-radius: 22px;
+        font-size: 11px;
       }
 
       .gallery-lightbox {
@@ -2425,11 +2978,6 @@
 
       .gallery-navigation--next {
         right: calc(50% - 52px);
-      }
-
-      .gallery-close {
-        top: 8px;
-        right: 8px;
       }
 
       .final-section {
@@ -2472,6 +3020,16 @@
       .music-status,
       .music-eyebrow {
         font-size: 6px;
+      }
+    }
+
+    @keyframes orbitStarMobile {
+      from {
+        transform: rotate(0deg) translateX(132px) rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg) translateX(132px) rotate(-360deg);
       }
     }
 
@@ -2540,27 +3098,25 @@
 
 <body class="is-locked">
   <div class="intro" id="intro">
-    <div class="intro-orb intro-orb--one"></div>
-    <div class="intro-orb intro-orb--two"></div>
-    <div class="intro-orb intro-orb--three"></div>
-
-    <span class="intro-spark" style="left: 10%; top: 17%; --size: 4px; --duration: 3s; --delay: -1s;"></span>
-    <span class="intro-spark" style="left: 67%; top: 77%; --size: 3px; --duration: 2.8s; --delay: -0.8s;"></span>
-    <span class="intro-spark" style="left: 89%; top: 28%; --size: 4px; --duration: 3.2s; --delay: -2.2s;"></span>
-
-    <span class="intro-heart" style="left: 7%; --size: 10px; --duration: 13s; --delay: -4s; --drift: 36px;"></span>
-    <span class="intro-heart" style="left: 53%; --size: 13px; --duration: 15s; --delay: -11s; --drift: 40px;"></span>
-    <span class="intro-heart" style="left: 92%; --size: 11px; --duration: 14s; --delay: -10s; --drift: 28px;"></span>
+    <div class="section-effects" aria-hidden="true">
+      <span class="effect-orb" style="left:-120px; top:12%; --size:320px; --opacity:.3; --blur:90px; --orb-color:#ff6aa9; --duration:10s; --delay:0s;"></span>
+      <span class="effect-orb" style="right:-120px; bottom:8%; --size:280px; --opacity:.3; --blur:90px; --orb-color:#ffc7de; --duration:13s; --delay:-3s;"></span>
+      <span class="effect-heart" style="left:7%; --size:10px; --duration:13s; --delay:-4s; --drift:36px;"></span>
+      <span class="effect-heart" style="left:53%; --size:13px; --duration:15s; --delay:-11s; --drift:40px;"></span>
+      <span class="effect-heart" style="left:92%; --size:11px; --duration:14s; --delay:-10s; --drift:28px;"></span>
+      <span class="effect-star" style="left:10%; top:17%; --size:4px; --duration:3s; --delay:-1s;"></span>
+      <span class="effect-star" style="left:67%; top:77%; --size:3px; --duration:2.8s; --delay:-.8s;"></span>
+      <span class="effect-star" style="left:89%; top:28%; --size:4px; --duration:3.2s; --delay:-2.2s;"></span>
+    </div>
 
     <div class="loader-screen" id="loaderScreen">
       <div class="loader-emblem">
-        <span class="loader-star loader-star--one"></span>
-        <span class="loader-star loader-star--two"></span>
-        <span class="loader-star loader-star--three"></span>
         <div class="loader-heart-shape"></div>
       </div>
 
-      <h1 class="loader-title">A little magic is loading</h1>
+      <h1 class="loader-title">
+        A little magic is loading
+      </h1>
 
       <p class="loader-copy" id="loaderMessage">
         Gathering our favorite memories
@@ -2579,9 +3135,13 @@
     </div>
 
     <div class="preview-screen" id="previewScreen">
-      <p class="preview-eyebrow">A little something made with love</p>
+      <p class="eyebrow">
+        A little something made with love
+      </p>
 
-      <h2 class="preview-title">Your surprise is ready</h2>
+      <h2 class="preview-title">
+        Your surprise is ready
+      </h2>
 
       <p class="preview-copy">
         I made something special to celebrate us and all the memories
@@ -2597,31 +3157,47 @@
         ></button>
       </div>
 
-      <p class="preview-label">Tap the heart to preview your surprise</p>
+      <p class="preview-label">
+        Tap the heart to preview your surprise
+      </p>
     </div>
   </div>
 
   <main class="site" id="site">
     <section class="hero-section">
-      <div class="hero-effects">
-        <span class="hero-cloud" style="left: -8%; top: 18%; --width: 480px; --opacity: 0.25; --duration: 13s;"></span>
-        <span class="hero-cloud" style="right: -10%; top: 39%; --width: 560px; --opacity: 0.22; --duration: 16s;"></span>
+      <div class="section-effects" aria-hidden="true">
+        <span class="effect-orb" style="left:-8%; top:18%; --size:480px; --opacity:.19; --blur:35px; --orb-color:#ff9fc7; --duration:13s; --delay:0s;"></span>
+        <span class="effect-orb" style="right:-10%; top:39%; --size:560px; --opacity:.15; --blur:45px; --orb-color:#ddaeff; --duration:16s; --delay:-4s;"></span>
 
-        <span class="floating-heart" style="left: 3%; --size: 9px; --duration: 13s; --delay: -4s; --drift: 50px;"></span>
-        <span class="floating-heart" style="left: 42%; --size: 14px; --duration: 18s; --delay: -15s; --drift: -46px;"></span>
-        <span class="floating-heart" style="left: 93%; --size: 14px; --duration: 17s; --delay: -13s; --drift: -44px;"></span>
+        <span class="effect-heart" style="left:3%; --size:9px; --duration:13s; --delay:-4s; --drift:50px;"></span>
+        <span class="effect-heart" style="left:17%; --size:12px; --duration:15s; --delay:-9s; --drift:-32px;"></span>
+        <span class="effect-heart" style="left:42%; --size:14px; --duration:18s; --delay:-15s; --drift:-46px;"></span>
+        <span class="effect-heart" style="left:67%; --size:10px; --duration:14s; --delay:-7s; --drift:35px;"></span>
+        <span class="effect-heart" style="left:83%; --size:8px; --duration:12s; --delay:-5s; --drift:-25px;"></span>
+        <span class="effect-heart" style="left:93%; --size:14px; --duration:17s; --delay:-13s; --drift:-44px;"></span>
 
-        <span class="floating-butterfly" style="left: 5%; top: 22%; --size: 25px; --duration: 11s; --delay: -3s; --x1: 45px; --y1: -30px; --x2: 80px; --y2: 12px;">🦋</span>
-        <span class="floating-butterfly" style="right: 6%; top: 18%; --size: 29px; --duration: 12s; --delay: -7s; --x1: -52px; --y1: -18px; --x2: -88px; --y2: 22px;">🦋</span>
+        <span class="effect-butterfly" style="left:5%; top:22%; --size:25px; --duration:11s; --delay:-3s; --x1:45px; --y1:-30px; --x2:80px; --y2:12px;">🦋</span>
+        <span class="effect-butterfly" style="right:6%; top:18%; --size:29px; --duration:12s; --delay:-7s; --x1:-52px; --y1:-18px; --x2:-88px; --y2:22px;">🦋</span>
+        <span class="effect-butterfly" style="left:12%; bottom:18%; --size:21px; --duration:10s; --delay:-5s; --x1:40px; --y1:-48px; --x2:78px; --y2:-75px;">🦋</span>
+
+        <span class="effect-star" style="left:4%; top:12%; --size:4px; --duration:3.2s; --delay:-1s;"></span>
+        <span class="effect-star" style="left:43%; top:83%; --size:4px; --duration:3.4s; --delay:-2.7s;"></span>
+        <span class="effect-star" style="left:91%; top:58%; --size:4px; --duration:3.6s; --delay:-2.4s;"></span>
       </div>
 
       <div class="hero">
         <header class="hero-header">
-          <p class="hero-eyebrow">A Love Worth Celebrating</p>
+          <p class="eyebrow">
+            A Love Worth Celebrating
+          </p>
 
-          <h1 class="hero-title">Happy Anniversary</h1>
+          <h1 class="hero-title">
+            Happy Anniversary
+          </h1>
 
-          <p class="hero-script">To my beautiful girl</p>
+          <p class="hero-script">
+            To my beautiful girl
+          </p>
 
           <p class="hero-copy">
             Every moment with you is my favorite, and every memory we create
@@ -2655,9 +3231,30 @@
 
     <section class="paper-section" id="paperSection">
       <div class="paper-sticky">
+        <div class="section-effects" aria-hidden="true">
+          <span class="effect-orb" style="left:-120px; top:28%; --size:290px; --opacity:.2; --blur:80px; --orb-color:#ff78b4; --duration:12s; --delay:0s;"></span>
+          <span class="effect-orb" style="right:-130px; bottom:10%; --size:320px; --opacity:.2; --blur:80px; --orb-color:#e6bdff; --duration:16s; --delay:-5s;"></span>
+
+          <span class="effect-heart" style="left:5%; --size:11px; --duration:14s; --delay:-4s; --drift:35px;"></span>
+          <span class="effect-heart" style="left:22%; --size:8px; --duration:12s; --delay:-8s; --drift:-27px;"></span>
+          <span class="effect-heart" style="left:75%; --size:12px; --duration:15s; --delay:-6s; --drift:30px;"></span>
+          <span class="effect-heart" style="left:93%; --size:9px; --duration:13s; --delay:-10s; --drift:-34px;"></span>
+
+          <span class="effect-butterfly" style="left:6%; top:25%; --size:28px; --duration:9s; --delay:-3s; --x1:32px; --y1:-20px; --x2:58px; --y2:20px;">🦋</span>
+          <span class="effect-butterfly" style="right:7%; top:28%; --size:25px; --duration:10s; --delay:-6s; --x1:-35px; --y1:-16px; --x2:-60px; --y2:24px;">🦋</span>
+
+          <span class="effect-star" style="left:8%; top:18%; --size:4px; --duration:3.2s; --delay:-1s;"></span>
+          <span class="effect-star" style="left:82%; top:72%; --size:4px; --duration:3.4s; --delay:-1.2s;"></span>
+        </div>
+
         <header class="paper-heading" id="paperHeading">
-          <p class="paper-eyebrow">A little letter from my heart</p>
-          <h2 class="paper-title">A love letter for you</h2>
+          <p class="eyebrow">
+            A little letter from my heart
+          </p>
+
+          <h2 class="paper-title">
+            A love letter for you
+          </h2>
         </header>
 
         <div class="paper-stage" id="paperStage">
@@ -2666,7 +3263,9 @@
           <article class="love-paper">
             <div class="paper-content">
               <div class="paper-intro-content" data-reveal="0.06">
-                <h3 class="paper-letter-title">My Beautiful Girl,</h3>
+                <h3 class="paper-letter-title">
+                  My Beautiful Girl,
+                </h3>
               </div>
 
               <div class="letter-lines">
@@ -2722,18 +3321,32 @@
     </section>
 
     <section class="memory-journey" id="memoryJourney">
-      <div class="gallery-effects">
-        <span class="gallery-sparkle" style="left: 6%; top: 16%; --size: 4px; --duration: 3s; --delay: -1s;"></span>
-        <span class="gallery-sparkle" style="right: 8%; top: 24%; --size: 4px; --duration: 3.5s; --delay: -2s;"></span>
-        <span class="gallery-heart" style="left: 4%; --size: 11px; --duration: 15s; --delay: -7s; --drift: 36px;"></span>
-        <span class="gallery-heart" style="left: 92%; --size: 12px; --duration: 16s; --delay: -11s; --drift: -34px;"></span>
+      <div class="section-effects" aria-hidden="true">
+        <span class="effect-orb" style="left:-120px; top:14%; --size:340px; --opacity:.17; --blur:90px; --orb-color:#ff6eae; --duration:14s; --delay:0s;"></span>
+        <span class="effect-orb" style="right:-150px; top:44%; --size:390px; --opacity:.15; --blur:100px; --orb-color:#e0b7ff; --duration:17s; --delay:-5s;"></span>
+
+        <span class="effect-heart" style="left:4%; --size:11px; --duration:15s; --delay:-7s; --drift:36px;"></span>
+        <span class="effect-heart" style="left:17%; --size:8px; --duration:12s; --delay:-4s; --drift:-30px;"></span>
+        <span class="effect-heart" style="left:50%; --size:13px; --duration:17s; --delay:-11s; --drift:38px;"></span>
+        <span class="effect-heart" style="left:76%; --size:9px; --duration:13s; --delay:-5s; --drift:-26px;"></span>
+        <span class="effect-heart" style="left:92%; --size:12px; --duration:16s; --delay:-11s; --drift:-34px;"></span>
+
+        <span class="effect-butterfly" style="left:6%; top:30%; --size:25px; --duration:11s; --delay:-3s; --x1:40px; --y1:-28px; --x2:75px; --y2:18px;">🦋</span>
+        <span class="effect-butterfly" style="right:8%; top:20%; --size:28px; --duration:12s; --delay:-7s; --x1:-44px; --y1:-22px; --x2:-80px; --y2:21px;">🦋</span>
+
+        <span class="effect-star" style="left:6%; top:16%; --size:4px; --duration:3s; --delay:-1s;"></span>
+        <span class="effect-star" style="right:8%; top:24%; --size:4px; --duration:3.5s; --delay:-2s;"></span>
       </div>
 
       <div class="memory-sticky">
         <header class="gallery-header">
-          <p class="gallery-eyebrow">The moments that became our story</p>
+          <p class="eyebrow">
+            The moments that became our story
+          </p>
 
-          <h2 class="gallery-title">Our Memory Journey</h2>
+          <h2 class="gallery-title">
+            Our Memory Journey
+          </h2>
 
           <p class="gallery-description">
             Scroll slowly through the little moments that made us,
@@ -2748,7 +3361,6 @@
         <div class="gallery-progress">
           <div class="gallery-progress-line">
             <div class="gallery-progress-fill" id="galleryProgressFill"></div>
-
             <div class="gallery-progress-dots" id="galleryProgressDots"></div>
           </div>
 
@@ -2761,11 +3373,195 @@
       </div>
     </section>
 
-    <section class="final-section">
-      <div class="final-card">
-        <p class="final-eyebrow">Today, tomorrow, and every day after</p>
+    <section class="date-night-section" id="dateNightSection">
+      <div class="section-effects" aria-hidden="true">
+        <span class="effect-orb" style="left:-110px; top:10%; --size:320px; --opacity:.16; --blur:90px; --orb-color:#c793ff; --duration:14s; --delay:-2s;"></span>
+        <span class="effect-orb" style="right:-130px; bottom:6%; --size:350px; --opacity:.17; --blur:100px; --orb-color:#ff6aad; --duration:16s; --delay:-6s;"></span>
 
-        <h2 class="final-title">Happy Anniversary ❤️</h2>
+        <span class="effect-heart" style="left:5%; --size:10px; --duration:14s; --delay:-4s; --drift:34px;"></span>
+        <span class="effect-heart" style="left:20%; --size:8px; --duration:12s; --delay:-8s; --drift:-28px;"></span>
+        <span class="effect-heart" style="left:44%; --size:13px; --duration:17s; --delay:-12s; --drift:40px;"></span>
+        <span class="effect-heart" style="left:72%; --size:9px; --duration:13s; --delay:-6s; --drift:-25px;"></span>
+        <span class="effect-heart" style="left:93%; --size:12px; --duration:16s; --delay:-10s; --drift:-35px;"></span>
+
+        <span class="effect-butterfly" style="left:4%; top:34%; --size:24px; --duration:10s; --delay:-4s; --x1:42px; --y1:-25px; --x2:71px; --y2:24px;">🦋</span>
+        <span class="effect-butterfly" style="right:5%; top:28%; --size:27px; --duration:11s; --delay:-7s; --x1:-42px; --y1:-24px; --x2:-73px; --y2:22px;">🦋</span>
+
+        <span class="effect-star" style="left:10%; top:12%; --size:4px; --duration:3.2s; --delay:-1s;"></span>
+        <span class="effect-star" style="left:55%; top:82%; --size:3px; --duration:2.8s; --delay:-2s;"></span>
+        <span class="effect-star" style="right:14%; top:14%; --size:4px; --duration:3.5s; --delay:-1.5s;"></span>
+      </div>
+
+      <div class="date-night-container">
+        <header class="date-night-heading">
+          <p class="eyebrow">
+            Our next little adventure
+          </p>
+
+          <h2 class="date-night-title">
+            Date Night Under the Stars
+          </h2>
+
+          <p class="date-night-copy">
+            Let fate choose our next date, then make the night sweeter
+            with questions, challenges, and tiny games made for two.
+          </p>
+        </header>
+
+        <div class="date-night-layout">
+          <section class="date-night-panel date-generator-panel">
+            <div class="moon-orbit" aria-hidden="true">
+              <span class="moon-star"></span>
+
+              <div class="moon-disc">
+                <span class="moon-disc-heart">♥</span>
+              </div>
+            </div>
+
+            <h3 class="date-generator-title">
+              What should we do tonight?
+            </h3>
+
+            <div class="date-result" id="dateResult">
+              <p class="date-result-label">
+                Tonight's date
+              </p>
+
+              <h4 class="date-result-title" id="dateResultTitle">
+                Midnight Snack Adventure
+              </h4>
+
+              <p class="date-result-copy" id="dateResultCopy">
+                Pick a late-night treat, take a quiet walk, and choose one new place
+                neither of us has tried before.
+              </p>
+            </div>
+
+            <button
+              class="primary-cute-button"
+              id="generateDateButton"
+              type="button"
+            >
+              Choose Our Date
+            </button>
+          </section>
+
+          <section class="date-night-panel games-panel">
+            <div class="games-header">
+              <div>
+                <p class="eyebrow">
+                  Couple games
+                </p>
+
+                <h3 class="games-title">
+                  Pick a little game
+                </h3>
+              </div>
+
+              <span class="games-count" id="gamesCount">
+                01 / 03
+              </span>
+            </div>
+
+            <div class="game-selector">
+              <button
+                class="game-tab is-active"
+                type="button"
+                data-game="questions"
+              >
+                <span class="game-tab-icon">♡</span>
+                <span class="game-tab-label">Love Questions</span>
+              </button>
+
+              <button
+                class="game-tab"
+                type="button"
+                data-game="challenges"
+              >
+                <span class="game-tab-icon">✦</span>
+                <span class="game-tab-label">Cute Challenges</span>
+              </button>
+
+              <button
+                class="game-tab"
+                type="button"
+                data-game="choices"
+              >
+                <span class="game-tab-icon">☾</span>
+                <span class="game-tab-label">This or That</span>
+              </button>
+            </div>
+
+            <div class="game-card" id="gameCard">
+              <span class="game-card-decoration">♡</span>
+
+              <p class="game-card-label" id="gameCardLabel">
+                Love question
+              </p>
+
+              <h4 class="game-card-question" id="gameCardQuestion">
+                What was the first little thing about me that made you smile?
+              </h4>
+
+              <p class="game-card-note" id="gameCardNote">
+                Take turns answering. No rushing and no copying each other's answer.
+              </p>
+            </div>
+
+            <div class="game-actions">
+              <button
+                class="secondary-cute-button"
+                id="previousGameButton"
+                type="button"
+              >
+                Previous
+              </button>
+
+              <button
+                class="primary-cute-button"
+                id="nextGameButton"
+                type="button"
+              >
+                Next Card
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <div class="date-night-footer">
+          <span class="date-night-footer-heart">♥</span>
+
+          <span>
+            The winner gets to choose dessert. The other person gives the first hug.
+          </span>
+
+          <span class="date-night-footer-heart">♥</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-section">
+      <div class="section-effects" aria-hidden="true">
+        <span class="effect-heart" style="left:5%; --size:11px; --duration:14s; --delay:-5s; --drift:32px;"></span>
+        <span class="effect-heart" style="left:28%; --size:8px; --duration:12s; --delay:-9s; --drift:-27px;"></span>
+        <span class="effect-heart" style="left:62%; --size:13px; --duration:17s; --delay:-12s; --drift:38px;"></span>
+        <span class="effect-heart" style="left:92%; --size:10px; --duration:15s; --delay:-7s; --drift:-34px;"></span>
+
+        <span class="effect-butterfly" style="left:7%; top:28%; --size:24px; --duration:10s; --delay:-4s; --x1:40px; --y1:-25px; --x2:70px; --y2:20px;">🦋</span>
+        <span class="effect-butterfly" style="right:8%; top:30%; --size:26px; --duration:11s; --delay:-7s; --x1:-42px; --y1:-24px; --x2:-72px; --y2:23px;">🦋</span>
+
+        <span class="effect-star" style="left:12%; top:15%; --size:4px; --duration:3.2s; --delay:-1s;"></span>
+        <span class="effect-star" style="right:13%; top:18%; --size:4px; --duration:3.4s; --delay:-2s;"></span>
+      </div>
+
+      <div class="final-card">
+        <p class="eyebrow">
+          Today, tomorrow, and every day after
+        </p>
+
+        <h2 class="final-title">
+          Happy Anniversary ❤️
+        </h2>
 
         <p class="final-copy">
           Thank you for every memory we have already made and for all the
@@ -2785,7 +3581,14 @@
     ></button>
 
     <div class="gallery-lightbox-dialog">
-      <button class="gallery-close" id="galleryClose" type="button">×</button>
+      <button
+        class="gallery-close"
+        id="galleryClose"
+        type="button"
+        aria-label="Close photo"
+      >
+        ×
+      </button>
 
       <figure class="gallery-lightbox-figure">
         <img id="galleryLightboxImage" src="" alt="">
@@ -2796,6 +3599,7 @@
         class="gallery-navigation gallery-navigation--previous"
         id="galleryPrevious"
         type="button"
+        aria-label="Previous photo"
       >
         ‹
       </button>
@@ -2804,6 +3608,7 @@
         class="gallery-navigation gallery-navigation--next"
         id="galleryNext"
         type="button"
+        aria-label="Next photo"
       >
         ›
       </button>
@@ -2812,7 +3617,12 @@
 
   <div class="music-dock" id="musicDock">
     <div class="music-shell">
-      <button class="record-player" id="recordPlayerButton" type="button">
+      <button
+        class="record-player"
+        id="recordPlayerButton"
+        type="button"
+        aria-label="Play or pause anniversary music"
+      >
         <span class="turntable">
           <span class="record">
             <span class="record-label">our song</span>
@@ -2821,12 +3631,25 @@
       </button>
 
       <div class="music-information">
-        <span class="music-eyebrow">Anniversary record</span>
-        <strong class="music-title">Our anniversary song</strong>
-        <span class="music-status" id="musicStatus">Preparing the music</span>
+        <span class="music-eyebrow">
+          Anniversary record
+        </span>
+
+        <strong class="music-title">
+          Our anniversary song
+        </strong>
+
+        <span class="music-status" id="musicStatus">
+          Preparing the music
+        </span>
       </div>
 
-      <button class="music-toggle" id="musicToggle" type="button">
+      <button
+        class="music-toggle"
+        id="musicToggle"
+        type="button"
+        aria-label="Play or pause music"
+      >
         <span id="musicToggleIcon">▶</span>
       </button>
     </div>
@@ -2850,6 +3673,7 @@
           kicker: "Where our story became real",
           name: "Our First Meetup",
           text: "The first time we finally met in person and everything suddenly felt real.",
+          sticker: "first hello",
           className: "memory-slide--first"
         },
         {
@@ -2857,6 +3681,7 @@
           kicker: "Our first adventure",
           name: "First Travel Together",
           text: "Our first trip together, with the ocean beside us and a whole story still ahead.",
+          sticker: "first trip",
           className: "memory-slide--beach"
         },
         {
@@ -2864,6 +3689,7 @@
           kicker: "A quiet favorite",
           name: "A Simple Day With You",
           text: "One of those ordinary moments that became special simply because you were there.",
+          sticker: "just us",
           className: ""
         },
         {
@@ -2871,6 +3697,7 @@
           kicker: "Only us",
           name: "A Moment of Our Own",
           text: "A tiny moment that belonged only to us and became one of my favorite memories.",
+          sticker: "my love",
           className: "memory-slide--kiss"
         },
         {
@@ -2878,6 +3705,7 @@
           kicker: "Side by side",
           name: "Close to You",
           text: "Everywhere feels softer, warmer, and more familiar whenever you are beside me.",
+          sticker: "together",
           className: ""
         },
         {
@@ -2885,6 +3713,7 @@
           kicker: "The little moments",
           name: "Ordinary Became Special",
           text: "The kind of memory that reminds me happiness can live inside the simplest days.",
+          sticker: "favorite",
           className: ""
         },
         {
@@ -2892,9 +3721,129 @@
           kicker: "A beautiful day in Japan",
           name: "Another Adventure",
           text: "A beautiful place made even better because I got to experience it with you.",
+          sticker: "our story",
           className: ""
         }
       ];
+
+      const dateIdeas = [
+        {
+          title: "Midnight Snack Adventure",
+          copy: "Pick a late-night treat, take a quiet walk, and choose one new place neither of us has tried before."
+        },
+        {
+          title: "Blanket Fort Movie Night",
+          copy: "Build the softest fort possible, choose one comfort movie each, and bring too many snacks."
+        },
+        {
+          title: "Sunset Convenience Store Picnic",
+          copy: "Choose snacks for each other, find a peaceful view, and stay until the first stars appear."
+        },
+        {
+          title: "Mystery Train Date",
+          copy: "Pick a nearby station at random, explore together, and take one photo that becomes tonight's memory."
+        },
+        {
+          title: "Dessert Before Dinner",
+          copy: "Start with dessert, choose dinner afterward, and spend the evening doing everything in the wrong order."
+        },
+        {
+          title: "No-Phone Stargazing Night",
+          copy: "Bring a blanket, turn off the phones, choose a quiet place, and talk until the sky feels close."
+        },
+        {
+          title: "Tiny Budget Challenge",
+          copy: "Give each other a small budget and secretly choose a snack, drink, or cute surprise for the other."
+        },
+        {
+          title: "Our Memory Reenactment",
+          copy: "Choose one early memory, revisit the place or recreate the moment, then take a new version of the photo."
+        }
+      ];
+
+      const games = {
+        questions: [
+          {
+            label: "Love question",
+            question: "What was the first little thing about me that made you smile?",
+            note: "Take turns answering. No rushing and no copying each other's answer."
+          },
+          {
+            label: "Love question",
+            question: "Which memory of us would you happily relive for one whole day?",
+            note: "Describe the little details you still remember from that moment."
+          },
+          {
+            label: "Love question",
+            question: "What is something I do that always makes you feel loved?",
+            note: "The smallest answers are often the sweetest ones."
+          },
+          {
+            label: "Love question",
+            question: "What place would you love for us to travel to next?",
+            note: "Each person chooses a destination and explains the dream date there."
+          },
+          {
+            label: "Love question",
+            question: "What do you hope never changes about us?",
+            note: "End the answer by telling the other person why it matters."
+          }
+        ],
+        challenges: [
+          {
+            label: "Cute challenge",
+            question: "Give each other a 30-second hug without speaking.",
+            note: "No laughing your way out of it. Stay close until the timer ends."
+          },
+          {
+            label: "Cute challenge",
+            question: "Choose a song that reminds you of each other and explain why.",
+            note: "Play both songs afterward and add them to a shared playlist."
+          },
+          {
+            label: "Cute challenge",
+            question: "Recreate the pose from one of your earliest photos together.",
+            note: "Take a new photo and keep both versions side by side."
+          },
+          {
+            label: "Cute challenge",
+            question: "Write one secret compliment and exchange it at the same time.",
+            note: "Fold the notes first. Neither person can peek early."
+          },
+          {
+            label: "Cute challenge",
+            question: "Plan a surprise date using only three clues.",
+            note: "The other person gets one guess before the surprise is revealed."
+          }
+        ],
+        choices: [
+          {
+            label: "This or that",
+            question: "Sunrise breakfast or midnight dessert?",
+            note: "Choose at the same time. The matching answer becomes your next mini date."
+          },
+          {
+            label: "This or that",
+            question: "Beach getaway or cozy mountain cabin?",
+            note: "After choosing, describe what the perfect day there would look like."
+          },
+          {
+            label: "This or that",
+            question: "Fancy dinner or street-food adventure?",
+            note: "The person with the strongest argument wins tonight's choice."
+          },
+          {
+            label: "This or that",
+            question: "Matching outfits or matching phone wallpapers?",
+            note: "The losing choice can still become next week's challenge."
+          },
+          {
+            label: "This or that",
+            question: "Photo booth date or disposable-camera date?",
+            note: "Choose one and promise to make a tiny photo album afterward."
+          }
+        ]
+      };
 
       const body = document.body;
       const intro = document.getElementById("intro");
@@ -2931,6 +3880,19 @@
       const galleryPrevious = document.getElementById("galleryPrevious");
       const galleryNext = document.getElementById("galleryNext");
 
+      const generateDateButton = document.getElementById("generateDateButton");
+      const dateResult = document.getElementById("dateResult");
+      const dateResultTitle = document.getElementById("dateResultTitle");
+      const dateResultCopy = document.getElementById("dateResultCopy");
+
+      const gameTabs = Array.from(document.querySelectorAll(".game-tab"));
+      const gamesCount = document.getElementById("gamesCount");
+      const gameCardLabel = document.getElementById("gameCardLabel");
+      const gameCardQuestion = document.getElementById("gameCardQuestion");
+      const gameCardNote = document.getElementById("gameCardNote");
+      const previousGameButton = document.getElementById("previousGameButton");
+      const nextGameButton = document.getElementById("nextGameButton");
+
       const musicDock = document.getElementById("musicDock");
       const recordPlayerButton = document.getElementById("recordPlayerButton");
       const musicToggle = document.getElementById("musicToggle");
@@ -2947,6 +3909,9 @@
       let musicPlaying = false;
       let currentMemory = 0;
       let scrollScheduled = false;
+      let selectedGameType = "questions";
+      let selectedGameIndex = 0;
+      let previousDateIndex = -1;
 
       const wait = (duration) =>
         new Promise((resolve) => window.setTimeout(resolve, duration));
@@ -2968,7 +3933,13 @@
             type="button"
             aria-label="Open ${memory.name}"
           >
-            <span class="memory-bow"><span></span></span>
+            <span class="memory-bow" aria-hidden="true">
+              <span class="memory-bow-left"></span>
+              <span class="memory-bow-right"></span>
+              <span class="memory-bow-knot"></span>
+              <span class="memory-ribbon-left"></span>
+              <span class="memory-ribbon-right"></span>
+            </span>
 
             <span class="memory-number">
               ${String(index + 1).padStart(2, "0")}
@@ -2989,26 +3960,46 @@
               <span class="memory-text">${memory.text}</span>
             </div>
 
-            <span class="memory-charm"></span>
+            <span class="memory-heart-charm" aria-hidden="true">
+              <span class="memory-heart-highlight"></span>
+            </span>
 
-            <span class="memory-stars">
-              <span class="memory-star" style="left: 8%; top: 12%; --size: 8px; --duration: 3s; --delay: -1s;"></span>
-              <span class="memory-star" style="right: 5%; top: 42%; --size: 6px; --duration: 2.6s; --delay: -2s;"></span>
-              <span class="memory-star" style="left: 20%; bottom: 8%; --size: 5px; --duration: 3.4s; --delay: -1.6s;"></span>
+            <span class="memory-pearl-chain" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+
+            <span class="memory-corner-sticker">
+              ${memory.sticker}
+            </span>
+
+            <span class="memory-stars" aria-hidden="true">
+              <span class="memory-star" style="left:8%; top:12%; --size:8px; --duration:3s; --delay:-1s;"></span>
+              <span class="memory-star" style="right:5%; top:42%; --size:6px; --duration:2.6s; --delay:-2s;"></span>
+              <span class="memory-star" style="left:20%; bottom:8%; --size:5px; --duration:3.4s; --delay:-1.6s;"></span>
             </span>
           </button>
         `;
 
-        article.querySelector(".memory-frame").addEventListener("click", () => {
-          openMemory(index);
-        });
+        article
+          .querySelector(".memory-frame")
+          .addEventListener("click", () => {
+            openMemory(index);
+          });
 
         return article;
       };
 
       memories.forEach((memory, index) => {
-        memoryTrack.appendChild(createMemoryCard(memory, index));
-        mobileGallery.appendChild(createMemoryCard(memory, index));
+        memoryTrack.appendChild(
+          createMemoryCard(memory, index)
+        );
+
+        mobileGallery.appendChild(
+          createMemoryCard(memory, index)
+        );
 
         const dot = document.createElement("span");
         dot.className = "gallery-progress-dot";
@@ -3040,12 +4031,16 @@
           loaderPercent.textContent = `${progress}%`;
           loaderStatus.textContent = status;
           loaderMessage.textContent = message;
+
           await wait(650 + Math.random() * 400);
         }
 
         await wait(700);
+
         loaderScreen.classList.add("is-hidden");
+
         await wait(450);
+
         previewScreen.classList.add("is-visible");
       };
 
@@ -3054,9 +4049,11 @@
         musicDock.classList.add("is-visible");
         body.classList.remove("is-locked");
         intro.classList.add("is-closing");
+
         playMusic();
 
         await wait(900);
+
         intro.hidden = true;
       });
 
@@ -3087,11 +4084,14 @@
         });
 
         if (progress < 0.15) {
-          paperScrollNote.textContent = "Scroll slowly to begin the letter";
+          paperScrollNote.textContent =
+            "Scroll slowly to begin the letter";
         } else if (progress < 0.88) {
-          paperScrollNote.textContent = "Keep scrolling to reveal every word";
+          paperScrollNote.textContent =
+            "Keep scrolling to reveal every word";
         } else {
-          paperScrollNote.textContent = "The whole letter is now yours";
+          paperScrollNote.textContent =
+            "The whole letter is now yours";
         }
       };
 
@@ -3235,6 +4235,95 @@
         }
       });
 
+      const generateDateIdea = () => {
+        let nextIndex = Math.floor(
+          Math.random() * dateIdeas.length
+        );
+
+        if (
+          dateIdeas.length > 1 &&
+          nextIndex === previousDateIndex
+        ) {
+          nextIndex =
+            (nextIndex + 1) %
+            dateIdeas.length;
+        }
+
+        previousDateIndex = nextIndex;
+
+        dateResult.classList.add("is-changing");
+
+        window.setTimeout(() => {
+          dateResultTitle.textContent =
+            dateIdeas[nextIndex].title;
+
+          dateResultCopy.textContent =
+            dateIdeas[nextIndex].copy;
+
+          dateResult.classList.remove("is-changing");
+        }, 280);
+      };
+
+      generateDateButton.addEventListener(
+        "click",
+        generateDateIdea
+      );
+
+      const updateGameCard = () => {
+        const gameList = games[selectedGameType];
+        const game = gameList[selectedGameIndex];
+
+        gameCardLabel.textContent = game.label;
+        gameCardQuestion.textContent = game.question;
+        gameCardNote.textContent = game.note;
+
+        gamesCount.textContent =
+          `${String(selectedGameIndex + 1).padStart(2, "0")} / ${String(gameList.length).padStart(2, "0")}`;
+      };
+
+      gameTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          selectedGameType = tab.dataset.game;
+          selectedGameIndex = 0;
+
+          gameTabs.forEach((item) => {
+            item.classList.toggle(
+              "is-active",
+              item === tab
+            );
+          });
+
+          updateGameCard();
+        });
+      });
+
+      previousGameButton.addEventListener("click", () => {
+        const gameList = games[selectedGameType];
+
+        selectedGameIndex =
+          (
+            selectedGameIndex -
+            1 +
+            gameList.length
+          ) %
+          gameList.length;
+
+        updateGameCard();
+      });
+
+      nextGameButton.addEventListener("click", () => {
+        const gameList = games[selectedGameType];
+
+        selectedGameIndex =
+          (
+            selectedGameIndex +
+            1
+          ) %
+          gameList.length;
+
+        updateGameCard();
+      });
+
       window.onYouTubeIframeAPIReady = () => {
         youtubePlayer = new window.YT.Player("youtubePlayer", {
           width: 240,
@@ -3253,6 +4342,7 @@
               youtubePlayerReady = true;
               musicStatus.textContent = "Tap to play our song";
             },
+
             onStateChange: (event) => {
               musicPlaying =
                 event.data === window.YT.PlayerState.PLAYING;
@@ -3266,7 +4356,9 @@
                 musicPlaying ? "Ⅱ" : "▶";
 
               musicStatus.textContent =
-                musicPlaying ? "Playing our song" : "Music paused";
+                musicPlaying
+                  ? "Playing our song"
+                  : "Music paused";
             }
           }
         });
@@ -3300,8 +4392,15 @@
         }
       };
 
-      recordPlayerButton.addEventListener("click", toggleMusic);
-      musicToggle.addEventListener("click", toggleMusic);
+      recordPlayerButton.addEventListener(
+        "click",
+        toggleMusic
+      );
+
+      musicToggle.addEventListener(
+        "click",
+        toggleMusic
+      );
 
       const finePointer = window.matchMedia(
         "(hover: hover) and (pointer: fine)"
@@ -3319,6 +4418,7 @@
         window.addEventListener("pointermove", (event) => {
           targetX = event.clientX;
           targetY = event.clientY;
+
           starCursor.classList.add("is-visible");
 
           const now = performance.now();
@@ -3390,6 +4490,7 @@
       runLoader();
       updatePaper();
       updateGallery();
+      updateGameCard();
     })();
   </script>
 </body>
