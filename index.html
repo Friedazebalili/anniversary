@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#160811">
   <meta name="description" content="A dreamy anniversary experience made with love.">
-
   <title>Happy Anniversary</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,6 +62,7 @@
     }
 
     button,
+    input,
     a {
       color: inherit;
       font: inherit;
@@ -846,8 +846,7 @@
       border-radius: 34px;
       cursor: pointer;
       text-align: left;
-      background:
-        linear-gradient(145deg, #fff9fc 0%, #ffdce9 36%, #eeaac8 68%, #c75c8b 100%);
+      background: linear-gradient(145deg, #fff9fc 0%, #ffdce9 36%, #eeaac8 68%, #c75c8b 100%);
       box-shadow:
         0 36px 95px rgba(0, 0, 0, 0.46),
         0 0 55px rgba(255, 111, 175, 0.17),
@@ -926,14 +925,6 @@
       object-position: center 34%;
     }
 
-    .memory-slide--beach .memory-photo img {
-      object-position: center;
-    }
-
-    .memory-slide--kiss .memory-photo img {
-      object-position: center;
-    }
-
     .memory-number {
       position: absolute;
       top: 24px;
@@ -949,8 +940,7 @@
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.12em;
-      background:
-        radial-gradient(circle at 35% 30%, rgba(255, 184, 215, 0.82), rgba(116, 36, 76, 0.88));
+      background: radial-gradient(circle at 35% 30%, rgba(255, 184, 215, 0.82), rgba(116, 36, 76, 0.88));
       box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.23),
         0 0 15px rgba(255, 129, 187, 0.34);
@@ -1015,8 +1005,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background:
-        radial-gradient(circle at 32% 26%, #fff, #ffe4ef 52%, #cb7c9c);
+      background: radial-gradient(circle at 32% 26%, #fff, #ffe4ef 52%, #cb7c9c);
       box-shadow:
         0 0 8px rgba(255, 157, 200, 0.5),
         0 4px 8px rgba(87, 25, 54, 0.15);
@@ -1122,14 +1111,12 @@
       min-height: 100svh;
       overflow: hidden;
       isolation: isolate;
-      padding:
-        clamp(90px, 10vw, 140px)
-        20px;
+      padding: clamp(90px, 10vw, 140px) 20px;
       background:
-        radial-gradient(circle at 50% 12%, rgba(255, 170, 212, 0.18), transparent 28%),
-        radial-gradient(circle at 10% 70%, rgba(139, 88, 255, 0.13), transparent 28%),
-        radial-gradient(circle at 88% 64%, rgba(255, 87, 166, 0.11), transparent 28%),
-        linear-gradient(180deg, #080306 0%, #17091b 25%, #24102c 58%, #0e0612 100%);
+        radial-gradient(circle at 50% 8%, rgba(255, 170, 212, 0.19), transparent 29%),
+        radial-gradient(circle at 8% 48%, rgba(139, 88, 255, 0.14), transparent 28%),
+        radial-gradient(circle at 92% 70%, rgba(255, 87, 166, 0.12), transparent 28%),
+        linear-gradient(180deg, #080306 0%, #17091b 23%, #24102c 58%, #0e0612 100%);
     }
 
     .date-night-container {
@@ -1140,7 +1127,7 @@
     }
 
     .date-night-heading {
-      width: min(760px, 100%);
+      width: min(780px, 100%);
       margin: 0 auto 52px;
       text-align: center;
     }
@@ -1152,10 +1139,13 @@
       font-size: clamp(56px, 8vw, 94px);
       font-weight: 400;
       line-height: 0.95;
+      text-shadow:
+        0 0 25px rgba(255, 118, 180, 0.25),
+        0 18px 38px rgba(0, 0, 0, 0.35);
     }
 
     .date-night-copy {
-      max-width: 610px;
+      max-width: 650px;
       margin: 18px auto 0;
       color: rgba(255, 235, 244, 0.68);
       font-family: "Playfair Display", serif;
@@ -1167,6 +1157,7 @@
       display: grid;
       grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
       gap: clamp(22px, 4vw, 50px);
+      align-items: stretch;
     }
 
     .date-night-panel {
@@ -1175,8 +1166,10 @@
       background: linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018));
       box-shadow:
         0 30px 80px rgba(0, 0, 0, 0.38),
-        0 0 45px rgba(255, 103, 171, 0.08);
+        0 0 45px rgba(255, 103, 171, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
       backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
     .date-generator-panel {
@@ -1185,6 +1178,51 @@
       flex-direction: column;
       justify-content: center;
       text-align: center;
+    }
+
+    .date-generator-visual {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 26px;
+      display: grid;
+      place-items: center;
+    }
+
+    .date-generator-visual::before,
+    .date-generator-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 211, 231, 0.18);
+      animation: loaderOrbit 13s linear infinite;
+    }
+
+    .date-generator-visual::before {
+      inset: 0;
+    }
+
+    .date-generator-visual::after {
+      inset: 20px;
+      border-style: dashed;
+      animation-direction: reverse;
+      animation-duration: 9s;
+    }
+
+    .date-generator-moon {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff4f9;
+      font-size: 35px;
+      background:
+        radial-gradient(circle at 35% 30%, #fff6fb, #ffc5df 50%, #a84a78 100%);
+      box-shadow:
+        0 0 35px rgba(255, 153, 201, 0.35),
+        inset -18px -14px 26px rgba(90, 27, 61, 0.18);
+      animation: floatSoft 4.5s ease-in-out infinite;
     }
 
     .date-generator-title,
@@ -1196,14 +1234,24 @@
     }
 
     .date-result {
-      min-height: 155px;
+      min-height: 190px;
       margin-top: 24px;
-      padding: 24px;
+      padding: 25px;
       border: 1px solid rgba(255, 224, 238, 0.13);
       border-radius: 22px;
       display: grid;
       align-content: center;
-      background: rgba(255, 255, 255, 0.045);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255, 142, 193, 0.14), transparent 35%),
+        rgba(255, 255, 255, 0.045);
+      transition:
+        opacity 0.3s ease,
+        transform 0.4s var(--ease);
+    }
+
+    .date-result.is-changing {
+      opacity: 0;
+      transform: translateY(8px) scale(0.985);
     }
 
     .date-result-label,
@@ -1217,19 +1265,19 @@
     }
 
     .date-result-title {
-      margin: 7px 0 0;
+      margin: 8px 0 0;
       color: #ffe9f3;
       font-family: "Great Vibes", cursive;
-      font-size: clamp(34px, 4vw, 50px);
+      font-size: clamp(36px, 4vw, 52px);
       font-weight: 400;
       line-height: 1;
     }
 
     .date-result-copy {
-      margin: 10px 0 0;
+      margin: 11px 0 0;
       color: rgba(255, 237, 245, 0.68);
       font-size: 12px;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .primary-cute-button,
@@ -1240,6 +1288,10 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      transition:
+        transform 0.3s var(--ease),
+        filter 0.3s ease,
+        background 0.3s ease;
     }
 
     .primary-cute-button {
@@ -1247,9 +1299,17 @@
       padding: 14px 25px;
       color: #fff8fb;
       background: linear-gradient(110deg, #ae336c, #ec69a2, #ffb3d0, #ce4e89);
+      background-size: 220% 100%;
       box-shadow:
         0 14px 30px rgba(0, 0, 0, 0.25),
         0 0 24px rgba(255, 100, 168, 0.28);
+      animation: chromeShine 7s ease-in-out infinite;
+    }
+
+    .primary-cute-button:hover,
+    .secondary-cute-button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.07);
     }
 
     .games-panel {
@@ -1265,6 +1325,7 @@
     }
 
     .games-count {
+      flex: 0 0 auto;
       color: rgba(255, 229, 241, 0.46);
       font-size: 8px;
       font-weight: 700;
@@ -1272,16 +1333,34 @@
       text-transform: uppercase;
     }
 
+    .game-selector-wrap {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
     .game-selector {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-bottom: 18px;
+      display: flex;
+      gap: 9px;
+      overflow-x: auto;
+      padding: 2px 2px 10px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 150, 199, 0.35) transparent;
+    }
+
+    .game-selector::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .game-selector::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(255, 150, 199, 0.35);
     }
 
     .game-tab {
-      min-height: 74px;
-      padding: 11px 8px;
+      min-width: 135px;
+      min-height: 72px;
+      padding: 11px 10px;
       border: 1px solid rgba(255, 227, 240, 0.11);
       border-radius: 17px;
       display: grid;
@@ -1290,37 +1369,74 @@
       color: rgba(255, 235, 244, 0.65);
       cursor: pointer;
       background: rgba(255, 255, 255, 0.035);
+      scroll-snap-align: start;
+      transition:
+        transform 0.3s var(--ease),
+        border-color 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
     }
 
+    .game-tab:hover,
     .game-tab.is-active {
       color: #fff8fb;
       border-color: rgba(255, 184, 215, 0.3);
       background: linear-gradient(145deg, rgba(255, 135, 188, 0.18), rgba(255, 255, 255, 0.055));
+      transform: translateY(-2px);
     }
 
     .game-tab-icon {
-      font-size: 19px;
+      font-size: 20px;
     }
 
     .game-tab-label {
       font-size: 8px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
+      text-align: center;
     }
 
     .game-card {
-      min-height: 310px;
-      padding: clamp(26px, 4vw, 42px);
+      position: relative;
+      min-height: 335px;
+      padding: clamp(28px, 4vw, 44px);
+      overflow: hidden;
       border: 1px solid rgba(255, 227, 240, 0.14);
       border-radius: 27px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.045);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(255, 147, 197, 0.16), transparent 34%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 18px 45px rgba(0, 0, 0, 0.2);
+      transition:
+        opacity 0.3s ease,
+        transform 0.4s var(--ease);
+    }
+
+    .game-card.is-changing {
+      opacity: 0;
+      transform: translateY(10px) scale(0.985);
+    }
+
+    .game-card-symbol {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      color: rgba(255, 214, 233, 0.08);
+      font-family: "Great Vibes", cursive;
+      font-size: 130px;
+      line-height: 1;
+      pointer-events: none;
     }
 
     .game-card-question {
+      position: relative;
+      z-index: 2;
       margin: 13px 0 0;
       color: #fff0f7;
       font-family: "Playfair Display", serif;
@@ -1329,10 +1445,26 @@
     }
 
     .game-card-note {
+      position: relative;
+      z-index: 2;
       margin: 18px 0 0;
       color: rgba(255, 234, 243, 0.58);
       font-size: 11px;
       line-height: 1.65;
+    }
+
+    .game-card-tag {
+      width: fit-content;
+      margin-top: 20px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255, 209, 231, 0.13);
+      border-radius: 999px;
+      color: rgba(255, 236, 244, 0.7);
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.04);
     }
 
     .game-actions {
@@ -1348,6 +1480,202 @@
       border: 1px solid rgba(255, 227, 240, 0.14);
       color: rgba(255, 239, 246, 0.82);
       background: rgba(255, 255, 255, 0.045);
+    }
+
+    .next-call-section {
+      margin-top: 42px;
+      padding: clamp(26px, 4vw, 42px);
+      border: 1px solid rgba(255, 227, 240, 0.12);
+      border-radius: 31px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(215, 164, 255, 0.13), transparent 34%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.018));
+      box-shadow:
+        0 24px 65px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+    }
+
+    .next-call-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .next-call-title {
+      margin: 0;
+      color: #ffe8f2;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(25px, 3vw, 38px);
+    }
+
+    .next-call-copy {
+      margin: 12px 0 0;
+      color: rgba(255, 235, 244, 0.62);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .next-call-form {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 11px;
+    }
+
+    .next-call-input {
+      width: 100%;
+      min-height: 50px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 226, 240, 0.15);
+      border-radius: 15px;
+      outline: none;
+      color: #fff1f7;
+      background: rgba(255, 255, 255, 0.045);
+      color-scheme: dark;
+    }
+
+    .next-call-input:focus {
+      border-color: rgba(255, 151, 199, 0.44);
+      box-shadow: 0 0 0 3px rgba(255, 115, 178, 0.08);
+    }
+
+    .next-call-button {
+      min-height: 50px;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .countdown-display {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .countdown-unit {
+      min-height: 74px;
+      padding: 12px 8px;
+      border: 1px solid rgba(255, 224, 238, 0.1);
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .countdown-number {
+      color: #ffe9f3;
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .countdown-label {
+      color: rgba(255, 229, 241, 0.48);
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .countdown-message {
+      margin: 13px 0 0;
+      color: rgba(255, 235, 244, 0.62);
+      font-family: "Playfair Display", serif;
+      font-size: 12px;
+      font-style: italic;
+      text-align: center;
+    }
+
+    .long-distance-extras {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .distance-extra-card {
+      min-height: 230px;
+      padding: 25px;
+      border: 1px solid rgba(255, 227, 240, 0.11);
+      border-radius: 25px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+    }
+
+    .distance-extra-icon {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 220, 236, 0.18);
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      background: rgba(255, 135, 188, 0.1);
+    }
+
+    .distance-extra-title {
+      margin: 18px 0 0;
+      color: #ffe7f1;
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+    }
+
+    .distance-extra-copy {
+      margin: 10px 0 0;
+      color: rgba(255, 234, 243, 0.58);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .distance-extra-button {
+      width: 100%;
+      min-height: 43px;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 227, 240, 0.13);
+      border-radius: 999px;
+      color: rgba(255, 241, 247, 0.82);
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .distance-extra-result {
+      min-height: 45px;
+      margin: 13px 0 0;
+      color: rgba(255, 237, 245, 0.74);
+      font-family: "Playfair Display", serif;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .date-night-footer {
+      width: min(820px, 100%);
+      margin: 44px auto 0;
+      padding: 18px 22px;
+      border: 1px solid rgba(255, 225, 238, 0.1);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: rgba(255, 234, 243, 0.65);
+      font-family: "Playfair Display", serif;
+      font-size: 12px;
+      font-style: italic;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .date-night-footer-heart {
+      color: #ff9dc5;
+      font-size: 18px;
+      text-shadow: 0 0 10px rgba(255, 130, 190, 0.55);
     }
 
     .final-section {
@@ -1423,8 +1751,7 @@
       width: 100%;
       height: 100%;
       cursor: pointer;
-      background:
-        radial-gradient(circle at center, rgba(82, 27, 62, 0.48), rgba(6, 2, 5, 0.94) 68%);
+      background: radial-gradient(circle at center, rgba(82, 27, 62, 0.48), rgba(6, 2, 5, 0.94) 68%);
       backdrop-filter: blur(20px);
     }
 
@@ -1567,8 +1894,7 @@
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      background:
-        repeating-radial-gradient(circle, #171016 0, #171016 2px, #292029 3px, #292029 4px);
+      background: repeating-radial-gradient(circle, #171016 0, #171016 2px, #292029 3px, #292029 4px);
     }
 
     .music-dock.is-playing .record {
@@ -1773,8 +2099,13 @@
     }
 
     @media (max-width: 980px) {
-      .date-night-layout {
+      .date-night-layout,
+      .next-call-grid {
         grid-template-columns: 1fr;
+      }
+
+      .long-distance-extras {
+        grid-template-columns: 1fr 1fr;
       }
     }
 
@@ -1868,6 +2199,20 @@
 
       .gallery-navigation--next {
         right: 6px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .long-distance-extras {
+        grid-template-columns: 1fr;
+      }
+
+      .next-call-form {
+        grid-template-columns: 1fr;
+      }
+
+      .next-call-button {
+        width: 100%;
       }
     }
 
@@ -2071,7 +2416,8 @@
         font-size: 12px;
       }
 
-      .date-night-panel {
+      .date-night-panel,
+      .next-call-section {
         border-radius: 25px;
       }
 
@@ -2080,28 +2426,67 @@
         padding: 24px 17px;
       }
 
+      .date-generator-visual {
+        width: 145px;
+        height: 145px;
+      }
+
+      .date-generator-moon {
+        width: 84px;
+        height: 84px;
+        font-size: 29px;
+      }
+
+      .date-result {
+        min-height: 210px;
+        padding: 22px 17px;
+      }
+
+      .date-result-title {
+        font-size: 39px;
+      }
+
       .game-selector {
-        grid-template-columns: 1fr;
+        margin-left: -2px;
+        margin-right: -2px;
       }
 
       .game-tab {
-        min-height: 57px;
-        grid-template-columns: 28px 1fr;
-        justify-items: start;
-        padding: 10px 15px;
+        min-width: 125px;
       }
 
       .game-card {
-        min-height: 330px;
-        padding: 25px 19px;
+        min-height: 360px;
+        padding: 28px 20px;
       }
 
       .game-card-question {
         font-size: 26px;
       }
 
+      .game-card-symbol {
+        font-size: 105px;
+      }
+
       .game-actions {
         flex-direction: column;
+      }
+
+      .next-call-section {
+        padding: 24px 17px;
+      }
+
+      .countdown-display {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .distance-extra-card {
+        min-height: 0;
+      }
+
+      .date-night-footer {
+        border-radius: 22px;
+        font-size: 11px;
       }
 
       .gallery-lightbox {
@@ -2189,6 +2574,10 @@
 
       .memory-text {
         font-size: 10px;
+      }
+
+      .countdown-unit {
+        min-height: 68px;
       }
     }
 
@@ -2479,6 +2868,9 @@
 
     <section class="date-night-section">
       <div class="section-effects" aria-hidden="true">
+        <span class="effect-orb" style="left:-140px; top:10%; --size:330px; --opacity:.16; --blur:95px; --orb-color:#c793ff; --duration:14s; --delay:-2s;"></span>
+        <span class="effect-orb" style="right:-150px; bottom:4%; --size:370px; --opacity:.17; --blur:105px; --orb-color:#ff6aad; --duration:16s; --delay:-6s;"></span>
+
         <span class="effect-heart" style="left:5%; --size:10px; --duration:14s; --delay:-4s; --drift:34px;"></span>
         <span class="effect-heart" style="left:20%; --size:8px; --duration:12s; --delay:-8s; --drift:-28px;"></span>
         <span class="effect-heart" style="left:44%; --size:13px; --duration:17s; --delay:-12s; --drift:40px;"></span>
@@ -2492,37 +2884,41 @@
       <div class="date-night-container">
         <header class="date-night-heading">
           <p class="eyebrow">
-            Our next little adventure
+            Miles apart, still choosing each other
           </p>
 
           <h2 class="date-night-title">
-            Date Night Under the Stars
+            Long-Distance Date Night
           </h2>
 
           <p class="date-night-copy">
-            Let fate choose our next date, then make the night sweeter
-            with questions, challenges, and tiny games made for two.
+            Distance means our dates look a little different, but we can still make
+            ordinary calls feel special, playful, romantic, and occasionally a little flirty.
           </p>
         </header>
 
         <div class="date-night-layout">
           <section class="date-night-panel date-generator-panel">
+            <div class="date-generator-visual" aria-hidden="true">
+              <div class="date-generator-moon">♡</div>
+            </div>
+
             <h3 class="date-generator-title">
-              What should we do tonight?
+              What should we do on our next call?
             </h3>
 
-            <div class="date-result">
+            <div class="date-result" id="dateResult">
               <p class="date-result-label">
-                Tonight's date
+                Virtual date idea
               </p>
 
               <h4 class="date-result-title" id="dateResultTitle">
-                Midnight Snack Adventure
+                Movie Sync Night
               </h4>
 
               <p class="date-result-copy" id="dateResultCopy">
-                Pick a late-night treat, take a quiet walk, and choose one new place
-                neither of us has tried before.
+                Choose a movie together, count down from three, press play at the same time,
+                and stay on call for all the commentary and snack reviews.
               </p>
             </div>
 
@@ -2531,62 +2927,79 @@
               id="generateDateButton"
               type="button"
             >
-              Choose Our Date
+              Choose Our Virtual Date
             </button>
           </section>
 
           <section class="date-night-panel games-panel">
             <div class="games-header">
-              <h3 class="games-title">
-                Pick a little game
-              </h3>
+              <div>
+                <p class="eyebrow">
+                  Games made for us
+                </p>
+
+                <h3 class="games-title">
+                  Pick a card
+                </h3>
+              </div>
 
               <span class="games-count" id="gamesCount">
-                01 / 05
+                01 / 10
               </span>
             </div>
 
-            <div class="game-selector">
-              <button
-                class="game-tab is-active"
-                type="button"
-                data-game="questions"
-              >
-                <span class="game-tab-icon">♡</span>
-                <span class="game-tab-label">Love Questions</span>
-              </button>
+            <div class="game-selector-wrap">
+              <div class="game-selector">
+                <button class="game-tab is-active" type="button" data-game="questions">
+                  <span class="game-tab-icon">♡</span>
+                  <span class="game-tab-label">Love Questions</span>
+                </button>
 
-              <button
-                class="game-tab"
-                type="button"
-                data-game="challenges"
-              >
-                <span class="game-tab-icon">✦</span>
-                <span class="game-tab-label">Cute Challenges</span>
-              </button>
+                <button class="game-tab" type="button" data-game="voiceNotes">
+                  <span class="game-tab-icon">🎙️</span>
+                  <span class="game-tab-label">Voice Notes</span>
+                </button>
 
-              <button
-                class="game-tab"
-                type="button"
-                data-game="choices"
-              >
-                <span class="game-tab-icon">☾</span>
-                <span class="game-tab-label">This or That</span>
-              </button>
+                <button class="game-tab" type="button" data-game="videoCall">
+                  <span class="game-tab-icon">📹</span>
+                  <span class="game-tab-label">Video Call</span>
+                </button>
+
+                <button class="game-tab" type="button" data-game="choices">
+                  <span class="game-tab-icon">☾</span>
+                  <span class="game-tab-label">This or That</span>
+                </button>
+
+                <button class="game-tab" type="button" data-game="future">
+                  <span class="game-tab-icon">✈</span>
+                  <span class="game-tab-label">Future Plans</span>
+                </button>
+
+                <button class="game-tab" type="button" data-game="flirty">
+                  <span class="game-tab-icon">💋</span>
+                  <span class="game-tab-label">Flirty Cards</span>
+                </button>
+              </div>
             </div>
 
-            <div class="game-card">
+            <div class="game-card" id="gameCard">
+              <span class="game-card-symbol" id="gameCardSymbol">♡</span>
+
               <p class="game-card-label" id="gameCardLabel">
                 Love question
               </p>
 
               <h4 class="game-card-question" id="gameCardQuestion">
-                What was the first little thing about me that made you smile?
+                What is one small thing I do that makes the distance feel easier?
               </h4>
 
               <p class="game-card-note" id="gameCardNote">
-                Take turns answering. No rushing and no copying each other's answer.
+                Take turns answering and be specific. Tiny things deserve credit too.
               </p>
+
+              <span class="game-card-tag" id="gameCardTag">
+                Answer on call
+              </span>
             </div>
 
             <div class="game-actions">
@@ -2600,13 +3013,170 @@
 
               <button
                 class="primary-cute-button"
+                id="randomGameButton"
+                type="button"
+              >
+                Surprise Me
+              </button>
+
+              <button
+                class="secondary-cute-button"
                 id="nextGameButton"
                 type="button"
               >
-                Next Card
+                Next
               </button>
             </div>
           </section>
+        </div>
+
+        <section class="next-call-section">
+          <div class="next-call-grid">
+            <div>
+              <p class="eyebrow">Something to look forward to</p>
+
+              <h3 class="next-call-title">
+                Our Next Call Countdown
+              </h3>
+
+              <p class="next-call-copy">
+                Choose the date and time of our next planned call. The countdown stays
+                on the page while it is open so we can see exactly how long is left.
+              </p>
+            </div>
+
+            <div>
+              <div class="next-call-form">
+                <input
+                  class="next-call-input"
+                  id="nextCallInput"
+                  type="datetime-local"
+                  aria-label="Next call date and time"
+                >
+
+                <button
+                  class="primary-cute-button next-call-button"
+                  id="setNextCallButton"
+                  type="button"
+                >
+                  Start Countdown
+                </button>
+              </div>
+
+              <div class="countdown-display">
+                <div class="countdown-unit">
+                  <strong class="countdown-number" id="countdownDays">00</strong>
+                  <span class="countdown-label">Days</span>
+                </div>
+
+                <div class="countdown-unit">
+                  <strong class="countdown-number" id="countdownHours">00</strong>
+                  <span class="countdown-label">Hours</span>
+                </div>
+
+                <div class="countdown-unit">
+                  <strong class="countdown-number" id="countdownMinutes">00</strong>
+                  <span class="countdown-label">Minutes</span>
+                </div>
+
+                <div class="countdown-unit">
+                  <strong class="countdown-number" id="countdownSeconds">00</strong>
+                  <span class="countdown-label">Seconds</span>
+                </div>
+              </div>
+
+              <p class="countdown-message" id="countdownMessage">
+                Choose our next call time.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="long-distance-extras">
+          <article class="distance-extra-card">
+            <div class="distance-extra-icon">📸</div>
+
+            <h3 class="distance-extra-title">
+              Photo Scavenger Hunt
+            </h3>
+
+            <p class="distance-extra-copy">
+              Generate something for both of us to photograph during the day.
+              Send the pictures without explaining them first.
+            </p>
+
+            <button
+              class="distance-extra-button"
+              id="photoChallengeButton"
+              type="button"
+            >
+              Give Us a Photo Mission
+            </button>
+
+            <p class="distance-extra-result" id="photoChallengeResult">
+              Find something in your day that reminds you of me.
+            </p>
+          </article>
+
+          <article class="distance-extra-card">
+            <div class="distance-extra-icon">💌</div>
+
+            <h3 class="distance-extra-title">
+              Message Roulette
+            </h3>
+
+            <p class="distance-extra-copy">
+              Generate one small message challenge to send later without warning.
+              Sweet, funny, or slightly flirty.
+            </p>
+
+            <button
+              class="distance-extra-button"
+              id="messageChallengeButton"
+              type="button"
+            >
+              Pick a Message Challenge
+            </button>
+
+            <p class="distance-extra-result" id="messageChallengeResult">
+              Send a voice note describing the moment you missed me most today.
+            </p>
+          </article>
+
+          <article class="distance-extra-card">
+            <div class="distance-extra-icon">🎧</div>
+
+            <h3 class="distance-extra-title">
+              Shared Playlist Prompt
+            </h3>
+
+            <p class="distance-extra-copy">
+              Add one song each based on the generated theme and listen to both
+              during your next call.
+            </p>
+
+            <button
+              class="distance-extra-button"
+              id="playlistPromptButton"
+              type="button"
+            >
+              Choose a Playlist Theme
+            </button>
+
+            <p class="distance-extra-result" id="playlistPromptResult">
+              A song that feels like finally seeing each other again.
+            </p>
+          </article>
+        </div>
+
+        <div class="date-night-footer">
+          <span class="date-night-footer-heart">♥</span>
+
+          <span>
+            The distance is temporary. The effort, memories, and love are ours.
+          </span>
+
+          <span class="date-night-footer-heart">♥</span>
         </div>
       </div>
     </section>
@@ -2780,26 +3350,66 @@
         }
       ];
 
-      const dateIdeas = [
+      const virtualDateIdeas = [
         {
-          title: "Midnight Snack Adventure",
-          copy: "Pick a late-night treat, take a quiet walk, and choose one new place neither of us has tried before."
+          title: "Movie Sync Night",
+          copy: "Choose a movie together, count down from three, press play at the same time, and stay on call for commentary and snack reviews."
         },
         {
-          title: "Blanket Fort Movie Night",
-          copy: "Build the softest fort possible, choose one comfort movie each, and bring too many snacks."
+          title: "Order Each Other Dinner",
+          copy: "Choose a meal for each other, have it delivered, then reveal what you picked and eat together on video call."
         },
         {
-          title: "Sunset Picnic",
-          copy: "Choose snacks for each other, find a peaceful view, and stay until the first stars appear."
+          title: "Virtual Café Date",
+          copy: "Both make or buy a drink, dress a little nicer than usual, and spend the call pretending you found a quiet café together."
         },
         {
-          title: "Mystery Train Date",
-          copy: "Pick a nearby station at random, explore together, and take one new photo."
+          title: "Online Game Night",
+          copy: "Pick a cooperative or competitive game, keep score, and let the winner choose the next virtual date."
         },
         {
-          title: "Dessert Before Dinner",
-          copy: "Start with dessert, choose dinner afterward, and spend the evening doing everything in the wrong order."
+          title: "Cook the Same Recipe",
+          copy: "Choose one simple recipe, cook it together on video, compare results, and give each other an honest rating."
+        },
+        {
+          title: "Virtual Museum Trip",
+          copy: "Explore an online museum or street-view destination together and each choose one favorite place or artwork."
+        },
+        {
+          title: "Playlist Exchange Date",
+          copy: "Make a five-song playlist for each other, listen together, and explain why every song made the list."
+        },
+        {
+          title: "Late-Night Question Call",
+          copy: "Turn the lights low, grab a drink, and spend the call answering deeper questions you normally never get around to asking."
+        },
+        {
+          title: "Drawing Each Other",
+          copy: "Set a timer for ten minutes, draw each other while on video call, and reveal the masterpieces at the same time."
+        },
+        {
+          title: "Online Shopping Challenge",
+          copy: "Give each other a pretend budget and find the funniest, cutest, or most accurate gift you would buy for the other."
+        },
+        {
+          title: "Future Trip Planning",
+          copy: "Pick one destination, build a tiny shared itinerary, and each choose one thing you absolutely want to do together."
+        },
+        {
+          title: "Photo Memory Night",
+          copy: "Take turns screen-sharing old photos and tell the story behind moments the other person may not fully remember."
+        },
+        {
+          title: "Same-Snack Challenge",
+          copy: "Both find the closest version of the same snack, taste it together, and compare which country or store did it better."
+        },
+        {
+          title: "Watch the Same Sunset",
+          copy: "Choose the closest possible time, go outside or sit by a window, and call while each of you watches the sky."
+        },
+        {
+          title: "Digital Scrapbook Date",
+          copy: "Collect screenshots, messages, photos, and song links, then build one shared page about your relationship."
         }
       ];
 
@@ -2807,85 +3417,480 @@
         questions: [
           {
             label: "Love question",
-            question: "What was the first little thing about me that made you smile?",
-            note: "Take turns answering. No rushing and no copying each other's answer."
+            question: "What is one small thing I do that makes the distance feel easier?",
+            note: "Take turns answering and be specific. Tiny things deserve credit too.",
+            tag: "Answer on call",
+            symbol: "♡"
           },
           {
             label: "Love question",
-            question: "Which memory of us would you happily relive for one whole day?",
-            note: "Describe the little details you still remember."
+            question: "When during the day do you usually miss me the most?",
+            note: "Describe the moment, not just the time.",
+            tag: "Honest answer",
+            symbol: "♡"
           },
           {
             label: "Love question",
-            question: "What is something I do that always makes you feel loved?",
-            note: "The smallest answers are often the sweetest."
+            question: "What is your favorite memory from one of our visits together?",
+            note: "Add one detail you do not think I remember.",
+            tag: "Memory card",
+            symbol: "♡"
           },
           {
             label: "Love question",
-            question: "What place would you love for us to travel to next?",
-            note: "Each person chooses a destination."
+            question: "What do you look forward to most when we finally see each other again?",
+            note: "The answer can be sweet, simple, funny, or all three.",
+            tag: "Future us",
+            symbol: "♡"
           },
           {
             label: "Love question",
-            question: "What do you hope never changes about us?",
-            note: "Tell the other person why it matters."
+            question: "What is one habit of mine you have grown strangely attached to?",
+            note: "No pretending I have no annoying habits.",
+            tag: "Be specific",
+            symbol: "♡"
+          },
+          {
+            label: "Love question",
+            question: "Which call or conversation made you feel especially close to me?",
+            note: "Explain what made that moment different.",
+            tag: "Call memory",
+            symbol: "♡"
+          },
+          {
+            label: "Love question",
+            question: "What is something about us that makes the distance worth it?",
+            note: "Take your time with this one.",
+            tag: "Deep card",
+            symbol: "♡"
+          },
+          {
+            label: "Love question",
+            question: "What is one thing you want us to improve as a long-distance couple?",
+            note: "Answer gently and include one possible solution.",
+            tag: "Grow together",
+            symbol: "♡"
+          },
+          {
+            label: "Love question",
+            question: "What is one message from me that you still remember?",
+            note: "It can be romantic, funny, comforting, or completely random.",
+            tag: "Message memory",
+            symbol: "♡"
+          },
+          {
+            label: "Love question",
+            question: "What makes our relationship feel different from anything you had before?",
+            note: "No one-word answers allowed.",
+            tag: "Deep answer",
+            symbol: "♡"
           }
         ],
-        challenges: [
+
+        voiceNotes: [
           {
-            label: "Cute challenge",
-            question: "Give each other a 30-second hug without speaking.",
-            note: "Stay close until the timer ends."
+            label: "Voice-note challenge",
+            question: "Send a 30-second voice note describing your perfect first hour together after the distance ends.",
+            note: "No editing and no restarting after you begin.",
+            tag: "Send after the call",
+            symbol: "🎙"
           },
           {
-            label: "Cute challenge",
-            question: "Choose a song that reminds you of each other.",
-            note: "Play both songs afterward."
+            label: "Voice-note challenge",
+            question: "Whisper one compliment you have never said to me before.",
+            note: "Keep it sincere. A little flirty is absolutely allowed.",
+            tag: "Private message",
+            symbol: "🎙"
           },
           {
-            label: "Cute challenge",
-            question: "Recreate the pose from one of your earliest photos.",
-            note: "Take a new photo beside the old one."
+            label: "Voice-note challenge",
+            question: "Describe a memory of us without saying where it happened.",
+            note: "The other person has to guess the memory.",
+            tag: "Guessing game",
+            symbol: "🎙"
           },
           {
-            label: "Cute challenge",
-            question: "Write one secret compliment and exchange it.",
-            note: "Neither person can peek early."
+            label: "Voice-note challenge",
+            question: "Record a fake movie trailer about our relationship.",
+            note: "Include a dramatic title and an unnecessarily serious narrator voice.",
+            tag: "Make it dramatic",
+            symbol: "🎙"
           },
           {
-            label: "Cute challenge",
-            question: "Plan a surprise date using only three clues.",
-            note: "The other person gets one guess."
+            label: "Voice-note challenge",
+            question: "Send a good-morning voice note now for the other person to play tomorrow.",
+            note: "Keep it hidden until morning.",
+            tag: "Save for tomorrow",
+            symbol: "🎙"
+          },
+          {
+            label: "Voice-note challenge",
+            question: "Say three things you miss about me, starting with the least obvious one.",
+            note: "Try not to repeat answers you have used before.",
+            tag: "Three answers",
+            symbol: "🎙"
+          },
+          {
+            label: "Voice-note challenge",
+            question: "Sing one line from a song that reminds you of us.",
+            note: "Being off-key makes it better, not worse.",
+            tag: "No embarrassment",
+            symbol: "🎙"
+          },
+          {
+            label: "Voice-note challenge",
+            question: "Describe what you would do if I appeared at your door right now.",
+            note: "Keep it sweet, funny, flirty, or a dangerous mixture of all three.",
+            tag: "Imagination card",
+            symbol: "🎙"
+          },
+          {
+            label: "Voice-note challenge",
+            question: "Tell me one thing you are proud of me for lately.",
+            note: "Make it detailed enough that I cannot brush it off.",
+            tag: "Encouragement",
+            symbol: "🎙"
+          },
+          {
+            label: "Voice-note challenge",
+            question: "Record the exact kind of goodnight message you wish you could say in person.",
+            note: "Send it only when the call ends.",
+            tag: "Goodnight card",
+            symbol: "🎙"
           }
         ],
+
+        videoCall: [
+          {
+            label: "Video-call game",
+            question: "Draw each other in five minutes and reveal the drawings at the same time.",
+            note: "No deleting lines. Artistic crimes must remain visible.",
+            tag: "Five-minute timer",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Choose an object nearby that reminds you of the other person and explain why.",
+            note: "The stranger the object, the better the explanation needs to be.",
+            tag: "Show and tell",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Recreate one of our old photo poses through the screen.",
+            note: "Take a screenshot and save it beside the original.",
+            tag: "Screenshot it",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Show each other three items from your room: one useful, one sentimental, and one embarrassing.",
+            note: "The embarrassing item cannot conveniently disappear.",
+            tag: "Room challenge",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Try to make the other person laugh without speaking.",
+            note: "You have sixty seconds each.",
+            tag: "Silent challenge",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Build the best snack plate possible using only what you already have.",
+            note: "Present it like a five-star restaurant dish.",
+            tag: "Snack competition",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Choose each other's outfit for the rest of the call.",
+            note: "The other person gets one veto only.",
+            tag: "Style challenge",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Screen-share your camera roll and stop on a random relationship photo.",
+            note: "Tell the full story behind whatever appears.",
+            tag: "Memory roulette",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Create a secret hand signal that means I love you during future calls.",
+            note: "Use it randomly later and see who notices first.",
+            tag: "Secret signal",
+            symbol: "📹"
+          },
+          {
+            label: "Video-call game",
+            question: "Spend two minutes looking at each other without checking another screen.",
+            note: "Awkward laughter is expected. Looking away loses.",
+            tag: "Eye-contact challenge",
+            symbol: "📹"
+          }
+        ],
+
         choices: [
           {
             label: "This or that",
-            question: "Sunrise breakfast or midnight dessert?",
-            note: "The matching answer becomes your next mini date."
+            question: "A four-hour video call or voice notes sent throughout the entire day?",
+            note: "Choose at the same time and defend the answer.",
+            tag: "Long-distance edition",
+            symbol: "☾"
           },
           {
             label: "This or that",
-            question: "Beach getaway or cozy mountain cabin?",
-            note: "Describe your perfect day there."
+            question: "A surprise visit or a perfectly planned long vacation together?",
+            note: "You cannot choose both.",
+            tag: "Choose one",
+            symbol: "☾"
           },
           {
             label: "This or that",
-            question: "Fancy dinner or street-food adventure?",
-            note: "The strongest argument wins."
+            question: "Fall asleep on call or wake up to a long good-morning message?",
+            note: "Explain what makes your choice better.",
+            tag: "Sleepy edition",
+            symbol: "☾"
           },
           {
             label: "This or that",
-            question: "Matching outfits or matching wallpapers?",
-            note: "Choose together."
+            question: "Matching phone wallpapers or matching jewelry?",
+            note: "The winning answer can become a real plan.",
+            tag: "Matching us",
+            symbol: "☾"
           },
           {
             label: "This or that",
-            question: "Photo booth date or disposable-camera date?",
-            note: "Make a tiny photo album afterward."
+            question: "Movie date or online game date?",
+            note: "The person with the stronger argument chooses the next one.",
+            tag: "Date choice",
+            symbol: "☾"
+          },
+          {
+            label: "This or that",
+            question: "One extremely long message or ten short messages across the day?",
+            note: "No answering based on convenience.",
+            tag: "Message edition",
+            symbol: "☾"
+          },
+          {
+            label: "This or that",
+            question: "Revisit our first trip or travel somewhere completely new?",
+            note: "Describe the first thing you would do there.",
+            tag: "Travel card",
+            symbol: "☾"
+          },
+          {
+            label: "This or that",
+            question: "A handwritten letter or a surprise care package?",
+            note: "Choose what would make you smile more right now.",
+            tag: "Surprise edition",
+            symbol: "☾"
+          },
+          {
+            label: "This or that",
+            question: "Talk until sunrise or start the call before breakfast?",
+            note: "Your sleep schedule may judge you.",
+            tag: "Time-zone card",
+            symbol: "☾"
+          },
+          {
+            label: "This or that",
+            question: "Spend our reunion doing absolutely nothing or plan a full day out?",
+            note: "Both sound good, which is exactly why you must choose.",
+            tag: "Reunion edition",
+            symbol: "☾"
+          }
+        ],
+
+        future: [
+          {
+            label: "Future plan",
+            question: "Plan our ideal first day together after the next reunion, from morning until bedtime.",
+            note: "Take turns adding one activity at a time.",
+            tag: "Build the day",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "Choose one country or city we should experience together.",
+            note: "Each person picks one must-do activity there.",
+            tag: "Travel plan",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "What ordinary daily routine are you most excited to share someday?",
+            note: "Think beyond vacations and special occasions.",
+            tag: "Everyday future",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "Design our ideal shared weekend when distance is no longer involved.",
+            note: "Include one lazy activity and one adventure.",
+            tag: "Weekend plan",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "Choose one tradition we should create for every anniversary.",
+            note: "It should be realistic enough to continue for years.",
+            tag: "Our tradition",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "What is one goal we could work toward together while still long-distance?",
+            note: "Choose something measurable and decide the first small step.",
+            tag: "Team goal",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "Describe the kind of home atmosphere you imagine us creating.",
+            note: "Talk about feelings, routines, music, food, and tiny details.",
+            tag: "Home someday",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "Choose three things that must happen during our next visit.",
+            note: "One romantic, one funny, and one completely ordinary.",
+            tag: "Next visit",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "What is one photo you want us to take together in the future?",
+            note: "Describe the place, pose, clothes, and mood.",
+            tag: "Future memory",
+            symbol: "✈"
+          },
+          {
+            label: "Future plan",
+            question: "What will we probably laugh about when we look back at this long-distance chapter?",
+            note: "Predict the future version of us telling the story.",
+            tag: "Looking back",
+            symbol: "✈"
+          }
+        ],
+
+        flirty: [
+          {
+            label: "Flirty card",
+            question: "What is the first thing you would want to do if I appeared beside you right now?",
+            note: "Answer honestly. You may keep the details as innocent or mischievous as you like.",
+            tag: "No overthinking",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "Which photo of me makes you miss me the most?",
+            note: "Find it, send it, and explain exactly why.",
+            tag: "Photo challenge",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "Give me a compliment that would make me blush if you whispered it in person.",
+            note: "Delivery matters. Voice note recommended.",
+            tag: "Make me blush",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "What outfit of mine would you most want to see when we meet again?",
+            note: "Specific details earn bonus points.",
+            tag: "Reunion outfit",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "Describe our perfect private date night without mentioning a location.",
+            note: "Set the mood using music, food, clothes, lighting, and tiny details.",
+            tag: "Set the mood",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "Send the most attractive recent selfie you have not already sent me.",
+            note: "No excessive preparation. Natural confidence wins.",
+            tag: "Selfie challenge",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "What is one thing about me you find impossible to resist?",
+            note: "You cannot answer with everything.",
+            tag: "Choose one",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "Finish this sentence: When I finally get you alone, I want to...",
+            note: "Keep the answer within whatever feels comfortable for both of you.",
+            tag: "Finish the sentence",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "Choose one: a long kiss at the airport or a slow dance after we get home?",
+            note: "Explain why your choice wins.",
+            tag: "Reunion card",
+            symbol: "💋"
+          },
+          {
+            label: "Flirty card",
+            question: "Say one thing you would whisper to me if there were no screen between us.",
+            note: "This card is better answered as a voice note.",
+            tag: "Whisper challenge",
+            symbol: "💋"
           }
         ]
       };
+
+      const photoChallenges = [
+        "Find something in your day that reminds you of me.",
+        "Take a photo of the view you wish I were seeing beside you.",
+        "Photograph the first pink object you notice.",
+        "Take a picture of your current comfort snack or drink.",
+        "Find something shaped like a heart without arranging it yourself.",
+        "Photograph the place where you call me most often.",
+        "Take a selfie showing your exact mood right now.",
+        "Photograph one ordinary part of your day you want me to know better.",
+        "Find an object that represents our relationship and do not explain it until the call.",
+        "Take a photo of the sky at the same agreed time."
+      ];
+
+      const messageChallenges = [
+        "Send a voice note describing the moment you missed me most today.",
+        "Schedule a good-morning message for tomorrow before going to sleep.",
+        "Send three compliments: one sweet, one funny, and one flirty.",
+        "Send a message containing only emojis and make me guess what it means.",
+        "Write a tiny four-line poem about us. Bad poetry is fully accepted.",
+        "Send one photo and one sentence explaining why you chose it.",
+        "Tell me one thing you are proud of me for lately.",
+        "Send a voice note saying what you would do if I suddenly appeared beside you.",
+        "Send the oldest screenshot or photo of us still saved on your phone.",
+        "Write a message beginning with: I cannot wait until we can..."
+      ];
+
+      const playlistPrompts = [
+        "A song that feels like finally seeing each other again.",
+        "A song that sounds like a late-night call with me.",
+        "A song that reminds you of our first trip.",
+        "A song you would play while driving somewhere together.",
+        "A song that describes how you feel when you miss me.",
+        "A song you would want playing during our reunion.",
+        "A song that makes you imagine our future.",
+        "A song that captures the playful side of us.",
+        "A song that feels like a quiet morning together.",
+        "A song you secretly wish I would dedicate to you."
+      ];
 
       const body = document.body;
       const intro = document.getElementById("intro");
@@ -2893,30 +3898,22 @@
       const previewScreen = document.getElementById("previewScreen");
       const openSurpriseButton = document.getElementById("openSurpriseButton");
       const site = document.getElementById("site");
-
       const loaderProgressBar = document.getElementById("loaderProgressBar");
       const loaderPercent = document.getElementById("loaderPercent");
       const loaderStatus = document.getElementById("loaderStatus");
       const loaderMessage = document.getElementById("loaderMessage");
-
       const paperSection = document.getElementById("paperSection");
       const paperStage = document.getElementById("paperStage");
       const paperHeading = document.getElementById("paperHeading");
       const paperProgressFill = document.getElementById("paperProgressFill");
       const paperProgressUi = document.getElementById("paperProgressUi");
       const paperScrollNote = document.getElementById("paperScrollNote");
-
-      const paperRevealItems = Array.from(
-        document.querySelectorAll("#paperSection [data-reveal]")
-      );
-
       const memoryJourney = document.getElementById("memoryJourney");
       const memoryTrack = document.getElementById("memoryTrack");
       const mobileGallery = document.getElementById("mobileGallery");
       const galleryProgressFill = document.getElementById("galleryProgressFill");
       const galleryProgressDots = document.getElementById("galleryProgressDots");
       const galleryProgressLabel = document.getElementById("galleryProgressLabel");
-
       const galleryLightbox = document.getElementById("galleryLightbox");
       const galleryLightboxImage = document.getElementById("galleryLightboxImage");
       const galleryLightboxCaption = document.getElementById("galleryLightboxCaption");
@@ -2924,24 +3921,43 @@
       const galleryClose = document.getElementById("galleryClose");
       const galleryPrevious = document.getElementById("galleryPrevious");
       const galleryNext = document.getElementById("galleryNext");
-
+      const dateResult = document.getElementById("dateResult");
       const generateDateButton = document.getElementById("generateDateButton");
       const dateResultTitle = document.getElementById("dateResultTitle");
       const dateResultCopy = document.getElementById("dateResultCopy");
-
       const gameTabs = Array.from(document.querySelectorAll(".game-tab"));
       const gamesCount = document.getElementById("gamesCount");
+      const gameCard = document.getElementById("gameCard");
+      const gameCardSymbol = document.getElementById("gameCardSymbol");
       const gameCardLabel = document.getElementById("gameCardLabel");
       const gameCardQuestion = document.getElementById("gameCardQuestion");
       const gameCardNote = document.getElementById("gameCardNote");
+      const gameCardTag = document.getElementById("gameCardTag");
       const previousGameButton = document.getElementById("previousGameButton");
+      const randomGameButton = document.getElementById("randomGameButton");
       const nextGameButton = document.getElementById("nextGameButton");
-
+      const nextCallInput = document.getElementById("nextCallInput");
+      const setNextCallButton = document.getElementById("setNextCallButton");
+      const countdownDays = document.getElementById("countdownDays");
+      const countdownHours = document.getElementById("countdownHours");
+      const countdownMinutes = document.getElementById("countdownMinutes");
+      const countdownSeconds = document.getElementById("countdownSeconds");
+      const countdownMessage = document.getElementById("countdownMessage");
+      const photoChallengeButton = document.getElementById("photoChallengeButton");
+      const photoChallengeResult = document.getElementById("photoChallengeResult");
+      const messageChallengeButton = document.getElementById("messageChallengeButton");
+      const messageChallengeResult = document.getElementById("messageChallengeResult");
+      const playlistPromptButton = document.getElementById("playlistPromptButton");
+      const playlistPromptResult = document.getElementById("playlistPromptResult");
       const musicDock = document.getElementById("musicDock");
       const recordPlayerButton = document.getElementById("recordPlayerButton");
       const musicToggle = document.getElementById("musicToggle");
       const musicToggleIcon = document.getElementById("musicToggleIcon");
       const musicStatus = document.getElementById("musicStatus");
+
+      const paperRevealItems = Array.from(
+        document.querySelectorAll("#paperSection [data-reveal]")
+      );
 
       const VIDEO_ID = "V4qjAyb4lNI";
       const VIDEO_START_TIME = 148;
@@ -2955,6 +3971,8 @@
       let selectedGameIndex = 0;
       let previousDateIndex = -1;
       let scrollTicking = false;
+      let countdownInterval = null;
+      let nextCallDate = null;
 
       const wait = (duration) =>
         new Promise((resolve) => {
@@ -2963,6 +3981,16 @@
 
       const clamp = (value, minimum, maximum) =>
         Math.min(Math.max(value, minimum), maximum);
+
+      const randomIndex = (length, previousIndex = -1) => {
+        let index = Math.floor(Math.random() * length);
+
+        if (length > 1 && index === previousIndex) {
+          index = (index + 1) % length;
+        }
+
+        return index;
+      };
 
       const createMemoryCard = (memory, index) => {
         const article = document.createElement("article");
@@ -3019,13 +4047,8 @@
       };
 
       memories.forEach((memory, index) => {
-        memoryTrack.appendChild(
-          createMemoryCard(memory, index)
-        );
-
-        mobileGallery.appendChild(
-          createMemoryCard(memory, index)
-        );
+        memoryTrack.appendChild(createMemoryCard(memory, index));
+        mobileGallery.appendChild(createMemoryCard(memory, index));
 
         const dot = document.createElement("span");
         dot.className = "gallery-progress-dot";
@@ -3062,11 +4085,9 @@
         }
 
         await wait(700);
-
         loaderScreen.classList.add("is-hidden");
 
         await wait(450);
-
         previewScreen.classList.add("is-visible");
       };
 
@@ -3079,7 +4100,6 @@
         playMusic();
 
         await wait(900);
-
         intro.hidden = true;
       });
 
@@ -3195,31 +4215,19 @@
         });
       };
 
-      window.addEventListener(
-        "scroll",
-        requestScrollUpdate,
-        {
-          passive: true
-        }
-      );
+      window.addEventListener("scroll", requestScrollUpdate, {
+        passive: true
+      });
 
-      window.addEventListener(
-        "resize",
-        requestScrollUpdate,
-        {
-          passive: true
-        }
-      );
+      window.addEventListener("resize", requestScrollUpdate, {
+        passive: true
+      });
 
       const openMemory = (index) => {
         currentMemory = index;
 
-        galleryLightboxImage.src =
-          memories[index].image;
-
-        galleryLightboxImage.alt =
-          memories[index].name;
-
+        galleryLightboxImage.src = memories[index].image;
+        galleryLightboxImage.alt = memories[index].name;
         galleryLightboxCaption.textContent =
           `${memories[index].name} — ${memories[index].text}`;
 
@@ -3272,38 +4280,43 @@
       });
 
       generateDateButton.addEventListener("click", () => {
-        let index = Math.floor(
-          Math.random() * dateIdeas.length
+        const index = randomIndex(
+          virtualDateIdeas.length,
+          previousDateIndex
         );
 
-        if (
-          dateIdeas.length > 1 &&
-          index === previousDateIndex
-        ) {
-          index =
-            (index + 1) %
-            dateIdeas.length;
-        }
-
         previousDateIndex = index;
+        dateResult.classList.add("is-changing");
 
-        dateResultTitle.textContent =
-          dateIdeas[index].title;
+        window.setTimeout(() => {
+          dateResultTitle.textContent =
+            virtualDateIdeas[index].title;
 
-        dateResultCopy.textContent =
-          dateIdeas[index].copy;
+          dateResultCopy.textContent =
+            virtualDateIdeas[index].copy;
+
+          dateResult.classList.remove("is-changing");
+        }, 260);
       });
 
       const updateGameCard = () => {
         const list = games[selectedGameType];
         const game = list[selectedGameIndex];
 
-        gameCardLabel.textContent = game.label;
-        gameCardQuestion.textContent = game.question;
-        gameCardNote.textContent = game.note;
+        gameCard.classList.add("is-changing");
 
-        gamesCount.textContent =
-          `${String(selectedGameIndex + 1).padStart(2, "0")} / ${String(list.length).padStart(2, "0")}`;
+        window.setTimeout(() => {
+          gameCardSymbol.textContent = game.symbol;
+          gameCardLabel.textContent = game.label;
+          gameCardQuestion.textContent = game.question;
+          gameCardNote.textContent = game.note;
+          gameCardTag.textContent = game.tag;
+
+          gamesCount.textContent =
+            `${String(selectedGameIndex + 1).padStart(2, "0")} / ${String(list.length).padStart(2, "0")}`;
+
+          gameCard.classList.remove("is-changing");
+        }, 210);
       };
 
       gameTabs.forEach((tab) => {
@@ -3347,6 +4360,113 @@
           list.length;
 
         updateGameCard();
+      });
+
+      randomGameButton.addEventListener("click", () => {
+        const list = games[selectedGameType];
+
+        selectedGameIndex = randomIndex(
+          list.length,
+          selectedGameIndex
+        );
+
+        updateGameCard();
+      });
+
+      const updateCountdown = () => {
+        if (!nextCallDate) {
+          return;
+        }
+
+        const difference =
+          nextCallDate.getTime() -
+          Date.now();
+
+        if (difference <= 0) {
+          countdownDays.textContent = "00";
+          countdownHours.textContent = "00";
+          countdownMinutes.textContent = "00";
+          countdownSeconds.textContent = "00";
+          countdownMessage.textContent =
+            "It is time for our call ♡";
+
+          window.clearInterval(countdownInterval);
+          countdownInterval = null;
+          return;
+        }
+
+        const totalSeconds = Math.floor(difference / 1000);
+        const days = Math.floor(totalSeconds / 86400);
+        const hours = Math.floor((totalSeconds % 86400) / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+
+        countdownDays.textContent =
+          String(days).padStart(2, "0");
+
+        countdownHours.textContent =
+          String(hours).padStart(2, "0");
+
+        countdownMinutes.textContent =
+          String(minutes).padStart(2, "0");
+
+        countdownSeconds.textContent =
+          String(seconds).padStart(2, "0");
+
+        countdownMessage.textContent =
+          "Getting closer one second at a time.";
+      };
+
+      setNextCallButton.addEventListener("click", () => {
+        if (!nextCallInput.value) {
+          countdownMessage.textContent =
+            "Choose a future date and time first.";
+          return;
+        }
+
+        const chosenDate =
+          new Date(nextCallInput.value);
+
+        if (
+          Number.isNaN(chosenDate.getTime()) ||
+          chosenDate.getTime() <= Date.now()
+        ) {
+          countdownMessage.textContent =
+            "Please choose a time in the future.";
+          return;
+        }
+
+        nextCallDate = chosenDate;
+
+        if (countdownInterval) {
+          window.clearInterval(countdownInterval);
+        }
+
+        updateCountdown();
+
+        countdownInterval =
+          window.setInterval(updateCountdown, 1000);
+      });
+
+      photoChallengeButton.addEventListener("click", () => {
+        photoChallengeResult.textContent =
+          photoChallenges[
+            Math.floor(Math.random() * photoChallenges.length)
+          ];
+      });
+
+      messageChallengeButton.addEventListener("click", () => {
+        messageChallengeResult.textContent =
+          messageChallenges[
+            Math.floor(Math.random() * messageChallenges.length)
+          ];
+      });
+
+      playlistPromptButton.addEventListener("click", () => {
+        playlistPromptResult.textContent =
+          playlistPrompts[
+            Math.floor(Math.random() * playlistPrompts.length)
+          ];
       });
 
       window.onYouTubeIframeAPIReady = () => {
