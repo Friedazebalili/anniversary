@@ -4675,6 +4675,128 @@
         width: min(205px, 68vw);
       }
     }
+
+
+    .gift-box-button {
+      cursor: pointer;
+    }
+
+    .gift-box-button:focus-visible {
+      outline: 3px solid rgba(255, 196, 224, 0.82);
+      outline-offset: 6px;
+    }
+
+    .gift-tap-label {
+      border: 1px solid rgba(255, 220, 236, 0.28);
+      cursor: pointer;
+    }
+
+    .gift-reveal {
+      position: fixed;
+      inset: 0;
+      z-index: 16000;
+      padding: 20px;
+      display: grid;
+      place-items: center;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: none;
+      transition: opacity 0.45s var(--ease), visibility 0.45s var(--ease);
+    }
+
+    .gift-reveal.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+    }
+
+    .gift-reveal-backdrop {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(120, 43, 83, 0.34), transparent 38%),
+        rgba(8, 3, 7, 0.88);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+
+    .gift-reveal .gift-card {
+      position: relative;
+      z-index: 2;
+      width: min(620px, 92vw);
+      max-height: min(760px, 90svh);
+      grid-template-columns: minmax(230px, 0.95fr) minmax(230px, 1.05fr);
+      align-items: center;
+      overflow: auto;
+    }
+
+    .gift-reveal .gift-image-wrap {
+      min-height: 280px;
+      height: 280px;
+      padding: 14px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 21px;
+      background:
+        radial-gradient(circle at 50% 30%, rgba(255, 236, 245, 0.96), rgba(255, 216, 231, 0.84) 58%, rgba(236, 161, 195, 0.7) 100%);
+    }
+
+    .gift-reveal .gift-image {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      max-height: 252px;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 14px;
+      background: transparent;
+      filter: saturate(1.04) contrast(1.015) brightness(1.02);
+    }
+
+    body.gift-open {
+      overflow: hidden;
+    }
+
+    @media (max-width: 760px) {
+      .gift-reveal {
+        padding: 12px;
+      }
+
+      .gift-reveal .gift-card {
+        width: min(420px, 94vw);
+        max-height: 92svh;
+        grid-template-columns: 1fr;
+      }
+
+      .gift-reveal .gift-image-wrap {
+        min-height: 250px;
+        height: 250px;
+      }
+
+      .gift-reveal .gift-image {
+        max-height: 222px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gift-reveal .gift-image-wrap {
+        min-height: 220px;
+        height: 220px;
+        padding: 12px;
+      }
+
+      .gift-reveal .gift-image {
+        max-height: 196px;
+      }
+    }
+
 </style>
 </head>
 
@@ -5159,6 +5281,66 @@
           </section>
         </div>
 
+        <section class="other-games-section" aria-labelledby="otherGamesTitle">
+          <header class="other-games-header">
+            <p class="eyebrow">More ways to play together</p>
+            <h3 class="other-games-title" id="otherGamesTitle">
+              Other Games We Can Enjoy
+            </h3>
+            <p class="other-games-copy">
+              A few more places we can visit whenever we want a fun little date night,
+              a challenge, or something chaotic to laugh about together.
+            </p>
+          </header>
+
+          <div class="other-games-grid">
+            <a
+              class="other-game-link"
+              href="https://dialed.gg/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="other-game-icon" aria-hidden="true">🎯</span>
+              <span class="other-game-name">Dialed</span>
+              <span class="other-game-description">Quick games and challenges for us to play together.</span>
+            </a>
+
+            <a
+              class="other-game-link"
+              href="https://www.geoguessr.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="other-game-icon" aria-hidden="true">🌍</span>
+              <span class="other-game-name">GeoGuessr</span>
+              <span class="other-game-description">Travel the world together and guess where we landed.</span>
+            </a>
+
+            <a
+              class="other-game-link"
+              href="https://garticphone.com/lobby"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="other-game-icon" aria-hidden="true">✏️</span>
+              <span class="other-game-name">Gartic Phone</span>
+              <span class="other-game-description">Draw, guess, and create completely unhinged stories together.</span>
+            </a>
+
+            <a
+              class="other-game-link"
+              href="https://squabble.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="other-game-icon" aria-hidden="true">🔤</span>
+              <span class="other-game-name">Squabble</span>
+              <span class="other-game-description">A fast word battle for the two of us to compete in.</span>
+            </a>
+          </div>
+        </section>
+
+
         <section class="reunion-section">
           <div class="reunion-grid">
             <div>
@@ -5289,65 +5471,6 @@
           </article>
         </div>
 
-        <section class="other-games-section" aria-labelledby="otherGamesTitle">
-          <header class="other-games-header">
-            <p class="eyebrow">More ways to play together</p>
-            <h3 class="other-games-title" id="otherGamesTitle">
-              Other Games We Can Enjoy
-            </h3>
-            <p class="other-games-copy">
-              A few more places we can visit whenever we want a fun little date night,
-              a challenge, or something chaotic to laugh about together.
-            </p>
-          </header>
-
-          <div class="other-games-grid">
-            <a
-              class="other-game-link"
-              href="https://dialed.gg/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="other-game-icon" aria-hidden="true">🎯</span>
-              <span class="other-game-name">Dialed</span>
-              <span class="other-game-description">Quick games and challenges for us to play together.</span>
-            </a>
-
-            <a
-              class="other-game-link"
-              href="https://www.geoguessr.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="other-game-icon" aria-hidden="true">🌍</span>
-              <span class="other-game-name">GeoGuessr</span>
-              <span class="other-game-description">Travel the world together and guess where we landed.</span>
-            </a>
-
-            <a
-              class="other-game-link"
-              href="https://garticphone.com/lobby"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="other-game-icon" aria-hidden="true">✏️</span>
-              <span class="other-game-name">Gartic Phone</span>
-              <span class="other-game-description">Draw, guess, and create completely unhinged stories together.</span>
-            </a>
-
-            <a
-              class="other-game-link"
-              href="https://squabble.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span class="other-game-icon" aria-hidden="true">🔤</span>
-              <span class="other-game-name">Squabble</span>
-              <span class="other-game-description">A fast word battle for the two of us to compete in.</span>
-            </a>
-          </div>
-        </section>
-
         <div class="date-night-footer">
           <span class="date-night-footer-heart">♥</span>
           <span>The distance is temporary. February is getting closer.</span>
@@ -5379,11 +5502,13 @@
         </header>
 
         <div class="gift-stage">
-          <button
+          <div
             class="gift-box-button"
             id="giftBoxButton"
-            type="button"
+            role="button"
+            tabindex="0"
             aria-label="Open your anniversary gift"
+            data-open-gift
           >
             <span class="gift-icon-halo" aria-hidden="true"></span>
             <span class="gift-box-icon" aria-hidden="true">
@@ -5427,11 +5552,14 @@
                 </g>
               </svg>
             </span>
-            <span class="gift-tap-label">Tap to open</span>
-          </button>
+            <button class="gift-tap-label" type="button" data-open-gift>
+              Open your gift
+            </button>
+          </div>
 
-          <div class="gift-reveal" id="giftReveal">
-            <article class="gift-card">
+          <div class="gift-reveal" id="giftReveal" aria-hidden="true">
+            <button class="gift-reveal-backdrop" id="giftRevealBackdrop" type="button" aria-label="Close gift"></button>
+            <article class="gift-card" role="dialog" aria-modal="true" aria-labelledby="giftRevealTitle">
               <div class="gift-image-wrap">
                 <img
                   class="gift-image"
@@ -5444,7 +5572,7 @@
 
               <div class="gift-message">
                 <p class="gift-message-label">Your anniversary gift</p>
-                <h3 class="gift-message-title">Your Yellow Tabi</h3>
+                <h3 class="gift-message-title" id="giftRevealTitle">Your Yellow Tabi</h3>
                 <p class="gift-message-copy">I got you the yellow Tabi you really wanted. I hope you love it, baby ♡</p>
 
                 <button
@@ -6219,7 +6347,9 @@
       const giftSection = document.getElementById("giftSection");
       const giftBoxButton = document.getElementById("giftBoxButton");
       const giftReveal = document.getElementById("giftReveal");
+      const giftRevealBackdrop = document.getElementById("giftRevealBackdrop");
       const giftResetButton = document.getElementById("giftResetButton");
+      const giftOpenTriggers = Array.from(document.querySelectorAll("[data-open-gift]"));
       const musicDock = document.getElementById("musicDock");
       const recordPlayerButton = document.getElementById("recordPlayerButton");
       const musicToggle = document.getElementById("musicToggle");
@@ -6697,7 +6827,7 @@
           ];
       });
 
-      giftBoxButton.addEventListener("click", async () => {
+      const openGift = async () => {
         if (giftIsOpen) {
           return;
         }
@@ -6706,21 +6836,50 @@
         giftBoxButton.classList.add("is-opening");
         giftSection.classList.add("is-opened");
 
-        await wait(820);
+        await wait(520);
 
         giftBoxButton.classList.add("is-open");
         giftReveal.classList.add("is-visible");
-      });
+        giftReveal.setAttribute("aria-hidden", "false");
+        body.classList.add("gift-open");
+        giftResetButton.focus();
+      };
 
-      giftResetButton.addEventListener("click", async () => {
+      const closeGift = async () => {
         giftReveal.classList.remove("is-visible");
+        giftReveal.setAttribute("aria-hidden", "true");
         giftSection.classList.remove("is-opened");
+        body.classList.remove("gift-open");
 
-        await wait(500);
+        await wait(420);
 
         giftBoxButton.classList.remove("is-open");
         giftBoxButton.classList.remove("is-opening");
         giftIsOpen = false;
+        giftBoxButton.focus();
+      };
+
+      giftOpenTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", (event) => {
+          event.preventDefault();
+          openGift();
+        });
+      });
+
+      giftBoxButton.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openGift();
+        }
+      });
+
+      giftResetButton.addEventListener("click", closeGift);
+      giftRevealBackdrop.addEventListener("click", closeGift);
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && giftIsOpen) {
+          closeGift();
+        }
       });
 
       window.onYouTubeIframeAPIReady = () => {
