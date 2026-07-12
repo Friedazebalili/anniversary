@@ -4797,6 +4797,27 @@
       }
     }
 
+
+    .game-tab,
+    .distance-extra-button,
+    .gift-reset-button {
+      position: relative;
+      z-index: 30;
+      pointer-events: auto !important;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .games-panel,
+    .distance-extra-card,
+    .gift-card {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .gift-reveal .gift-reset-button {
+      z-index: 50;
+    }
 </style>
 </head>
 
@@ -5607,7 +5628,7 @@
         <p class="final-copy">
           Thank you for every memory we have already made and for all the
           beautiful moments still waiting for us. I will always be grateful
-          that our paths found each other.
+          that our paths found each other. I love you.
         </p>
       </div>
     </section>
@@ -6881,6 +6902,74 @@
           closeGift();
         }
       });
+
+      const pickDifferentItem = (items, currentText) => {
+        if (!Array.isArray(items) || items.length === 0) {
+          return "";
+        }
+
+        const available = items.filter((item) => item !== currentText);
+        const source = available.length ? available : items;
+        return source[Math.floor(Math.random() * source.length)];
+      };
+
+      document.addEventListener("click", (event) => {
+        const gameTab = event.target.closest(".game-tab");
+
+        if (gameTab) {
+          event.preventDefault();
+          selectedGameType = gameTab.dataset.game;
+          selectedGameIndex = 0;
+
+          gameTabs.forEach((item) => {
+            item.classList.toggle("is-active", item === gameTab);
+          });
+
+          updateGameCard();
+          return;
+        }
+
+        const messageButton = event.target.closest("#messageChallengeButton");
+
+        if (messageButton) {
+          event.preventDefault();
+          messageChallengeResult.textContent = pickDifferentItem(
+            messageChallenges,
+            messageChallengeResult.textContent.trim()
+          );
+          return;
+        }
+
+        const photoButton = event.target.closest("#photoChallengeButton");
+
+        if (photoButton) {
+          event.preventDefault();
+          photoChallengeResult.textContent = pickDifferentItem(
+            photoChallenges,
+            photoChallengeResult.textContent.trim()
+          );
+          return;
+        }
+
+        const playlistButton = event.target.closest("#playlistPromptButton");
+
+        if (playlistButton) {
+          event.preventDefault();
+          playlistPromptResult.textContent = pickDifferentItem(
+            playlistPrompts,
+            playlistPromptResult.textContent.trim()
+          );
+          return;
+        }
+
+        const closeGiftButton = event.target.closest("#giftResetButton");
+
+        if (closeGiftButton) {
+          event.preventDefault();
+          event.stopPropagation();
+          closeGift();
+        }
+      }, true);
 
       window.onYouTubeIframeAPIReady = () => {
         youtubePlayer = new window.YT.Player("youtubePlayer", {
